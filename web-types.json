@@ -1,0 +1,222 @@
+{
+    "$schema": "https://raw.githubusercontent.com/JetBrains/web-types/master/schema/web-types.schema.json",
+    "framework": "vue",
+    "description": "Allow code completion for vue components in blade templates",
+    "framework-config": {
+        "enable-when": {
+            "file-extensions": [
+                "php",
+                "vue"
+            ],
+            "ide-libraries": [
+                "vue"
+            ]
+        }
+    },
+    "contributions": {
+        "html": {
+            "types-syntax": "typescript",
+            "tags": [
+                {
+                    "name": "Confirm",
+                    "source": {
+                        "module": "vendor/protonemedia/laravel-splade/lib/Components/Confirm.vue",
+                        "symbol": "default"
+                    },
+                    "attributes": [],
+                    "events": [],
+                    "slots": []
+                },
+                {
+                    "name": "SpladeConfirm",
+                    "source": {
+                        "module": "vendor/protonemedia/laravel-splade/lib/Components/Confirm.vue",
+                        "symbol": "default"
+                    }
+                },
+                {
+                    "name": "SpladeData",
+                    "source": {
+                        "module": "vendor/protonemedia/laravel-splade/lib/Components/Data.vue",
+                        "symbol": "default"
+                    }
+                },
+                {
+                    "name": "SpladeDefer",
+                    "source": {
+                        "module": "vendor/protonemedia/laravel-splade/lib/Components/Defer.vue",
+                        "symbol": "default"
+                    }
+                },
+                {
+                    "name": "SpladeDialog",
+                    "source": {
+                        "module": "vendor/protonemedia/laravel-splade/lib/Components/Dialog.vue",
+                        "symbol": "default"
+                    }
+                },
+                {
+                    "name": "SpladeDropdown",
+                    "source": {
+                        "module": "vendor/protonemedia/laravel-splade/lib/Components/Dropdown.vue",
+                        "symbol": "default"
+                    }
+                },
+                {
+                    "name": "SpladeDynamicHtml",
+                    "source": {
+                        "module": "vendor/protonemedia/laravel-splade/lib/Components/DynamicHtml.vue",
+                        "symbol": "default"
+                    }
+                },
+                {
+                    "name": "SpladeErrors",
+                    "source": {
+                        "module": "vendor/protonemedia/laravel-splade/lib/Components/Errors.vue",
+                        "symbol": "default"
+                    }
+                },
+                {
+                    "name": "SpladeEvent",
+                    "source": {
+                        "module": "vendor/protonemedia/laravel-splade/lib/Components/Event.vue",
+                        "symbol": "default"
+                    }
+                },
+                {
+                    "name": "SpladeFile",
+                    "source": {
+                        "module": "vendor/protonemedia/laravel-splade/lib/Components/File.vue",
+                        "symbol": "default"
+                    }
+                },
+                {
+                    "name": "SpladeFlash",
+                    "source": {
+                        "module": "vendor/protonemedia/laravel-splade/lib/Components/Flash.vue",
+                        "symbol": "default"
+                    }
+                },
+                {
+                    "name": "SpladeForm",
+                    "source": {
+                        "module": "vendor/protonemedia/laravel-splade/lib/Components/Form.vue",
+                        "symbol": "default"
+                    }
+                },
+                {
+                    "name": "SpladeInput",
+                    "source": {
+                        "module": "vendor/protonemedia/laravel-splade/lib/Components/Input.vue",
+                        "symbol": "default"
+                    }
+                },
+                {
+                    "name": "SpladeLazy",
+                    "source": {
+                        "module": "vendor/protonemedia/laravel-splade/lib/Components/Lazy.vue",
+                        "symbol": "default"
+                    }
+                },
+                {
+                    "name": "SpladeLink",
+                    "source": {
+                        "module": "vendor/protonemedia/laravel-splade/lib/Components/Link.vue",
+                        "symbol": "default"
+                    }
+                },
+                {
+                    "name": "SpladeModal",
+                    "source": {
+                        "module": "vendor/protonemedia/laravel-splade/lib/Components/Modal.vue",
+                        "symbol": "default"
+                    }
+                },
+                {
+                    "name": "SpladeOnClickOutside",
+                    "source": {
+                        "module": "vendor/protonemedia/laravel-splade/lib/Components/OnClickOutside.vue",
+                        "symbol": "default"
+                    }
+                },
+                {
+                    "name": "SpladePreloadedModal",
+                    "source": {
+                        "module": "vendor/protonemedia/laravel-splade/lib/Components/PreloadedModal.vue",
+                        "symbol": "default"
+                    }
+                },
+                {
+                    "name": "SpladeRender",
+                    "source": {
+                        "module": "vendor/protonemedia/laravel-splade/lib/Components/Render.vue",
+                        "symbol": "default"
+                    }
+                },
+                {
+                    "name": "SpladeSelect",
+                    "source": {
+                        "module": "vendor/protonemedia/laravel-splade/lib/Components/Select.vue",
+                        "symbol": "default"
+                    }
+                },
+                {
+                    "name": "SpladeState",
+                    "source": {
+                        "module": "vendor/protonemedia/laravel-splade/lib/Components/State.vue",
+                        "symbol": "default"
+                    }
+                },
+                {
+                    "name": "SpladeTable",
+                    "source": {
+                        "module": "vendor/protonemedia/laravel-splade/lib/Components/Table.vue",
+                        "symbol": "default"
+                    }
+                },
+                {
+                    "name": "SpladeTeleport",
+                    "source": {
+                        "module": "vendor/protonemedia/laravel-splade/lib/Components/Teleport.vue",
+                        "symbol": "default"
+                    }
+                },
+                {
+                    "name": "SpladeTextarea",
+                    "source": {
+                        "module": "vendor/protonemedia/laravel-splade/lib/Components/Textarea.vue",
+                        "symbol": "default"
+                    }
+                },
+                {
+                    "name": "SpladeToast",
+                    "source": {
+                        "module": "vendor/protonemedia/laravel-splade/lib/Components/Toast.vue",
+                        "symbol": "default"
+                    }
+                },
+                {
+                    "name": "SpladeToasts",
+                    "source": {
+                        "module": "vendor/protonemedia/laravel-splade/lib/Components/Toasts.vue",
+                        "symbol": "default"
+                    }
+                },
+                {
+                    "name": "SpladeToggle",
+                    "source": {
+                        "module": "vendor/protonemedia/laravel-splade/lib/Components/Toggle.vue",
+                        "symbol": "default"
+                    }
+                },
+                {
+                    "name": "SpladeTransition",
+                    "source": {
+                        "module": "vendor/protonemedia/laravel-splade/lib/Components/Transition.vue",
+                        "symbol": "default"
+                    }
+                }
+            ]
+        }
+    }
+}

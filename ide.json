@@ -1,0 +1,24 @@
+{
+    "$schema": "https://laravel-ide.com/schema/laravel-ide-v2.json",
+    "completions": [
+        {
+            "complete": "viewName",
+            "condition": [
+                {
+                    "methodNames": ["setRootView"],
+                    "classFqn": ["\\ProtoneMedia\\Splade\\SpladeCore", "\\ProtoneMedia\\Splade\\Facades\\Splade"],
+                    "parameters": [1]
+                }
+            ]
+        },
+        {
+            "complete": "routeName",
+            "condition": [
+                {
+                    "functionNames": ["routeActiveClass", "routeActive"],
+                    "parameters": ["1"]
+                }
+            ]
+        }
+    ]
+}
