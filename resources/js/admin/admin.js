@@ -24,6 +24,5 @@ app.use(SpladePlugin, {
     transform_anchors: false,
     progress_bar: true,
 })
-console.log('ok')
 
 app.mount(el)
