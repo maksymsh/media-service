@@ -8,7 +8,7 @@
 
 <x-splade-select name="roles[]" :options="$roles" :label="__('Roles')" multiple choices relation />
 
-<x-splade-file name="avatar" :label="__('Avatar')" filepond preview />
+<x-splade-file name="avatar" :label="__('Avatar')" filepond preview :meta="['name' => 'aaa']" />
 
 <x-splade-file name="images" :label="__('Images')" filepond multiple preview />
 

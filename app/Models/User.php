@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use ProtoneMedia\Splade\FileUploads\ExistingFile;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Permission\Traits\HasRoles;
@@ -68,12 +69,12 @@ class User extends Authenticatable implements HasMedia
 
     public function getAvatarAttribute()
     {
-        return $this->getFirstMediaUrl('avatar');
+        return ExistingFile::fromMediaLibrary($this->getFirstMedia('avatar'));
     }
 
     public function getImagesAttribute()
     {
-        return $this->getMedia('images')->map->getUrl();
+        return ExistingFile::fromMediaLibrary($this->getMedia('images'));
     }
 
     public function getNameAttribute()

@@ -62,7 +62,7 @@ class UserController extends Controller
     {
         $user = User::query()->create($request->validated());
 
-        $this->uploadMediaService->uploadFor($user);
+        $this->uploadMediaService->sync($request, $user);
 
         Toast::success("User #$user->id created successfully.");
 
@@ -111,7 +111,7 @@ class UserController extends Controller
     {
         $user->update($request->validated());
 
-        $this->uploadMediaService->uploadFor($user);
+        $this->uploadMediaService->sync($request, $user);
 
         Toast::success("User #$user->id updated successfully.");
 

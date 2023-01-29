@@ -1,3 +1,4 @@
+@php use ProtoneMedia\Splade\FileUploads\ExistingFile; @endphp
 @extends('admin.layout.app')
 
 @section('content')
