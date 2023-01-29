@@ -13,7 +13,7 @@ class UploadMediaService
         $model->registerMediaCollections();
 
         foreach ($model->mediaCollections as $collection) {
-            HandleSpladeFileUploads::syncMediaLibrary($request, $model, $collection->name, $collection->name);
+            HandleSpladeFileUploads::syncMediaLibrary(HandleSpladeFileUploads::forRequest($request, $collection->name), $model, $collection->name, $collection->name);
         }
     }
 }

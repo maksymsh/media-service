@@ -3,8 +3,9 @@
 namespace App\Http\Requests\Admin\User;
 
 use Illuminate\Foundation\Http\FormRequest;
+use ProtoneMedia\Splade\FileUploads\HasSpladeFileUploads;
 
-class UpdateUserRequest extends FormRequest
+class UpdateUserRequest extends FormRequest implements HasSpladeFileUploads
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,9 +29,8 @@ class UpdateUserRequest extends FormRequest
             'lastname' => ['required'],
             'username' => ['required'],
             'email' => ['required', 'email'],
-            'avatar' => ['nullable', 'image'],
+            'avatar' => ['nullable', 'file', 'image'],
             'images' => ['nullable', 'array'],
-            'images.*' => ['image'],
         ];
     }
 }
