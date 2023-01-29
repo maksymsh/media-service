@@ -53,6 +53,7 @@ class User extends Authenticatable implements HasMedia
 
     protected $appends = [
         'avatar',
+        'images',
     ];
 
     public function registerMediaCollections(): void
@@ -60,11 +61,19 @@ class User extends Authenticatable implements HasMedia
         $this->addMediaCollection('avatar')
             ->singleFile()
             ->acceptsMimeTypes(['image/jpeg', 'image/png']);
+
+        $this->addMediaCollection('images')
+            ->acceptsMimeTypes(['image/jpeg', 'image/png']);
     }
 
     public function getAvatarAttribute()
     {
         return $this->getFirstMediaUrl('avatar');
+    }
+
+    public function getImagesAttribute()
+    {
+        return $this->getMedia('images')->map->getUrl();
     }
 
     public function getNameAttribute()

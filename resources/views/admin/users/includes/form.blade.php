@@ -10,6 +10,8 @@
 
 <x-splade-file name="avatar" :label="__('Avatar')" filepond preview />
 
+<x-splade-file name="images" :label="__('Images')" filepond multiple preview />
+
 @if(!$user->exists)
     <x-splade-input name="password" type="password" :label="__('Password')" />
 @endif
