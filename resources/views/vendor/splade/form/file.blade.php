@@ -1,3 +1,7 @@
+@props([
+    'inline' => true,
+])
+
 <SpladeFile
     :form="form"
     :field="@js($formKey())"
@@ -25,7 +29,7 @@
 >
     <template #default="{!! $scope !!}">
         <label class="block">
-            @includeWhen($label, 'splade::form.label', ['label' => $label])
+            @includeWhen($label, 'splade::form.label', ['label' => $label, 'inline' => $inline])
 
             @if($filepond)
                 <input {{ $attributes->except(['v-if', 'v-show', 'class'])->merge([
@@ -63,7 +67,7 @@
             @includeWhen($help, 'splade::form.help', ['help' => $help])
         </label>
 
-        @if(!$filepond && $showFilename)
+        @if(!$filepond)
             <div class="mt-2 text-sm italic" v-if="file.filenames.length > 0">
                 <p v-for="(filename, key) in file.filenames" v-bind:key="key" v-text="filename" />
             </div>

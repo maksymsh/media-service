@@ -1,7 +1,7 @@
-<thead class="bg-gray-50">
+<thead class="">
     <tr>
         @if($hasBulkActions = $table->hasBulkActions())
-            <th width="64" class="px-6 py-3 text-xs">
+            <th width="64" class="">
                 @include('splade::table.select-rows-dropdown')
             </th>
         @endif
@@ -9,23 +9,23 @@
         @foreach($table->columns() as $column)
             <th
                 v-show="table.columnIsVisible(@js($column->key))"
-                class="@if($loop->first && $hasBulkActions) pr-6 @else px-6 @endif py-3 text-left text-xs font-medium tracking-wide text-gray-500"
+                class=""
             >
                 @if($column->sortable)
                     <Link keep-modal dusk="sort-{{ $column->key }}" href="{{ $sortBy($column) }}">
                 @endif
 
-                <span class="flex flex-row items-center">
-                    <span class="uppercase">{{ $column->label }}</span>
+                <span class="">
+                    <span class="">{{ $column->label }}</span>
 
                     @if($column->sortable)
-                        <svg aria-hidden="true" class="w-3 h-3 ml-2 @if($column->sorted) text-green-500 @else text-gray-400 @endif" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ms-1" style="width:1em;height:1em;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             @if(!$column->sorted)
-                                <path fill="currentColor" d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
                             @elseif($column->sorted === 'asc')
-                                <path fill="currentColor" d="M279 224H41c-21.4 0-32.1-25.9-17-41L143 64c9.4-9.4 24.6-9.4 33.9 0l119 119c15.2 15.1 4.5 41-16.9 41z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6" />
                             @elseif($column->sorted === 'desc')
-                                <path fill="currentColor" d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 0v12m0 0l4-4m-4 4l-4-4" />
                             @endif
                         </svg>
                     @endif

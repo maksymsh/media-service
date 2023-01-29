@@ -1,1 +1,1 @@
-@if($help)<p class="text-gray-500 text-sm mt-2">{{ $help }}</p>@endif
+@if($help)<p class="text-dark mt-2">{{ $help }}</p>@endif

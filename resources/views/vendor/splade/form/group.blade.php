@@ -1,16 +1,18 @@
 <div {{ $attributes->only(['v-if', 'v-show', 'class'])->merge([
     'data-validation-key' => $validationKey(),
+])->class([
+    'row' => $inline,
 ]) }}>
-    @includeWhen($label, 'splade::form.label', ['label' => $label])
+    @includeWhen($label, 'splade::form.label', ['label' => $label, 'inline' => $inline])
 
     <div {{ $attributes->except(['v-if', 'v-show', 'class'])->class([
-        'flex flex-wrap space-x-6' => $inline,
-        'space-y-1' => !$inline,
+        'col-sm-10' => $inline,
+        'col-sm-12' => !$inline,
     ]) }}
     >
-      {{ $slot }}
-    </div>
+        {{ $slot }}
 
-    @includeWhen($help, 'splade::form.help', ['help' => $help])
-    @includeWhen($showErrors, 'splade::form.error', ['name' => $validationKey()])
+        @includeWhen($help, 'splade::form.help', ['help' => $help])
+        @includeWhen($showErrors, 'splade::form.error', ['name' => $validationKey()])
+    </div>
 </div>

@@ -1,42 +1,45 @@
+@props([
+    'inline' => true,
+])
+
 <SpladeInput
-    {{ $attributes->only(['v-if', 'v-show', 'class'])->class(['hidden' => $isHidden()]) }}
+    {{ $attributes->only(['v-if', 'v-show', 'class'])->class([
+        'mb-3' => true,
+        'row' => $inline,
+        'hidden' => $isHidden(),
+    ]) }}
     :flatpickr="@js($flatpickrOptions())"
     :js-flatpickr-options="{!! $jsFlatpickrOptions !!}"
     v-model="{{ $vueModel() }}"
     #default="inputScope"
 >
-    <label class="block">
-        @includeWhen($label, 'splade::form.label', ['label' => $label])
+    @includeWhen($label, 'splade::form.label', ['label' => $label, 'inline' => $inline])
 
-        <div class="flex rounded-md border border-gray-300 shadow-sm">
-            @if($prepend)
-                <span :class="{ 'opacity-50': inputScope.disabled && @json(!$alwaysEnablePrepend) }" class="inline-flex items-center px-3 rounded-l-md border border-t-0 border-b-0 border-l-0 border-gray-300 bg-gray-50 text-gray-500">
-                    {!! $prepend !!}
-                </span>
-            @endif
+    <div class="{{ $inline ? 'col-sm-10' : 'col-sm-12' }}">
+        @if($prepend)
+            <span :class="{ 'opacity-50': inputScope.disabled && @json(!$alwaysEnablePrepend) }" class="inline-flex items-center px-3 rounded-l-md border border-t-0 border-b-0 border-l-0 border-gray-300 bg-gray-50 text-gray-500">
+                {!! $prepend !!}
+            </span>
+        @endif
 
-            <input {{ $attributes->except(['v-if', 'v-show', 'class'])->class([
-                'block w-full border-0 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 disabled:opacity-50 disabled:bg-gray-50 disabled:cursor-not-allowed',
-                'rounded-md' => !$append && !$prepend,
-                'min-w-0 flex-1 rounded-none' => $append || $prepend,
-                'rounded-l-md' => $append && !$prepend,
-                'rounded-r-md' => !$append && $prepend,
-            ])->merge([
-                'name' => $name,
-                'type' => $type,
-                'v-model' => $flatpickrOptions() ? null : $vueModel(),
-                'data-validation-key' => $validationKey(),
-            ]) }}
-            />
+        <input {{ $attributes->except(['v-if', 'v-show', 'class'])->class([
+            'form-control' => true,
+        ])->merge([
+            'name' => $name,
+            'type' => $type,
+            'v-model' => $flatpickrOptions() ? null : $vueModel(),
+            'data-validation-key' => $validationKey(),
+        ]) }}
+            :class="{'is-invalid': form.hasError(@js($name))}"
+        />
 
-            @if($append)
-                <span :class="{ 'opacity-50': inputScope.disabled && @json(!$alwaysEnableAppend) }" class="inline-flex items-center px-3 rounded-r-md border border-t-0 border-b-0 border-r-0 border-gray-300 bg-gray-50 text-gray-500">
-                    {!! $append !!}
-                </span>
-            @endif
-        </div>
-    </label>
+        @if($append)
+            <span :class="{ 'opacity-50': inputScope.disabled && @json(!$alwaysEnableAppend) }" class="">
+                {!! $append !!}
+            </span>
+        @endif
 
-    @include('splade::form.help', ['help' => $help])
-    @includeWhen($showErrors, 'splade::form.error', ['name' => $validationKey()])
+        @include('splade::form.help', ['help' => $help])
+        @includeWhen($showErrors, 'splade::form.error', ['name' => $validationKey()])
+    </div>
 </SpladeInput>

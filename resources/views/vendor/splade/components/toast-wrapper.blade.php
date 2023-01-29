@@ -5,22 +5,22 @@
             animation="opacity"
             appear
             show="toasts.hasBackdrop"
-            class="position-fixed bg-black bg-opacity-75"
+            class="fixed z-30 inset-0 bg-black/75"
         />
 
-        <div class="position-fixed">
+        <div class="position-fixed fixed z-40 inset-0 grid grid-cols-3 grid-flow-row-3 pointer-events-none">
             <div v-for="position in toasts.positions" class="relative">
                 <div :class="{
-                    'position-absolute': true,
-                    'align-items-start justify-content-start': position == 'left-top',
-                    'align-items-center justify-content-start': position == 'center-top',
-                    'align-items-end justify-content-start': position == 'right-top',
-                    'align-items-start justify-content-center': position == 'left-center',
-                    'align-items-center justify-content-center': position == 'center-center',
-                    'align-items-end justify-content-center': position == 'right-center',
-                    'align-items-start justify-content-end': position == 'left-bottom',
-                    'align-items-center justify-content-end': position == 'center-bottom',
-                    'align-items-end justify-content-end': position == 'right-bottom'
+                    'absolute w-full h-full flex flex-col p-4 space-y-4': true,
+                    'items-start justify-start': position == 'left-top',
+                    'items-center justify-start': position == 'center-top',
+                    'items-end justify-start': position == 'right-top',
+                    'items-start justify-center': position == 'left-center',
+                    'items-center justify-center': position == 'center-center',
+                    'items-end justify-center': position == 'right-center',
+                    'items-start justify-end': position == 'left-bottom',
+                    'items-center justify-end': position == 'center-bottom',
+                    'items-end justify-end': position == 'right-bottom'
                 }">
                     <template v-for="(toast, toastKey) in toasts.toasts">
                         <template v-if="toast.position == position && !toast.dismissed && toast.html">
