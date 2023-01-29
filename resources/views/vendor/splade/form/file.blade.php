@@ -1,6 +1,5 @@
 @props([
     'inline' => true,
-    'meta' => [],
 ])
 
 <SpladeFile
@@ -72,18 +71,6 @@
             @if(!$filepond)
                 <div class="mt-2 text-sm italic" v-if="file.filenames.length > 0">
                     <p v-for="(filename, key) in file.filenames" v-bind:key="key" v-text="filename"/>
-                </div>
-            @endif
-
-            @if($meta)
-                @{{file}}
-                <div v-for="(filename, key) in file.filenames" v-bind:key="key">
-                    @foreach($meta as $key => $value)
-                        <div>
-                            <label>{{ $key }}</label>
-                            <input type="text" :name="'meta.'+key+'.{{ $key }}'">
-                        </div>
-                    @endforeach
                 </div>
             @endif
 
