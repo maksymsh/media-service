@@ -28,28 +28,30 @@
     {{ $attributes->only(['v-if', 'v-show', 'class']) }}
 >
     <template #default="{!! $scope !!}">
-        <label class="block">
+        <div class="mb-3 row">
             @includeWhen($label, 'splade::form.label', ['label' => $label, 'inline' => $inline])
 
-            @if($filepond)
-                <input {{ $attributes->except(['v-if', 'v-show', 'class'])->merge([
+
+            <div class="{{ $inline ? 'col-sm-10' : 'col-sm-12' }}">
+                @if($filepond)
+                    <input {{ $attributes->except(['v-if', 'v-show', 'class'])->merge([
                     'name' => $name,
                     'multiple' => $multiple,
                     'type' => 'file',
                     'data-validation-key' => $validationKey(),
                 ]) }}
-                />
-            @else
-                <a @submit.prevent
-                    class="inline-block px-3 py-1 rounded-md border border-gray-300 shadow-sm bg-gray-100 hover:bg-gray-300 relative cursor-pointer">
+                    />
+                @else
+                    <a @submit.prevent
+                       class="inline-block px-3 py-1 rounded-md border border-gray-300 shadow-sm bg-gray-100 hover:bg-gray-300 relative cursor-pointer">
 
-                    @if(trim($slot))
-                        {{ $slot }}
-                    @else
-                        {{ $placeholder }}
-                    @endif
+                        @if(trim($slot))
+                            {{ $slot }}
+                        @else
+                            {{ $placeholder }}
+                        @endif
 
-                    <input @change="file.handleFileInput" {{ $attributes->except(['v-if', 'v-show', 'class'])->class([
+                        <input @change="file.handleFileInput" {{ $attributes->except(['v-if', 'v-show', 'class'])->class([
                         'invisible absolute inset-0 w-full h-full disabled:opacity-50'
                     ])->merge([
                         'name' => $name,
@@ -59,20 +61,21 @@
                     ]) }}
                         @if(count($accept) > 0)
                             accept="{{ implode(',', $accept) }}"
-                        @endif
-                    />
-                </a>
+                            @endif
+                        />
+                    </a>
+                @endif
+
+                @includeWhen($help, 'splade::form.help', ['help' => $help])
+            </div>
+
+            @if(!$filepond)
+                <div class="mt-2 text-sm italic" v-if="file.filenames.length > 0">
+                    <p v-for="(filename, key) in file.filenames" v-bind:key="key" v-text="filename"/>
+                </div>
             @endif
 
-            @includeWhen($help, 'splade::form.help', ['help' => $help])
-        </label>
-
-        @if(!$filepond)
-            <div class="mt-2 text-sm italic" v-if="file.filenames.length > 0">
-                <p v-for="(filename, key) in file.filenames" v-bind:key="key" v-text="filename" />
-            </div>
-        @endif
-
-        @includeWhen($showErrors, 'splade::form.error', ['name' => $validationKey()])
+            @includeWhen($showErrors, 'splade::form.error', ['name' => $validationKey()])
+        </div>
     </template>
 </SpladeFile>

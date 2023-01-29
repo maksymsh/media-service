@@ -16,20 +16,24 @@
             />
 
             <li class="sidebar-header">
-                {{ __('Pages') }}
+                {{ __('Users') }}
             </li>
 
-            <x-admin.layout.sidebar-item :title="__('Dashboard')"
-                                         icon="sliders"
-                                         :url="route('admin.dashboard.index')"
-                                         route="admin.dashboard.index"
-            >
-                <x-admin.layout.sidebar-item :title="__('Dashboard')"
-                                             icon="sliders"
-                                             :url="route('admin.dashboard.index')"
-                                             route="admin.dashboard.index"
-                />
-            </x-admin.layout.sidebar-item>
+            <x-admin.layout.sidebar-item :title="__('Users')"
+                                         icon="users"
+                                         :url="route('admin.users.index')"
+                                         route="admin.users.index"
+            />
+
+            <x-admin.layout.sidebar-item :title="__('Roles')"
+                                         icon="users"
+                                         :url="route('admin.roles.index')"
+                                         route="admin.roles.index"
+            />
+
+            <li class="sidebar-header">
+                {{ __('Users') }}
+            </li>
 
         </ul>
     </div>

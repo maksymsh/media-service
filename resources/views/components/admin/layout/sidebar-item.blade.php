@@ -28,7 +28,7 @@
             <span class="align-middle">{{ $title }}</span>
         </a>
     @else
-        <x-splade-link class="sidebar-link {{ $active ? '' : 'collapsed' }}"
+        <x-admin.link class="sidebar-link {{ $active ? '' : 'collapsed' }}"
                        :href="$url"
                        :data-bs-target="$slot != '' ? '#'.$id : null"
                        :data-bs-toggle="$slot != '' ? 'collapse' : null"
@@ -37,7 +37,7 @@
                 <i class="align-middle" data-feather="{{ $icon }}"></i>
             @endif
             <span class="align-middle">{{ $title }}</span>
-        </x-splade-link>
+        </x-admin.link>
     @endif
 
     @if($slot != '' || $children)

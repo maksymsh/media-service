@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +18,12 @@ use Illuminate\Support\Facades\Route;
 
 $prefix = config('admin.prefix');
 
+Route::spladeTable();
+Route::spladeUploads();
+
 Route::prefix($prefix)->as('admin.')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
+
+    Route::resource('users', UserController::class);
+    Route::resource('roles', RoleController::class);
 });
