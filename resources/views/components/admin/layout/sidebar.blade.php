@@ -16,6 +16,55 @@
             />
 
             <li class="sidebar-header">
+                {{ __('Content') }}
+            </li>
+
+            <x-admin.layout.sidebar-item :title="__('Pages')"
+                                         icon="users"
+                                         :url="route('admin.pages.index')"
+                                         route="admin.pages*"
+            />
+
+            <x-admin.layout.sidebar-item :title="__('News')"
+                                         icon="users"
+                                         :url="route('admin.news.index')"
+                                         route="admin.news*"
+            />
+
+
+            <x-admin.layout.sidebar-item :title="__('Products')"
+                                         icon="users"
+                                         :url="route('admin.products.index')"
+                                         route="admin.products*"
+            />
+
+
+            <x-admin.layout.sidebar-item :title="__('Goods')"
+                                         icon="users"
+                                         :url="route('admin.goods.index')"
+                                         route="admin.goods*"
+            />
+
+
+            <x-admin.layout.sidebar-item :title="__('Services')"
+                                         icon="users"
+                                         :url="route('admin.services.index')"
+                                         route="admin.services*"
+            />
+
+
+            <li class="sidebar-header">
+                {{ __('Orders') }}
+            </li>
+
+            <x-admin.layout.sidebar-item :title="__('Orders')"
+                                         icon="users"
+                                         :url="route('admin.orders.index')"
+                                         route="admin.orders*"
+            />
+
+
+            <li class="sidebar-header">
                 {{ __('Users') }}
             </li>
 
@@ -32,8 +81,14 @@
             />
 
             <li class="sidebar-header">
-                {{ __('Users') }}
+                {{ __('Settings') }}
             </li>
+
+            <x-admin.layout.sidebar-item :title="__('Settings')"
+                                         icon="sliders"
+                                         :url="route('admin.settings.index')"
+                                         route="admin.settings*"
+            />
 
         </ul>
     </div>
