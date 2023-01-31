@@ -10,10 +10,15 @@ class UploadMediaService
 {
     public function sync(Request $request, HasMedia $model)
     {
-        $model->registerMediaCollections();
+        HandleSpladeFileUploads::forRequest($request);
 
         foreach ($model->mediaCollections as $collection) {
-            HandleSpladeFileUploads::syncMediaLibrary(HandleSpladeFileUploads::forRequest($request, $collection->name), $model, $collection->name, $collection->name);
+            HandleSpladeFileUploads::syncMediaLibrary(
+                $request,
+                $model,
+                $collection->name,
+                $collection->name,
+            );
         }
     }
 }

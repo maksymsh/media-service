@@ -39,5 +39,6 @@
     "lint-staged": {
         "*.{js,vue}": "eslint --cache --fix",
         "*.php": "./vendor/bin/pint"
-    }
+    },
+    "web-types": "./web-types.json"
 }

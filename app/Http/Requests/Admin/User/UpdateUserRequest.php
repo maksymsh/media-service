@@ -3,9 +3,8 @@
 namespace App\Http\Requests\Admin\User;
 
 use Illuminate\Foundation\Http\FormRequest;
-use ProtoneMedia\Splade\FileUploads\HasSpladeFileUploads;
 
-class UpdateUserRequest extends FormRequest implements HasSpladeFileUploads
+class UpdateUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -29,8 +28,18 @@ class UpdateUserRequest extends FormRequest implements HasSpladeFileUploads
             'lastname' => ['required'],
             'username' => ['required'],
             'email' => ['required', 'email'],
-            'avatar' => ['nullable', 'file', 'image'],
-            'images' => ['nullable', 'array'],
         ];
+    }
+
+    /**
+     * Fix for multiple file upload
+     *
+     * @return array
+     */
+    public function allFiles()
+    {
+        $files = $this->files->all();
+
+        return $this->convertedFiles = $this->convertUploadedFiles($files);
     }
 }

@@ -22,13 +22,13 @@
             <x-admin.layout.sidebar-item :title="__('Users')"
                                          icon="users"
                                          :url="route('admin.users.index')"
-                                         route="admin.users.index"
+                                         route="admin.users*"
             />
 
             <x-admin.layout.sidebar-item :title="__('Roles')"
                                          icon="users"
                                          :url="route('admin.roles.index')"
-                                         route="admin.roles.index"
+                                         route="admin.roles*"
             />
 
             <li class="sidebar-header">
