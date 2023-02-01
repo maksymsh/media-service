@@ -65,8 +65,9 @@ class ProductsTable extends AbstractTable
     {
         $table->column(key: 'id', sortable: true)
             ->column('image_preview')
-            ->column('title')
-            ->column('text')
+            ->column('name')
+            ->column('description')
+            ->column('price')
             ->column('actions')
             ->withGlobalSearch()
             ->bulkAction(label: __('Delete'), each: function ($item) {
