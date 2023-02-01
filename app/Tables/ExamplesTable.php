@@ -3,7 +3,6 @@
 namespace App\Tables;
 
 use App\Models\Example;
-use App\Models\Role;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -64,24 +63,12 @@ class ExamplesTable extends AbstractTable
      */
     public function configure(SpladeTable $table)
     {
-        $roles = Role::query()->pluck('name', 'id')->toArray();
-
         $table->column(key: 'id', sortable: true)
-            ->column(key: 'name', sortable: true, searchable: true)
-            ->column(key: 'examplename', sortable: true, searchable: true)
-            ->column(key: 'email', sortable: true, searchable: true)
             ->column('actions')
             ->withGlobalSearch()
             ->bulkAction(label: __('Delete'), each: function ($item) {
                 $item->delete();
             }, confirm: true)
             ->export();
-
-        // ->searchInput()
-        // ->selectFilter()
-        // ->withGlobalSearch()
-
-        // ->bulkAction()
-        // ->export()
     }
 }

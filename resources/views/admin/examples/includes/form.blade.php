@@ -1,17 +1,15 @@
-<x-splade-input name="firstname" :label="__('Firstname')" />
+<x-splade-input name="id" :label="__('Id')" disabled />
 
-<x-splade-input name="lastname" :label="__('Lastname')" />
+<x-splade-group inline :label="__('Published')">
+    <x-splade-checkbox name="published" switch />
+</x-splade-group>
 
-<x-splade-input name="examplename" :label="__('Examplename')" />
+<x-splade-input name="name" :label="__('Name')" />
 
-<x-splade-input name="email" :label="__('Email')" />
-
-<x-splade-select name="roles[]" :options="$roles" :label="__('Roles')" multiple choices relation />
-
-<x-splade-file name="avatar" :label="__('Avatar')" filepond preview server />
+<x-splade-file name="image" :label="__('Image')" filepond preview server />
 
 <x-splade-file name="images" :label="__('Images')" filepond multiple preview server />
 
 @if(!$example->exists)
-    <x-splade-input name="password" type="password" :label="__('Password')" />
+
 @endif

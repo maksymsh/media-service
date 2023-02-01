@@ -1,3 +1,9 @@
+<x-splade-input name="id" :label="__('Id')" disabled />
+
+<x-splade-group inline :label="__('Published')">
+    <x-splade-checkbox name="published" switch />
+</x-splade-group>
+
 <x-splade-input name="firstname" :label="__('Firstname')" />
 
 <x-splade-input name="lastname" :label="__('Lastname')" />
