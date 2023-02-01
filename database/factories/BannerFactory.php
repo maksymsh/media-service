@@ -18,7 +18,6 @@ class BannerFactory extends Factory
     {
         return [
             'name' => fake()->word,
-            'image' => fake()->imageUrl,
             'url' => fake()->url,
         ];
     }

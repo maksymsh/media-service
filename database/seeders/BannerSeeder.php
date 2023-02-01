@@ -16,6 +16,9 @@ class BannerSeeder extends Seeder
     {
         Banner::truncate();
 
-        Banner::factory(10)->create();
+        Banner::factory(10)->create()->each(function ($category) {
+            $image = fake()->image;
+            $category->addMedia($image)->toMediaCollection('image');
+        });
     }
 }
