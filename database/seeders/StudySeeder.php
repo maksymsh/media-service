@@ -16,6 +16,9 @@ class StudySeeder extends Seeder
     {
         Study::truncate();
 
-        Study::factory(10)->create();
+        Study::factory(10)->create()->each(function ($category) {
+            $image = fake()->image;
+            $category->addMedia($image)->toMediaCollection('image');
+        });
     }
 }

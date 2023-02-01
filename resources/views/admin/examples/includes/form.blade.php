@@ -6,9 +6,13 @@
 
 <x-splade-input name="name" :label="__('Name')" />
 
-<x-splade-file name="image" :label="__('Image')" filepond preview server />
+<div>
+    <h2>Media</h2>
 
-<x-splade-file name="images" :label="__('Images')" filepond multiple preview server />
+    <x-splade-file name="image" :label="__('Image')" filepond preview server />
+
+    <x-splade-file name="images" :label="__('Images')" filepond multiple preview server />
+</div>
 
 @if(!$example->exists)
 

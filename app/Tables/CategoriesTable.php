@@ -83,6 +83,7 @@ class CategoriesTable extends AbstractTable
     public function configure(SpladeTable $table)
     {
         $table->column(key: 'id', sortable: true)
+            ->column('image_preview')
             ->column('name')
             ->column('actions')
             ->withGlobalSearch()

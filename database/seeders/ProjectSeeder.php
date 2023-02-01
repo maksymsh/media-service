@@ -16,6 +16,9 @@ class ProjectSeeder extends Seeder
     {
         Project::truncate();
 
-        Project::factory(10)->create();
+        Project::factory(10)->create()->each(function ($category) {
+            $image = fake()->image;
+            $category->addMedia($image)->toMediaCollection('image');
+        });
     }
 }

@@ -16,6 +16,9 @@ class GoodSeeder extends Seeder
     {
         Good::truncate();
 
-        Good::factory(10)->create();
+        Good::factory(10)->create()->each(function ($category) {
+            $image = fake()->image;
+            $category->addMedia($image)->toMediaCollection('image');
+        });
     }
 }

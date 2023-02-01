@@ -21,7 +21,6 @@ return new class extends Migration
             $table->integer('width')->default(0);
             $table->integer('height')->default(0);
 
-            $table->string('image')->nullable();
             $table->string('url')->nullable();
             $table->boolean('published')->default(false);
             $table->timestamps();

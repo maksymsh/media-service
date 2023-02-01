@@ -64,6 +64,9 @@ class ProductsTable extends AbstractTable
     public function configure(SpladeTable $table)
     {
         $table->column(key: 'id', sortable: true)
+            ->column('image_preview')
+            ->column('title')
+            ->column('text')
             ->column('actions')
             ->withGlobalSearch()
             ->bulkAction(label: __('Delete'), each: function ($item) {

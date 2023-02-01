@@ -65,6 +65,7 @@ class PagesTable extends AbstractTable
     {
         $table->column(key: 'id', sortable: true)
             ->column('code')
+            ->column('image_preview')
             ->column('title')
             ->column('published')
             ->column('actions')

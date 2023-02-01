@@ -34,9 +34,7 @@ return new class extends Migration
             $table->string('seo_keywords')->nullable();
 
             $table->integer('position')->default(0);
-            $table->boolean('active')->default(true);
-            $table->boolean('show_menu')->default(false);
-            $table->boolean('show_home')->default(false);
+            $table->boolean('published')->default(true);
 
             $table->timestamps();
             $table->softDeletes();

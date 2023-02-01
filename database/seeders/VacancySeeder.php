@@ -16,6 +16,9 @@ class VacancySeeder extends Seeder
     {
         Vacancy::truncate();
 
-        Vacancy::factory(10)->create();
+        Vacancy::factory(10)->create()->each(function ($category) {
+            $image = fake()->image;
+            $category->addMedia($image)->toMediaCollection('image');
+        });
     }
 }

@@ -4,13 +4,29 @@
     <x-splade-checkbox name="published" switch />
 </x-splade-group>
 
+<x-splade-input name="code" :label="__('Code')" />
+
 <x-splade-input name="title" :label="__('Title')" />
 
-<x-splade-textarea name="content" :label="__('Content')" wysiwyg />
+<x-splade-input name="slug" :label="__('Slug')" />
 
-<x-splade-file name="image" :label="__('Image')" filepond preview server />
+<x-splade-textarea name="text" :label="__('Text')" wysiwyg />
 
-<x-splade-file name="images" :label="__('Images')" filepond multiple preview server />
+<div>
+    <h2>Seo</h2>
+    <x-splade-input name="seo_h1" :label="__('H1')" />
+    <x-splade-input name="seo_title" :label="__('Title')" />
+    <x-splade-input name="seo_description" :label="__('Description')" />
+    <x-splade-input name="seo_keywords" :label="__('Keywords')" />
+</div>
+
+<div>
+    <h2>Media</h2>
+
+    <x-splade-file name="image" :label="__('Image')" filepond preview server />
+
+    <x-splade-file name="images" :label="__('Images')" filepond multiple preview server />
+</div>
 
 @if(!$page->exists)
 

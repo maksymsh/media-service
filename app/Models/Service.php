@@ -27,4 +27,14 @@ class Service extends BaseModel implements HasMedia
             ->generateSlugsFrom('name')
             ->saveSlugsTo('slug');
     }
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('image')
+            ->singleFile()
+            ->acceptsMimeTypes(['image/jpeg', 'image/png']);
+
+        $this->addMediaCollection('images')
+            ->acceptsMimeTypes(['image/jpeg', 'image/png']);
+    }
 }

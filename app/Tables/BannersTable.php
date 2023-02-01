@@ -64,6 +64,7 @@ class BannersTable extends AbstractTable
     public function configure(SpladeTable $table)
     {
         $table->column(key: 'id', sortable: true)
+            ->column('image')
             ->column('name')
             ->column('actions')
             ->withGlobalSearch()

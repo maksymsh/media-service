@@ -35,7 +35,12 @@ class PageSeeder extends Seeder
         ];
 
         foreach ($data as $item) {
-            Page::query()->firstOrCreate($item->only($uniqueKeys), $item->getAttributes());
+            $page = Page::query()->firstOrCreate($item->only($uniqueKeys), $item->getAttributes());
+
+            if ($page->wasRecentlyCreated) {
+                $image = fake()->image;
+                $page->addMedia($image)->toMediaCollection('image');
+            }
         }
     }
 }

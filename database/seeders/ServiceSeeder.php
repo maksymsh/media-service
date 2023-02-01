@@ -16,6 +16,9 @@ class ServiceSeeder extends Seeder
     {
         Service::truncate();
 
-        Service::factory(10)->create();
+        Service::factory(10)->create()->each(function ($category) {
+            $image = fake()->image;
+            $category->addMedia($image)->toMediaCollection('image');
+        });
     }
 }
