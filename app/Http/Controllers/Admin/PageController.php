@@ -3,86 +3,127 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StorePageRequest;
-use App\Http\Requests\UpdatePageRequest;
+use App\Http\Requests\Admin\Page\StorePageRequest;
+use App\Http\Requests\Admin\Page\UpdatePageRequest;
 use App\Models\Page;
+use App\Services\UploadMediaService;
 use App\Tables\PagesTable;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use ProtoneMedia\Splade\Facades\Toast;
 
 class PageController extends Controller
 {
+    public function __construct(
+        protected UploadMediaService $uploadMediaService
+    ) {
+    }
+
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @param  PagesTable  $pages
+     * @return View
      */
-    public function index(PagesTable $pages)
+    public function index(Request $request, PagesTable $pages)
     {
-        //
+        return view('admin.pages.index', [
+            'pages' => $pages,
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @param  Page  $page
+     * @return View
      */
-    public function create()
+    public function create(Request $request, Page $page)
     {
-        //
+        return view('admin.pages.create', [
+            'page' => $page,
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorePageRequest  $request
-     * @return \Illuminate\Http\Response
+     * @param  StorePageRequest  $request
+     * @return RedirectResponse
      */
     public function store(StorePageRequest $request)
     {
-        //
+        $page = Page::query()->create($request->validated());
+
+        $this->uploadMediaService->sync($request, $page);
+
+        Toast::success("Page #$page->id created successfully.");
+
+        return redirect()->route('admin.pages.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Page  $page
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @param  Page  $page
+     * @return View
      */
-    public function show(Page $page)
+    public function show(Request $request, Page $page)
     {
-        //
+        return view('admin.pages.show', [
+            'page' => $page,
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Page  $page
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @param  Page  $page
+     * @return View
      */
-    public function edit(Page $page)
+    public function edit(Request $request, Page $page)
     {
-        //
+        return view('admin.pages.edit', [
+            'page' => $page,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatePageRequest  $request
-     * @param  \App\Models\Page  $page
-     * @return \Illuminate\Http\Response
+     * @param  UpdatePageRequest  $request
+     * @param  Page  $page
+     * @return RedirectResponse
      */
     public function update(UpdatePageRequest $request, Page $page)
     {
-        //
+        $page->update($request->validated());
+
+        $this->uploadMediaService->sync($request, $page);
+
+        Toast::success("Page #$page->id updated successfully.");
+
+        return redirect()->route('admin.pages.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Page  $page
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @param  Page  $page
+     * @return RedirectResponse
      */
-    public function destroy(Page $page)
+    public function destroy(Request $request, Page $page)
     {
-        //
+        $page->delete();
+
+        Toast::success("Page #$page->id updated successfully.");
+
+        return redirect()->route('admin.pages.index');
     }
 }

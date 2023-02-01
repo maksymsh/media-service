@@ -3,86 +3,127 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreNewsRequest;
-use App\Http\Requests\UpdateNewsRequest;
+use App\Http\Requests\Admin\News\StoreNewsRequest;
+use App\Http\Requests\Admin\News\UpdateNewsRequest;
 use App\Models\News;
+use App\Services\UploadMediaService;
 use App\Tables\NewsTable;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use ProtoneMedia\Splade\Facades\Toast;
 
 class NewsController extends Controller
 {
+    public function __construct(
+        protected UploadMediaService $uploadMediaService
+    ) {
+    }
+
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @param  NewsTable  $news
+     * @return View
      */
-    public function index(NewsTable $news)
+    public function index(Request $request, NewsTable $news)
     {
-        //
+        return view('admin.news.index', [
+            'news' => $news,
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @param  News  $news
+     * @return View
      */
-    public function create()
+    public function create(Request $request, News $news)
     {
-        //
+        return view('admin.news.create', [
+            'news' => $news,
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreNewsRequest  $request
-     * @return \Illuminate\Http\Response
+     * @param  StoreNewsRequest  $request
+     * @return RedirectResponse
      */
     public function store(StoreNewsRequest $request)
     {
-        //
+        $news = News::query()->create($request->validated());
+
+        $this->uploadMediaService->sync($request, $news);
+
+        Toast::success("News #$news->id created successfully.");
+
+        return redirect()->route('admin.news.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\News  $news
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @param  News  $news
+     * @return View
      */
-    public function show(News $news)
+    public function show(Request $request, News $news)
     {
-        //
+        return view('admin.news.show', [
+            'news' => $news,
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\News  $news
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @param  News  $news
+     * @return View
      */
-    public function edit(News $news)
+    public function edit(Request $request, News $news)
     {
-        //
+        return view('admin.news.edit', [
+            'news' => $news,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateNewsRequest  $request
-     * @param  \App\Models\News  $news
-     * @return \Illuminate\Http\Response
+     * @param  UpdateNewsRequest  $request
+     * @param  News  $news
+     * @return RedirectResponse
      */
     public function update(UpdateNewsRequest $request, News $news)
     {
-        //
+        $news->update($request->validated());
+
+        $this->uploadMediaService->sync($request, $news);
+
+        Toast::success("News #$news->id updated successfully.");
+
+        return redirect()->route('admin.news.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\News  $news
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @param  News  $news
+     * @return RedirectResponse
      */
-    public function destroy(News $news)
+    public function destroy(Request $request, News $news)
     {
-        //
+        $news->delete();
+
+        Toast::success("News #$news->id updated successfully.");
+
+        return redirect()->route('admin.news.index');
     }
 }

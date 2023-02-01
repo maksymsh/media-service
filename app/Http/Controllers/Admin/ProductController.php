@@ -3,86 +3,127 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreProductRequest;
-use App\Http\Requests\UpdateProductRequest;
+use App\Http\Requests\Admin\Product\StoreProductRequest;
+use App\Http\Requests\Admin\Product\UpdateProductRequest;
 use App\Models\Product;
+use App\Services\UploadMediaService;
 use App\Tables\ProductsTable;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use ProtoneMedia\Splade\Facades\Toast;
 
 class ProductController extends Controller
 {
+    public function __construct(
+        protected UploadMediaService $uploadMediaService
+    ) {
+    }
+
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @param  ProductsTable  $products
+     * @return View
      */
-    public function index(ProductsTable $products)
+    public function index(Request $request, ProductsTable $products)
     {
-        //
+        return view('admin.products.index', [
+            'products' => $products,
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @param  Product  $product
+     * @return View
      */
-    public function create()
+    public function create(Request $request, Product $product)
     {
-        //
+        return view('admin.products.create', [
+            'product' => $product,
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreProductRequest  $request
-     * @return \Illuminate\Http\Response
+     * @param  StoreProductRequest  $request
+     * @return RedirectResponse
      */
     public function store(StoreProductRequest $request)
     {
-        //
+        $product = Product::query()->create($request->validated());
+
+        $this->uploadMediaService->sync($request, $product);
+
+        Toast::success("Product #$product->id created successfully.");
+
+        return redirect()->route('admin.products.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @param  Product  $product
+     * @return View
      */
-    public function show(Product $product)
+    public function show(Request $request, Product $product)
     {
-        //
+        return view('admin.products.show', [
+            'product' => $product,
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @param  Product  $product
+     * @return View
      */
-    public function edit(Product $product)
+    public function edit(Request $request, Product $product)
     {
-        //
+        return view('admin.products.edit', [
+            'product' => $product,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateProductRequest  $request
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
+     * @param  UpdateProductRequest  $request
+     * @param  Product  $product
+     * @return RedirectResponse
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-        //
+        $product->update($request->validated());
+
+        $this->uploadMediaService->sync($request, $product);
+
+        Toast::success("Product #$product->id updated successfully.");
+
+        return redirect()->route('admin.products.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @param  Product  $product
+     * @return RedirectResponse
      */
-    public function destroy(Product $product)
+    public function destroy(Request $request, Product $product)
     {
-        //
+        $product->delete();
+
+        Toast::success("Product #$product->id updated successfully.");
+
+        return redirect()->route('admin.products.index');
     }
 }

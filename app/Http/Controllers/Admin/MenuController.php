@@ -3,86 +3,127 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreMenuRequest;
-use App\Http\Requests\UpdateMenuRequest;
+use App\Http\Requests\Admin\Menu\StoreMenuRequest;
+use App\Http\Requests\Admin\Menu\UpdateMenuRequest;
 use App\Models\Menu;
+use App\Services\UploadMediaService;
 use App\Tables\MenusTable;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use ProtoneMedia\Splade\Facades\Toast;
 
 class MenuController extends Controller
 {
+    public function __construct(
+        protected UploadMediaService $uploadMediaService
+    ) {
+    }
+
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @param  MenusTable  $menus
+     * @return View
      */
-    public function index(MenusTable $menus)
+    public function index(Request $request, MenusTable $menus)
     {
-        //
+        return view('admin.menus.index', [
+            'menus' => $menus,
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @param  Menu  $menu
+     * @return View
      */
-    public function create()
+    public function create(Request $request, Menu $menu)
     {
-        //
+        return view('admin.menus.create', [
+            'menu' => $menu,
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreMenuRequest  $request
-     * @return \Illuminate\Http\Response
+     * @param  StoreMenuRequest  $request
+     * @return RedirectResponse
      */
     public function store(StoreMenuRequest $request)
     {
-        //
+        $menu = Menu::query()->create($request->validated());
+
+        $this->uploadMediaService->sync($request, $menu);
+
+        Toast::success("Menu #$menu->id created successfully.");
+
+        return redirect()->route('admin.menus.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Menu  $menu
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @param  Menu  $menu
+     * @return View
      */
-    public function show(Menu $menu)
+    public function show(Request $request, Menu $menu)
     {
-        //
+        return view('admin.menus.show', [
+            'menu' => $menu,
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Menu  $menu
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @param  Menu  $menu
+     * @return View
      */
-    public function edit(Menu $menu)
+    public function edit(Request $request, Menu $menu)
     {
-        //
+        return view('admin.menus.edit', [
+            'menu' => $menu,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateMenuRequest  $request
-     * @param  \App\Models\Menu  $menu
-     * @return \Illuminate\Http\Response
+     * @param  UpdateMenuRequest  $request
+     * @param  Menu  $menu
+     * @return RedirectResponse
      */
     public function update(UpdateMenuRequest $request, Menu $menu)
     {
-        //
+        $menu->update($request->validated());
+
+        $this->uploadMediaService->sync($request, $menu);
+
+        Toast::success("Menu #$menu->id updated successfully.");
+
+        return redirect()->route('admin.menus.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Menu  $menu
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @param  Menu  $menu
+     * @return RedirectResponse
      */
-    public function destroy(Menu $menu)
+    public function destroy(Request $request, Menu $menu)
     {
-        //
+        $menu->delete();
+
+        Toast::success("Menu #$menu->id updated successfully.");
+
+        return redirect()->route('admin.menus.index');
     }
 }

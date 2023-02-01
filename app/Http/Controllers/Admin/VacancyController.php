@@ -3,86 +3,127 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreVacancyRequest;
-use App\Http\Requests\UpdateVacancyRequest;
+use App\Http\Requests\Admin\Vacancy\StoreVacancyRequest;
+use App\Http\Requests\Admin\Vacancy\UpdateVacancyRequest;
 use App\Models\Vacancy;
+use App\Services\UploadMediaService;
 use App\Tables\VacanciesTable;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use ProtoneMedia\Splade\Facades\Toast;
 
 class VacancyController extends Controller
 {
+    public function __construct(
+        protected UploadMediaService $uploadMediaService
+    ) {
+    }
+
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @param  VacanciesTable  $vacancies
+     * @return View
      */
-    public function index(VacanciesTable $vacancies)
+    public function index(Request $request, VacanciesTable $vacancies)
     {
-        //
+        return view('admin.vacancies.index', [
+            'vacancies' => $vacancies,
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @param  Vacancy  $vacancy
+     * @return View
      */
-    public function create()
+    public function create(Request $request, Vacancy $vacancy)
     {
-        //
+        return view('admin.vacancies.create', [
+            'vacancy' => $vacancy,
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreVacancyRequest  $request
-     * @return \Illuminate\Http\Response
+     * @param  StoreVacancyRequest  $request
+     * @return RedirectResponse
      */
     public function store(StoreVacancyRequest $request)
     {
-        //
+        $vacancy = Vacancy::query()->create($request->validated());
+
+        $this->uploadMediaService->sync($request, $vacancy);
+
+        Toast::success("Vacancy #$vacancy->id created successfully.");
+
+        return redirect()->route('admin.vacancies.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Vacancy  $vacancy
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @param  Vacancy  $vacancy
+     * @return View
      */
-    public function show(Vacancy $vacancy)
+    public function show(Request $request, Vacancy $vacancy)
     {
-        //
+        return view('admin.vacancies.show', [
+            'vacancy' => $vacancy,
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Vacancy  $vacancy
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @param  Vacancy  $vacancy
+     * @return View
      */
-    public function edit(Vacancy $vacancy)
+    public function edit(Request $request, Vacancy $vacancy)
     {
-        //
+        return view('admin.vacancies.edit', [
+            'vacancy' => $vacancy,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateVacancyRequest  $request
-     * @param  \App\Models\Vacancy  $vacancy
-     * @return \Illuminate\Http\Response
+     * @param  UpdateVacancyRequest  $request
+     * @param  Vacancy  $vacancy
+     * @return RedirectResponse
      */
     public function update(UpdateVacancyRequest $request, Vacancy $vacancy)
     {
-        //
+        $vacancy->update($request->validated());
+
+        $this->uploadMediaService->sync($request, $vacancy);
+
+        Toast::success("Vacancy #$vacancy->id updated successfully.");
+
+        return redirect()->route('admin.vacancies.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Vacancy  $vacancy
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @param  Vacancy  $vacancy
+     * @return RedirectResponse
      */
-    public function destroy(Vacancy $vacancy)
+    public function destroy(Request $request, Vacancy $vacancy)
     {
-        //
+        $vacancy->delete();
+
+        Toast::success("Vacancy #$vacancy->id updated successfully.");
+
+        return redirect()->route('admin.vacancies.index');
     }
 }
