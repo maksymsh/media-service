@@ -17,18 +17,14 @@ class RoleSeeder extends Seeder
         /** @var $data array<Role> */
         $uniqueKeys = ['name'];
 
-        try {
-            $data = [
-                Role::factory()->make(['name' => 'admin']),
-                Role::factory()->make(['name' => 'moderator']),
-                Role::factory()->make(['name' => 'user']),
-            ];
+        $data = [
+            Role::factory()->make(['name' => 'admin']),
+            Role::factory()->make(['name' => 'moderator']),
+            Role::factory()->make(['name' => 'user']),
+        ];
 
-            foreach ($data as $item) {
-                Role::query()->firstOrCreate($item->only($uniqueKeys), $item->getAttributes());
-            }
-        } catch (\Exception $e) {
-            $this->command->warn($e->getMessage());
+        foreach ($data as $item) {
+            Role::query()->create($item->getAttributes());
         }
     }
 }

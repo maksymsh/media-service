@@ -17,7 +17,8 @@ class StudyFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => fake()->word,
+            'text' => fake()->text,
         ];
     }
 }

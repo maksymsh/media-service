@@ -1,5 +1,4 @@
 @props([
-    'heading' => 'Page',
     'breadcrumbs' => [
         ['title' => __('Dashboard'), 'url' => route('admin.dashboard.index')],
     ],
@@ -11,7 +10,7 @@
 
     <div>
         <div class="d-flex justify-content-between">
-            {!! $header !!}
+            {!! $header ?? '' !!}
         </div>
 
         <div class="card">
@@ -21,7 +20,7 @@
         </div>
 
         <div class="d-flex justify-content-between">
-            {!! $footer !!}
+            {!! $footer ?? '' !!}
         </div>
 
     </div>

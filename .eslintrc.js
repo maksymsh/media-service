@@ -25,6 +25,7 @@ module.exports = {
         // 'vue/valid-v-for': ['off'],
     },
     globals: {
+        axios: true,
         __: true,
     },
 }

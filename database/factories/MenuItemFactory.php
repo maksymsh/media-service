@@ -17,7 +17,7 @@ class MenuItemFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => fake()->word,
         ];
     }
 }

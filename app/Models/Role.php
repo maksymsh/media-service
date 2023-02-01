@@ -20,6 +20,10 @@ class Role extends BaseModel implements RoleContract
     use HasPermissions;
     use RefreshesPermissionCache;
 
+    protected $fillable = [
+        'name',
+    ];
+
     protected $guarded = [];
 
     public function __construct(array $attributes = [])

@@ -44,11 +44,13 @@ class BaseModel extends Model
                 unset($this->attributes[$collection->name]);
             }
         }
+
+        return parent::save($options);
     }
 
     public function getActionsAttribute()
     {
-        $key = Str::plural(Str::camel(class_basename($this)));
+        $key = Str::replace('-', '_', Str::kebab(Str::plural(class_basename($this))));
 
         return view('components.admin.row-actions', [
             'key' => $key,

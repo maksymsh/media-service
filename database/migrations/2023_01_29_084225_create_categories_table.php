@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Kalnoy\Nestedset\NestedSet;
 
 return new class extends Migration
 {
@@ -15,7 +16,29 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
+            $table->boolean('root')->default(true);
+            $table->unsignedBigInteger('parent_id')->nullable()->default(null);
+            $table->unsignedBigInteger(NestedSet::LFT)->nullable();
+            $table->unsignedBigInteger(NestedSet::RGT)->nullable();
+            $table->string('path')->nullable();
+
+            $table->string('name');
+            $table->string('slug')->nullable();
+            $table->text('description')->nullable()->default(null);
+            $table->text('description_short')->nullable()->default(null);
+
+            $table->string('seo_h1')->nullable();
+            $table->string('seo_title')->nullable();
+            $table->string('seo_description')->nullable();
+            $table->string('seo_keywords')->nullable();
+
+            $table->integer('position')->default(0);
+            $table->boolean('active')->default(true);
+            $table->boolean('show_menu')->default(false);
+            $table->boolean('show_home')->default(false);
+
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

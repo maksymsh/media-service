@@ -1,8 +1,8 @@
-<tbody class="">
+<tbody class="sortable" data-type="{{ isset($table->resource[0]) ?  $table->resource[0]::class : '' }}">
     @foreach($table->resource as $itemKey => $item)
         @php $itemPrimaryKey = $table->findPrimaryKey($item) @endphp
 
-        <tr
+        <tr data-id="{{ $item->id }}"
             @if($table->rowLinks->has($itemKey))
                 class=""
                 @click="(event) => table.visit(@js($table->rowLinks->get($itemKey)), @js($table->rowLinkType), event)"

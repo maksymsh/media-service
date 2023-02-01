@@ -4,7 +4,9 @@
     <x-splade-checkbox name="published" switch />
 </x-splade-group>
 
-<x-splade-input name="name" :label="__('Name')" />
+<x-splade-input name="title" :label="__('Title')" />
+
+<x-splade-textarea name="content" :label="__('Content')" wysiwyg />
 
 <x-splade-file name="image" :label="__('Image')" filepond preview server />
 

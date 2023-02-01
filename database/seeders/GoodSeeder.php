@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Good;
 use Illuminate\Database\Seeder;
 
 class GoodSeeder extends Seeder
@@ -13,6 +14,8 @@ class GoodSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Good::truncate();
+
+        Good::factory(10)->create();
     }
 }

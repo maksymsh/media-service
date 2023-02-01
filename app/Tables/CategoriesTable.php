@@ -64,6 +64,7 @@ class CategoriesTable extends AbstractTable
     public function configure(SpladeTable $table)
     {
         $table->column(key: 'id', sortable: true)
+            ->column('name')
             ->column('actions')
             ->withGlobalSearch()
             ->bulkAction(label: __('Delete'), each: function ($item) {

@@ -1,25 +1,35 @@
 @props([
     'inline' => true,
+    'wysiwyg' => false,
+    'rows' => 20,
 ])
 
 <SpladeTextarea
-    {{ $attributes->only(['v-if', 'v-show', 'class']) }}
+    {{ $attributes->only(['v-if', 'v-show', 'class'])->class([
+        'mb-3' => true,
+        'row' => $inline,
+    ]) }}
     :autosize="@js($attributes->has('autosize') ? (bool) $attributes->get('autosize') : $defaultAutosizeValue)"
     v-model="{{ $vueModel() }}"
 >
-    <label class="block">
-        @includeWhen($label, 'splade::form.label', ['label' => $label, 'inline' => $inline])
+    @includeWhen($label, 'splade::form.label', ['label' => $label, 'inline' => $inline])
 
-        <textarea {{ $attributes->except(['v-if', 'v-show', 'class', 'autosize'])->class(
-            'block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 disabled:opacity-50'
+    <div class="{{ $inline ? 'col-sm-10' : 'col-sm-12' }}">
+
+        <textarea id="{{ $name }}" {{ $attributes->except(['v-if', 'v-show', 'class', 'autosize'])->merge([
+                'rows' => $rows,
+            ])->class([
+                'form-control' => true,
+                'wysiwyg' => $wysiwyg,
+            ]
         )->merge([
             'name' => $name,
             'v-model' => $vueModel(),
             'data-validation-key' => $validationKey(),
         ]) }}
         />
-    </label>
 
-    @includeWhen($help, 'splade::form.help', ['help' => $help])
-    @includeWhen($showErrors, 'splade::form.error', ['name' => $validationKey()])
+        @includeWhen($help, 'splade::form.help', ['help' => $help])
+        @includeWhen($showErrors, 'splade::form.error', ['name' => $validationKey()])
+    </div>
 </SpladeTextarea>

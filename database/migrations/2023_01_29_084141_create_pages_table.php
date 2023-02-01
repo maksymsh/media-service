@@ -15,6 +15,17 @@ return new class extends Migration
     {
         Schema::create('pages', function (Blueprint $table) {
             $table->id();
+            $table->string('code')->nullable()->unique();
+            $table->string('title');
+            $table->string('slug')->nullable();
+            $table->text('text')->nullable();
+
+            $table->string('seo_h1')->nullable();
+            $table->string('seo_title')->nullable();
+            $table->string('seo_description')->nullable();
+            $table->string('seo_keywords')->nullable();
+
+            $table->boolean('published')->default(true);
             $table->timestamps();
         });
     }

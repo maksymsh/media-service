@@ -12,3 +12,9 @@ import './modules/flatpickr'
 
 // Maps
 import './modules/vector-maps'
+
+// Sorting
+import './modules/sorting'
+
+// Tiny
+import './modules/tiny'

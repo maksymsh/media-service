@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Page>
@@ -16,8 +17,13 @@ class PageFactory extends Factory
      */
     public function definition()
     {
+        $title = fake()->unique()->words(asText: true);
+        $code = Str::slug($title);
+
         return [
-            //
+            'code' => $code,
+            'title' => $title,
+            'text' => fake()->text,
         ];
     }
 }

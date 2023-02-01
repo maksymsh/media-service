@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\StudyController;
+use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VacancyController;
 use App\Http\Controllers\OrderController;
@@ -39,6 +40,13 @@ Route::prefix($prefix)->as('admin.')->group(function () {
     Route::middleware(['auth'])->group(function () {
     });
 
+    // MEDIA LIBRARY
+    Route::post('editor/upload', [UploadController::class, 'editor'])->name('editor.upload');
+    Route::post('media/upload', [UploadController::class, 'mediaStore'])->name('media.store');
+    Route::post('media/order', [UploadController::class, 'mediaOrder'])->name('media.order');
+    Route::patch('media/{media}', [UploadController::class, 'mediaUpdate'])->name('media.update');
+    Route::delete('media/{media}', [UploadController::class, 'mediaDelete'])->name('media.destroy');
+
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 
     Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');
@@ -48,7 +56,7 @@ Route::prefix($prefix)->as('admin.')->group(function () {
     Route::resource('categories', CategoryController::class);
     Route::resource('goods', GoodController::class);
     Route::resource('menus', MenuController::class);
-    Route::resource('menu-items', MenuItemController::class);
+    Route::resource('menu_items', MenuItemController::class);
     Route::resource('news', NewsController::class);
     Route::resource('pages', PageController::class);
     Route::resource('products', ProductController::class);

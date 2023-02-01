@@ -15,6 +15,18 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+
+            $table->unsignedBigInteger('user_id')->nullable();
+
+            $table->tinyInteger('status')->default(0);
+
+            $table->decimal('total', 9, 2);
+
+            $table->string('currency');
+
+            $table->text('comment');
+
+            $table->softDeletes();
             $table->timestamps();
         });
     }

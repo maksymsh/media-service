@@ -20,9 +20,21 @@
             </li>
 
             <x-admin.layout.sidebar-item :title="__('Pages')"
-                                         icon="users"
+                                         icon="sliders"
                                          :url="route('admin.pages.index')"
                                          route="admin.pages*"
+            />
+
+            <x-admin.layout.sidebar-item :title="__('Menu')"
+                                         icon="sliders"
+                                         :url="route('admin.menus.index')"
+                                         route="admin.menus*"
+            />
+
+            <x-admin.layout.sidebar-item :title="__('Banners')"
+                                         icon="sliders"
+                                         :url="route('admin.banners.index')"
+                                         route="admin.banners*"
             />
 
             <x-admin.layout.sidebar-item :title="__('News')"
@@ -30,6 +42,11 @@
                                          :url="route('admin.news.index')"
                                          route="admin.news*"
             />
+
+
+            <li class="sidebar-header">
+                {{ __('Media') }}
+            </li>
 
 
             <x-admin.layout.sidebar-item :title="__('Products')"
@@ -51,11 +68,6 @@
                                          :url="route('admin.services.index')"
                                          route="admin.services*"
             />
-
-
-            <li class="sidebar-header">
-                {{ __('Orders') }}
-            </li>
 
             <x-admin.layout.sidebar-item :title="__('Orders')"
                                          icon="users"

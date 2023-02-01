@@ -17,7 +17,8 @@ class NewsFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => fake()->word,
+            'content' => fake()->text,
         ];
     }
 }
