@@ -3,6 +3,7 @@
 namespace App\Tables;
 
 use App\Models\Example;
+use App\Models\Role;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -51,7 +52,8 @@ class ExamplesTable extends AbstractTable
         return QueryBuilder::for(Example::class)
             ->defaultSort('id')
             ->allowedSorts(['id'])
-            ->allowedFilters(['id', $globalSearch]);
+            ->allowedFilters(['id', $globalSearch])
+            ->paginate();
     }
 
     /**
@@ -62,10 +64,18 @@ class ExamplesTable extends AbstractTable
      */
     public function configure(SpladeTable $table)
     {
-        $table
-            ->withGlobalSearch(columns: ['id'])
-            ->column('id', sortable: true)
-            ->column('actions');
+        $roles = Role::query()->pluck('name', 'id')->toArray();
+
+        $table->column(key: 'id', sortable: true)
+            ->column(key: 'name', sortable: true, searchable: true)
+            ->column(key: 'examplename', sortable: true, searchable: true)
+            ->column(key: 'email', sortable: true, searchable: true)
+            ->column('actions')
+            ->withGlobalSearch()
+            ->bulkAction(label: __('Delete'), each: function ($item) {
+                $item->delete();
+            }, confirm: true)
+            ->export();
 
         // ->searchInput()
         // ->selectFilter()

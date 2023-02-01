@@ -52,7 +52,8 @@ class UsersTable extends AbstractTable
         return QueryBuilder::for(User::class)
             ->defaultSort('id')
             ->allowedSorts(['id'])
-            ->allowedFilters(['id', $globalSearch]);
+            ->allowedFilters(['id', $globalSearch])
+            ->paginate();
     }
 
     /**

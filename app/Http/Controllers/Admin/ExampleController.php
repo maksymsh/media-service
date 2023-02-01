@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Example\StoreExampleRequest;
 use App\Http\Requests\Admin\Example\UpdateExampleRequest;
 use App\Models\Example;
+use App\Services\UploadMediaService;
 use App\Tables\ExamplesTable;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -14,6 +15,11 @@ use ProtoneMedia\Splade\Facades\Toast;
 
 class ExampleController extends Controller
 {
+    public function __construct(
+        protected UploadMediaService $uploadMediaService
+    ) {
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -32,12 +38,13 @@ class ExampleController extends Controller
      * Show the form for creating a new resource.
      *
      * @param  Request  $request
+     * @param  Example  $example
      * @return View
      */
-    public function create(Request $request)
+    public function create(Request $request, Example $example)
     {
         return view('admin.examples.create', [
-
+            'example' => $example,
         ]);
     }
 
@@ -50,6 +57,8 @@ class ExampleController extends Controller
     public function store(StoreExampleRequest $request)
     {
         $example = Example::query()->create($request->validated());
+
+        $this->uploadMediaService->sync($request, $example);
 
         Toast::success("Example #$example->id created successfully.");
 
@@ -79,7 +88,7 @@ class ExampleController extends Controller
      */
     public function edit(Request $request, Example $example)
     {
-        return view('admin.examples.create', [
+        return view('admin.examples.edit', [
             'example' => $example,
         ]);
     }
@@ -95,6 +104,8 @@ class ExampleController extends Controller
     {
         $example->update($request->validated());
 
+        $this->uploadMediaService->sync($request, $example);
+
         Toast::success("Example #$example->id updated successfully.");
 
         return redirect()->route('admin.examples.index');
@@ -109,13 +120,9 @@ class ExampleController extends Controller
      */
     public function destroy(Request $request, Example $example)
     {
-        if ($example->id !== $request->example()->id) {
-            $example->delete();
+        $example->delete();
 
-            Toast::success("Example #$example->id updated successfully.");
-        } else {
-            Toast::danger("Cannot delete authenticated Example #$example->id.");
-        }
+        Toast::success("Example #$example->id updated successfully.");
 
         return redirect()->route('admin.examples.index');
     }

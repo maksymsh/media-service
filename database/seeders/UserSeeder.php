@@ -49,6 +49,8 @@ class UserSeeder extends Seeder
 
             $userUser = User::query()->firstOrCreate($user->only($uniqueKeys), $user->getAttributes());
             $userUser->assignRole('user');
+
+            User::factory(100)->create();
         } catch (\Exception $e) {
             $this->command->warn($e->getMessage());
         }

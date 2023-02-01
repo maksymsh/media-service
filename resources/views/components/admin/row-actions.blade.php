@@ -6,10 +6,6 @@
     'delete' => true,
 ])
 
-@php
-    $key = $key ?: Str::plural(Str::camel(class_basename($item)));
-@endphp
-
 <div class="row-actions">
     @if($show)
         <x-admin.link class="btn btn-sm" href="{{ route('admin.'.$key.'.show', $item) }}">
