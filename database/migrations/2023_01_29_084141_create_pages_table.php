@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('code')->nullable()->unique();
             $table->string('title');
             $table->string('slug')->nullable();
+            $table->string('url')->nullable();
             $table->text('text')->nullable();
 
             $table->string('seo_h1')->nullable();
