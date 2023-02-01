@@ -19,29 +19,37 @@
                 {{ __('Content') }}
             </li>
 
-            <x-admin.layout.sidebar-item :title="__('Pages')"
-                                         icon="sliders"
-                                         :url="route('admin.pages.index')"
-                                         route="admin.pages*"
-            />
+            @can('pages.index')
+                <x-admin.layout.sidebar-item :title="__('Pages')"
+                                             icon="sliders"
+                                             :url="route('admin.pages.index')"
+                                             route="admin.pages*"
+                />
+            @endcan
 
-            <x-admin.layout.sidebar-item :title="__('Menu')"
-                                         icon="sliders"
-                                         :url="route('admin.menus.index')"
-                                         route="admin.menus*"
-            />
+            @can('menus.index')
+                <x-admin.layout.sidebar-item :title="__('Menu')"
+                                             icon="sliders"
+                                             :url="route('admin.menus.index')"
+                                             route="admin.menus*"
+                />
+            @endcan
 
-            <x-admin.layout.sidebar-item :title="__('Banners')"
-                                         icon="sliders"
-                                         :url="route('admin.banners.index')"
-                                         route="admin.banners*"
-            />
+            @can('banners.index')
+                <x-admin.layout.sidebar-item :title="__('Banners')"
+                                             icon="sliders"
+                                             :url="route('admin.banners.index')"
+                                             route="admin.banners*"
+                />
+            @endcan
 
-            <x-admin.layout.sidebar-item :title="__('News')"
-                                         icon="users"
-                                         :url="route('admin.news.index')"
-                                         route="admin.news*"
-            />
+            @can('news.index')
+                <x-admin.layout.sidebar-item :title="__('News')"
+                                             icon="users"
+                                             :url="route('admin.news.index')"
+                                             route="admin.news*"
+                />
+            @endcan
 
 
             <li class="sidebar-header">
@@ -49,58 +57,72 @@
             </li>
 
 
-            <x-admin.layout.sidebar-item :title="__('Products')"
-                                         icon="users"
-                                         :url="route('admin.products.index')"
-                                         route="admin.products*"
-            />
+            @can('products.index')
+                <x-admin.layout.sidebar-item :title="__('Products')"
+                                             icon="users"
+                                             :url="route('admin.products.index')"
+                                             route="admin.products*"
+                />
+            @endcan
 
 
-            <x-admin.layout.sidebar-item :title="__('Goods')"
-                                         icon="users"
-                                         :url="route('admin.goods.index')"
-                                         route="admin.goods*"
-            />
+            @can('goods.index')
+                <x-admin.layout.sidebar-item :title="__('Goods')"
+                                             icon="users"
+                                             :url="route('admin.goods.index')"
+                                             route="admin.goods*"
+                />
+            @endcan
 
+            @can('services.index')
+                <x-admin.layout.sidebar-item :title="__('Services')"
+                                             icon="users"
+                                             :url="route('admin.services.index')"
+                                             route="admin.services*"
+                />
+            @endcan
 
-            <x-admin.layout.sidebar-item :title="__('Services')"
-                                         icon="users"
-                                         :url="route('admin.services.index')"
-                                         route="admin.services*"
-            />
-
-            <x-admin.layout.sidebar-item :title="__('Orders')"
-                                         icon="users"
-                                         :url="route('admin.orders.index')"
-                                         route="admin.orders*"
-            />
+            @can('pages.orders')
+                <x-admin.layout.sidebar-item :title="__('Orders')"
+                                             icon="users"
+                                             :url="route('admin.orders.index')"
+                                             route="admin.orders*"
+                />
+            @endcan
 
 
             <li class="sidebar-header">
                 {{ __('Users') }}
             </li>
 
-            <x-admin.layout.sidebar-item :title="__('Users')"
-                                         icon="users"
-                                         :url="route('admin.users.index')"
-                                         route="admin.users*"
-            />
+            @can('users.index')
+                <x-admin.layout.sidebar-item :title="__('Users')"
+                                             icon="users"
+                                             :url="route('admin.users.index')"
+                                             route="admin.users*"
+                />
+            @endcan
 
-            <x-admin.layout.sidebar-item :title="__('Roles')"
-                                         icon="users"
-                                         :url="route('admin.roles.index')"
-                                         route="admin.roles*"
-            />
+            @can('roles.index')
+                <x-admin.layout.sidebar-item :title="__('Roles')"
+                                             icon="users"
+                                             :url="route('admin.roles.index')"
+                                             route="admin.roles*"
+                />
+            @endcan
+
 
             <li class="sidebar-header">
                 {{ __('Settings') }}
             </li>
 
-            <x-admin.layout.sidebar-item :title="__('Settings')"
-                                         icon="sliders"
-                                         :url="route('admin.settings.index')"
-                                         route="admin.settings*"
-            />
+            @can('settings.index')
+                <x-admin.layout.sidebar-item :title="__('Settings')"
+                                             icon="sliders"
+                                             :url="route('admin.settings.index')"
+                                             route="admin.settings*"
+                />
+            @endcan
 
         </ul>
     </div>

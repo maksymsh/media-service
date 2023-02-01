@@ -7,17 +7,19 @@ use App\Http\Controllers\Admin\GoodController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\MenuItemController;
 use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\PublishingController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingsController;
+use App\Http\Controllers\Admin\SortingController;
 use App\Http\Controllers\Admin\StudyController;
 use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VacancyController;
-use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,6 +41,9 @@ Route::spladeUploads();
 Route::prefix($prefix)->as('admin.')->group(function () {
     Route::middleware(['auth'])->group(function () {
     });
+
+    Route::post('/sorting', [SortingController::class, 'update'])->name('sorting.update');
+    Route::post('/publishing', [PublishingController::class, 'update'])->name('publishing.update');
 
     // MEDIA LIBRARY
     Route::post('editor/upload', [UploadController::class, 'editor'])->name('editor.upload');

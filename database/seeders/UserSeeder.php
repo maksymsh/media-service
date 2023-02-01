@@ -20,6 +20,12 @@ class UserSeeder extends Seeder
         $uniqueKeys = ['username', 'email'];
 
         try {
+            $superadmin = User::factory()->make([
+                'firstname' => 'Super',
+                'lastname' => 'Admin',
+                'username' => 'superadmin',
+                'email' => 'superadmin@media-service.test',
+            ]);
             $admin = User::factory()->make([
                 'firstname' => 'Admin',
                 'lastname' => 'Admin',
@@ -40,6 +46,9 @@ class UserSeeder extends Seeder
                 'username' => 'user',
                 'email' => 'user@media-service.test',
             ]);
+
+            $superAdminUser = User::query()->firstOrCreate($superadmin->only($uniqueKeys), $superadmin->getAttributes());
+            $superAdminUser->assignRole('superadmin');
 
             $adminUser = User::query()->firstOrCreate($admin->only($uniqueKeys), $admin->getAttributes());
             $adminUser->assignRole('admin');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Role\StoreRoleRequest;
 use App\Http\Requests\Admin\Role\UpdateRoleRequest;
+use App\Models\Permission;
 use App\Models\Role;
 use App\Services\UploadMediaService;
 use App\Tables\RolesTable;
@@ -43,8 +44,46 @@ class RoleController extends Controller
      */
     public function create(Request $request, Role $role)
     {
+        $resources = [
+            'banners',
+            'categories',
+            'goods',
+            'menus',
+            'menu_items',
+            'news',
+            'pages',
+            'products',
+            'projects',
+            'roles',
+            'services',
+            'studies',
+            'users',
+            'vacancies',
+            'orders',
+        ];
+
+        $actions = [
+            'index',
+            'create',
+            'edit',
+            'delete',
+        ];
+
+        $permissions = [];
+
+        foreach ($resources as $resource) {
+            foreach ($actions as $action) {
+                $ability = $resource.'.'.$action;
+
+                $permissions[$ability] = $role->hasPermissionTo($ability);
+            }
+        }
+
         return view('admin.roles.create', [
             'role' => $role,
+            'resources' => $resources,
+            'actions' => $actions,
+            'permissions' => $permissions,
         ]);
     }
 
@@ -88,8 +127,17 @@ class RoleController extends Controller
      */
     public function edit(Request $request, Role $role)
     {
+        $allPermissions = Permission::query()->get();
+
+        $permissions = $allPermissions->map(function ($permission) use ($role) {
+            $permission->value = $role->hasPermissionTo($permission->name);
+
+            return $permission;
+        })->pluck('value', 'name')->undot();
+
         return view('admin.roles.edit', [
             'role' => $role,
+            'permissions' => $permissions,
         ]);
     }
 
@@ -104,7 +152,17 @@ class RoleController extends Controller
     {
         $role->update($request->validated());
 
-        $this->uploadMediaService->sync($request, $role);
+        foreach ($request->get('permissions') as $resource => $actions) {
+            foreach ($actions as $action => $value) {
+                $ability = $resource.'.'.$action;
+
+                if ($value) {
+                    $role->givePermissionTo($ability);
+                } else {
+                    $role->revokePermissionTo($ability);
+                }
+            }
+        }
 
         Toast::success("Role #$role->id updated successfully.");
 

@@ -2,14 +2,17 @@
 
 namespace App\Models;
 
+use App\Models\Traits\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\MediaLibrary\HasMedia;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-class Category extends BaseModel
+class Category extends BaseModel implements HasMedia
 {
     use HasFactory;
     use HasSlug;
+    use InteractsWithMedia;
 
     protected $fillable = [
         'name',

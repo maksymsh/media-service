@@ -14,7 +14,7 @@
         </x-slot:header>
 
         <div>
-            <x-splade-form :default="$role" method="PUT" :action="route('admin.roles.update', $role)">
+            <x-splade-form :default="array_merge($role->toArray(), ['permissions' => $permissions])" method="PUT" :action="route('admin.roles.update', $role)">
                 @include('admin.roles.includes.form')
 
                 <x-splade-submit />

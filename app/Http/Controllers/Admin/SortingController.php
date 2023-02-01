@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\SortingRequest;
-use App\Models\MenuItem;
 use Illuminate\Database\Eloquent\Model;
+use Toast;
 
 class SortingController extends Controller
 {
@@ -14,12 +14,14 @@ class SortingController extends Controller
         /** @var Model $model */
         $model = app()->make($request->get('model'));
 
-        $model = app()->make(MenuItem::class);
-
         if ($model) {
             foreach ($request->get('data') as $data) {
                 $model->newQuery()->whereKey($data['id'])->update(['position' => $data['position']]);
             }
         }
+
+        Toast::success('Model updated.');
+
+        return redirect()->back();
     }
 }

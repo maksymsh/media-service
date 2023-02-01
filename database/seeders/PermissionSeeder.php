@@ -14,8 +14,45 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
-//        Permission::truncate();
+        $resources = [
+            'banners',
+            'categories',
+            'goods',
+            'menus',
+            'menu_items',
+            'news',
+            'pages',
+            'products',
+            'projects',
+            'roles',
+            'services',
+            'studies',
+            'users',
+            'vacancies',
+            'orders',
+        ];
 
-//        Permission::factory(10)->create();
+        $actions = [
+            'index',
+            'create',
+            'edit',
+            'delete',
+        ];
+
+        $permissions = [
+            'settings.index',
+        ];
+
+        foreach ($resources as $resource) {
+            foreach ($actions as $action) {
+                $ability = $resource.'.'.$action;
+
+                Permission::firstOrCreate(['name' => $ability], ['name' => $ability]);
+            }
+        }
+
+        foreach ($permissions as $permission) {
+            Permission::firstOrCreate(['name' => $permission], ['name' => $permission]);
+        }
     }
 }

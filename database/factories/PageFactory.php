@@ -24,6 +24,7 @@ class PageFactory extends Factory
             'code' => $code,
             'title' => $title,
             'text' => fake()->text,
+            'published' => fake()->boolean,
         ];
     }
 }

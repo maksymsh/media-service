@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Requests\Admin\Role;
+namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateRoleRequest extends FormRequest
+class PublishingRequest extends FormRequest
 {
     /**
-     * Determine if the role is authorized to make this request.
+     * Determine if the user is authorized to make this request.
      *
      * @return bool
      */
@@ -24,8 +24,9 @@ class UpdateRoleRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required'],
-            'permissions' => ['required', 'array'],
+            'model' => ['required'],
+            'id' => ['required'],
+            'published' => ['required', 'boolean'],
         ];
     }
 }
