@@ -18,7 +18,7 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="index.html"><i class="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>
                     <div class="dropdown-divider"></div>
-                    <x-admin.link class="dropdown-item" :href="route('admin.logout')">Log out</x-admin.link>
+                    <x-admin.link class="dropdown-item" :href="route('logout')">Log out</x-admin.link>
                 </div>
             </li>
         </ul>
