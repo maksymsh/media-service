@@ -2,6 +2,7 @@
 
 namespace App\Tables;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
@@ -62,13 +63,18 @@ class UsersTable extends AbstractTable
      */
     public function configure(SpladeTable $table)
     {
-        $table
-            ->withGlobalSearch(columns: ['id'])
-            ->column('id', sortable: true)
-            ->column('name', sortable: true, searchable: true)
-            ->column('username', sortable: true, searchable: true)
-            ->column('email', sortable: true, searchable: true)
-            ->column('actions');
+        $roles = Role::query()->pluck('name', 'id')->toArray();
+
+        $table->column(key: 'id', sortable: true)
+            ->column(key: 'name', sortable: true, searchable: true)
+            ->column(key: 'username', sortable: true, searchable: true)
+            ->column(key: 'email', sortable: true, searchable: true)
+            ->column('actions')
+            ->withGlobalSearch()
+            ->bulkAction(label: __('Delete'), each: function ($item) {
+                $item->delete();
+            }, confirm: true)
+            ->export();
 
         // ->searchInput()
         // ->selectFilter()

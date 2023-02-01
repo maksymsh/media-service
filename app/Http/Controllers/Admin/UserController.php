@@ -62,6 +62,8 @@ class UserController extends Controller
     {
         $user = User::query()->create($request->validated());
 
+        $user->roles()->sync($request->get('roles'));
+
         $this->uploadMediaService->sync($request, $user);
 
         Toast::success("User #$user->id created successfully.");
@@ -111,6 +113,8 @@ class UserController extends Controller
     {
         $user->update($request->validated());
 
+        $user->roles()->sync($request->get('roles'));
+
         $this->uploadMediaService->sync($request, $user);
 
         Toast::success("User #$user->id updated successfully.");
@@ -127,7 +131,7 @@ class UserController extends Controller
      */
     public function destroy(Request $request, User $user)
     {
-        if ($user->id !== $request->user()->id) {
+        if ($user->id !== $request->user()?->id) {
             $user->delete();
 
             Toast::success("User #$user->id updated successfully.");

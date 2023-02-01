@@ -5,34 +5,32 @@
             animation="opacity"
             appear
             show="toasts.hasBackdrop"
-            class="fixed z-30 inset-0 bg-black/75"
+            class="position-fixed"
         />
 
-        <div class="position-fixed fixed z-40 inset-0 grid grid-cols-3 grid-flow-row-3 pointer-events-none">
-            <div v-for="position in toasts.positions" class="relative">
-                <div :class="{
-                    'absolute w-full h-full flex flex-col p-4 space-y-4': true,
-                    'items-start justify-start': position == 'left-top',
-                    'items-center justify-start': position == 'center-top',
-                    'items-end justify-start': position == 'right-top',
-                    'items-start justify-center': position == 'left-center',
-                    'items-center justify-center': position == 'center-center',
-                    'items-end justify-center': position == 'right-center',
-                    'items-start justify-end': position == 'left-bottom',
-                    'items-center justify-end': position == 'center-bottom',
-                    'items-end justify-end': position == 'right-bottom'
-                }">
-                    <template v-for="(toast, toastKey) in toasts.toasts">
-                        <template v-if="toast.position == position && !toast.dismissed && toast.html">
-                            <SpladeRender
-                                @dismiss="toasts.dismissToast(toastKey)"
-                                :toast-key="toastKey"
-                                :key="toastKey"
-                                :html="toast.html"
-                            />
-                        </template>
+        <div v-for="position in toasts.positions" class="relative">
+            <div :class="{
+                'toast-container p-3': true,
+                'start-0 top-0': position === 'left-top',
+                'start-50 top-0': position === 'center-top',
+                'end-0 top-0': position === 'right-top',
+                'start-0 top-50': position === 'left-center',
+                'start-50 top-50': position === 'center-center',
+                'end-0 top-50': position === 'right-center',
+                'start-0 bottom-0': position === 'left-bottom',
+                'start-50 bottom-0': position === 'center-bottom',
+                'end-0 bottom-0': position === 'right-bottom'
+            }">
+                <template v-for="(toast, toastKey) in toasts.toasts">
+                    <template v-if="toast.position === position && !toast.dismissed && toast.html">
+                        <SpladeRender
+                            @dismiss="toasts.dismissToast(toastKey)"
+                            :toast-key="toastKey"
+                            :key="toastKey"
+                            :html="toast.html"
+                        />
                     </template>
-                </div>
+                </template>
             </div>
         </div>
     </template>

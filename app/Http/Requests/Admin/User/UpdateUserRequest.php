@@ -28,6 +28,7 @@ class UpdateUserRequest extends FormRequest
             'lastname' => ['required'],
             'username' => ['required'],
             'email' => ['required', 'email'],
+            'roles' => ['nullable', 'array'],
         ];
     }
 

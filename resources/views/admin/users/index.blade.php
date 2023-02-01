@@ -13,11 +13,7 @@
             </div>
         </x-slot:header>
 
-        <x-splade-table :for="$users">
-            <x-splade-cell actions>
-                @include('admin.users.includes.actions')
-            </x-splade-cell>
-        </x-splade-table>
+        <x-splade-table :for="$users" />
 
         <x-slot:footer>
             <h1>{{ __('Users') }}</h1>

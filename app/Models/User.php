@@ -65,4 +65,11 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
     {
         return implode(' ', array_filter([$this->firstname, $this->lastname]));
     }
+
+    public function getActionsAttribute()
+    {
+        return view('components.admin.resource-actions', [
+            'item' => $this,
+        ]);
+    }
 }

@@ -36,6 +36,9 @@ Route::spladeTable();
 Route::spladeUploads();
 
 Route::prefix($prefix)->as('admin.')->group(function () {
+    Route::middleware(['auth'])->group(function () {
+    });
+
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 
     Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');

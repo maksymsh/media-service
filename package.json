@@ -8,7 +8,7 @@
         "build": "vite build && vite build --ssr",
         "lint": "eslint --ext .js,.vue --fix --ignore-path .gitignore resources/js",
         "pint": "./vendor/bin/pint",
-        "postinstall": "husky install"
+        "prepare": "husky install"
     },
     "devDependencies": {
         "@popperjs/core": "^2.11.6",
