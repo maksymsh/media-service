@@ -11,8 +11,8 @@
                 </a>
 
                 <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                    @if(auth()->user()->avatar)
-                        <img src="{{ auth()->user()->avatar }}" class="avatar img-fluid rounded me-2" alt="{{ auth()->user()->name }}" />
+                    @if(auth()->user()->avatar_url)
+                        <img src="{{ auth()->user()->avatar_url }}" class="avatar img-fluid rounded me-2" alt="{{ auth()->user()->name }}" />
                     @else
                         <img src="/img/no-avatar.png" class="avatar img-fluid rounded me-2" alt="{{ auth()->user()->name }}" />
                     @endif
