@@ -1,5 +1,6 @@
 @props([
     'id' => Str::random(10),
+    'active' => false,
     'route' => null,
     'title' => null,
     'icon' => null,
@@ -8,7 +9,13 @@
 ])
 
 @php
-    $active = routeActive($route);
+    foreach ((array) $route as $part) {
+        if($active) {
+            break;
+        }
+
+        $active = routeActive($part);
+    }
 @endphp
 
 <li {{ $attributes->class([
@@ -29,9 +36,9 @@
         </a>
     @else
         <x-admin.link class="sidebar-link {{ $active ? '' : 'collapsed' }}"
-                       :href="$url"
-                       :data-bs-target="$slot != '' ? '#'.$id : null"
-                       :data-bs-toggle="$slot != '' ? 'collapse' : null"
+                      :href="$url"
+                      :data-bs-target="$slot != '' ? '#'.$id : null"
+                      :data-bs-toggle="$slot != '' ? 'collapse' : null"
         >
             @if($icon)
                 <i class="align-middle" data-feather="{{ $icon }}"></i>

@@ -48,20 +48,21 @@
                                              icon="users"
                                              :url="route('admin.news.index')"
                                              route="admin.news*"
->
-                <x-admin.layout.sidebar-item :title="__('News')"
-                                             icon="users"
-                                             :url="route('admin.categories.index', ['model_type' => App\Models\New::class])"
-                                             route="admin.categories*"
-                />
-                <x-admin.layout.sidebar-item :title="__('News')"
-                                             icon="users"
-                                             :url="route('admin.news.index')"
-                                             route="admin.news*"
-                />
-            </x-admin.layout.sidebar-item>
+                >
+                    <x-admin.layout.sidebar-item :title="__('News')"
+                                                 icon="users"
+                                                 :url="route('admin.news.index')"
+                                                 route="admin.news*"
+                    />
+                </x-admin.layout.sidebar-item>
             @endcan
 
+
+            <x-admin.layout.sidebar-item :title="__('Categories')"
+                                         icon="users"
+                                         :url="route('admin.categories.index')"
+                                         route="admin.categories*"
+            />
 
             <li class="sidebar-header">
                 {{ __('Media') }}
