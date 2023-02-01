@@ -2,11 +2,11 @@
 
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\GoodController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\MenuItemController;
-use App\Http\Controllers\Admin\NewsCategoryController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PageController;
@@ -63,20 +63,38 @@ Route::prefix($prefix)->as('admin.')->group(function () {
         Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');
         Route::post('/settings', [SettingsController::class, 'save']);
 
+        Route::resource('users', UserController::class);
+
+        Route::resource('roles', RoleController::class);
+
+        Route::resource('categories', CategoryController::class);
+
         Route::resource('banners', BannerController::class);
-        Route::resource('goods', GoodController::class);
+
         Route::resource('menus', MenuController::class);
         Route::resource('menu_items', MenuItemController::class);
+
         Route::resource('news', NewsController::class);
-        Route::resource('categories', NewsCategoryController::class);
+        Route::resource('news-categories', CategoryController::class);
+
         Route::resource('pages', PageController::class);
+        Route::resource('news-categories', CategoryController::class);
+
+        Route::resource('goods', GoodController::class);
+        Route::resource('goods-categories', CategoryController::class);
+
         Route::resource('products', ProductController::class);
-        Route::resource('projects', ProjectController::class);
-        Route::resource('roles', RoleController::class);
+        Route::resource('products-categories', CategoryController::class);
+
         Route::resource('services', ServiceController::class);
+        Route::resource('services-categories', CategoryController::class);
+
+        Route::resource('projects', ProjectController::class);
+
         Route::resource('studies', StudyController::class);
-        Route::resource('users', UserController::class);
+
         Route::resource('vacancies', VacancyController::class);
+
         Route::resource('orders', OrderController::class);
     });
 });

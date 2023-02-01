@@ -52,17 +52,17 @@
                     <x-admin.layout.sidebar-item :title="__('News')"
                                                  icon="users"
                                                  :url="route('admin.news.index')"
-                                                 route="admin.news*"
+                                                 route="admin.news.*"
+                    />
+
+                    <x-admin.layout.sidebar-item :title="__('News Categories')"
+                                                 icon="users"
+                                                 :url="route('admin.news-categories.index')"
+                                                 route="admin.news-categories*"
                     />
                 </x-admin.layout.sidebar-item>
             @endcan
 
-
-            <x-admin.layout.sidebar-item :title="__('Categories')"
-                                         icon="users"
-                                         :url="route('admin.categories.index')"
-                                         route="admin.categories*"
-            />
 
             <li class="sidebar-header">
                 {{ __('Media') }}
@@ -74,7 +74,19 @@
                                              icon="users"
                                              :url="route('admin.products.index')"
                                              route="admin.products*"
-                />
+                >
+                    <x-admin.layout.sidebar-item :title="__('Products')"
+                                                 icon="users"
+                                                 :url="route('admin.products.index')"
+                                                 route="admin.products.*"
+                    />
+
+                    <x-admin.layout.sidebar-item :title="__('Product Categories')"
+                                                 icon="users"
+                                                 :url="route('admin.products-categories.index')"
+                                                 route="admin.products-categories*"
+                    />
+                </x-admin.layout.sidebar-item>
             @endcan
 
 
@@ -83,7 +95,19 @@
                                              icon="users"
                                              :url="route('admin.goods.index')"
                                              route="admin.goods*"
-                />
+                >
+                    <x-admin.layout.sidebar-item :title="__('Goods')"
+                                                 icon="users"
+                                                 :url="route('admin.goods.index')"
+                                                 route="admin.goods.*"
+                    />
+
+                    <x-admin.layout.sidebar-item :title="__('Good Categories')"
+                                                 icon="users"
+                                                 :url="route('admin.goods-categories.index')"
+                                                 route="admin.goods-categories*"
+                    />
+                </x-admin.layout.sidebar-item>
             @endcan
 
             @can('services.index')
@@ -91,8 +115,24 @@
                                              icon="users"
                                              :url="route('admin.services.index')"
                                              route="admin.services*"
-                />
+                >
+                    <x-admin.layout.sidebar-item :title="__('Services')"
+                                                 icon="users"
+                                                 :url="route('admin.services.index')"
+                                                 route="admin.services.*"
+                    />
+
+                    <x-admin.layout.sidebar-item :title="__('Service Categories')"
+                                                 icon="users"
+                                                 :url="route('admin.services-categories.index')"
+                                                 route="admin.services-categories*"
+                    />
+                </x-admin.layout.sidebar-item>
             @endcan
+
+            <li class="sidebar-header">
+                {{ __('Orders') }}
+            </li>
 
             @can('pages.orders')
                 <x-admin.layout.sidebar-item :title="__('Orders')"
