@@ -46,7 +46,7 @@
             @can('news.index')
                 <x-admin.layout.sidebar-item :title="__('News')"
                                              icon="users"
-                                             :url="route('admin.categories.index', ['model_type' => App\Models\New::clas])"
+                                             :url="route('admin.categories.index', ['model_type' => App\Models\New::class])"
                                              route="admin.categories*"
                 />
                 <x-admin.layout.sidebar-item :title="__('News')"
