@@ -39,14 +39,14 @@ $prefix = config('admin.prefix');
 Route::spladeTable();
 Route::spladeUploads();
 
-Route::prefix($prefix)->as('admin.')->group(function () {
-    // Auth routes
-    Route::middleware(['guest'])->group(function () {
-        Route::get('login', [AuthController::class, 'index'])->name('login');
-        Route::post('login', [AuthController::class, 'login']);
-    });
-    Route::any('logout', [AuthController::class, 'logout'])->name('logout');
+// Auth routes
+Route::middleware(['guest'])->group(function () {
+    Route::get('login', [AuthController::class, 'index'])->name('login');
+    Route::post('login', [AuthController::class, 'login']);
+});
+Route::any('logout', [AuthController::class, 'logout'])->name('logout');
 
+Route::prefix($prefix)->as('admin.')->group(function () {
     Route::middleware(['auth'])->group(function () {
         Route::post('/sorting', [SortingController::class, 'update'])->name('sorting.update');
         Route::post('/publishing', [PublishingController::class, 'update'])->name('publishing.update');
