@@ -12,9 +12,9 @@
             'data-validation-key' => $validationKey(),
         ]) }} :true-value="@js($value)" :false-value="@js($falseValue)" />
         @if(trim($slot))
-            <span class="form-check-label">{{ $slot }}</span>
+            <span class="form-check-label">{!! $slot !!}</span>
         @else
-            <span class="form-check-label">{{ $label }}</span>
+            <span class="form-check-label">{!! $label !!}</span>
         @endif
     </label>
 

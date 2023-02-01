@@ -1,5 +1,5 @@
 @props([
-    'id' => Str::random(10),
+    'id' => 'sidebar-item-' . Str::random(10),
     'active' => false,
     'route' => null,
     'title' => null,

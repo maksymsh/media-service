@@ -31,6 +31,7 @@ class BaseModel extends Model
 
                     return ExistingFile::fromMediaLibrary($media);
                 }
+
                 if ($key === $collection->name.'_preview') {
                     $media = $collection->singleFile ? $this->getFirstMedia($collection->name) : $this->getMedia($collection->name);
 

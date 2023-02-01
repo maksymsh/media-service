@@ -5,5 +5,5 @@
     'height' => 100,
 ])
 @if($image)
-    <img width="{{ $width }}" height="{{ $height }}" src="{{ $image->previewUrl ?? $image }}" alt="">
+    <img width="{{ $width }}" height="{{ $height }}" src="{{ $image }}" alt="">
 @endif
