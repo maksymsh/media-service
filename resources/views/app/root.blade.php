@@ -8,7 +8,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
         @spladeHead
-        @vite(['resources/scss/admin/admin.scss', 'resources/js/admin/admin.js'])
+        @vite(['resources/scss/app/app.scss', 'resources/js/app/app.js'])
     </head>
     <body>
         @splade
