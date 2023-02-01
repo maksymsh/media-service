@@ -9,19 +9,6 @@ use Spatie\MediaLibrary\HasMedia;
 
 class BaseModel extends Model
 {
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::retrieved(function (self $model) {
-            if ($model instanceof HasMedia) {
-                $model->registerMediaCollections();
-
-                $model->appendMedia();
-            }
-        });
-    }
-
     public function getAttribute($key)
     {
         if ($this instanceof HasMedia) {

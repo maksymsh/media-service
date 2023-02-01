@@ -64,6 +64,7 @@ class UsersTable extends AbstractTable
     public function configure(SpladeTable $table)
     {
         $table->column(key: 'id', sortable: true)
+            ->column(key: 'avatar_preview', sortable: true, searchable: true)
             ->column(key: 'name', sortable: true, searchable: true)
             ->column(key: 'username', sortable: true, searchable: true)
             ->column(key: 'email', sortable: true, searchable: true)
