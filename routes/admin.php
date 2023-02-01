@@ -41,13 +41,13 @@ Route::spladeUploads();
 
 Route::prefix($prefix)->as('admin.')->group(function () {
     // Auth routes
-    Route::middleware(['guest'])->group(function () {
+    Route::middleware(['guest.admin'])->group(function () {
         Route::get('login', [AuthController::class, 'index'])->name('login');
         Route::post('login', [AuthController::class, 'login']);
     });
     Route::any('logout', [AuthController::class, 'logout'])->name('logout');
 
-    Route::middleware(['auth'])->group(function () {
+    Route::middleware(['auth.admin'])->group(function () {
         Route::post('/sorting', [SortingController::class, 'update'])->name('sorting.update');
         Route::post('/publishing', [PublishingController::class, 'update'])->name('publishing.update');
 
