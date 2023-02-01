@@ -4,7 +4,6 @@
     <x-admin.layout.page :breadcrumbs="[
         ['title' => __('Dashboard'), 'url' => route('admin.dashboard.index')],
         ['title' => __('users'), 'url' => route('admin.users.index')],
-        ['title' => '#' . $user->id, 'url' => route('admin.users.create', $user)],
     ]">
 
         <x-slot:header>
