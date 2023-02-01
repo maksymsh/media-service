@@ -17,17 +17,17 @@ class PageSeeder extends Seeder
         $uniqueKeys = ['code'];
 
         $data = [
-            Page::factory([
+            Page::factory()->make([
                 'code' => 'home',
                 'title' => 'Home',
                 'url' => '/',
             ]),
-            Page::factory([
+            Page::factory()->make([
                 'code' => 'about',
                 'title' => 'About us',
                 'url' => '/about-us',
             ]),
-            Page::factory([
+            Page::factory()->make([
                 'code' => 'contacts',
                 'title' => 'Contacts',
                 'url' => '/contacts',
