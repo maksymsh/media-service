@@ -18,6 +18,7 @@ class Page extends BaseModel implements HasMedia
         'code',
         'title',
         'slug',
+        'url',
         'text',
         'published',
     ];
