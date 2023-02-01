@@ -12,7 +12,7 @@
 
 <x-splade-textarea name="description" :label="__('Description')" wysiwyg />
 
-<x-splade-textarea name="short description" :label="__('Short Description')" />
+<x-splade-textarea name="short_description" :label="__('Short Description')" />
 
 <div>
     <h2>Seo</h2>
@@ -30,6 +30,6 @@
     <x-splade-file name="images" :label="__('Images')" filepond multiple preview server />
 </div>
 
-@if(!$service->exists)
+@if($product->exists)
 
 @endif

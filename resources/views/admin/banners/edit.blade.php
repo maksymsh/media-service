@@ -1,10 +1,14 @@
 @extends('admin.layout.app')
 
 @section('content')
-    <x-admin.layout.page>
+    <x-admin.layout.page :breadcrumbs="[
+        ['title' => __('Dashboard'), 'url' => route('admin.dashboard.index')],
+        ['title' => __('Banners'), 'url' => route('admin.banners.index')],
+        ['title' => '#' . $banner->id, 'url' => route('admin.banners.edit', $banner)],
+    ]">
 
         <x-slot:header>
-            <h1>{{ __('Edit') }}{{ __('Banner') }} #{{ $banner->id }}</h1>
+            <h1>{{ __('Edit') }} {{ __('Banner') }} #{{ $banner->id }}</h1>
 
             <div>
                 <x-admin.link class="btn btn-primary" :href="route('admin.banners.index')">

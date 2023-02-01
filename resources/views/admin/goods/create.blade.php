@@ -4,7 +4,7 @@
     <x-admin.layout.page>
 
         <x-slot:header>
-            <h1>{{ __('Create') }}{{ __('Good') }}</h1>
+            <h1>{{ __('Create') }} {{ __('Good') }}</h1>
 
             <div>
                 <x-admin.link class="btn btn-primary" :href="route('admin.goods.index')">

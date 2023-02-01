@@ -1,7 +1,10 @@
 @extends('admin.layout.app')
 
 @section('content')
-    <x-admin.layout.page>
+    <x-admin.layout.page :breadcrumbs="[
+        ['title' => __('Dashboard'), 'url' => route('admin.dashboard.index')],
+        ['title' => __('Banners'), 'url' => route('admin.banners.index')],
+    ]">
 
         <x-slot:header>
             <h1>{{ __('Banners') }}</h1>

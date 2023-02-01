@@ -4,7 +4,7 @@
     <x-admin.layout.page>
 
         <x-slot:header>
-            <h1>{{ __('Create') }}{{ __('Project') }}</h1>
+            <h1>{{ __('Create') }} {{ __('Project') }}</h1>
 
             <div>
                 <x-admin.link class="btn btn-primary" :href="route('admin.projects.index')">

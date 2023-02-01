@@ -4,7 +4,7 @@
     <x-admin.layout.page>
 
         <x-slot:header>
-            <h1>{{ __('Edit') }}{{ __('MenuItem') }} #{{ $menu_item->id }}</h1>
+            <h1>{{ __('Edit') }} {{ __('MenuItem') }} #{{ $menu_item->id }}</h1>
 
             <div>
                 <x-admin.link class="btn btn-primary" :href="route('admin.menu_items.index')">

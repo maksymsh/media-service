@@ -6,6 +6,8 @@
 
 <x-splade-input name="name" :label="__('Name')" />
 
+<x-splade-textarea name="description" :label="__('Description')" wysiwyg />
+
 <div>
     <h2>Media</h2>
 
