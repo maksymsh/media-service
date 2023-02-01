@@ -26,12 +26,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-        if ($this->app->environment('local')) {
-            $superadmin = User::query()->where('username', 'superadmin')->first();
+        // if ($this->app->environment('local')) {
+        //     $superadmin = User::query()->where('username', 'superadmin')->first();
 
-            if ($superadmin) {
-                Auth::login($superadmin);
-            }
-        }
+        //     if ($superadmin) {
+        //         Auth::login($superadmin);
+        //     }
+        // }
     }
 }
