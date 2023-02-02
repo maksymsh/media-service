@@ -48,10 +48,12 @@ class PagesTable extends AbstractTable
             });
         });
 
-        return QueryBuilder::for(Page::class)
+        $query = QueryBuilder::for(Page::class)
             ->defaultSort('id')
             ->allowedSorts(['id'])
             ->allowedFilters(['id', $globalSearch]);
+
+        return $query;
     }
 
     /**

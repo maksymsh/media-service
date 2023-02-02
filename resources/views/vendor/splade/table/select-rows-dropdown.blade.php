@@ -1,4 +1,8 @@
-<x-splade-component is="dropdown" dusk="select-rows-dropdown" close-on-click>
+@props([
+    'as' => 'button'
+])
+
+<x-splade-component is="dropdown" :as="$as" dusk="select-rows-dropdown" close-on-click>
     <x-slot:trigger>
         <input
             type="checkbox"

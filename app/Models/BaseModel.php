@@ -3,8 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\View;
-use Illuminate\Support\Str;
 use ProtoneMedia\Splade\FileUploads\ExistingFile;
 use Spatie\MediaLibrary\HasMedia;
 
@@ -46,19 +44,5 @@ class BaseModel extends Model
         }
 
         return parent::save($options);
-    }
-
-    public function getActionsAttribute()
-    {
-        $key = Str::replace('-', '_', Str::kebab(Str::plural(class_basename($this))));
-
-        $localView = 'admin.'.$key.'.includes.row-actions';
-        $globalView = 'components.admin.row-actions';
-        $view = View::exists($localView) ? $localView : $globalView;
-
-        return view($view, [
-            'key' => $key,
-            'item' => $this,
-        ]);
     }
 }

@@ -2,7 +2,7 @@
     <tr>
         @if($hasBulkActions = $table->hasBulkActions())
             <th width="64" class="">
-                @include('splade::table.select-rows-dropdown')
+                @include('splade::table.select-rows-dropdown', ['as' => 'a'])
             </th>
         @endif
 

@@ -7,10 +7,14 @@
     'delete' => true,
 ])
 
+@php
+    $key = $key ?: $item->getTable();
+@endphp
+
 <div class="row-actions">
     @if($sort)
         <a href="#" class="handle" @click.prevent>
-            <x-admin.icon name="move" />
+            <x-admin.icon name="move"/>
         </a>
     @endif
 

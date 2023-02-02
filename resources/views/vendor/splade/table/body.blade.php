@@ -28,11 +28,20 @@
                     v-show="table.columnIsVisible(@js($column->key))"
                     class=""
                 >
-                    @isset(${'spladeTableCell' . $column->keyHash()})
-                        {{ ${'spladeTableCell' . $column->keyHash()}($item, $itemKey) }}
-                    @else
-                        {!! nl2br(e($getColumnDataFromItem($item, $column))) !!}
-                    @endisset
+                    @switch($column->key)
+                        @case('published')
+                            @include('components.admin.row-published', ['item' => $item])
+                            @break
+                        @case('actions')
+                            @include('components.admin.row-actions', ['item' => $item])
+                            @break
+                        @default
+                            @isset(${'spladeTableCell' . $column->keyHash()})
+                                {{ ${'spladeTableCell' . $column->keyHash()}($item, $itemKey) }}
+                            @else
+                                {!! e($getColumnDataFromItem($item, $column)) !!}
+                            @endisset
+                    @endswitch
                 </td>
             @endforeach
         </tr>
