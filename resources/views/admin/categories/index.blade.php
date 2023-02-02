@@ -4,7 +4,7 @@
     <x-admin.layout.page>
 
         <x-slot:header>
-            <h1>{{ __($category_type) }} {{ __('Categories') }}</h1>
+            <h1>{{ __(ucwords($category_type)) }} {{ __('Categories') }}</h1>
 
             <div>
                 <x-admin.link class="btn btn-primary" :href="route('admin.categories.create', request()->route('category_type'))">

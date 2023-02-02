@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use ProtoneMedia\Splade\AbstractTable;
+use ProtoneMedia\Splade\Facades\Toast;
 use ProtoneMedia\Splade\SpladeTable;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
@@ -51,8 +52,7 @@ class UsersTable extends AbstractTable
         return QueryBuilder::for(User::class)
             ->defaultSort('id')
             ->allowedSorts(['id'])
-            ->allowedFilters(['id', $globalSearch])
-            ->paginate();
+            ->allowedFilters(['id', $globalSearch]);
     }
 
     /**
@@ -70,9 +70,13 @@ class UsersTable extends AbstractTable
             ->column(key: 'email', sortable: true, searchable: true)
             ->column('actions')
             ->withGlobalSearch()
-            ->bulkAction(label: __('Delete'), each: function ($item) {
-                $item->delete();
-            }, confirm: true)
-            ->export();
+            ->bulkAction(
+                label: __('Delete'),
+                each: fn (User $user) => $user->delete(),
+                after: fn () => Toast::info('Deleted successfully!'),
+                confirm: true
+            )
+            ->export()
+            ->paginate();
     }
 }

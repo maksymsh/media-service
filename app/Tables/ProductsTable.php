@@ -51,8 +51,7 @@ class ProductsTable extends AbstractTable
         return QueryBuilder::for(Product::class)
             ->defaultSort('id')
             ->allowedSorts(['id'])
-            ->allowedFilters(['id', $globalSearch])
-            ->paginate();
+            ->allowedFilters(['id', $globalSearch]);
     }
 
     /**
@@ -73,6 +72,7 @@ class ProductsTable extends AbstractTable
             ->bulkAction(label: __('Delete'), each: function ($item) {
                 $item->delete();
             }, confirm: true)
-            ->export();
+            ->export()
+            ->paginate();
     }
 }

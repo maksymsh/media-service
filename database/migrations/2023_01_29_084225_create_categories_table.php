@@ -16,7 +16,7 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->nullableMorphs('model');
+            $table->string('model_type')->nullable();
             $table->boolean('root')->default(true);
             $table->unsignedBigInteger('parent_id')->nullable()->default(null);
             $table->unsignedBigInteger(NestedSet::LFT)->nullable();

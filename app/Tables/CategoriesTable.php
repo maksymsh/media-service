@@ -59,12 +59,11 @@ class CategoriesTable extends AbstractTable
             ->allowedSorts(['id'])
             ->allowedFilters(['id', $globalSearch]);
 
-        $type = match ($this->request->get('category_type')) {
+        $type = match ($this->request->route('category_type')) {
             'news' => News::class,
             'products' => Product::class,
             'goods' => Good::class,
             'services' => Service::class,
-            default => null,
         };
 
         if ($type) {
@@ -90,6 +89,7 @@ class CategoriesTable extends AbstractTable
             ->bulkAction(label: __('Delete'), each: function ($item) {
                 $item->delete();
             }, confirm: true)
-            ->export();
+            ->export()
+            ->paginate();
     }
 }

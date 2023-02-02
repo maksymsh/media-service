@@ -51,8 +51,7 @@ class RolesTable extends AbstractTable
         return QueryBuilder::for(Role::class)
             ->defaultSort('id')
             ->allowedSorts(['id'])
-            ->allowedFilters(['id', $globalSearch])
-            ->paginate();
+            ->allowedFilters(['id', $globalSearch]);
     }
 
     /**
@@ -70,6 +69,7 @@ class RolesTable extends AbstractTable
             ->bulkAction(label: __('Delete'), each: function ($item) {
                 $item->delete();
             }, confirm: true)
-            ->export();
+            ->export()
+            ->paginate();
     }
 }

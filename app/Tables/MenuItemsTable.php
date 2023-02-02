@@ -51,8 +51,7 @@ class MenuItemsTable extends AbstractTable
         return QueryBuilder::for(MenuItem::class)
             ->defaultSort('id')
             ->allowedSorts(['id'])
-            ->allowedFilters(['id', $globalSearch])
-            ->paginate();
+            ->allowedFilters(['id', $globalSearch]);
     }
 
     /**
@@ -69,6 +68,7 @@ class MenuItemsTable extends AbstractTable
             ->bulkAction(label: __('Delete'), each: function ($item) {
                 $item->delete();
             }, confirm: true)
-            ->export();
+            ->export()
+            ->paginate();
     }
 }

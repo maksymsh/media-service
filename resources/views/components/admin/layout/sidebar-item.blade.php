@@ -9,12 +9,14 @@
 ])
 
 @php
-    foreach ((array) $route as $part) {
-        if($active) {
-            break;
-        }
+    if(!$active) {
+        foreach ((array) $route as $part) {
+            if($active) {
+                break;
+            }
 
-        $active = routeActive($part);
+            $active = routeActive($part);
+        }
     }
 @endphp
 

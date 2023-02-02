@@ -3,6 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
+use App\Models\Good;
+use App\Models\News;
+use App\Models\Product;
+use App\Models\Service;
 use Illuminate\Database\Seeder;
 
 class CategorySeeder extends Seeder
@@ -16,9 +20,20 @@ class CategorySeeder extends Seeder
     {
         Category::truncate();
 
-        Category::factory(10)->create()->each(function ($category) {
-            $image = fake()->imageUrl;
-            $category->addMediaFromUrl($image)->toMediaCollection('image');
-        });
+        $types = [
+            News::class,
+            Product::class,
+            Good::class,
+            Service::class,
+        ];
+
+        foreach ($types as $type) {
+            Category::factory(10)->create([
+                'model_type' => $type,
+            ])->each(function ($category) {
+                $image = fake()->imageUrl;
+                $category->addMediaFromUrl($image)->toMediaCollection('image');
+            });
+        }
     }
 }
