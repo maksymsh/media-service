@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests\Admin\User;
 
+use App\Http\Requests\Admin\BaseFormRequest;
+
 class UpdateUserRequest extends BaseFormRequest
 {
     /**

@@ -5560,7 +5560,7 @@ function wp(e, t, r) {
   }).listen(i, () => console.log(`Splade SSR server started on port ${i}.`));
 }
 wp(createServer, renderToString, (props) => {
-  console.log(props)
+  console.log(props);
   return createSSRApp({
     render: gp(props)
   }).use(bp);
