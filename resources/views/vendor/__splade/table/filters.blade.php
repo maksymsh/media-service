@@ -15,9 +15,9 @@
     </x-slot:button>
 
     <div
-      role="menu"
-      aria-orientation="horizontal"
-      aria-labelledby="filter-menu"
+        role="menu"
+        aria-orientation="horizontal"
+        aria-labelledby="filter-menu"
     >
         @foreach($table->filters() as $filter)
             <div>
@@ -33,7 +33,8 @@
                             @change="table.updateQuery('filter[{{ $filter->key }}]', $event.target.value)"
                         >
                             @foreach($filter->options() as $optionKey => $option)
-                                <option @selected($filter->hasValue() && $filter->value == $optionKey) value="{{ $optionKey }}">
+                                <option
+                                    @selected($filter->hasValue() && $filter->value == $optionKey) value="{{ $optionKey }}">
                                     {{ $option }}
                                 </option>
                             @endforeach

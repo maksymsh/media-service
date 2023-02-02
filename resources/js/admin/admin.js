@@ -15,6 +15,9 @@ const el = document.getElementById('app')
 const app = createApp({
     mounted() {
         console.log('Root component mounted.')
+        setTimeout(() =>
+            document.dispatchEvent(new CustomEvent('DOMContentLoaded'))
+        )
     },
     render: renderSpladeApp({ el }),
 })

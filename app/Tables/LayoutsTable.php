@@ -3,9 +3,14 @@
 namespace App\Tables;
 
 use App\Models\Layout;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use ProtoneMedia\Splade\AbstractTable;
+use ProtoneMedia\Splade\Facades\Toast;
 use ProtoneMedia\Splade\SpladeTable;
+use Spatie\QueryBuilder\AllowedFilter;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class LayoutsTable extends AbstractTable
 {
@@ -20,7 +25,7 @@ class LayoutsTable extends AbstractTable
     }
 
     /**
-     * Determine if the user is authorized to perform bulk actions and exports.
+     * Determine if the layout is authorized to perform bulk actions and exports.
      *
      * @return bool
      */
@@ -36,7 +41,18 @@ class LayoutsTable extends AbstractTable
      */
     public function for()
     {
-        return Layout::query();
+        $globalSearch = AllowedFilter::callback('global', function ($query, $value) {
+            $query->where(function (Builder $query) use ($value) {
+                Collection::wrap($value)->each(function ($value) use ($query) {
+                    $query->orWhere('id', $value);
+                });
+            });
+        });
+
+        return QueryBuilder::for(Layout::class)
+            ->defaultSort('id')
+            ->allowedSorts(['id'])
+            ->allowedFilters(['id', $globalSearch]);
     }
 
     /**
@@ -47,15 +63,18 @@ class LayoutsTable extends AbstractTable
      */
     public function configure(SpladeTable $table)
     {
-        $table
-            ->withGlobalSearch(columns: ['id'])
-            ->column('id', sortable: true);
-
-        // ->searchInput()
-        // ->selectFilter()
-        // ->withGlobalSearch()
-
-        // ->bulkAction()
-        // ->export()
+        $table->column(key: 'id', sortable: true)
+            ->column('name')
+            ->column('slug')
+            ->column('actions')
+            ->withGlobalSearch()
+            ->bulkAction(
+                label: __('Delete'),
+                each: fn (Layout $user) => $user->delete(),
+                after: fn () => Toast::info('Deleted successfully!'),
+                confirm: true
+            )
+            ->export()
+            ->paginate();
     }
 }

@@ -52,9 +52,9 @@ class BaseModel extends Model
     {
         $key = Str::replace('-', '_', Str::kebab(Str::plural(class_basename($this))));
 
-        $view = View::exists('admin.'.$key.'.includes.row-actions')
-            ? 'admin.'.$key.'.includes.row-actions'
-            : 'components.admin.row-actions';
+        $localView = 'admin.'.$key.'.includes.row-actions';
+        $globalView = 'components.admin.row-actions';
+        $view = View::exists($localView) ? $localView : $globalView;
 
         return view($view, [
             'key' => $key,
