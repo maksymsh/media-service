@@ -5,7 +5,9 @@
     },
     "scripts": {
         "dev": "vite",
-        "build": "vite build",
+        "build": "vite build && vite build --ssr",
+        "build-ssr": "vite build --ssr",
+        "ssr": "npm run build-ssr && node bootstrap/ssr/ssr.mjs",
         "lint": "eslint --ext .js,.vue --fix --ignore-path .gitignore resources/js",
         "pint": "./vendor/bin/pint",
         "prepare": "husky install"
@@ -28,7 +30,7 @@
         "jsvectormap": "^1.5.1",
         "laravel-vite-plugin": "^0.7.2",
         "lint-staged": "^13.1.0",
-        "lodash": "^4.17.21",
+        "lodash-es": "^4.17.21",
         "postcss": "^8.4.21",
         "sass": "^1.57.1",
         "simplebar": "^6.2.0",

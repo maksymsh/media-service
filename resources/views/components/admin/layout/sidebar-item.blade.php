@@ -9,15 +9,7 @@
 ])
 
 @php
-    if(!$active) {
-        foreach ((array) $route as $part) {
-            if($active) {
-                break;
-            }
-
-            $active = routeActive($part);
-        }
-    }
+    $active = $active || routeActive($route);
 @endphp
 
 <li {{ $attributes->class([

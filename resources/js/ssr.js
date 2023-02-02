@@ -1,6 +1,7 @@
 import { createServer } from 'http'
 import { createSSRApp } from 'vue'
 import { renderToString } from '@vue/server-renderer'
+
 import {
     renderSpladeApp,
     SpladePlugin,
@@ -8,6 +9,7 @@ import {
 } from '@protonemedia/laravel-splade'
 
 startServer(createServer, renderToString, (props) => {
+    console.log(props)
     return createSSRApp({
         render: renderSpladeApp(props),
     }).use(SpladePlugin)
