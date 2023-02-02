@@ -70,7 +70,7 @@ class CategoriesTable extends AbstractTable
             $query->where('model_type', $type);
         }
 
-        return $query->paginate();
+        return $query;
     }
 
     /**
