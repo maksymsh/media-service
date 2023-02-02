@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests\Admin\Example;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\Admin\BaseFormRequest;
 
-class StoreExampleRequest extends FormRequest
+class StoreExampleRequest extends BaseFormRequest
 {
     /**
      * Determine if the example is authorized to make this request.

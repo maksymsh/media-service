@@ -7,7 +7,7 @@
             <h1>{{ __('Menus') }}</h1>
 
             <div>
-                <x-admin.link class="btn btn-primary" :href="route('admin.menus.create')">
+                <x-admin.link class="btn btn-primary" :href="route('admin.menu.create')">
                     <x-admin.icon name="plus" />
                 </x-admin.link>
             </div>
@@ -19,7 +19,7 @@
             <h1>{{ __('Menus') }}</h1>
 
             <div>
-                <x-admin.link class="btn btn-primary" :href="route('admin.menus.create')">
+                <x-admin.link class="btn btn-primary" :href="route('admin.menu.create')">
                     <x-admin.icon name="plus" />
                 </x-admin.link>
             </div>

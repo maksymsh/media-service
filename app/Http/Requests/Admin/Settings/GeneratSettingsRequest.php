@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests\Admin\Settings;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\Admin\BaseFormRequest;
 
-class GeneratSettingsRequest extends FormRequest
+class GeneratSettingsRequest extends BaseFormRequest
 {
     public function authorize(): bool
     {

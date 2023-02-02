@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('slug')->nullable();
             $table->text('content')->nullable()->default(null);
 
+            $table->unsignedBigInteger('layout_id')->nullable();
+
             $table->string('seo_h1')->nullable();
             $table->string('seo_title')->nullable();
             $table->string('seo_description')->nullable();

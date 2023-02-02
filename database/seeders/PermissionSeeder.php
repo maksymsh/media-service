@@ -15,44 +15,29 @@ class PermissionSeeder extends Seeder
     public function run()
     {
         $resources = [
-            'banners',
-            'categories',
-            'goods',
-            'menus',
-            'menu_items',
-            'news',
-            'pages',
-            'products',
-            'projects',
-            'roles',
-            'services',
-            'studies',
-            'users',
-            'vacancies',
-            'orders',
+            'pages' => ['index', 'create', 'edit', 'delete'],
+            'layouts' => ['index', 'create', 'edit', 'delete'],
+            'menus' => ['index', 'create', 'edit', 'delete'],
+            'menu_items' => ['index', 'create', 'edit', 'delete'],
+            'banners' => ['index', 'create', 'edit', 'delete'],
+            'news' => ['index', 'create', 'edit', 'delete'],
+            'products' => ['index', 'create', 'edit', 'delete'],
+            'goods' => ['index', 'create', 'edit', 'delete'],
+            'services' => ['index', 'create', 'edit', 'delete'],
+            'projects' => ['index', 'create', 'edit', 'delete'],
+            'vacancies' => ['index', 'create', 'edit', 'delete'],
+            'studies' => ['index', 'create', 'edit', 'delete'],
+            'orders' => ['index', 'create', 'edit', 'delete'],
+            'roles' => ['index', 'create', 'edit', 'delete'],
+            'settings' => ['index'],
         ];
 
-        $actions = [
-            'index',
-            'create',
-            'edit',
-            'delete',
-        ];
-
-        $permissions = [
-            'settings.index',
-        ];
-
-        foreach ($resources as $resource) {
+        foreach ($resources as $resource => $actions) {
             foreach ($actions as $action) {
                 $ability = $resource.'.'.$action;
 
                 Permission::firstOrCreate(['name' => $ability], ['name' => $ability]);
             }
-        }
-
-        foreach ($permissions as $permission) {
-            Permission::firstOrCreate(['name' => $permission], ['name' => $permission]);
         }
     }
 }

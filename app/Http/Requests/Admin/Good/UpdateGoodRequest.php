@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests\Admin\Good;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\Admin\BaseFormRequest;
 
-class UpdateGoodRequest extends FormRequest
+class UpdateGoodRequest extends BaseFormRequest
 {
     /**
      * Determine if the good is authorized to make this request.

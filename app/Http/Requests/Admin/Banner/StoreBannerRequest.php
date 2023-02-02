@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests\Admin\Banner;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\Admin\BaseFormRequest;
 
-class StoreBannerRequest extends FormRequest
+class StoreBannerRequest extends BaseFormRequest
 {
     /**
      * Determine if the banner is authorized to make this request.

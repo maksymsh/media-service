@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests\Admin\MenuItem;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\Admin\BaseFormRequest;
 
-class StoreMenuItemRequest extends FormRequest
+class StoreMenuItemRequest extends BaseFormRequest
 {
     /**
      * Determine if the menu_item is authorized to make this request.

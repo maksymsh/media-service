@@ -2,9 +2,7 @@
 
 namespace App\Http\Requests\Admin\User;
 
-use Illuminate\Foundation\Http\FormRequest;
-
-class UpdateUserRequest extends FormRequest
+class UpdateUserRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -30,17 +28,5 @@ class UpdateUserRequest extends FormRequest
             'email' => ['required', 'email'],
             'roles' => ['nullable', 'array'],
         ];
-    }
-
-    /**
-     * Fix for multiple file upload
-     *
-     * @return array
-     */
-    public function allFiles()
-    {
-        $files = $this->files->all();
-
-        return $this->convertedFiles = $this->convertUploadedFiles($files);
     }
 }

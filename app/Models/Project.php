@@ -18,6 +18,7 @@ class Project extends BaseModel implements HasMedia
         'title',
         'slug',
         'text',
+        'layout_id',
     ];
 
     public function getSlugOptions(): SlugOptions

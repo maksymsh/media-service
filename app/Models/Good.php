@@ -19,6 +19,7 @@ class Good extends BaseModel implements HasMedia
         'slug',
         'description',
         'price',
+        'layout_id',
     ];
 
     public function getSlugOptions(): SlugOptions

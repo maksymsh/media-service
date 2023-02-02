@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests\Admin\Study;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\Admin\BaseFormRequest;
 
-class UpdateStudyRequest extends FormRequest
+class UpdateStudyRequest extends BaseFormRequest
 {
     /**
      * Determine if the study is authorized to make this request.

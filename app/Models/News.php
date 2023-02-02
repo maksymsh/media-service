@@ -18,6 +18,7 @@ class News extends BaseModel implements HasMedia
         'title',
         'slug',
         'content',
+        'layout_id',
     ];
 
     public function getSlugOptions(): SlugOptions

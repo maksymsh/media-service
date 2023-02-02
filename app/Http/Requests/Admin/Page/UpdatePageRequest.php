@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests\Admin\Page;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\Admin\BaseFormRequest;
 
-class UpdatePageRequest extends FormRequest
+class UpdatePageRequest extends BaseFormRequest
 {
     /**
      * Determine if the page is authorized to make this request.

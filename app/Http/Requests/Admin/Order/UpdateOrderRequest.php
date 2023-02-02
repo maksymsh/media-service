@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests\Admin\Order;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\Admin\BaseFormRequest;
 
-class UpdateOrderRequest extends FormRequest
+class UpdateOrderRequest extends BaseFormRequest
 {
     /**
      * Determine if the order is authorized to make this request.

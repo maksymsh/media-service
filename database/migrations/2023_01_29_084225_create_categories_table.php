@@ -23,6 +23,8 @@ return new class extends Migration
             $table->unsignedBigInteger(NestedSet::RGT)->nullable();
             $table->string('path')->nullable();
 
+            $table->unsignedBigInteger('layout_id')->nullable();
+
             $table->string('name');
             $table->string('slug')->nullable();
             $table->text('description')->nullable()->default(null);

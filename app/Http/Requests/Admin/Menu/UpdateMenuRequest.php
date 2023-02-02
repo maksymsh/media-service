@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests\Admin\Menu;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\Admin\BaseFormRequest;
 
-class UpdateMenuRequest extends FormRequest
+class UpdateMenuRequest extends BaseFormRequest
 {
     /**
      * Determine if the menu is authorized to make this request.

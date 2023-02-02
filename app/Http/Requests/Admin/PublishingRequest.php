@@ -2,9 +2,7 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
-
-class PublishingRequest extends FormRequest
+class PublishingRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

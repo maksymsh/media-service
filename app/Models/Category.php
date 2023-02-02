@@ -18,6 +18,7 @@ class Category extends BaseModel implements HasMedia
         'name',
         'slug',
         'description',
+        'layout_id',
     ];
 
     public function getSlugOptions(): SlugOptions

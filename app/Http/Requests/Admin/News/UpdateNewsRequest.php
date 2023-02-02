@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests\Admin\News;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\Admin\BaseFormRequest;
 
-class UpdateNewsRequest extends FormRequest
+class UpdateNewsRequest extends BaseFormRequest
 {
     /**
      * Determine if the news is authorized to make this request.

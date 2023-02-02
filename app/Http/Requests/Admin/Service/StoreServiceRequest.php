@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests\Admin\Service;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\Admin\BaseFormRequest;
 
-class StoreServiceRequest extends FormRequest
+class StoreServiceRequest extends BaseFormRequest
 {
     /**
      * Determine if the service is authorized to make this request.

@@ -2,9 +2,7 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
-
-class SortingRequest extends FormRequest
+class SortingRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

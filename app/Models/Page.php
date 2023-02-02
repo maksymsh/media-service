@@ -21,6 +21,7 @@ class Page extends BaseModel implements HasMedia
         'url',
         'text',
         'published',
+        'layout_id',
     ];
 
     protected $casts = [

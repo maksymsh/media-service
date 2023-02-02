@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests\Admin\Product;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\Admin\BaseFormRequest;
 
-class StoreProductRequest extends FormRequest
+class StoreProductRequest extends BaseFormRequest
 {
     /**
      * Determine if the product is authorized to make this request.

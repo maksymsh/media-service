@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests\Admin\Category;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\Admin\BaseFormRequest;
 
-class StoreCategoryRequest extends FormRequest
+class StoreCategoryRequest extends BaseFormRequest
 {
     /**
      * Determine if the category is authorized to make this request.

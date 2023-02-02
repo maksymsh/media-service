@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests\Admin\Vacancy;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\Admin\BaseFormRequest;
 
-class StoreVacancyRequest extends FormRequest
+class StoreVacancyRequest extends BaseFormRequest
 {
     /**
      * Determine if the vacancy is authorized to make this request.

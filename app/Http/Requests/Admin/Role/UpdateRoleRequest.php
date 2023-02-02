@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests\Admin\Role;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\Admin\BaseFormRequest;
 
-class UpdateRoleRequest extends FormRequest
+class UpdateRoleRequest extends BaseFormRequest
 {
     /**
      * Determine if the role is authorized to make this request.

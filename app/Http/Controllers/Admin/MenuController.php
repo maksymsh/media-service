@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Menu\StoreMenuRequest;
-use App\Http\Requests\Admin\Menu\UpdateMenuRequest;
+use App\Http\Requests\Admin\Menu\StoreLayoutRequest;
+use App\Http\Requests\Admin\Menu\UpdateLayoutRequest;
 use App\Models\Menu;
 use App\Services\UploadMediaService;
 use App\Tables\MenusTable;
@@ -51,10 +51,10 @@ class MenuController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  StoreMenuRequest  $request
+     * @param  StoreLayoutRequest  $request
      * @return RedirectResponse
      */
-    public function store(StoreMenuRequest $request)
+    public function store(StoreLayoutRequest $request)
     {
         $menu = Menu::query()->create($request->validated());
 
@@ -62,7 +62,7 @@ class MenuController extends Controller
 
         Toast::success("Menu #$menu->id created successfully.");
 
-        return redirect()->route('admin.menus.index');
+        return redirect()->route('admin.menu.index');
     }
 
     /**
@@ -96,11 +96,11 @@ class MenuController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  UpdateMenuRequest  $request
+     * @param  UpdateLayoutRequest  $request
      * @param  Menu  $menu
      * @return RedirectResponse
      */
-    public function update(UpdateMenuRequest $request, Menu $menu)
+    public function update(UpdateLayoutRequest $request, Menu $menu)
     {
         $menu->update($request->validated());
 
@@ -108,7 +108,7 @@ class MenuController extends Controller
 
         Toast::success("Menu #$menu->id updated successfully.");
 
-        return redirect()->route('admin.menus.index');
+        return redirect()->route('admin.menu.index');
     }
 
     /**
@@ -124,6 +124,6 @@ class MenuController extends Controller
 
         Toast::success("Menu #$menu->id updated successfully.");
 
-        return redirect()->route('admin.menus.index');
+        return redirect()->route('admin.menu.index');
     }
 }
