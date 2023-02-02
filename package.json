@@ -5,7 +5,7 @@
     },
     "scripts": {
         "dev": "vite",
-        "build": "vite build && vite build --ssr",
+        "build": "vite build",
         "lint": "eslint --ext .js,.vue --fix --ignore-path .gitignore resources/js",
         "pint": "./vendor/bin/pint",
         "prepare": "husky install"
