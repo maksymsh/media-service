@@ -66,7 +66,7 @@ Route::prefix($prefix)->as('admin.')->group(function () {
         // Content
         Route::resource('pages', PageController::class);
         Route::resource('layouts', LayoutController::class);
-        Route::resource('menu', MenuController::class);
+        Route::resource('menus', MenuController::class);
         Route::resource('menu_items', MenuItemController::class);
         Route::resource('banners', BannerController::class);
 

@@ -39,7 +39,7 @@
             @can('menus.index')
                 <x-admin.layout.sidebar-item :title="__('Menu')"
                                              icon="sliders"
-                                             :url="route('admin.menu.index')"
+                                             :url="route('admin.menus.index')"
                                              route="admin.menus*"
                 />
             @endcan

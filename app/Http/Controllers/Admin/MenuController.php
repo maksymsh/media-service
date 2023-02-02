@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Menu\StoreLayoutRequest;
-use App\Http\Requests\Admin\Menu\UpdateLayoutRequest;
+use App\Http\Requests\Admin\Menu\StoreMenuRequest;
+use App\Http\Requests\Admin\Menu\UpdateMenuRequest;
 use App\Models\Menu;
-use App\Services\UploadMediaService;
 use App\Tables\MenusTable;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -15,11 +14,6 @@ use ProtoneMedia\Splade\Facades\Toast;
 
 class MenuController extends Controller
 {
-    public function __construct(
-        protected UploadMediaService $uploadMediaService
-    ) {
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -51,18 +45,16 @@ class MenuController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  StoreLayoutRequest  $request
+     * @param  StoreMenuRequest  $request
      * @return RedirectResponse
      */
-    public function store(StoreLayoutRequest $request)
+    public function store(StoreMenuRequest $request)
     {
         $menu = Menu::query()->create($request->validated());
 
-        $this->uploadMediaService->sync($request, $menu);
-
         Toast::success("Menu #$menu->id created successfully.");
 
-        return redirect()->route('admin.menu.index');
+        return redirect()->route('admin.menus.index');
     }
 
     /**
@@ -96,19 +88,17 @@ class MenuController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  UpdateLayoutRequest  $request
+     * @param  UpdateMenuRequest  $request
      * @param  Menu  $menu
      * @return RedirectResponse
      */
-    public function update(UpdateLayoutRequest $request, Menu $menu)
+    public function update(UpdateMenuRequest $request, Menu $menu)
     {
         $menu->update($request->validated());
 
-        $this->uploadMediaService->sync($request, $menu);
-
         Toast::success("Menu #$menu->id updated successfully.");
 
-        return redirect()->route('admin.menu.index');
+        return redirect()->route('admin.menus.index');
     }
 
     /**
@@ -124,6 +114,6 @@ class MenuController extends Controller
 
         Toast::success("Menu #$menu->id updated successfully.");
 
-        return redirect()->route('admin.menu.index');
+        return redirect()->route('admin.menus.index');
     }
 }
