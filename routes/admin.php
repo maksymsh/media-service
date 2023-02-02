@@ -71,6 +71,7 @@ Route::prefix($prefix)->as('admin.')->group(function () {
         Route::resource('banners', BannerController::class);
 
         // Media
+        Route::resource('categories', CategoryController::class);
         Route::resource('news', NewsController::class);
         Route::resource('news-categories', CategoryController::class);
         Route::resource('goods', GoodController::class);

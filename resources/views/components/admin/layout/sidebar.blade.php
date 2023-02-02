@@ -173,6 +173,21 @@
                                              :url="route('admin.orders.index')"
                                              route="admin.orders*"
                 />
+                <x-admin.layout.sidebar-item :title="__('Calculation')"
+                                             icon="users"
+                                             :url="route('admin.orders.index')"
+                                             route="admin.order.calculation"
+                />
+                <x-admin.layout.sidebar-item :title="__('Demo')"
+                                             icon="users"
+                                             :url="route('admin.orders.index')"
+                                             route="admin.order.demo"
+                />
+                <x-admin.layout.sidebar-item :title="__('Consult')"
+                                             icon="users"
+                                             :url="route('admin.orders.index')"
+                                             route="admin.order.consult"
+                />
             @endcan
 
 

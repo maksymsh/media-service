@@ -17,8 +17,8 @@ class NewsSeeder extends Seeder
         News::truncate();
 
         News::factory(10)->create()->each(function ($category) {
-            $image = fake()->image;
-            $category->addMedia($image)->toMediaCollection('image');
+            $image = fake()->imageUrl;
+            $category->addMediaFromUrl($image)->toMediaCollection('image');
         });
     }
 }

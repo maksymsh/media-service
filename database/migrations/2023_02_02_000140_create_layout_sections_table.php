@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('layout_id');
             $table->string('name');
             $table->string('slug');
-            $table->json('attributes');
+            $table->json('properties')->nullable();
             $table->timestamps();
         });
     }
