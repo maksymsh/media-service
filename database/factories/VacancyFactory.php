@@ -19,6 +19,7 @@ class VacancyFactory extends Factory
     {
         return [
             'title' => fake()->word,
+            'title' => fake()->word,
             'text' => fake()->text,
         ];
     }
