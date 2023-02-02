@@ -1,6 +1,6 @@
-import('nprogress/nprogress.css')
+import 'nprogress/nprogress.css'
 
-const NProgress = await import('nprogress')
+import NProgress from 'nprogress'
 
 document.addEventListener('splade:request', (detail) => {
     NProgress.start()
