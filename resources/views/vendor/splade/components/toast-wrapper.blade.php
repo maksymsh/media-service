@@ -10,7 +10,7 @@
 
         <div v-for="position in toasts.positions" class="relative">
             <div :class="{
-                'toast-container p-3': true,
+                'toast-container': true,
                 'start-0 top-0': position === 'left-top',
                 'start-50 top-0': position === 'center-top',
                 'end-0 top-0': position === 'right-top',

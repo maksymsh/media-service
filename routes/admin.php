@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\GoodController;
 use App\Http\Controllers\Admin\LayoutController;
@@ -13,20 +14,16 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProjectController;
-use App\Http\Controllers\Admin\PublishingController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingsController;
-use App\Http\Controllers\Admin\SortingController;
-use App\Http\Controllers\Admin\StudyController;
-use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VacancyController;
 use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Admin Routes
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
@@ -46,17 +43,6 @@ Route::prefix($prefix)->as('admin.')->group(function () {
     Route::any('logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::middleware(['auth.admin'])->group(function () {
-        // Helpers
-        Route::post('/sorting', [SortingController::class, 'update'])->name('sorting.update');
-        Route::post('/publishing', [PublishingController::class, 'update'])->name('publishing.update');
-
-        // Media Library
-//        Route::post('editor/upload', [UploadController::class, 'editor'])->name('editor.upload');
-//        Route::post('media/upload', [UploadController::class, 'mediaStore'])->name('media.store');
-//        Route::post('media/order', [UploadController::class, 'mediaOrder'])->name('media.order');
-//        Route::patch('media/{media}', [UploadController::class, 'mediaUpdate'])->name('media.update');
-//        Route::delete('media/{media}', [UploadController::class, 'mediaDelete'])->name('media.destroy');
-
         // Main
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 
@@ -76,7 +62,7 @@ Route::prefix($prefix)->as('admin.')->group(function () {
 
         // Data
         Route::resource('projects', ProjectController::class);
-        Route::resource('studies', StudyController::class);
+        Route::resource('courses', CourseController::class);
         Route::resource('vacancies', VacancyController::class);
 
         // Orders

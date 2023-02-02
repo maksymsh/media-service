@@ -1,0 +1,36 @@
+<svg width="856" height="432" viewBox="0 0 856 432" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#clip0_272_5228)">
+        <g filter="url(#filter0_d_272_5228)">
+            <path
+                d="M62.3223 455.666L106.768 328.1C145.124 218.014 248.936 144.25 365.513 144.25L509.845 144.25L893.168 144.25"
+                stroke="url(#paint0_linear_272_5228)" stroke-width="25"/>
+        </g>
+        <path d="M92.3574 497.739L140.544 359.437C176.66 255.779 274.41 186.323 384.179 186.323L891.666 186.324"
+              stroke="#E0E1E5" stroke-width="2"/>
+        <path d="M128.775 538.685L185.378 376.228C216.454 287.034 300.565 227.27 395.018 227.27L915.319 227.27"
+              stroke="#E0E1E5" stroke-width="2"/>
+    </g>
+    <defs>
+        <filter id="filter0_d_272_5228" x="-25.4824" y="107.75" width="930.65" height="416.028"
+                filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                           result="hardAlpha"/>
+            <feOffset dx="-32" dy="20"/>
+            <feGaussianBlur stdDeviation="22"/>
+            <feComposite in2="hardAlpha" operator="out"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0.504272 0 0 0 0 0.220914 0 0 0 0 0.0930837 0 0 0 0.24 0"/>
+            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_272_5228"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_272_5228" result="shape"/>
+        </filter>
+        <linearGradient id="paint0_linear_272_5228" x1="477.745" y1="455.666" x2="477.745" y2="144.25"
+                        gradientUnits="userSpaceOnUse">
+            <stop stop-color="#F9ED32"/>
+            <stop offset="0.487993" stop-color="#F2914B"/>
+            <stop offset="0.97" stop-color="#F2672C"/>
+        </linearGradient>
+        <clipPath id="clip0_272_5228">
+            <rect width="432" height="856" fill="white" transform="translate(0 432) rotate(-90)"/>
+        </clipPath>
+    </defs>
+</svg>

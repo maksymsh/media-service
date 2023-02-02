@@ -6,9 +6,7 @@
         </x-admin.link>
 
         <ul class="sidebar-nav">
-            <li class="sidebar-header">
-                {{ __('Main') }}
-            </li>
+            <li class="sidebar-header">{{ __('Main') }}</li>
 
             <x-admin.layout.sidebar-item :title="__('Dashboard')"
                                          icon="sliders"
@@ -16,9 +14,7 @@
                                          route="admin.dashboard.index"
             />
 
-            <li class="sidebar-header">
-                {{ __('Content') }}
-            </li>
+            <li class="sidebar-header">{{ __('Content') }}</li>
 
             @can('pages.index')
                 <x-admin.layout.sidebar-item :title="__('Pages')"
@@ -53,10 +49,7 @@
             @endcan
 
 
-
-            <li class="sidebar-header">
-                {{ __('Media') }}
-            </li>
+            <li class="sidebar-header">{{ __('Media') }}</li>
 
             @can('news.index')
                 <x-admin.layout.sidebar-item :title="__('News')"
@@ -159,17 +152,15 @@
                 />
             @endcan
 
-            @can('studies.index')
-                <x-admin.layout.sidebar-item :title="__('Studies')"
+            @can('courses.index')
+                <x-admin.layout.sidebar-item :title="__('Courses')"
                                              icon="users"
-                                             :url="route('admin.studies.index')"
-                                             route="admin.studies*"
+                                             :url="route('admin.courses.index')"
+                                             route="admin.courses*"
                 />
             @endcan
 
-            <li class="sidebar-header">
-                {{ __('Orders') }}
-            </li>
+            <li class="sidebar-header">{{ __('Orders') }}</li>
 
             @can('pages.orders')
                 <x-admin.layout.sidebar-item :title="__('Orders')"
@@ -195,9 +186,7 @@
             @endcan
 
 
-            <li class="sidebar-header">
-                {{ __('Users') }}
-            </li>
+            <li class="sidebar-header">{{ __('Users') }}</li>
 
             @can('users.index')
                 <x-admin.layout.sidebar-item :title="__('Users')"
@@ -216,9 +205,7 @@
             @endcan
 
 
-            <li class="sidebar-header">
-                {{ __('Settings') }}
-            </li>
+            <li class="sidebar-header">{{ __('Settings') }}</li>
 
             @can('settings.index')
                 <x-admin.layout.sidebar-item :title="__('Settings')"

@@ -31,8 +31,8 @@ class CategorySeeder extends Seeder
             Category::factory(10)->create([
                 'model_type' => $type,
             ])->each(function ($category) {
-                $image = fake()->imageUrl;
-                $category->addMediaFromUrl($image)->toMediaCollection('image');
+                $image = fake()->image;
+                $category->addMedia($image)->toMediaCollection('image');
             });
         }
     }

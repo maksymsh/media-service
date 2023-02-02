@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ProductSeeder::class);
         $this->call(ProjectSeeder::class);
         $this->call(ServiceSeeder::class);
-        $this->call(StudySeeder::class);
+        $this->call(CourseSeeder::class);
         $this->call(VacancySeeder::class);
 
         $this->call(OrderSeeder::class);

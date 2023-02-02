@@ -73,12 +73,10 @@ class Kernel extends HttpKernel
         ],
 
         'app' => [
-            'web',
             AppMiddleware::class,
         ],
 
         'admin' => [
-            'web',
             AdminMiddleware::class,
         ],
     ];

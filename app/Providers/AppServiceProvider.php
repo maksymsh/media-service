@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Settings\GeneralSettings;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 use ProtoneMedia\Splade\Facades\Splade;
@@ -16,7 +17,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(GeneralSettings::class);
     }
 
     /**

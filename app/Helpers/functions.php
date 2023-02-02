@@ -36,3 +36,10 @@ if (! function_exists('routeActive')) {
         return $match;
     }
 }
+
+if (! function_exists('settings')) {
+    function settings(string|array $key = null)
+    {
+        return app('settings');
+    }
+}
