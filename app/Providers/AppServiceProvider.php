@@ -2,9 +2,10 @@
 
 namespace App\Providers;
 
-use App\Models\User;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
+use ProtoneMedia\Splade\Facades\Splade;
+use ProtoneMedia\Splade\SpladeTable;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,12 +27,14 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-        // if ($this->app->environment('local')) {
-        //     $superadmin = User::query()->where('username', 'superadmin')->first();
-
-        //     if ($superadmin) {
-        //         Auth::login($superadmin);
-        //     }
-        // }
+        Paginator::useBootstrapFive();
+        SpladeTable::defaultPerPageOptions([10, 50, 100]);
+        SpladeTable::defaultColumnCanBeHidden();
+        SpladeTable::defaultGlobalSearch();
+        SpladeTable::defaultHighlightFirstColumn();
+        SpladeTable::defaultSearchDebounce(500);
+        Splade::defaultToast(function ($toast) {
+            $toast->rightBottom()->autoDismiss(5);
+        });
     }
 }

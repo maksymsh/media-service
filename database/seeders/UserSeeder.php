@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use Exception;
 use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
@@ -60,7 +61,7 @@ class UserSeeder extends Seeder
             $userUser->assignRole('user');
 
             User::factory(20)->create();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->command->warn($e->getMessage());
         }
     }

@@ -42,7 +42,7 @@ class LayoutsTable extends AbstractTable
     /**
      * Configure the given SpladeTable.
      *
-     * @param  \ProtoneMedia\Splade\SpladeTable  $table
+     * @param  SpladeTable  $table
      * @return void
      */
     public function configure(SpladeTable $table)

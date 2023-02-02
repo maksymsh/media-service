@@ -22,7 +22,12 @@ const app = createApp({
 app.use(SpladePlugin, {
     max_keep_alive: 10,
     transform_anchors: false,
-    progress_bar: true,
+    progress_bar: {
+        delay: 250,
+        color: '#4B5563',
+        css: true,
+        spinner: true,
+    },
 })
 
 app.mount(el)

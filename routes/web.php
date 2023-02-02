@@ -14,4 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::spladeTable();
+Route::spladeUploads();
+Route::spladePasswordConfirmation();
+
 Route::get('/', [HomeController::class, 'index'])->name('home.index');

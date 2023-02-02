@@ -80,9 +80,9 @@ class Permission extends BaseModel implements PermissionContract
      *
      * @param  string  $name
      * @param  string|null  $guardName
-     * @return \Spatie\Permission\Contracts\Permission
+     * @return PermissionContract
      *
-     * @throws \Spatie\Permission\Exceptions\PermissionDoesNotExist
+     * @throws PermissionDoesNotExist
      */
     public static function findByName(string $name, $guardName = null): PermissionContract
     {
@@ -100,9 +100,9 @@ class Permission extends BaseModel implements PermissionContract
      *
      * @param  int  $id
      * @param  string|null  $guardName
-     * @return \Spatie\Permission\Contracts\Permission
+     * @return PermissionContract
      *
-     * @throws \Spatie\Permission\Exceptions\PermissionDoesNotExist
+     * @throws PermissionDoesNotExist
      */
     public static function findById(int $id, $guardName = null): PermissionContract
     {
@@ -121,7 +121,7 @@ class Permission extends BaseModel implements PermissionContract
      *
      * @param  string  $name
      * @param  string|null  $guardName
-     * @return \Spatie\Permission\Contracts\Permission
+     * @return PermissionContract
      */
     public static function findOrCreate(string $name, $guardName = null): PermissionContract
     {
@@ -140,7 +140,7 @@ class Permission extends BaseModel implements PermissionContract
      *
      * @param  array  $params
      * @param  bool  $onlyOne
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @return Collection
      */
     protected static function getPermissions(array $params = [], bool $onlyOne = false): Collection
     {
@@ -153,7 +153,7 @@ class Permission extends BaseModel implements PermissionContract
      * Get the current cached first permission.
      *
      * @param  array  $params
-     * @return \Spatie\Permission\Contracts\Permission
+     * @return PermissionContract
      */
     protected static function getPermission(array $params = []): ?PermissionContract
     {

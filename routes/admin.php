@@ -38,10 +38,6 @@ use Illuminate\Support\Facades\Route;
 $prefix = config('admin.prefix');
 
 Route::prefix($prefix)->as('admin.')->group(function () {
-    Route::spladeTable();
-    Route::spladeUploads();
-    Route::spladePasswordConfirmation();
-
     // Auth routes
     Route::middleware(['guest.admin'])->group(function () {
         Route::get('login', [AuthController::class, 'index'])->name('login');

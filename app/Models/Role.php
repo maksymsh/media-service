@@ -91,9 +91,9 @@ class Role extends BaseModel implements RoleContract
      *
      * @param  string  $name
      * @param  string|null  $guardName
-     * @return \Spatie\Permission\Contracts\Role|\Spatie\Permission\Models\Role
+     * @return RoleContract|\Spatie\Permission\Models\Role
      *
-     * @throws \Spatie\Permission\Exceptions\RoleDoesNotExist
+     * @throws RoleDoesNotExist
      */
     public static function findByName(string $name, $guardName = null): RoleContract
     {
@@ -113,7 +113,7 @@ class Role extends BaseModel implements RoleContract
      *
      * @param  int  $id
      * @param  string|null  $guardName
-     * @return \Spatie\Permission\Contracts\Role|\Spatie\Permission\Models\Role
+     * @return RoleContract|\Spatie\Permission\Models\Role
      */
     public static function findById(int $id, $guardName = null): RoleContract
     {
@@ -133,7 +133,7 @@ class Role extends BaseModel implements RoleContract
      *
      * @param  string  $name
      * @param  string|null  $guardName
-     * @return \Spatie\Permission\Contracts\Role|\Spatie\Permission\Models\Role
+     * @return RoleContract|\Spatie\Permission\Models\Role
      */
     public static function findOrCreate(string $name, $guardName = null): RoleContract
     {
@@ -173,7 +173,7 @@ class Role extends BaseModel implements RoleContract
      * @param  string|Permission  $permission
      * @return bool
      *
-     * @throws \Spatie\Permission\Exceptions\GuardDoesNotMatch
+     * @throws GuardDoesNotMatch
      */
     public function hasPermissionTo($permission): bool
     {
