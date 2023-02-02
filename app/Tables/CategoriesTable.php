@@ -61,9 +61,9 @@ class CategoriesTable extends AbstractTable
 
         $type = match ($this->request->get('category_type')) {
             'news' => News::class,
-            'product' => Product::class,
-            'good' => Good::class,
-            'service' => Service::class,
+            'products' => Product::class,
+            'goods' => Good::class,
+            'services' => Service::class,
             default => null,
         };
 

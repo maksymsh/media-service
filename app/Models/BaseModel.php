@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
 use ProtoneMedia\Splade\FileUploads\ExistingFile;
 use Spatie\MediaLibrary\HasMedia;
@@ -51,7 +52,11 @@ class BaseModel extends Model
     {
         $key = Str::replace('-', '_', Str::kebab(Str::plural(class_basename($this))));
 
-        return view('components.admin.row-actions', [
+        $view = View::exists('admin.'.$key.'.includes.row-actions')
+            ? 'admin.'.$key.'.includes.row-actions'
+            : 'components.admin.row-actions';
+
+        return view($view, [
             'key' => $key,
             'item' => $this,
         ]);

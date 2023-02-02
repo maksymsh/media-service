@@ -72,8 +72,8 @@
 
                     <x-admin.layout.sidebar-item :title="__('News Categories')"
                                                  icon="users"
-                                                 :url="route('admin.news-categories.index')"
-                                                 route="admin.news-categories*"
+                                                 :url="route('admin.categories.index', 'news')"
+                                                 :route="route('admin.categories.index', 'news')"
                     />
                 </x-admin.layout.sidebar-item>
             @endcan
@@ -92,8 +92,8 @@
 
                     <x-admin.layout.sidebar-item :title="__('Product Categories')"
                                                  icon="users"
-                                                 :url="route('admin.products-categories.index')"
-                                                 route="admin.products-categories*"
+                                                 :url="route('admin.categories.index', 'products')"
+                                                 :route="route('admin.categories.index', 'products')"
                     />
                 </x-admin.layout.sidebar-item>
             @endcan
@@ -113,8 +113,8 @@
 
                     <x-admin.layout.sidebar-item :title="__('Good Categories')"
                                                  icon="users"
-                                                 :url="route('admin.goods-categories.index')"
-                                                 route="admin.goods-categories*"
+                                                 :url="route('admin.categories.index', 'goods')"
+                                                 :route="route('admin.categories.index', 'goods')"
                     />
                 </x-admin.layout.sidebar-item>
             @endcan
@@ -133,8 +133,8 @@
 
                     <x-admin.layout.sidebar-item :title="__('Service Categories')"
                                                  icon="users"
-                                                 :url="route('admin.services-categories.index')"
-                                                 route="admin.services-categories*"
+                                                 :url="route('admin.categories.index', 'services')"
+                                                 :route="route('admin.categories.index', 'services')"
                     />
                 </x-admin.layout.sidebar-item>
             @endcan

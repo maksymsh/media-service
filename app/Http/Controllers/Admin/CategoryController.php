@@ -24,12 +24,14 @@ class CategoryController extends Controller
      * Display a listing of the resource.
      *
      * @param  Request  $request
+     * @param  string  $category_type
      * @param  CategoriesTable  $categories
      * @return View
      */
-    public function index(Request $request, CategoriesTable $categories)
+    public function index(Request $request, string $category_type, CategoriesTable $categories)
     {
         return view('admin.categories.index', [
+            'category_type' => $category_type,
             'categories' => $categories,
         ]);
     }
@@ -38,10 +40,11 @@ class CategoryController extends Controller
      * Show the form for creating a new resource.
      *
      * @param  Request  $request
+     * @param  string  $category_type
      * @param  Category  $category
      * @return View
      */
-    public function create(Request $request, Category $category)
+    public function create(Request $request, string $category_type, Category $category)
     {
         return view('admin.categories.create', [
             'category' => $category,
@@ -52,9 +55,10 @@ class CategoryController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  StoreCategoryRequest  $request
+     * @param  string  $category_type
      * @return RedirectResponse
      */
-    public function store(StoreCategoryRequest $request)
+    public function store(StoreCategoryRequest $request, string $category_type)
     {
         $category = Category::query()->create($request->validated());
 
@@ -62,17 +66,18 @@ class CategoryController extends Controller
 
         Toast::success("Category #$category->id created successfully.");
 
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.categories.index', $request->route('category_type'));
     }
 
     /**
      * Display the specified resource.
      *
      * @param  Request  $request
+     * @param  string  $category_type
      * @param  Category  $category
      * @return View
      */
-    public function show(Request $request, Category $category)
+    public function show(Request $request, string $category_type, Category $category)
     {
         return view('admin.categories.show', [
             'category' => $category,
@@ -83,10 +88,11 @@ class CategoryController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  Request  $request
+     * @param  string  $category_type
      * @param  Category  $category
      * @return View
      */
-    public function edit(Request $request, Category $category)
+    public function edit(Request $request, string $category_type, Category $category)
     {
         return view('admin.categories.edit', [
             'category' => $category,
@@ -97,10 +103,11 @@ class CategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  UpdateCategoryRequest  $request
+     * @param  string  $category_type
      * @param  Category  $category
      * @return RedirectResponse
      */
-    public function update(UpdateCategoryRequest $request, Category $category)
+    public function update(UpdateCategoryRequest $request, string $category_type, Category $category)
     {
         $category->update($request->validated());
 
@@ -108,22 +115,23 @@ class CategoryController extends Controller
 
         Toast::success("Category #$category->id updated successfully.");
 
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.categories.index', $request->route('category_type'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  Request  $request
+     * @param  string  $category_type
      * @param  Category  $category
      * @return RedirectResponse
      */
-    public function destroy(Request $request, Category $category)
+    public function destroy(Request $request, string $category_type, Category $category)
     {
         $category->delete();
 
         Toast::success("Category #$category->id updated successfully.");
 
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.categories.index', $request->route('category_type'));
     }
 }
