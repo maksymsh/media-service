@@ -29,10 +29,10 @@ class LayoutSeeder extends Seeder
             Layout::factory()->make(['name' => 'Product Categories', 'slug' => 'product-categories']),
             Layout::factory()->make(['name' => 'Product Category', 'slug' => 'product-category']),
             Layout::factory()->make(['name' => 'Product Page', 'slug' => 'product-page']),
-            Layout::factory()->make(['name' => 'Goods Index', 'slug' => 'goods-index']),
-            Layout::factory()->make(['name' => 'Goods Categories', 'slug' => 'goods-categories']),
-            Layout::factory()->make(['name' => 'Goods Category', 'slug' => 'goods-category']),
-            Layout::factory()->make(['name' => 'Goods Page', 'slug' => 'goods-page']),
+            Layout::factory()->make(['name' => 'Goods Index', 'slug' => 'good-index']),
+            Layout::factory()->make(['name' => 'Goods Categories', 'slug' => 'good-categories']),
+            Layout::factory()->make(['name' => 'Goods Category', 'slug' => 'good-category']),
+            Layout::factory()->make(['name' => 'Goods Page', 'slug' => 'good-page']),
             Layout::factory()->make(['name' => 'Service Index', 'slug' => 'service-index']),
             Layout::factory()->make(['name' => 'Service Categories', 'slug' => 'service-categories']),
             Layout::factory()->make(['name' => 'Service Category', 'slug' => 'service-category']),
@@ -46,8 +46,6 @@ class LayoutSeeder extends Seeder
             Layout::factory()->make(['name' => 'Order Index', 'slug' => 'order-index']),
             Layout::factory()->make(['name' => 'Account Index', 'slug' => 'account-index']),
         ];
-
-
 
         foreach ($data as $item) {
             $layout = Layout::query()->firstOrCreate($item->only($uniqueKeys), $item->getAttributes());

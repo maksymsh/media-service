@@ -44,4 +44,9 @@ class Page extends BaseModel implements HasMedia
         $this->addMediaCollection('images')
             ->acceptsMimeTypes(['image/jpeg', 'image/png']);
     }
+
+    public function layout()
+    {
+        return $this->belongsTo(Layout::class);
+    }
 }

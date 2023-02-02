@@ -49,7 +49,6 @@ class PagesTable extends AbstractTable
         });
 
         return QueryBuilder::for(Page::class)
-            ->allowedIncludes(['layout'])
             ->defaultSort('id')
             ->allowedSorts(['id'])
             ->allowedFilters(['id', $globalSearch])
