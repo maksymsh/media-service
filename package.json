@@ -5,7 +5,7 @@
     },
     "scripts": {
         "dev": "vite",
-        "build": "vite build && vite build --ssr",
+        "build": "vite build",
         "build-ssr": "vite build --ssr",
         "ssr": "npm run build-ssr && node bootstrap/ssr/ssr.mjs",
         "lint": "eslint --ext .js,.vue --fix --ignore-path .gitignore resources/js",
