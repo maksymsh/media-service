@@ -8,6 +8,6 @@
 
     @include('app.layout.footer')
 
-</div>
+    @include('app.layout.modals')
 
-@include('app.layout.modals')
+</div>

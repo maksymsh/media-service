@@ -1,0 +1,10 @@
+<?php
+
+namespace App\Pages;
+
+use App\Pages\Base\AppPage;
+
+class {{ class }} extends AppPage
+{
+
+}

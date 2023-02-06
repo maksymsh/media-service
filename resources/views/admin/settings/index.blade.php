@@ -11,10 +11,11 @@
 
         <x-splade-form :default="$settings">
 
-            <x-splade-input name="site_name" :label="__('Site name')" />
+            <x-splade-input name="app_name" :label="__('App name')" />
+            <x-splade-input name="app_description" :label="__('App description')" />
 
-            <x-splade-group inline :label="__('Site active')">
-                <x-splade-checkbox name="site_active" switch />
+            <x-splade-group inline :label="__('App active')">
+                <x-splade-checkbox name="app_active" switch />
             </x-splade-group>
 
             <x-splade-submit />

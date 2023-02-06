@@ -33,7 +33,6 @@
                 <div class="line-5"></div>
             </div>
             <div class="catalog-top">
-                <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
                 <div class="title">Створюємо продукти, які допомагають максимально оптимізувати роботу бізнесу</div>
                 <div class="lines"><img src="/images/lines-4.svg" alt=""></div>
             </div>
@@ -71,7 +70,7 @@
                                 trigger="loop"
                                 delay="2000"
                                 colors="primary:#4be1ec,secondary:#cb5eee"
-                                style="width:72px;height:72px">
+                                >
                             </lord-icon>
                         </div>
                         <div class="item-name">BAS Бухгалтерія</div>
@@ -110,7 +109,7 @@
                                 trigger="loop"
                                 delay="2000"
                                 colors="primary:#4be1ec,secondary:#cb5eee"
-                                style="width:72px;height:72px">
+                                >
                             </lord-icon>
                         </div>
                         <div class="item-name">BAS Комплексне управління підприємством</div>
@@ -132,7 +131,7 @@
                                 trigger="loop"
                                 delay="2000"
                                 colors="primary:#4be1ec,secondary:#cb5eee"
-                                style="width:72px;height:72px">
+                                >
                             </lord-icon>
                         </div>
                         <div class="item-name">BAS Управлінн торгівлею</div>
@@ -154,7 +153,7 @@
                                 trigger="loop"
                                 delay="2000"
                                 colors="primary:#4be1ec,secondary:#cb5eee"
-                                style="width:72px;height:72px">
+                                >
                             </lord-icon>
                         </div>
                         <div class="item-name">BAS Роздрібна торгівля</div>
@@ -176,7 +175,7 @@
                                 trigger="loop"
                                 delay="2000"
                                 colors="primary:#4be1ec,secondary:#cb5eee"
-                                style="width:72px;height:72px">
+                                >
                             </lord-icon>
                         </div>
                         <div class="item-name">BAS Малий бізнес</div>
@@ -198,7 +197,7 @@
                                 trigger="loop"
                                 delay="2000"
                                 colors="primary:#4be1ec,secondary:#cb5eee"
-                                style="width:72px;height:72px">
+                                >
                             </lord-icon>
                         </div>
                         <div class="item-name">BAS ERP</div>
@@ -220,7 +219,7 @@
                                 trigger="loop"
                                 delay="2000"
                                 colors="primary:#4be1ec,secondary:#cb5eee"
-                                style="width:72px;height:72px">
+                                >
                             </lord-icon>
                         </div>
                         <div class="item-name">BAS АГРО. ERP</div>
@@ -242,7 +241,7 @@
                                 trigger="loop"
                                 delay="2000"
                                 colors="primary:#4be1ec,secondary:#cb5eee"
-                                style="width:72px;height:72px">
+                                >
                             </lord-icon>
                         </div>
                         <div class="item-name">BAS Документообіг КОРП</div>
@@ -264,7 +263,7 @@
                                 trigger="loop"
                                 delay="2000"
                                 colors="primary:#4be1ec,secondary:#cb5eee"
-                                style="width:72px;height:72px">
+                                >
                             </lord-icon>
                         </div>
                         <div class="item-name">BAS Медицина</div>
@@ -286,7 +285,7 @@
                                 trigger="loop"
                                 delay="2000"
                                 colors="primary:#4be1ec,secondary:#cb5eee"
-                                style="width:72px;height:72px">
+                                >
                             </lord-icon>
                         </div>
                         <div class="item-name">BAS Комплексне управління паливним підприємством</div>
@@ -308,7 +307,7 @@
                                 trigger="loop"
                                 delay="2000"
                                 colors="primary:#4be1ec,secondary:#cb5eee"
-                                style="width:72px;height:72px">
+                                >
                             </lord-icon>
                         </div>
                         <div class="item-name">BAS Управління автотранспортом</div>
@@ -330,7 +329,7 @@
                                 trigger="loop"
                                 delay="2000"
                                 colors="primary:#4be1ec,secondary:#cb5eee"
-                                style="width:72px;height:72px">
+                                >
                             </lord-icon>
                         </div>
                         <div class="item-name">BAS Управління холдингом</div>

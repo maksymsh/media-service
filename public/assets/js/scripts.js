@@ -1,6 +1,5 @@
-'use strict'
-
-document.addEventListener('DOMContentLoaded', function (e) {
+window.initJS = () => {
+    'use strict'
     jQuery(document).ready(function (t) {
         var e = t('.solutions-content')
         if (!(e.length <= 0)) {
@@ -8,17 +7,17 @@ document.addEventListener('DOMContentLoaded', function (e) {
             var o = t('.solutions-menu-content'),
                 n =
                     (o.outerHeight(),
-                        {
-                            root: document.body.querySelector('body'),
-                            threshold: (function (t) {
-                                for (var e = [], o = 1; o <= t; o++) {
-                                    var n = o / t
-                                    e.push(n)
-                                }
-                                return e.push(0), e
-                            })(10),
-                            rootMargin: '200px 0px 0px 0px',
-                        }),
+                    {
+                        root: document.body.querySelector('body'),
+                        threshold: (function (t) {
+                            for (var e = [], o = 1; o <= t; o++) {
+                                var n = o / t
+                                e.push(n)
+                            }
+                            return e.push(0), e
+                        })(10),
+                        rootMargin: '200px 0px 0px 0px',
+                    }),
                 s = new IntersectionObserver(function (e) {
                     e.forEach(function (e) {
                         var n = e.target,
@@ -31,12 +30,12 @@ document.addEventListener('DOMContentLoaded', function (e) {
                                 u = t(window).height() / 2,
                                 l = t(window).scrollTop()
                             s.addClass('is-intersecting'),
-                            s.hasClass('solutions-item--solution') &&
-                            r.length &&
-                            l + u >= a &&
-                            l < a + c - u &&
-                            (o.find('li').removeClass('active'),
-                                r.addClass('active'))
+                                s.hasClass('solutions-item--solution') &&
+                                    r.length &&
+                                    l + u >= a &&
+                                    l < a + c - u &&
+                                    (o.find('li').removeClass('active'),
+                                    r.addClass('active'))
                         } else r.removeClass('active'), s.removeClass('is-intersecting')
                     })
                 }, n)
@@ -54,17 +53,17 @@ document.addEventListener('DOMContentLoaded', function (e) {
             var o = t('.info-menu'),
                 n =
                     (o.outerHeight(),
-                        {
-                            root: document.body.querySelector('body'),
-                            threshold: (function (t) {
-                                for (var e = [], o = 1; o <= t; o++) {
-                                    var n = o / t
-                                    e.push(n)
-                                }
-                                return e.push(0), e
-                            })(10),
-                            rootMargin: '-250px 0px 0px 0px',
-                        }),
+                    {
+                        root: document.body.querySelector('body'),
+                        threshold: (function (t) {
+                            for (var e = [], o = 1; o <= t; o++) {
+                                var n = o / t
+                                e.push(n)
+                            }
+                            return e.push(0), e
+                        })(10),
+                        rootMargin: '-250px 0px 0px 0px',
+                    }),
                 s = new IntersectionObserver(function (e) {
                     e.forEach(function (e) {
                         var n = e.target,
@@ -77,12 +76,12 @@ document.addEventListener('DOMContentLoaded', function (e) {
                                 u = t(window).height() / 2,
                                 l = t(window).scrollTop()
                             s.addClass('is-intersecting'),
-                            s.hasClass('solutions-item--solution') &&
-                            r.length &&
-                            l + u >= a &&
-                            l < a + c - u &&
-                            (o.find('li').removeClass('active'),
-                                r.addClass('active'))
+                                s.hasClass('solutions-item--solution') &&
+                                    r.length &&
+                                    l + u >= a &&
+                                    l < a + c - u &&
+                                    (o.find('li').removeClass('active'),
+                                    r.addClass('active'))
                         } else r.removeClass('active'), s.removeClass('is-intersecting')
                     })
                 }, n)
@@ -135,6 +134,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
         }
     })
 
+    console.log($(window).listeners)
     jQuery(document).ready(function () {
         $('a.scroll').click(function () {
             var elementClick = $(this).attr('href')
@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
                 {
                     scrollTop: destination,
                 },
-                1400,
+                1400
             )
             return false
         })
@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
             },
             function () {
                 $('body').removeClass('drop-open')
-            },
+            }
         )
         if ($('.counts-items').length) {
             var show = true
@@ -617,10 +617,10 @@ document.addEventListener('DOMContentLoaded', function (e) {
                 var Ra = a.getBoundingClientRect(),
                     R = Math.round(
                         Ra.top +
-                        b.getBoundingClientRect().height -
-                        document
-                            .querySelector('.solutions-wrapper')
-                            .getBoundingClientRect().bottom,
+                            b.getBoundingClientRect().height -
+                            document
+                                .querySelector('.solutions-wrapper')
+                                .getBoundingClientRect().bottom
                     ) // селектор блока, при достижении нижнего края которого нужно открепить прилипающий элемент
                 if (Ra.top - P <= 0) {
                     if (Ra.top - P <= R) {
@@ -639,10 +639,10 @@ document.addEventListener('DOMContentLoaded', function (e) {
                     function () {
                         a.children[0].style.width = getComputedStyle(
                             a,
-                            '',
+                            ''
                         ).width
                     },
-                    false,
+                    false
                 )
             }
         })()
@@ -691,10 +691,10 @@ document.addEventListener('DOMContentLoaded', function (e) {
                 var Ra = a.getBoundingClientRect(),
                     R = Math.round(
                         Ra.top +
-                        b.getBoundingClientRect().height -
-                        document
-                            .querySelector('.detail-info')
-                            .getBoundingClientRect().bottom,
+                            b.getBoundingClientRect().height -
+                            document
+                                .querySelector('.detail-info')
+                                .getBoundingClientRect().bottom
                     ) // селектор блока, при достижении нижнего края которого нужно открепить прилипающий элемент
                 if (Ra.top - P <= 0) {
                     if (Ra.top - P <= R) {
@@ -713,10 +713,10 @@ document.addEventListener('DOMContentLoaded', function (e) {
                     function () {
                         a.children[0].style.width = getComputedStyle(
                             a,
-                            '',
+                            ''
                         ).width
                     },
-                    false,
+                    false
                 )
             }
         })()
@@ -756,10 +756,10 @@ document.addEventListener('DOMContentLoaded', function (e) {
             values: [3330, 10000],
             create: function () {
                 handle5.val(
-                    number_format($(this).slider('values', 0), 0, '.', ' '),
+                    number_format($(this).slider('values', 0), 0, '.', ' ')
                 )
                 handle6.val(
-                    number_format($(this).slider('values', 1), 0, '.', ' '),
+                    number_format($(this).slider('values', 1), 0, '.', ' ')
                 )
             },
 
@@ -769,4 +769,4 @@ document.addEventListener('DOMContentLoaded', function (e) {
             },
         })
     }
-})
+}

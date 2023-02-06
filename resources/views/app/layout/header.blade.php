@@ -2,7 +2,7 @@
     <div class="container-fluid h-100">
         <div class="d-flex align-items-center h-100">
             <div class="logo-container">
-                <a href="/" class="logo">
+                <x-app.link href="/" class="logo">
                     <svg width="198" height="68" viewBox="0 0 198 68" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_601_6654)">
                             <path
@@ -114,7 +114,7 @@
 									<img src="/images/logo-text.png" alt="">
 									<img src="/images/logo-text-b.png" alt="" class="black">
 								</span>
-                </a>
+                </x-app.link>
             </div>
             <button class="menu-button d-flex  align-items-center">
                 <span class="but-icon"></span>
@@ -133,22 +133,22 @@
                     <ul class="nav align-items-center justify-content-between">
                         <li class="d-flex align-items-center">
                             <div class="d-flex align-items-center justify-content-between">
-                                <a href="#" class="nav-item">Про компанію</a>
+                                <x-app.link :href="route('about.index')" class="nav-item">Про компанію</x-app.link>
                             </div>
                         </li>
                         <li class="d-flex align-items-center">
                             <div class="d-flex align-items-center justify-content-between">
-                                <a href="#" class="nav-item">Послуги</a>
+                                <x-app.link :href="route('services.index')" class="nav-item">Послуги</x-app.link>
                             </div>
                         </li>
                         <li class="d-flex align-items-center">
                             <div class="d-flex align-items-center justify-content-between">
-                                <a href="#" class="nav-item">Продукти</a>
+                                <x-app.link :href="route('products.index')" class="nav-item">Продукти</x-app.link>
                             </div>
                         </li>
                         <li class="drop d-flex align-items-center">
                             <div class="d-flex align-items-center justify-content-between">
-                                <a href="#" class="nav-item">Товари</a>
+                                <x-app.link :href="route('goods.index')" class="nav-item">Товари</x-app.link>
                                 <span class="icc drop-but icon-arrow-down"></span>
                             </div>
                             <div class="drop-container">
@@ -279,22 +279,22 @@
                         </li>
                         <li class="d-flex align-items-center">
                             <div class="d-flex align-items-center justify-content-between">
-                                <a href="#" class="nav-item">Проекти</a>
+                                <x-app.link :href="route('projects.index')" class="nav-item">Проекти</x-app.link>
                             </div>
                         </li>
                         <li class="d-flex align-items-center">
                             <div class="d-flex align-items-center justify-content-between">
-                                <a href="#" class="nav-item">Навчання</a>
+                                <x-app.link :href="route('study.index')" class="nav-item">Навчання</x-app.link>
                             </div>
                         </li>
                         <li class="d-flex align-items-center">
                             <div class="d-flex align-items-center justify-content-between">
-                                <a href="#" class="nav-item">Новини</a>
+                                <x-app.link :href="route('news.index')" class="nav-item">Новини</x-app.link>
                             </div>
                         </li>
                         <li class="d-flex align-items-center">
                             <div class="d-flex align-items-center justify-content-between">
-                                <a href="#" class="nav-item">Контакти</a>
+                                <x-app.link :href="route('contacts.index')" class="nav-item">Контакти</x-app.link>
                             </div>
                         </li>
                     </ul>

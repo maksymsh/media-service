@@ -18,6 +18,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton(GeneralSettings::class);
+        $this->app->bind('settings', GeneralSettings::class);
     }
 
     /**

@@ -208,7 +208,7 @@
                                             </div>
                                             <div class="star">
                                                 <span class="star-empty icon-star"></span>
-                                                <span style="width:0%;" class="star-full icon-star"></span>
+                                                <span ></span>
                                             </div>
                                         </div>
                                     </div>
@@ -251,7 +251,7 @@
                                             </div>
                                             <div class="star">
                                                 <span class="star-empty icon-star"></span>
-                                                <span style="width:0%;" class="star-full icon-star"></span>
+                                                <span ></span>
                                             </div>
                                         </div>
                                     </div>
@@ -284,7 +284,7 @@
                                             </div>
                                             <div class="star">
                                                 <span class="star-empty icon-star"></span>
-                                                <span style="width:0%;" class="star-full icon-star"></span>
+                                                <span ></span>
                                             </div>
                                         </div>
                                     </div>

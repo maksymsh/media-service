@@ -5,12 +5,13 @@
     <div class="main-container">
         <div class="info-container d-flex align-items-center justify-content-center">
             <div class="h1-container">
-                <h1>{{ settings('app_name') }}</h1>
-                <div class="h1-anons">{{ settings('app_description') }}div>
-                <a href="#" class="button-default d-inline-flex align-items-center">
+                <h1>{!! settings('app_name') !!}</h1>
+                <div class="h1-anons">{!! settings('app_description') !!}</div>
+
+                <x-app.link :href="route('services.index')" class="button-default d-inline-flex align-items-center">
                     <span class="value">Наші послуги</span>
                     <span class="ic icon-arrow-right"></span>
-                </a>
+                </x-app.link>
             </div>
         </div>
         <div class="shape-1">

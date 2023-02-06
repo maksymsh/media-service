@@ -30,6 +30,7 @@
             <div class="shape-2"><img src="/images/sh2.svg" alt=""></div>
         </div>
     </div>
+
     <div class="container-fluid">
         <section class="about-page relative">
             <div class="grid-inner">
@@ -86,7 +87,6 @@
                 </div>
             </div>
             <div class="about-why d-flex justify-content-end">
-                <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
                 <div class="line"><img src="/images/big-line.svg" alt=""></div>
                 <div class="med"><img src="/images/med.svg" alt=""></div>
                 <div class="why-content">
@@ -99,7 +99,7 @@
                                     trigger="loop"
                                     colors="primary:#4be1ec,secondary:#cb5eee"
                                     state="loop"
-                                    style="width:72px;height:72px">
+                                    >
                                 </lord-icon>
                             </div>
                             <div class="name">Великий досвід автоматизації підприємств</div>
@@ -111,7 +111,7 @@
                                     trigger="loop"
                                     colors="primary:#4be1ec,secondary:#cb5eee"
                                     state="loop"
-                                    style="width:72px;height:72px">
+                                    >
                                 </lord-icon>
                             </div>
                             <div class="name">Команда <br/>професіоналів</div>
@@ -123,7 +123,7 @@
                                     trigger="loop"
                                     colors="primary:#4be1ec,secondary:#cb5eee"
                                     state="loop"
-                                    style="width:72px;height:72px">
+                                    >
                                 </lord-icon>
                             </div>
                             <div class="name">Персональні акаунт-менеджери</div>
@@ -135,7 +135,7 @@
                                     trigger="loop"
                                     colors="primary:#4be1ec,secondary:#cb5eee"
                                     state="loop"
-                                    style="width:72px;height:72px">
+                                    >
                                 </lord-icon>
                             </div>
                             <div class="name">Власний сервісний центр</div>
@@ -147,7 +147,7 @@
                                     trigger="loop"
                                     colors="primary:#4be1ec,secondary:#cb5eee"
                                     state="loop"
-                                    style="width:72px;height:72px">
+                                    >
                                 </lord-icon>
                             </div>
                             <div class="name">Широкий асортимент товарів та послуг</div>
@@ -177,7 +177,7 @@
                                     trigger="loop"
                                     colors="primary:#4be1ec,secondary:#cb5eee"
                                     state="loop"
-                                    style="width:72px;height:72px">
+                                    >
                                 </lord-icon>
                             </div>
                             <div class="name">Широкий асортимент товарів та послуг</div>
@@ -207,12 +207,12 @@
                                     Створюємо єдиний інформаційний простір.
                                 </div>
                             </div>
-                            <a href="#" class="link-default-back d-inline-flex align-items-center all">
+                            <x-app.link href="#" class="link-default-back d-inline-flex align-items-center all">
 											<span class="icon d-flex align-items-center justify-content-center">
 												<span class="ic icon-arrow-right"></span>
 											</span>
                                 <span class="value">всі послуги</span>
-                            </a>
+                            </x-app.link>
                         </div>
                         <div class="item d-xl-flex align-items-center">
                             <div class="item-info">
@@ -221,12 +221,12 @@
                                     бізнес на якісно новий рівень
                                 </div>
                             </div>
-                            <a href="#" class="link-default-back d-inline-flex align-items-center all">
+                            <x-app.link href="#" class="link-default-back d-inline-flex align-items-center all">
 											<span class="icon d-flex align-items-center justify-content-center">
 												<span class="ic icon-arrow-right"></span>
 											</span>
                                 <span class="value">всі Продукти</span>
-                            </a>
+                            </x-app.link>
                         </div>
                         <div class="item d-xl-flex align-items-center">
                             <div class="item-info">
@@ -235,12 +235,12 @@
                                     торгового обладнання.
                                 </div>
                             </div>
-                            <a href="#" class="link-default-back d-inline-flex align-items-center all">
+                            <x-app.link href="#" class="link-default-back d-inline-flex align-items-center all">
 											<span class="icon d-flex align-items-center justify-content-center">
 												<span class="ic icon-arrow-right"></span>
 											</span>
                                 <span class="value">всі Товари</span>
-                            </a>
+                            </x-app.link>
                         </div>
                         <div class="item d-xl-flex align-items-center">
                             <div class="item-info">
@@ -249,12 +249,12 @@
                                     провідними методистами САБ - це гарантія якості Вашого навчання
                                 </div>
                             </div>
-                            <a href="#" class="link-default-back d-inline-flex align-items-center all">
+                            <x-app.link href="#" class="link-default-back d-inline-flex align-items-center all">
 											<span class="icon d-flex align-items-center justify-content-center">
 												<span class="ic icon-arrow-right"></span>
 											</span>
                                 <span class="value">детальніше</span>
-                            </a>
+                            </x-app.link>
                         </div>
                     </div>
                 </div>
@@ -266,12 +266,12 @@
                         <div class="anons">За 17 років на ринку, на нашому досвіді більше тисячі виконаних проектів
                             у сферах торгівлі, будівництва, енергетики, медицини та інших.
                         </div>
-                        <a href="#" class="link-default-back d-inline-flex align-items-center all">
+                        <x-app.link href="#" class="link-default-back d-inline-flex align-items-center all">
 										<span class="icon d-flex align-items-center justify-content-center">
 											<span class="ic icon-arrow-right"></span>
 										</span>
                             <span class="value">реалізовані проекти</span>
-                        </a>
+                        </x-app.link>
                     </div>
                 </div>
                 <div class="clients-logos">

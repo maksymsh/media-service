@@ -8,9 +8,10 @@ document.addEventListener('splade:request-progress', (detail) => {
 
 document.addEventListener('splade:request-response', (detail) => {
     console.log('splade:request-response', detail)
-    setTimeout(() =>
+    setTimeout(() => {
+        window.initJS()
         document.dispatchEvent(new CustomEvent('DOMContentLoaded'))
-    )
+    })
 })
 
 document.addEventListener('splade:request-error', (detail) => {

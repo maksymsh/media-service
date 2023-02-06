@@ -14,8 +14,9 @@ class GeneratSettingsRequest extends BaseFormRequest
     public function rules(): array
     {
         return [
-            'site_name' => ['required', 'string'],
-            'site_active' => ['required', 'boolean'],
+            'app_name' => ['nullable', 'string'],
+            'app_description' => ['nullable', 'string'],
+            'app_active' => ['nullable', 'boolean'],
         ];
     }
 }

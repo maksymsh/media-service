@@ -16,7 +16,7 @@
                     <div class="breadcrumps  black">
                         <ul class="nav flex-wrap">
                             <li>
-                                <a href="/">Головна</a>
+                                <x-app.link href="/">Головна</x-app.link>
                             </li>
                             <li>
                                 <span class="current">Контакти</span>

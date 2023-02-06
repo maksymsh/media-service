@@ -40,6 +40,12 @@ if (! function_exists('routeActive')) {
 if (! function_exists('settings')) {
     function settings(string|array $key = null)
     {
-        return app('settings');
+        $settings = app('settings');
+
+        if ($key) {
+            return $settings->{$key};
+        }
+
+        return $settings;
     }
 }
