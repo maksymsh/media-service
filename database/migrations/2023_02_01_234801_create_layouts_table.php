@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('layouts', function (Blueprint $table) {
             $table->id();
-            $table->string('code')->unique();
+            $table->string('code')->nullable()->unique();
             $table->string('name');
-            $table->string('slug');
+            $table->string('slug')->nullable();
             $table->json('properties')->nullable();
 
             $table->timestamps();
