@@ -14,9 +14,11 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\PublishingController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingsController;
+use App\Http\Controllers\Admin\SortingController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VacancyController;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +37,10 @@ use Illuminate\Support\Facades\Route;
 $prefix = config('admin.prefix');
 
 Route::prefix($prefix)->as('admin.')->group(function () {
+    // Helpers
+    Route::post('/sorting', [SortingController::class, 'update'])->name('sorting.update');
+    Route::post('/publishing', [PublishingController::class, 'update'])->name('publishing.update');
+
     // Auth routes
     Route::middleware(['guest.admin'])->group(function () {
         Route::get('login', [AuthController::class, 'index'])->name('login');

@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\PublishingController;
-use App\Http\Controllers\Admin\SortingController;
 use App\Http\Controllers\Admin\UploadController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,10 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::spladeTable();
 Route::spladeUploads();
 Route::spladePasswordConfirmation();
-
-// Helpers
-Route::post('/sorting', [SortingController::class, 'update'])->name('sorting.update');
-Route::post('/publishing', [PublishingController::class, 'update'])->name('publishing.update');
 
 // Media Library
 Route::post('editor/upload', [UploadController::class, 'editor'])->name('editor.upload');

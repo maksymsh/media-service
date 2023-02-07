@@ -18,7 +18,12 @@ class News extends BaseModel implements HasMedia
         'title',
         'slug',
         'content',
+        'published',
         'layout_id',
+    ];
+
+    protected $casts = [
+        'published' => 'boolean',
     ];
 
     public function getSlugOptions(): SlugOptions
