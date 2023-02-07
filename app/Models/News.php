@@ -20,6 +20,10 @@ class News extends BaseModel implements HasMedia
         'content',
         'published',
         'layout_id',
+        'seo_h1',
+        'seo_title',
+        'seo_description',
+        'seo_keywords',
     ];
 
     protected $casts = [

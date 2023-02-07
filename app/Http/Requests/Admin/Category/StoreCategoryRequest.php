@@ -24,7 +24,14 @@ class StoreCategoryRequest extends BaseFormRequest
     public function rules()
     {
         return [
-            //
+            'name' => ['nullable'],
+            'slug' => ['nullable'],
+            'description' => ['nullable'],
+            'layout_id' => ['nullable'],
+            'seo_h1' => ['nullable'],
+            'seo_title' => ['nullable'],
+            'seo_description' => ['nullable'],
+            'seo_keywords' => ['nullable'],
         ];
     }
 }

@@ -24,7 +24,14 @@ class UpdateProjectRequest extends BaseFormRequest
     public function rules()
     {
         return [
-            //
+            'title' => ['nullable'],
+            'slug' => ['nullable'],
+            'text' => ['nullable'],
+            'layout_id' => ['nullable'],
+            'seo_h1' => ['nullable'],
+            'seo_title' => ['nullable'],
+            'seo_description' => ['nullable'],
+            'seo_keywords' => ['nullable'],
         ];
     }
 }

@@ -24,11 +24,16 @@ class StoreProductRequest extends BaseFormRequest
     public function rules()
     {
         return [
-            'name' => ['required'],
+            'name' => ['nullable'],
             'slug' => ['nullable'],
-            'price' => ['nullable'],
             'description' => ['nullable'],
-            'short_description' => ['nullable'],
+            'description_short' => ['nullable'],
+            'price' => ['nullable'],
+            'layout_id' => ['nullable'],
+            'seo_h1' => ['nullable'],
+            'seo_title' => ['nullable'],
+            'seo_description' => ['nullable'],
+            'seo_keywords' => ['nullable'],
         ];
     }
 }

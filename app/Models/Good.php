@@ -18,8 +18,13 @@ class Good extends BaseModel implements HasMedia
         'name',
         'slug',
         'description',
+        'description_short',
         'price',
         'layout_id',
+        'seo_h1',
+        'seo_title',
+        'seo_description',
+        'seo_keywords',
     ];
 
     public function getSlugOptions(): SlugOptions

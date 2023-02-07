@@ -20,6 +20,10 @@ class Service extends BaseModel implements HasMedia
         'description',
         'price',
         'layout_id',
+        'seo_h1',
+        'seo_title',
+        'seo_description',
+        'seo_keywords',
     ];
 
     public function getSlugOptions(): SlugOptions

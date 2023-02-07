@@ -19,6 +19,10 @@ class Vacancy extends BaseModel implements HasMedia
         'slug',
         'text',
         'layout_id',
+        'seo_h1',
+        'seo_title',
+        'seo_description',
+        'seo_keywords',
     ];
 
     public function getSlugOptions(): SlugOptions
