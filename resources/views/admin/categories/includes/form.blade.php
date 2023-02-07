@@ -10,7 +10,7 @@
 
 <x-splade-textarea name="description" :label="__('Description')" wysiwyg />
 
-<x-splade-textarea name="short description" :label="__('Short Description')" />
+<x-splade-textarea name="description_short" :label="__('Short Description')" />
 
 <div>
     <h2>Seo</h2>

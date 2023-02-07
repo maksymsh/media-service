@@ -19,7 +19,7 @@
     @endif
 
     @if($show)
-        <x-admin.link class="btn btn-sm" href="{{ route('admin.'.$key.'.show', $item) }}" modal>
+        <x-admin.link class="btn btn-sm" href="{{ route('admin.'.$key.'.show', $item) }}">
             <x-admin.icon name="eye"/>
         </x-admin.link>
     @endif

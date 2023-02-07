@@ -17,6 +17,11 @@ class Banner extends BaseModel implements HasMedia
     protected $fillable = [
         'name',
         'slug',
+        'published',
+    ];
+
+    protected $casts = [
+        'published' => 'boolean',
     ];
 
     public function getSlugOptions(): SlugOptions

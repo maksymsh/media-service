@@ -19,10 +19,15 @@ class Course extends BaseModel implements HasMedia
         'slug',
         'description',
         'layout_id',
+        'published',
         'seo_h1',
         'seo_title',
         'seo_description',
         'seo_keywords',
+    ];
+
+    protected $casts = [
+        'published' => 'boolean',
     ];
 
     public function getSlugOptions(): SlugOptions
