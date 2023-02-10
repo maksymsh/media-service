@@ -21,6 +21,7 @@ class SeoUrlController extends Controller
                 Good::class => app(GoodController::class)->category($category),
             };
         }
-        // TODO: Implement __invoke() method.
+
+        abort(404);
     }
 }
