@@ -20,7 +20,9 @@ class ProductController extends Controller
 
     public function category(Category $category)
     {
-        return view('app.products.category');
+        return view('app.products.category', [
+            'category' => $category,
+        ]);
     }
 
     public function category2(Product $product)

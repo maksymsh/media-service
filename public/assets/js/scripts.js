@@ -179,7 +179,7 @@ window.initJS = () => {
             $(window).on('scroll load resize', function () {
                 if (!show) return false // Отменяем показ анимации, если она уже была выполнена
                 var w_top = $(window).scrollTop() // Количество пикселей на которое была прокручена страница
-                var e_top = $(countbox).offset().top // Расстояние от блока со счетчиками до верха всего документа
+                var e_top = $(countbox).offset()?.top // Расстояние от блока со счетчиками до верха всего документа
                 var w_height = $(window).height() // Высота окна браузера
                 var d_height = $(document).height() // Высота всего документа
                 var e_height = $(countbox).outerHeight() // Полная высота блока со счетчиками
@@ -607,7 +607,7 @@ window.initJS = () => {
                         'px;'
                     a.insertBefore(b, a.firstChild)
                     var l = a.childNodes.length
-                    for (var i = 1; i < l; i++) {
+                    for (i = 1; i < l; i++) {
                         b.appendChild(a.childNodes[1])
                     }
                     a.style.height = b.getBoundingClientRect().height + 'px'
@@ -620,7 +620,7 @@ window.initJS = () => {
                             b.getBoundingClientRect().height -
                             document
                                 .querySelector('.solutions-wrapper')
-                                .getBoundingClientRect().bottom
+                                ?.getBoundingClientRect().bottom
                     ) // селектор блока, при достижении нижнего края которого нужно открепить прилипающий элемент
                 if (Ra.top - P <= 0) {
                     if (Ra.top - P <= R) {
@@ -681,7 +681,7 @@ window.initJS = () => {
                         'px;'
                     a.insertBefore(b, a.firstChild)
                     var l = a.childNodes.length
-                    for (var i = 1; i < l; i++) {
+                    for (i = 1; i < l; i++) {
                         b.appendChild(a.childNodes[1])
                     }
                     a.style.height = b.getBoundingClientRect().height + 'px'

@@ -27,5 +27,8 @@ module.exports = {
     globals: {
         axios: true,
         __: true,
+        $: true,
+        jQuery: true,
+        simpleParallax: true,
     },
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\App\HomeController;
 use App\Http\Controllers\App\NewsController;
 use App\Http\Controllers\App\ProductController;
 use App\Http\Controllers\App\ProjectController;
+use App\Http\Controllers\App\SeoUrlController;
 use App\Http\Controllers\App\ServiceController;
 use App\Http\Controllers\App\StudyController;
 use Illuminate\Support\Facades\Route;
@@ -54,3 +55,5 @@ Route::get('/study', [StudyController::class, 'index'])->name('study.index');
 Route::get('/study/courses', [StudyController::class, 'courses'])->name('study.courses');
 Route::get('/study/courses/{course}', [StudyController::class, 'course'])->name('study.course');
 Route::get('/study/videos', [StudyController::class, 'videos'])->name('study.videos');
+
+Route::get('/{slug}', SeoUrlController::class)->name('seo-url');

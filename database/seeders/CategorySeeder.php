@@ -29,6 +29,7 @@ class CategorySeeder extends Seeder
             Category::factory()->afterCreating(fn (Category $category) => $category->addMedia(File::get(public_path('images/icon1.svg')))->toMediaCollection('image'))->make([
                 'type' => Service::class,
                 'name' => 'BAS',
+                'slug' => 'bas-service',
                 'top' => true,
                 'description' => '<div class="col-anons">
                                             Програмні рішення для створення комплексних систем автоматизації бізнесу
@@ -114,6 +115,7 @@ class CategorySeeder extends Seeder
             Category::factory()->afterCreating(fn (Category $category) => $category->addMedia(File::get(public_path('images/icon6.svg')))->toMediaCollection('image'))->make([
                 'type' => Product::class,
                 'name' => 'BAS',
+                'slug' => 'bas-products',
                 'top' => true,
                 'description' => '<div class="col-anons">
                                             Програмний продукт призначений для автоматизації бізнес-процесів роздрібних торгових точок

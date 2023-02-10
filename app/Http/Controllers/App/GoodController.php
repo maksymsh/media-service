@@ -15,7 +15,9 @@ class GoodController extends Controller
 
     public function category(Category $category)
     {
-        return view('app.goods.category');
+        return view('app.goods.category', [
+            'category' => $category,
+        ]);
     }
 
     public function good(Good $good)
