@@ -23,8 +23,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{slug}', SeoUrlController::class)->name('seo-url');
-
 Route::middleware(['splade'])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
@@ -59,3 +57,5 @@ Route::middleware(['splade'])->group(function () {
     Route::get('/study/courses/{course}', [StudyController::class, 'course'])->name('study.course');
     Route::get('/study/videos', [StudyController::class, 'videos'])->name('study.videos');
 });
+
+Route::get('/{slug}', SeoUrlController::class)->name('seo-url');
