@@ -8,7 +8,6 @@ use Illuminate\Http\UploadedFile;
  * Class UploadMediaRequest
  *
  * @property int $model_id
- * @property string $model_type
  * @property string $collection
  * @property string $title
  * @property string $alt

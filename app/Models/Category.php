@@ -15,10 +15,11 @@ class Category extends BaseModel implements HasMedia
     use InteractsWithMedia;
 
     protected $fillable = [
+        'type',
+        'top',
         'name',
         'slug',
         'description',
-        'price',
         'layout_id',
         'published',
         'seo_h1',
@@ -28,6 +29,7 @@ class Category extends BaseModel implements HasMedia
     ];
 
     protected $casts = [
+        'top' => 'boolean',
         'published' => 'boolean',
     ];
 

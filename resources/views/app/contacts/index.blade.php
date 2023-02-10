@@ -1,5 +1,7 @@
 @extends('app.layout.app')
 
+@section('header-class')fix@endsection
+
 @section('content')
 
     <div class="container-fluid">

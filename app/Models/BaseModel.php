@@ -35,6 +35,11 @@ class BaseModel extends Model
         return parent::getAttribute($key);
     }
 
+    public function getUrlAttribute($url = null)
+    {
+        return $url ?: url($this->slug);
+    }
+
     public function save(array $options = [])
     {
         if ($this instanceof HasMedia) {

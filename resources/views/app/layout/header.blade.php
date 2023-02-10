@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header @yield('header-class')">
     <div class="container-fluid h-100">
         <div class="d-flex align-items-center h-100">
             <div class="logo-container">
