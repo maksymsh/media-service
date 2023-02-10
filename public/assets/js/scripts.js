@@ -134,7 +134,6 @@ window.initJS = () => {
         }
     })
 
-    console.log($(window).listeners)
     jQuery(document).ready(function () {
         $('a.scroll').click(function () {
             var elementClick = $(this).attr('href')
