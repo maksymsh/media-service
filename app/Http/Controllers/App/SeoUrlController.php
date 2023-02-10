@@ -13,6 +13,8 @@ class SeoUrlController extends Controller
 {
     public function __invoke($slug)
     {
+        $route = null;
+
         $category = Category::query()->where('slug', $slug)->first();
 
         if ($category) {
@@ -21,7 +23,9 @@ class SeoUrlController extends Controller
                 Product::class => route('products.category', $category),
                 Good::class => route('goods.category', $category),
             };
+        }
 
+        if ($route) {
             $parts = explode('?', request()->fullUrl());
 
             $url = $route.(count($parts) > 1 ? ('?'.array_pop($parts)) : '');
