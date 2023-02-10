@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Service\StoreServiceRequest;
 use App\Http\Requests\Admin\Service\UpdateServiceRequest;
 use App\Models\Service;
+use App\Services\ServiceService;
 use App\Services\UploadMediaService;
 use App\Tables\ServicesTable;
 use Illuminate\Contracts\View\View;
@@ -16,6 +17,7 @@ use ProtoneMedia\Splade\Facades\Toast;
 class ServiceController extends Controller
 {
     public function __construct(
+        protected ServiceService $serviceService,
         protected UploadMediaService $uploadMediaService
     ) {
     }
@@ -56,7 +58,7 @@ class ServiceController extends Controller
      */
     public function store(StoreServiceRequest $request)
     {
-        $service = Service::query()->create($request->validated());
+        $service = $this->serviceService->create($request->validated());
 
         $this->uploadMediaService->sync($request, $service);
 
@@ -102,7 +104,7 @@ class ServiceController extends Controller
      */
     public function update(UpdateServiceRequest $request, Service $service)
     {
-        $service->update($request->validated());
+        $this->serviceService->update($service, $request->validated());
 
         $this->uploadMediaService->sync($request, $service);
 
@@ -120,9 +122,9 @@ class ServiceController extends Controller
      */
     public function destroy(Request $request, Service $service)
     {
-        $service->delete();
+        $this->serviceService->delete($service);
 
-        Toast::success("Service #$service->id updated successfully.");
+        Toast::success("Service #$service->id deleted successfully.");
 
         return redirect()->route('admin.services.index');
     }

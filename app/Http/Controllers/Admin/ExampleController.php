@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Example\StoreExampleRequest;
 use App\Http\Requests\Admin\Example\UpdateExampleRequest;
 use App\Models\Example;
+use App\Services\ExampleService;
 use App\Services\UploadMediaService;
 use App\Tables\ExamplesTable;
 use Illuminate\Contracts\View\View;
@@ -16,6 +17,7 @@ use ProtoneMedia\Splade\Facades\Toast;
 class ExampleController extends Controller
 {
     public function __construct(
+        protected ExampleService $exampleService,
         protected UploadMediaService $uploadMediaService
     ) {
     }
@@ -56,7 +58,7 @@ class ExampleController extends Controller
      */
     public function store(StoreExampleRequest $request)
     {
-        $example = Example::query()->create($request->validated());
+        $example = $this->exampleService->create($request->validated());
 
         $this->uploadMediaService->sync($request, $example);
 
@@ -102,7 +104,7 @@ class ExampleController extends Controller
      */
     public function update(UpdateExampleRequest $request, Example $example)
     {
-        $example->update($request->validated());
+        $this->exampleService->update($example, $request->validated());
 
         $this->uploadMediaService->sync($request, $example);
 
@@ -120,9 +122,9 @@ class ExampleController extends Controller
      */
     public function destroy(Request $request, Example $example)
     {
-        $example->delete();
+        $this->exampleService->delete($example);
 
-        Toast::success("Example #$example->id updated successfully.");
+        Toast::success("Example #$example->id deleted successfully.");
 
         return redirect()->route('admin.examples.index');
     }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Good\StoreGoodRequest;
 use App\Http\Requests\Admin\Good\UpdateGoodRequest;
 use App\Models\Good;
+use App\Services\GoodService;
 use App\Services\UploadMediaService;
 use App\Tables\GoodsTable;
 use Illuminate\Contracts\View\View;
@@ -16,6 +17,7 @@ use ProtoneMedia\Splade\Facades\Toast;
 class GoodController extends Controller
 {
     public function __construct(
+        protected GoodService $goodService,
         protected UploadMediaService $uploadMediaService
     ) {
     }
@@ -56,7 +58,7 @@ class GoodController extends Controller
      */
     public function store(StoreGoodRequest $request)
     {
-        $good = Good::query()->create($request->validated());
+        $good = $this->goodService->create($request->validated());
 
         $this->uploadMediaService->sync($request, $good);
 
@@ -102,7 +104,7 @@ class GoodController extends Controller
      */
     public function update(UpdateGoodRequest $request, Good $good)
     {
-        $good->update($request->validated());
+        $this->goodService->update($good, $request->validated());
 
         $this->uploadMediaService->sync($request, $good);
 
@@ -120,9 +122,9 @@ class GoodController extends Controller
      */
     public function destroy(Request $request, Good $good)
     {
-        $good->delete();
+        $this->goodService->delete($good);
 
-        Toast::success("Good #$good->id updated successfully.");
+        Toast::success("Good #$good->id deleted successfully.");
 
         return redirect()->route('admin.goods.index');
     }

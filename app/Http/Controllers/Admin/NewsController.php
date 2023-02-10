@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\News\StoreNewsRequest;
 use App\Http\Requests\Admin\News\UpdateNewsRequest;
 use App\Models\News;
+use App\Services\NewsService;
 use App\Services\UploadMediaService;
 use App\Tables\NewsTable;
 use Illuminate\Contracts\View\View;
@@ -16,6 +17,7 @@ use ProtoneMedia\Splade\Facades\Toast;
 class NewsController extends Controller
 {
     public function __construct(
+        protected NewsService $newsService,
         protected UploadMediaService $uploadMediaService
     ) {
     }
@@ -56,7 +58,7 @@ class NewsController extends Controller
      */
     public function store(StoreNewsRequest $request)
     {
-        $news = News::query()->create($request->validated());
+        $news = $this->newsService->create($request->validated());
 
         $this->uploadMediaService->sync($request, $news);
 
@@ -102,7 +104,7 @@ class NewsController extends Controller
      */
     public function update(UpdateNewsRequest $request, News $news)
     {
-        $news->update($request->validated());
+        $this->newsService->update($news, $request->validated());
 
         $this->uploadMediaService->sync($request, $news);
 
@@ -120,9 +122,9 @@ class NewsController extends Controller
      */
     public function destroy(Request $request, News $news)
     {
-        $news->delete();
+        $this->newsService->delete($news);
 
-        Toast::success("News #$news->id updated successfully.");
+        Toast::success("News #$news->id deleted successfully.");
 
         return redirect()->route('admin.news.index');
     }

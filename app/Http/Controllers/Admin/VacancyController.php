@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\Vacancy\StoreVacancyRequest;
 use App\Http\Requests\Admin\Vacancy\UpdateVacancyRequest;
 use App\Models\Vacancy;
 use App\Services\UploadMediaService;
+use App\Services\VacancyService;
 use App\Tables\VacanciesTable;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -16,6 +17,7 @@ use ProtoneMedia\Splade\Facades\Toast;
 class VacancyController extends Controller
 {
     public function __construct(
+        protected VacancyService $vacancyService,
         protected UploadMediaService $uploadMediaService
     ) {
     }
@@ -56,7 +58,7 @@ class VacancyController extends Controller
      */
     public function store(StoreVacancyRequest $request)
     {
-        $vacancy = Vacancy::query()->create($request->validated());
+        $vacancy = $this->vacancyService->create($request->validated());
 
         $this->uploadMediaService->sync($request, $vacancy);
 
@@ -102,7 +104,7 @@ class VacancyController extends Controller
      */
     public function update(UpdateVacancyRequest $request, Vacancy $vacancy)
     {
-        $vacancy->update($request->validated());
+        $this->vacancyService->update($vacancy, $request->validated());
 
         $this->uploadMediaService->sync($request, $vacancy);
 
@@ -120,9 +122,9 @@ class VacancyController extends Controller
      */
     public function destroy(Request $request, Vacancy $vacancy)
     {
-        $vacancy->delete();
+        $this->vacancyService->delete($vacancy);
 
-        Toast::success("Vacancy #$vacancy->id updated successfully.");
+        Toast::success("Vacancy #$vacancy->id deleted successfully.");
 
         return redirect()->route('admin.vacancies.index');
     }

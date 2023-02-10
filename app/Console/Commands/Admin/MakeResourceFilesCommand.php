@@ -45,6 +45,7 @@ class MakeResourceFilesCommand extends Command
         $this->lc_singular = Str::replace('-', '_', Str::kebab(Str::singular($name)));
         $this->lc_plural = Str::plural($this->lc_singular);
 
+        $this->makeService();
         $this->makeViews();
         $this->makeController();
         $this->makeRequests();
@@ -125,6 +126,21 @@ class MakeResourceFilesCommand extends Command
         // Table
         $source = app_path('Tables/ExamplesTable.php');
         $target = app_path('Tables/'.$this->uc_plural.'Table.php');
+
+        File::copy($source, $target);
+        $contents = File::get($target);
+        $result = Str::replace(
+            ['Examples', 'Example', 'examples', 'example'],
+            [$this->uc_plural, $this->uc_singular, $this->lc_plural, $this->lc_singular],
+            $contents
+        );
+        File::put($target, $result);
+    }
+
+    public function makeService()
+    {
+        $source = app_path('Services/ExampleService.php');
+        $target = app_path('Services/'.$this->uc_singular.'Service.php');
 
         File::copy($source, $target);
         $contents = File::get($target);

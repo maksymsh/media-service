@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Good;
 use App\Models\Product;
 use App\Models\Service;
+use Illuminate\Support\Facades\Http;
 
 class SeoUrlController extends Controller
 {
@@ -15,11 +16,13 @@ class SeoUrlController extends Controller
         $category = Category::query()->where('slug', $slug)->first();
 
         if ($category) {
-            return match ($category->type) {
-                Service::class => app(ServiceController::class)->category($category),
-                Product::class => app(ProductController::class)->category($category),
-                Good::class => app(GoodController::class)->category($category),
+            $route = match ($category->type) {
+                Service::class => route('services.category', $category),
+                Product::class => route('products.category', $category),
+                Good::class => route('goods.category', $category),
             };
+
+            return Http::get($route);
         }
 
         abort(404);

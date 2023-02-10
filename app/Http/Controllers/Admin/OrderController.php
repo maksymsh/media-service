@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Order\StoreOrderRequest;
 use App\Http\Requests\Admin\Order\UpdateOrderRequest;
 use App\Models\Order;
+use App\Services\OrderService;
 use App\Services\UploadMediaService;
 use App\Tables\OrdersTable;
 use Illuminate\Contracts\View\View;
@@ -16,6 +17,7 @@ use ProtoneMedia\Splade\Facades\Toast;
 class OrderController extends Controller
 {
     public function __construct(
+        protected OrderService $orderService,
         protected UploadMediaService $uploadMediaService
     ) {
     }
@@ -56,7 +58,7 @@ class OrderController extends Controller
      */
     public function store(StoreOrderRequest $request)
     {
-        $order = Order::query()->create($request->validated());
+        $order = $this->orderService->create($request->validated());
 
         $this->uploadMediaService->sync($request, $order);
 
@@ -102,7 +104,7 @@ class OrderController extends Controller
      */
     public function update(UpdateOrderRequest $request, Order $order)
     {
-        $order->update($request->validated());
+        $this->orderService->update($order, $request->validated());
 
         $this->uploadMediaService->sync($request, $order);
 
@@ -120,9 +122,9 @@ class OrderController extends Controller
      */
     public function destroy(Request $request, Order $order)
     {
-        $order->delete();
+        $this->orderService->delete($order);
 
-        Toast::success("Order #$order->id updated successfully.");
+        Toast::success("Order #$order->id deleted successfully.");
 
         return redirect()->route('admin.orders.index');
     }

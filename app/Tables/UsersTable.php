@@ -3,14 +3,12 @@
 namespace App\Tables;
 
 use App\Models\User;
+use App\Services\UserService;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
 use ProtoneMedia\Splade\AbstractTable;
 use ProtoneMedia\Splade\Facades\Toast;
 use ProtoneMedia\Splade\SpladeTable;
-use Spatie\QueryBuilder\AllowedFilter;
-use Spatie\QueryBuilder\QueryBuilder;
 
 class UsersTable extends AbstractTable
 {
@@ -19,8 +17,9 @@ class UsersTable extends AbstractTable
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct(
+        protected UserService $userService
+    ) {
         //
     }
 
@@ -41,18 +40,7 @@ class UsersTable extends AbstractTable
      */
     public function for()
     {
-        $globalSearch = AllowedFilter::callback('global', function ($query, $value) {
-            $query->where(function (Builder $query) use ($value) {
-                Collection::wrap($value)->each(function ($value) use ($query) {
-                    $query->orWhere('id', $value);
-                });
-            });
-        });
-
-        return QueryBuilder::for(User::class)
-            ->defaultSort('id')
-            ->allowedSorts(['id'])
-            ->allowedFilters(['id', $globalSearch]);
+        return $this->userService->query();
     }
 
     /**

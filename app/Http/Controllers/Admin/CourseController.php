@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Course\StoreCourseRequest;
 use App\Http\Requests\Admin\Course\UpdateCourseRequest;
 use App\Models\Course;
+use App\Services\CourseService;
 use App\Services\UploadMediaService;
 use App\Tables\CoursesTable;
 use Illuminate\Contracts\View\View;
@@ -16,6 +17,7 @@ use ProtoneMedia\Splade\Facades\Toast;
 class CourseController extends Controller
 {
     public function __construct(
+        protected CourseService $courseService,
         protected UploadMediaService $uploadMediaService
     ) {
     }
@@ -56,7 +58,7 @@ class CourseController extends Controller
      */
     public function store(StoreCourseRequest $request)
     {
-        $course = Course::query()->create($request->validated());
+        $course = $this->courseService->create($request->validated());
 
         $this->uploadMediaService->sync($request, $course);
 
@@ -102,7 +104,7 @@ class CourseController extends Controller
      */
     public function update(UpdateCourseRequest $request, Course $course)
     {
-        $course->update($request->validated());
+        $this->courseService->update($course, $request->validated());
 
         $this->uploadMediaService->sync($request, $course);
 
@@ -120,9 +122,9 @@ class CourseController extends Controller
      */
     public function destroy(Request $request, Course $course)
     {
-        $course->delete();
+        $this->courseService->delete($course);
 
-        Toast::success("Course #$course->id updated successfully.");
+        Toast::success("Course #$course->id deleted successfully.");
 
         return redirect()->route('admin.courses.index');
     }

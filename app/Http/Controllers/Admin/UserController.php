@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\User\UpdateUserRequest;
 use App\Models\Role;
 use App\Models\User;
 use App\Services\UploadMediaService;
+use App\Services\UserService;
 use App\Tables\UsersTable;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -17,6 +18,7 @@ use ProtoneMedia\Splade\Facades\Toast;
 class UserController extends Controller
 {
     public function __construct(
+        protected UserService $userService,
         protected UploadMediaService $uploadMediaService
     ) {
     }
@@ -60,9 +62,7 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        $user = User::query()->create($request->validated());
-
-        $user->roles()->sync($request->get('roles'));
+        $user = $this->userService->create($request->validated());
 
         $this->uploadMediaService->sync($request, $user);
 
@@ -111,9 +111,7 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user)
     {
-        $user->update($request->validated());
-
-        $user->roles()->sync($request->get('roles'));
+        $this->userService->update($user, $request->validated());
 
         $this->uploadMediaService->sync($request, $user);
 
@@ -132,7 +130,7 @@ class UserController extends Controller
     public function destroy(Request $request, User $user)
     {
         if ($user->id !== $request->user()?->id) {
-            $user->delete();
+            $this->userService->delete($user);
 
             Toast::success("User #$user->id updated successfully.");
         } else {

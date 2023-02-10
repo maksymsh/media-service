@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Layout\StoreLayoutRequest;
 use App\Http\Requests\Admin\Layout\UpdateLayoutRequest;
 use App\Models\Layout;
+use App\Services\LayoutService;
+use App\Services\UploadMediaService;
 use App\Tables\LayoutsTable;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -14,6 +16,12 @@ use ProtoneMedia\Splade\Facades\Toast;
 
 class LayoutController extends Controller
 {
+    public function __construct(
+        protected LayoutService $layoutService,
+        protected UploadMediaService $uploadMediaService
+    ) {
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -50,7 +58,9 @@ class LayoutController extends Controller
      */
     public function store(StoreLayoutRequest $request)
     {
-        $layout = Layout::query()->create($request->validated());
+        $layout = $this->layoutService->create($request->validated());
+
+        $this->uploadMediaService->sync($request, $layout);
 
         Toast::success("Layout #$layout->id created successfully.");
 
@@ -94,7 +104,9 @@ class LayoutController extends Controller
      */
     public function update(UpdateLayoutRequest $request, Layout $layout)
     {
-        $layout->update($request->validated());
+        $this->layoutService->update($layout, $request->validated());
+
+        $this->uploadMediaService->sync($request, $layout);
 
         Toast::success("Layout #$layout->id updated successfully.");
 
@@ -110,9 +122,9 @@ class LayoutController extends Controller
      */
     public function destroy(Request $request, Layout $layout)
     {
-        $layout->delete();
+        $this->layoutService->delete($layout);
 
-        Toast::success("Layout #$layout->id updated successfully.");
+        Toast::success("Layout #$layout->id deleted successfully.");
 
         return redirect()->route('admin.layouts.index');
     }

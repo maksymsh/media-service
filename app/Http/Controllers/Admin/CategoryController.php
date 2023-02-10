@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Category\StoreCategoryRequest;
 use App\Http\Requests\Admin\Category\UpdateCategoryRequest;
 use App\Models\Category;
+use App\Services\CategoryService;
 use App\Services\UploadMediaService;
 use App\Tables\CategoriesTable;
 use Illuminate\Contracts\View\View;
@@ -16,6 +17,7 @@ use ProtoneMedia\Splade\Facades\Toast;
 class CategoryController extends Controller
 {
     public function __construct(
+        protected CategoryService $categoryService,
         protected UploadMediaService $uploadMediaService
     ) {
     }
@@ -56,13 +58,13 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        $category = Category::query()->create($request->validated());
+        $category = $this->categoryService->create($request->validated());
 
         $this->uploadMediaService->sync($request, $category);
 
         Toast::success("Category #$category->id created successfully.");
 
-        return redirect()->route('admin.categories.index', $request->route('category_type'));
+        return redirect()->route('admin.categories.index');
     }
 
     /**
@@ -102,13 +104,13 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        $category->update($request->validated());
+        $this->categoryService->update($category, $request->validated());
 
         $this->uploadMediaService->sync($request, $category);
 
         Toast::success("Category #$category->id updated successfully.");
 
-        return redirect()->route('admin.categories.index', $request->route('category_type'));
+        return redirect()->route('admin.categories.index');
     }
 
     /**
@@ -120,10 +122,10 @@ class CategoryController extends Controller
      */
     public function destroy(Request $request, Category $category)
     {
-        $category->delete();
+        $this->categoryService->delete($category);
 
-        Toast::success("Category #$category->id updated successfully.");
+        Toast::success("Category #$category->id deleted successfully.");
 
-        return redirect()->route('admin.categories.index', $request->route('category_type'));
+        return redirect()->route('admin.categories.index');
     }
 }

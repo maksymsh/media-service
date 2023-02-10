@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Banner\StoreBannerRequest;
 use App\Http\Requests\Admin\Banner\UpdateBannerRequest;
 use App\Models\Banner;
+use App\Services\BannerService;
 use App\Services\UploadMediaService;
 use App\Tables\BannersTable;
 use Illuminate\Contracts\View\View;
@@ -16,6 +17,7 @@ use ProtoneMedia\Splade\Facades\Toast;
 class BannerController extends Controller
 {
     public function __construct(
+        protected BannerService $bannerService,
         protected UploadMediaService $uploadMediaService
     ) {
     }
@@ -56,7 +58,7 @@ class BannerController extends Controller
      */
     public function store(StoreBannerRequest $request)
     {
-        $banner = Banner::query()->create($request->validated());
+        $banner = $this->bannerService->create($request->validated());
 
         $this->uploadMediaService->sync($request, $banner);
 
@@ -102,7 +104,7 @@ class BannerController extends Controller
      */
     public function update(UpdateBannerRequest $request, Banner $banner)
     {
-        $banner->update($request->validated());
+        $this->bannerService->update($banner, $request->validated());
 
         $this->uploadMediaService->sync($request, $banner);
 
@@ -120,9 +122,9 @@ class BannerController extends Controller
      */
     public function destroy(Request $request, Banner $banner)
     {
-        $banner->delete();
+        $this->bannerService->delete($banner);
 
-        Toast::success("Banner #$banner->id updated successfully.");
+        Toast::success("Banner #$banner->id deleted successfully.");
 
         return redirect()->route('admin.banners.index');
     }

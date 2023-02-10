@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Menu\StoreMenuRequest;
 use App\Http\Requests\Admin\Menu\UpdateMenuRequest;
 use App\Models\Menu;
+use App\Services\MenuService;
+use App\Services\UploadMediaService;
 use App\Tables\MenusTable;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -14,6 +16,12 @@ use ProtoneMedia\Splade\Facades\Toast;
 
 class MenuController extends Controller
 {
+    public function __construct(
+        protected MenuService $menuService,
+        protected UploadMediaService $uploadMediaService
+    ) {
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -50,7 +58,9 @@ class MenuController extends Controller
      */
     public function store(StoreMenuRequest $request)
     {
-        $menu = Menu::query()->create($request->validated());
+        $menu = $this->menuService->create($request->validated());
+
+        $this->uploadMediaService->sync($request, $menu);
 
         Toast::success("Menu #$menu->id created successfully.");
 
@@ -94,7 +104,9 @@ class MenuController extends Controller
      */
     public function update(UpdateMenuRequest $request, Menu $menu)
     {
-        $menu->update($request->validated());
+        $this->menuService->update($menu, $request->validated());
+
+        $this->uploadMediaService->sync($request, $menu);
 
         Toast::success("Menu #$menu->id updated successfully.");
 
@@ -110,9 +122,9 @@ class MenuController extends Controller
      */
     public function destroy(Request $request, Menu $menu)
     {
-        $menu->delete();
+        $this->menuService->delete($menu);
 
-        Toast::success("Menu #$menu->id updated successfully.");
+        Toast::success("Menu #$menu->id deleted successfully.");
 
         return redirect()->route('admin.menus.index');
     }

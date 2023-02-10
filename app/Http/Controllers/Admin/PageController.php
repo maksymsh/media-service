@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Page\StorePageRequest;
 use App\Http\Requests\Admin\Page\UpdatePageRequest;
 use App\Models\Page;
+use App\Services\PageService;
 use App\Services\UploadMediaService;
 use App\Tables\PagesTable;
 use Illuminate\Contracts\View\View;
@@ -16,6 +17,7 @@ use ProtoneMedia\Splade\Facades\Toast;
 class PageController extends Controller
 {
     public function __construct(
+        protected PageService $pageService,
         protected UploadMediaService $uploadMediaService
     ) {
     }
@@ -56,7 +58,7 @@ class PageController extends Controller
      */
     public function store(StorePageRequest $request)
     {
-        $page = Page::query()->create($request->validated());
+        $page = $this->pageService->create($request->validated());
 
         $this->uploadMediaService->sync($request, $page);
 
@@ -102,7 +104,7 @@ class PageController extends Controller
      */
     public function update(UpdatePageRequest $request, Page $page)
     {
-        $page->update($request->validated());
+        $this->pageService->update($page, $request->validated());
 
         $this->uploadMediaService->sync($request, $page);
 
@@ -120,9 +122,9 @@ class PageController extends Controller
      */
     public function destroy(Request $request, Page $page)
     {
-        $page->delete();
+        $this->pageService->delete($page);
 
-        Toast::success("Page #$page->id updated successfully.");
+        Toast::success("Page #$page->id deleted successfully.");
 
         return redirect()->route('admin.pages.index');
     }

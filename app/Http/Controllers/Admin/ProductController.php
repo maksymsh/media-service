@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Product\StoreProductRequest;
 use App\Http\Requests\Admin\Product\UpdateProductRequest;
 use App\Models\Product;
+use App\Services\ProductService;
 use App\Services\UploadMediaService;
 use App\Tables\ProductsTable;
 use Illuminate\Contracts\View\View;
@@ -16,6 +17,7 @@ use ProtoneMedia\Splade\Facades\Toast;
 class ProductController extends Controller
 {
     public function __construct(
+        protected ProductService $productService,
         protected UploadMediaService $uploadMediaService
     ) {
     }
@@ -56,7 +58,7 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        $product = Product::query()->create($request->validated());
+        $product = $this->productService->create($request->validated());
 
         $this->uploadMediaService->sync($request, $product);
 
@@ -102,7 +104,7 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-        $product->update($request->validated());
+        $this->productService->update($product, $request->validated());
 
         $this->uploadMediaService->sync($request, $product);
 
@@ -120,9 +122,9 @@ class ProductController extends Controller
      */
     public function destroy(Request $request, Product $product)
     {
-        $product->delete();
+        $this->productService->delete($product);
 
-        Toast::success("Product #$product->id updated successfully.");
+        Toast::success("Product #$product->id deleted successfully.");
 
         return redirect()->route('admin.products.index');
     }

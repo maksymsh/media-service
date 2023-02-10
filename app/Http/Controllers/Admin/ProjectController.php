@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Project\StoreProjectRequest;
 use App\Http\Requests\Admin\Project\UpdateProjectRequest;
 use App\Models\Project;
+use App\Services\ProjectService;
 use App\Services\UploadMediaService;
 use App\Tables\ProjectsTable;
 use Illuminate\Contracts\View\View;
@@ -16,6 +17,7 @@ use ProtoneMedia\Splade\Facades\Toast;
 class ProjectController extends Controller
 {
     public function __construct(
+        protected ProjectService $projectService,
         protected UploadMediaService $uploadMediaService
     ) {
     }
@@ -56,7 +58,7 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        $project = Project::query()->create($request->validated());
+        $project = $this->projectService->create($request->validated());
 
         $this->uploadMediaService->sync($request, $project);
 
@@ -102,7 +104,7 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        $project->update($request->validated());
+        $this->projectService->update($project, $request->validated());
 
         $this->uploadMediaService->sync($request, $project);
 
@@ -120,9 +122,9 @@ class ProjectController extends Controller
      */
     public function destroy(Request $request, Project $project)
     {
-        $project->delete();
+        $this->projectService->delete($project);
 
-        Toast::success("Project #$project->id updated successfully.");
+        Toast::success("Project #$project->id deleted successfully.");
 
         return redirect()->route('admin.projects.index');
     }
