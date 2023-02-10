@@ -22,7 +22,11 @@ class SeoUrlController extends Controller
                 Good::class => route('goods.category', $category),
             };
 
-            return Http::get($route);
+            $parts = explode('?', request()->fullUrl());
+
+            $url = $route.(count($parts) > 1 ? ('?'.array_pop($parts)) : '');
+
+            return Http::get($url);
         }
 
         abort(404);
