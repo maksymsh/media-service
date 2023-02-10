@@ -20,9 +20,6 @@ class HomeController extends Controller
         $goodCategories = (clone $categoriesQuery)->where('type', Good::class)->get();
 
         return view('app.home.index', [
-            'serviceCategories' => $serviceCategories,
-            'productCategories' => $productCategories,
-            'goodCategories' => $goodCategories,
         ]);
     }
 }

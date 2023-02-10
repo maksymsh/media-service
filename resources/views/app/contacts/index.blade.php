@@ -1,6 +1,6 @@
 @extends('app.layout.app')
 
-@section('header-class')fix@endsection
+@section('header-class') fix @endsection
 
 @section('content')
 
