@@ -8,6 +8,7 @@ use App\Models\Good;
 use App\Models\Product;
 use App\Models\Service;
 use Illuminate\Support\Facades\Http;
+use ProtoneMedia\Splade\Facades\Splade;
 
 class SeoUrlController extends Controller
 {
@@ -30,7 +31,11 @@ class SeoUrlController extends Controller
 
             $url = $route.(count($parts) > 1 ? ('?'.array_pop($parts)) : '');
 
-            return Http::get($url);
+            if (Splade::isSpladeRequest()) {
+                return Http::withHeaders(['X-Splade' => true])->get($url)->body();
+            } else {
+                return Http::withHeaders([])->get($url)->body();
+            }
         }
 
         abort(404);
