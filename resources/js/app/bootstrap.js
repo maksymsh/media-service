@@ -8,6 +8,7 @@ window._ = _
  */
 
 import axios from 'axios'
+import feather from 'feather-icons'
 window.axios = axios
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'

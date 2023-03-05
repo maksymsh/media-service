@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\App\AppLayoutService;
 use App\Settings\GeneralSettings;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
@@ -19,6 +20,9 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->singleton(GeneralSettings::class);
         $this->app->bind('settings', GeneralSettings::class);
+
+        $this->app->singleton(AppLayoutService::class);
+        $this->app->bind('layout', AppLayoutService::class);
     }
 
     /**

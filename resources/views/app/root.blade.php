@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="{{ $app['layout']->htmlClass }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,7 +24,7 @@
     @vite(['resources/scss/app/app.scss'])
 
 </head>
-<body>
+<body class="{{ $app['layout']->bodyClass }}">
 @splade
 
 {{--<script src="https://code.jquery.com/jquery-3.5.1.min.js"--}}

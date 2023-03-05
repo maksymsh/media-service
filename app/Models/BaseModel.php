@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use ProtoneMedia\Splade\FileUploads\ExistingFile;
 use Spatie\MediaLibrary\HasMedia;
 
-class BaseModel extends Model
+abstract class BaseModel extends Model
 {
     public function getAttribute($key)
     {

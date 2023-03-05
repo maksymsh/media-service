@@ -1,5 +1,6 @@
 window.initJS = () => {
     'use strict'
+
     jQuery(document).ready(function (t) {
         var e = t('.solutions-content')
         if (!(e.length <= 0)) {

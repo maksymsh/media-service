@@ -4,6 +4,10 @@ import './bootstrap'
 // Splade events
 import './splade'
 
+document.addEventListener('DOMContentLoaded', () => {
+    window.initJS()
+})
+
 import { createApp } from 'vue/dist/vue.esm-bundler.js'
 import { renderSpladeApp, SpladePlugin } from '@protonemedia/laravel-splade'
 
@@ -11,12 +15,6 @@ const el = document.getElementById('app')
 
 const app = createApp({
     mounted() {
-        initJS()
-
-        setTimeout(() =>
-            document.dispatchEvent(new CustomEvent('DOMContentLoaded'))
-        )
-
         console.log('Root component mounted.')
     },
     render: renderSpladeApp({ el }),
