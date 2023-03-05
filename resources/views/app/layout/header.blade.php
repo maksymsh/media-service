@@ -1,4 +1,4 @@
-<header class="header @yield('header-class') {{ $app['layout']->headerClass }}">
+<header class="header @yield('header-class') {{ SEO::headerClass() }}">
     <div class="container-fluid h-100">
         <div class="d-flex align-items-center h-100">
             <div class="logo-container">

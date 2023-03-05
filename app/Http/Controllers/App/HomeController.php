@@ -10,6 +10,7 @@ class HomeController extends Controller
     public function index()
     {
         SEO::title('Media Serice - Home');
+        SEO::bodyClass('11ss');
 
         return view('app.home.index', [
         ]);

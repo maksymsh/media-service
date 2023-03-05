@@ -1,7 +1,7 @@
 @extends('app.layout.app')
 
 @php
-    $app['layout']->headerClass = 'fix';
+    layout()->headerClass = 'fix';
 @endphp
 
 @section('content')

@@ -1,5 +1,7 @@
 <?php
 
+use App\Settings\GeneralSettings;
+
 if (! function_exists('app_host')) {
     function app_host()
     {
@@ -38,7 +40,7 @@ if (! function_exists('routeActive')) {
 }
 
 if (! function_exists('settings')) {
-    function settings(string|array $key = null)
+    function settings(string|array $key = null): GeneralSettings
     {
         $settings = app('settings');
 
