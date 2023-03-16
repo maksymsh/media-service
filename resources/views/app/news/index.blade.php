@@ -1,9 +1,5 @@
 @extends('app.layout.app')
 
-@php
-    layout()->headerClass = 'fix';
-@endphp
-
 @section('content')
 
     <div class="container-fluid">

@@ -5,7 +5,7 @@
 
         <x-slot:header>
             <h1 class="h3 mb-3">
-                <strong>{{ __('Users') }}</strong> general
+                <strong>{{ __('Settings') }}</strong> general
             </h1>
         </x-slot:header>
 
