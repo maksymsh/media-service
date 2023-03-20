@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AttributeController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -66,6 +67,7 @@ Route::middleware(['splade'])->group(function () {
             Route::resource('goods', GoodController::class);
             Route::resource('products', ProductController::class);
             Route::resource('services', ServiceController::class);
+            Route::resource('attributes', AttributeController::class);
 
             // Data
             Route::resource('projects', ProjectController::class);
