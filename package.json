@@ -44,8 +44,5 @@
     "lint-staged": {
         "*.{js,vue}": "eslint --cache --fix",
         "*.php": "./vendor/bin/pint"
-    },
-    "dependencies": {
-        "@vueup/vue-quill": "^1.1.1"
     }
 }
