@@ -71,11 +71,11 @@ const initTiny = (
                 )
             },
             setup: (editor) => {
-                editor.on('Input', (evt) => {
-                    this.value = editor.getContent()
+                editor.on('Input', function (evt) {
+                    this.targetElm._assign(editor.getContent())
                 })
-                editor.on('Change', (evt) => {
-                    this.value = editor.getContent()
+                editor.on('Change', function (evt) {
+                    this.targetElm._assign(editor.getContent())
                 })
             },
         })
