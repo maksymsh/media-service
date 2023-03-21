@@ -148,7 +148,7 @@
                         </li>
                         <li class="drop d-flex align-items-center">
                             <div class="d-flex align-items-center justify-content-between">
-                                <x-app.link :href="route('goods.index')" class="nav-item">Товари</x-app.link>
+                                <x-app.link :href="route('products.index')" class="nav-item">Товари</x-app.link>
                                 <span class="icc drop-but icon-arrow-down"></span>
                             </div>
                             <div class="drop-container">
