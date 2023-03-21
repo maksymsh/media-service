@@ -45,11 +45,11 @@
                             <div class="item-bottom">
                                 <div class="name">Мережа магазинів «Gorgany»</div>
                                 <div class="anons">Автоматизація мережі магазинів</div>
-                                <a href="#" class="link-default item-link white d-inline-flex align-items-center">
+                                <x-splade-link href="{{ route('projects.project', 1) }}" class="link-default item-link white d-inline-flex align-items-center">
                                     <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
                                     <span class="value">детальніше</span>
                                     <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                </a>
+                                </x-splade-link>
                             </div>
                             <div class="item-image">
                                 <img src="/images/j1.jpg" alt="">
