@@ -53,8 +53,6 @@ class ProjectService extends BaseService
         try {
             $project = $this->query()->create($data);
 
-            $project->roles()->sync($data['roles'] ?? []);
-
             DB::commit();
 
             return $project;

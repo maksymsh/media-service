@@ -50,11 +50,11 @@
                             <li>BAS роздрібна торгівля</li>
                             <li>BAS Малий бізнес</li>
                         </ul>
-                        <a href="#" class="link-default d-inline-flex align-items-center">
+                        <x-splade-link href="{{ route('services.service', 1) }}" class="link-default d-inline-flex align-items-center">
                             <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
                             <span class="value">Всі програми bas</span>
                             <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                        </a>
+                        </x-splade-link>
                     </div>
                     <div class="item-image d-flex align-items-end justify-content-center">
                         <div class="image-container">

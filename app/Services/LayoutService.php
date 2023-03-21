@@ -53,8 +53,6 @@ class LayoutService extends BaseService
         try {
             $layout = $this->query()->create($data);
 
-            $layout->roles()->sync($data['roles'] ?? []);
-
             DB::commit();
 
             return $layout;

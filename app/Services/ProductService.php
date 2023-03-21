@@ -53,8 +53,6 @@ class ProductService extends BaseService
         try {
             $product = $this->query()->create($data);
 
-            $product->roles()->sync($data['roles'] ?? []);
-
             DB::commit();
 
             return $product;

@@ -53,8 +53,6 @@ class ServiceService extends BaseService
         try {
             $service = $this->query()->create($data);
 
-            $service->roles()->sync($data['roles'] ?? []);
-
             DB::commit();
 
             return $service;

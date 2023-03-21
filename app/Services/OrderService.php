@@ -53,8 +53,6 @@ class OrderService extends BaseService
         try {
             $order = $this->query()->create($data);
 
-            $order->roles()->sync($data['roles'] ?? []);
-
             DB::commit();
 
             return $order;

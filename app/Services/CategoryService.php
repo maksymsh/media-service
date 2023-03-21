@@ -53,8 +53,6 @@ class CategoryService extends BaseService
         try {
             $category = $this->query()->create($data);
 
-            $category->roles()->sync($data['roles'] ?? []);
-
             DB::commit();
 
             return $category;

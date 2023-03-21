@@ -53,8 +53,6 @@ class PageService extends BaseService
         try {
             $page = $this->query()->create($data);
 
-            $page->roles()->sync($data['roles'] ?? []);
-
             DB::commit();
 
             return $page;

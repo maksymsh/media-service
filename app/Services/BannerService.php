@@ -53,8 +53,6 @@ class BannerService extends BaseService
         try {
             $banner = $this->query()->create($data);
 
-            $banner->roles()->sync($data['roles'] ?? []);
-
             DB::commit();
 
             return $banner;

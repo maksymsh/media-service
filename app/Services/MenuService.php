@@ -53,8 +53,6 @@ class MenuService extends BaseService
         try {
             $menu = $this->query()->create($data);
 
-            $menu->roles()->sync($data['roles'] ?? []);
-
             DB::commit();
 
             return $menu;

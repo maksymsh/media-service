@@ -53,8 +53,6 @@ class NewsService extends BaseService
         try {
             $news = $this->query()->create($data);
 
-            $news->roles()->sync($data['roles'] ?? []);
-
             DB::commit();
 
             return $news;

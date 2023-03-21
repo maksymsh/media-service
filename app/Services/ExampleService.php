@@ -53,8 +53,6 @@ class ExampleService extends BaseService
         try {
             $example = $this->query()->create($data);
 
-            $example->roles()->sync($data['roles'] ?? []);
-
             DB::commit();
 
             return $example;

@@ -143,7 +143,7 @@
                         </li>
                         <li class="d-flex align-items-center">
                             <div class="d-flex align-items-center justify-content-between">
-                                <x-app.link :href="route('products.index')" class="nav-item">Продукти</x-app.link>
+                                <x-app.link :href="route('products.index2')" class="nav-item">Продукти</x-app.link>
                             </div>
                         </li>
                         <li class="drop d-flex align-items-center">

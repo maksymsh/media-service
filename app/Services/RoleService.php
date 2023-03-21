@@ -53,8 +53,6 @@ class RoleService extends BaseService
         try {
             $role = $this->query()->create($data);
 
-            $role->roles()->sync($data['roles'] ?? []);
-
             DB::commit();
 
             return $role;

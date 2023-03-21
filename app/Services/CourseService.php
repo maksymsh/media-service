@@ -53,8 +53,6 @@ class CourseService extends BaseService
         try {
             $course = $this->query()->create($data);
 
-            $course->roles()->sync($data['roles'] ?? []);
-
             DB::commit();
 
             return $course;

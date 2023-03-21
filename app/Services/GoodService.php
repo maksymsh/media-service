@@ -53,8 +53,6 @@ class GoodService extends BaseService
         try {
             $good = $this->query()->create($data);
 
-            $good->roles()->sync($data['roles'] ?? []);
-
             DB::commit();
 
             return $good;

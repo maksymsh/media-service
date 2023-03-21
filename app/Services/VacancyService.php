@@ -53,8 +53,6 @@ class VacancyService extends BaseService
         try {
             $vacancy = $this->query()->create($data);
 
-            $vacancy->roles()->sync($data['roles'] ?? []);
-
             DB::commit();
 
             return $vacancy;
