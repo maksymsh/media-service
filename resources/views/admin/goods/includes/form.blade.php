@@ -33,6 +33,26 @@
 <div>
     <h2>Attributes</h2>
 
+    <div>
+        <x-splade-data :default="['attributes' => $attributes]">
+            <div v-for="(attribute, i) in form.attributes">
+                <div class="row">
+                    <div class="col-6">
+                        <select class="form-control" :name="'attributes['+i+'][attribute_id]'" v-model="form.attributes[i].attribute_id">
+                            <option v-for="(name, id) in data.attributes" :value="id">@{{ name }}</option>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <input class="form-control" type="text" :name="'attributes['+i+'][attribute_id]'" v-model="form.attributes[i].value">
+                    </div>
+
+                </div>
+            </div>
+        </x-splade-data>
+
+
+        <button class="btn" @click.prevent="form.attributes.push({attribute_id: 0, value: ''})">Add</button>
+    </div>
 </div>
 
 @if($good->exists)

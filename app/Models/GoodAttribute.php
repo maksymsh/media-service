@@ -7,4 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class GoodAttribute extends BaseModel
 {
     use HasFactory;
+
+    protected $fillable = [
+        'attribute_id',
+        'value',
+    ];
 }

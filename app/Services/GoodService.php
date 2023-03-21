@@ -68,6 +68,12 @@ class GoodService extends BaseService
         try {
             $model->update($data);
 
+            $model->attributes()->delete();
+
+            foreach ($data['attributes'] as $attribute) {
+                $model->attributes()->create($attribute);
+            }
+
             DB::commit();
 
             return $model;

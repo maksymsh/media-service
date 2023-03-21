@@ -90,12 +90,6 @@
                                                  :url="route('admin.categories.index', 'products')"
                                                  :active="request()->route('category_type') === 'products'"
                     />
-
-                    <x-admin.layout.sidebar-item :title="__('Product Attributes')"
-                                                 icon="users"
-                                                 :url="route('admin.attributes.index')"
-                                                 route="admin.attributes.*"
-                    />
                 </x-admin.layout.sidebar-item>
             @endcan
 
@@ -111,6 +105,12 @@
                                                  icon="users"
                                                  :url="route('admin.goods.index')"
                                                  route="admin.goods.*"
+                    />
+
+                    <x-admin.layout.sidebar-item :title="__('Attributes')"
+                                                 icon="users"
+                                                 :url="route('admin.attributes.index')"
+                                                 route="admin.attributes.*"
                     />
 
                     <x-admin.layout.sidebar-item :title="__('Good Categories')"

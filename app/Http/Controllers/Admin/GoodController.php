@@ -91,6 +91,8 @@ class GoodController extends Controller
      */
     public function edit(Request $request, Good $good)
     {
+        $good->loadMissing(['attributes']);
+
         $attributes = Attribute::query()->pluck('name', 'id')->toArray();
 
         return view('admin.goods.edit', [
