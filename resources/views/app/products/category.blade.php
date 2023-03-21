@@ -210,11 +210,11 @@
                             <div class="item">
                                 <div class="item-container d-flex flex-column">
                                     <div class="item-top">
-                                        <a href="#"
+                                        <x-splade-link href="{{ route('products.product', 1) }}"
                                            class="item-image d-flex align-items-center justify-content-center">
                                             <img src="/images/p1.png" alt="">
-                                        </a>
-                                        <a href="#" class="item-name">Касовий апарат Гера MG-V545T.02 + БЖ + GSM</a>
+                                        </x-splade-link>
+                                        <x-splade-link href="{{ route('products.product', 1) }}" class="item-name">Касовий апарат Гера MG-V545T.02 + БЖ + GSM</x-splade-link>
                                     </div>
                                     <div class="item-bottom">
                                         <div class="item-price">8 500 грн.</div>
