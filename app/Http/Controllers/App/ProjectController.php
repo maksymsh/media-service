@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\App;
 
 use App\Http\Controllers\Controller;
+use App\Models\Page;
 use ProtoneMedia\Splade\Facades\SEO;
 
 class ProjectController extends Controller
@@ -11,7 +12,11 @@ class ProjectController extends Controller
     {
         SEO::headerClass('fix');
 
-        return view('app.projects.index');
+        $page = Page::query()->where('code', 'projects')->firstOrFail();
+
+        return view('app.projects.index', [
+            'page' => $page,
+        ]);
     }
 
     public function category()

@@ -48,4 +48,9 @@ class Good extends BaseModel implements HasMedia
         $this->addMediaCollection('images')
             ->acceptsMimeTypes(['image/jpeg', 'image/png']);
     }
+
+    public function attributes()
+    {
+        return $this->hasMany(GoodAttribute::class);
+    }
 }

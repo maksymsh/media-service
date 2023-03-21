@@ -4,18 +4,27 @@ namespace App\Http\Controllers\App;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Page;
 use App\Models\Product;
 
 class ProductController extends Controller
 {
     public function index()
     {
-        return view('app.products.index');
+        $page = Page::query()->where('code', 'goods')->firstOrFail();
+
+        return view('app.products.index', [
+            'page' => $page,
+        ]);
     }
 
     public function index2()
     {
-        return view('app.products.index2');
+        $page = Page::query()->where('code', 'products')->firstOrFail();
+
+        return view('app.products.index2', [
+            'page' => $page,
+        ]);
     }
 
     public function category(Category $category)

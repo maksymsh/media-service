@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class ProductAttribute extends BaseModel
+class GoodAttribute extends BaseModel
 {
     use HasFactory;
 }

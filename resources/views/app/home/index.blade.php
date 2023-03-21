@@ -5,8 +5,8 @@
     <div class="main-container">
         <div class="info-container d-flex align-items-center justify-content-center">
             <div class="h1-container">
-                <h1>{!! __('<span>Aвтоматизація</span> <br>компаній <br>та підприємств Service') !!}</h1>
-                <div class="h1-anons">{!! __('Ми допомагаємо клієнтам максимально оптимізувати роботу підприємства та ефективно управляти бізнесом') !!}</div>
+                <h1>{!! $page->title !!}</h1>
+                <div class="h1-anons">{!! $page->text !!}</div>
 
                 <x-app.link :href="route('services.index')" class="button-default d-inline-flex align-items-center">
                     <span class="value">{{ __('Наші послуги') }}</span>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Good\StoreGoodRequest;
 use App\Http\Requests\Admin\Good\UpdateGoodRequest;
+use App\Models\Attribute;
 use App\Models\Good;
 use App\Services\GoodService;
 use App\Services\UploadMediaService;
@@ -18,7 +19,7 @@ class GoodController extends Controller
 {
     public function __construct(
         protected GoodService $goodService,
-        protected UploadMediaService $uploadMediaService
+        protected UploadMediaService $uploadMediaService,
     ) {
     }
 
@@ -90,8 +91,11 @@ class GoodController extends Controller
      */
     public function edit(Request $request, Good $good)
     {
+        $attributes = Attribute::query()->pluck('name', 'id')->toArray();
+
         return view('admin.goods.edit', [
             'good' => $good,
+            'attributes' => $attributes,
         ]);
     }
 
