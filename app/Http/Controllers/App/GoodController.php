@@ -11,7 +11,7 @@ class GoodController extends Controller
 {
     public function index()
     {
-        $page = Page::query()->where('code', 'home')->firstOrFail();
+        $page = Page::query()->where('code', 'goods')->firstOrFail();
 
         return view('app.goods.index', [
             'page' => $page,
@@ -27,6 +27,15 @@ class GoodController extends Controller
 
     public function good(Good $good)
     {
-        return view('app.goods.good');
+        $page = Page::query()->where('code', 'good-page')->firstOrFail();
+
+        $good->load([
+            'attributes.attribute',
+        ]);
+
+        return view('app.goods.good', [
+            'good' => $good,
+            'page' => $page,
+        ]);
     }
 }
