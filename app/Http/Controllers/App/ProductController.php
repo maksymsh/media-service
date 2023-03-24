@@ -43,9 +43,4 @@ class ProductController extends Controller
     {
         return view('app.products.product');
     }
-
-    public function product2(Product $product)
-    {
-        return view('app.products.product2');
-    }
 }

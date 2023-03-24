@@ -38,7 +38,6 @@ Route::middleware(['splade'])->group(function () {
     Route::get('/category/{category}', [ProductController::class, 'category'])->name('products.category');
     Route::get('/category2/{category}', [ProductController::class, 'category2'])->name('products.category2');
     Route::get('/products/{product}', [ProductController::class, 'product'])->name('products.product');
-    Route::get('/products2/{product}', [ProductController::class, 'product2'])->name('products.product2');
 
     Route::get('/goods', [GoodController::class, 'index'])->name('goods.index');
     Route::get('/goods/category/{category}', [GoodController::class, 'category'])->name('goods.category');

@@ -70,7 +70,7 @@ class GoodService extends BaseService
 
             $model->attributes()->delete();
 
-            foreach ($data['attributes'] as $attribute) {
+            foreach ($data['attributes'] ?? [] as $attribute) {
                 $model->attributes()->create($attribute);
             }
 
