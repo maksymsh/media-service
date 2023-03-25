@@ -17,8 +17,7 @@ class CourseSeeder extends Seeder
         Course::truncate();
 
         Course::factory(10)->create()->each(function ($course) {
-            $image = fake()->image;
-            $course->addMedia($image)->toMediaCollection('image');
+//            $course->addMedia(fake()->image)->toMediaCollection('image');
         });
     }
 }
