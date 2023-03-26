@@ -10,9 +10,13 @@ class ContactsController extends Controller
 {
     public function index()
     {
-        SEO::headerClass('fix');
-
         $page = Page::query()->where('code', 'contacts')->firstOrFail();
+
+        $page->seo_title && SEO::title($page->seo_title);
+        $page->seo_description && SEO::description($page->seo_description);
+        $page->seo_keywords && SEO::keywords($page->seo_keywords);
+
+        SEO::headerClass('fix');
 
         return view('app.contacts.index', [
             'page' => $page,

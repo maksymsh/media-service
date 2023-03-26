@@ -48,4 +48,9 @@ class Service extends BaseModel implements HasMedia
 
         $this->addMediaCollection('images');
     }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
+    }
 }

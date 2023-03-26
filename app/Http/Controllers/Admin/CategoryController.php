@@ -64,7 +64,7 @@ class CategoryController extends Controller
 
         Toast::success("Category #$category->id created successfully.");
 
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.categories.index', ['type' => $request->get('type')]);
     }
 
     /**
@@ -110,7 +110,7 @@ class CategoryController extends Controller
 
         Toast::success("Category #$category->id updated successfully.");
 
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.categories.index', ['type' => $request->get('type')]);
     }
 
     /**
@@ -126,6 +126,6 @@ class CategoryController extends Controller
 
         Toast::success("Category #$category->id deleted successfully.");
 
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.categories.index', ['type' => $request->get('type')]);
     }
 }

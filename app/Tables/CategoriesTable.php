@@ -59,16 +59,16 @@ class CategoriesTable extends AbstractTable
             ->allowedSorts(['id'])
             ->allowedFilters(['id', $globalSearch]);
 
-//        $type = match ($this->request->route('type')) {
-//            'news' => News::class,
-//            'products' => Product::class,
-//            'goods' => Good::class,
-//            'services' => Service::class,
-//        };
-//
-//        if ($type) {
-//            $query->where('type', $type);
-//        }
+        $type = match ($this->request->get('type')) {
+            'news' => News::class,
+            'products' => Product::class,
+            'goods' => Good::class,
+            'services' => Service::class,
+        };
+
+        if ($type) {
+            $query->where('type', $type);
+        }
 
         return $query;
     }

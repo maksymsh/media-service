@@ -1,3 +1,4 @@
+@php use function PHPUnit\Framework\isNull; @endphp
 @props([
     'id' => 'sidebar-item-' . Str::random(10),
     'active' => false,
@@ -9,7 +10,7 @@
 ])
 
 @php
-    $active = $active || routeActive($route);
+    $active = $active === true ? true : routeActive($route);
 @endphp
 
 <li {{ $attributes->class([

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Service\StoreServiceRequest;
 use App\Http\Requests\Admin\Service\UpdateServiceRequest;
+use App\Models\Category;
 use App\Models\Service;
 use App\Services\ServiceService;
 use App\Services\UploadMediaService;
@@ -45,8 +46,12 @@ class ServiceController extends Controller
      */
     public function create(Request $request, Service $service)
     {
+        $categories = Category::query()->where('type', Service::class)
+            ->pluck('name', 'id')->toArray();
+
         return view('admin.services.create', [
             'service' => $service,
+            'categories' => $categories,
         ]);
     }
 
@@ -90,8 +95,12 @@ class ServiceController extends Controller
      */
     public function edit(Request $request, Service $service)
     {
+        $categories = Category::query()->where('type', Service::class)
+            ->pluck('name', 'id')->toArray();
+
         return view('admin.services.edit', [
             'service' => $service,
+            'categories' => $categories,
         ]);
     }
 

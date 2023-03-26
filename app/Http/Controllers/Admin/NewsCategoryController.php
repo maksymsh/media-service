@@ -62,7 +62,7 @@ class NewsCategoryController extends Controller
 
         Toast::success("Category #$category->id created successfully.");
 
-        return redirect()->route('admin.categories.index', $request->route('category_type'));
+        return redirect()->route('admin.categories.index', ['type' => $request->get('type')]);
     }
 
     /**
@@ -108,7 +108,7 @@ class NewsCategoryController extends Controller
 
         Toast::success("Category #$category->id updated successfully.");
 
-        return redirect()->route('admin.categories.index', $request->route('category_type'));
+        return redirect()->route('admin.categories.index', ['type' => $request->get('type')]);
     }
 
     /**
@@ -124,6 +124,6 @@ class NewsCategoryController extends Controller
 
         Toast::success("Category #$category->id updated successfully.");
 
-        return redirect()->route('admin.categories.index', $request->route('category_type'));
+        return redirect()->route('admin.categories.index', ['type' => $request->get('type')]);
     }
 }

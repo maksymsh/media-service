@@ -51,4 +51,9 @@ class Good extends BaseModel implements HasMedia
     {
         return $this->hasMany(GoodAttribute::class);
     }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
+    }
 }

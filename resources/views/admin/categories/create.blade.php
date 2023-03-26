@@ -7,7 +7,7 @@
             <h1>{{ __('Create') }} {{ __('Category') }}</h1>
 
             <div>
-                <x-admin.link class="btn btn-primary" :href="route('admin.categories.index')">
+                <x-admin.link class="btn btn-primary" :href="url()->previous()">
                     <x-admin.icon name="arrow-left" />
                 </x-admin.link>
             </div>
@@ -25,7 +25,7 @@
             <h1>{{ __('Create') }} {{ __('Category') }}</h1>
 
             <div>
-                <x-admin.link class="btn btn-primary" :href="route('admin.categories.index')">
+                <x-admin.link class="btn btn-primary" :href="url()->previous()">
                     <x-admin.icon name="arrow-left" />
                 </x-admin.link>
             </div>

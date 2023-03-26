@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Product\StoreProductRequest;
 use App\Http\Requests\Admin\Product\UpdateProductRequest;
+use App\Models\Category;
 use App\Models\Product;
 use App\Services\ProductService;
 use App\Services\UploadMediaService;
@@ -45,8 +46,12 @@ class ProductController extends Controller
      */
     public function create(Request $request, Product $product)
     {
+        $categories = Category::query()->where('type', Product::class)
+            ->pluck('name', 'id')->toArray();
+
         return view('admin.products.create', [
             'product' => $product,
+            'categories' => $categories,
         ]);
     }
 
@@ -90,8 +95,12 @@ class ProductController extends Controller
      */
     public function edit(Request $request, Product $product)
     {
+        $categories = Category::query()->where('type', Product::class)
+            ->pluck('name', 'id')->toArray();
+
         return view('admin.products.edit', [
             'product' => $product,
+            'categories' => $categories,
         ]);
     }
 

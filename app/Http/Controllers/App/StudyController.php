@@ -11,9 +11,13 @@ class StudyController extends Controller
 {
     public function index()
     {
-        SEO::headerClass('fix');
-
         $page = Page::query()->where('code', 'studies')->firstOrFail();
+
+        $page->seo_title && SEO::title($page->seo_title);
+        $page->seo_description && SEO::description($page->seo_description);
+        $page->seo_keywords && SEO::keywords($page->seo_keywords);
+
+        SEO::headerClass('fix');
 
         return view('app.study.index', [
             'page' => $page,
@@ -22,6 +26,12 @@ class StudyController extends Controller
 
     public function courses(Course $course)
     {
+        $page = Page::query()->where('code', 'courses')->firstOrFail();
+
+        $page->seo_title && SEO::title($page->seo_title);
+        $page->seo_description && SEO::description($page->seo_description);
+        $page->seo_keywords && SEO::keywords($page->seo_keywords);
+
         return view('app.study.courses');
     }
 

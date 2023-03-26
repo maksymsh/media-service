@@ -56,7 +56,7 @@
                                              icon="users"
                                              :url="route('admin.news.index')"
                                              route="admin.news*"
-                                             :active="request()->route('category_type') === 'news' ? true : null"
+                                             :active="request()->get('type') === 'news' ? true : null"
                 >
                     <x-admin.layout.sidebar-item :title="__('News')"
                                                  icon="users"
@@ -66,8 +66,8 @@
 
                     <x-admin.layout.sidebar-item :title="__('News Categories')"
                                                  icon="users"
-                                                 :url="route('admin.categories.index', 'news')"
-                                                 :active="request()->route('category_type') === 'news'"
+                                                 :url="route('admin.categories.index', ['type' => 'news'])"
+                                                 :active="request()->get('type') === 'news'"
                     />
                 </x-admin.layout.sidebar-item>
             @endcan
@@ -77,7 +77,7 @@
                                              icon="users"
                                              :url="route('admin.products.index')"
                                              route="admin.products*"
-                                             :active="request()->route('category_type') === 'products' ? true : null"
+                                             :active="request()->get('type') === 'products' ? true : null"
                 >
                     <x-admin.layout.sidebar-item :title="__('Products')"
                                                  icon="users"
@@ -87,8 +87,8 @@
 
                     <x-admin.layout.sidebar-item :title="__('Product Categories')"
                                                  icon="users"
-                                                 :url="route('admin.categories.index', 'products')"
-                                                 :active="request()->route('category_type') === 'products'"
+                                                 :url="route('admin.categories.index', ['type' => 'products'])"
+                                                 :active="request()->get('type') === 'products'"
                     />
                 </x-admin.layout.sidebar-item>
             @endcan
@@ -99,7 +99,7 @@
                                              icon="users"
                                              :url="route('admin.goods.index')"
                                              route="admin.goods*"
-                                             :active="request()->route('category_type') === 'goods' ? true : null"
+                                             :active="request()->is('*attributes*') ? true : (request()->is('*categories*') ? (request()->get('type') === 'goods' ? true : null) : null)"
                 >
                     <x-admin.layout.sidebar-item :title="__('Goods')"
                                                  icon="users"
@@ -115,8 +115,8 @@
 
                     <x-admin.layout.sidebar-item :title="__('Good Categories')"
                                                  icon="users"
-                                                 :url="route('admin.categories.index', 'goods')"
-                                                 :active="request()->route('category_type') === 'goods'"
+                                                 :url="route('admin.categories.index', ['type' => 'goods'])"
+                                                 :active="request()->get('type') === 'goods'"
                     />
                 </x-admin.layout.sidebar-item>
             @endcan
@@ -126,7 +126,7 @@
                                              icon="users"
                                              :url="route('admin.services.index')"
                                              route="admin.services*"
-                                             :active="request()->route('category_type') === 'services' ? true : null"
+                                             :active="request()->get('type') === 'services' ? true : null"
                 >
                     <x-admin.layout.sidebar-item :title="__('Services')"
                                                  icon="users"
@@ -136,8 +136,8 @@
 
                     <x-admin.layout.sidebar-item :title="__('Service Categories')"
                                                  icon="users"
-                                                 :url="route('admin.categories.index', 'services')"
-                                                 :active="request()->route('category_type') === 'services'"
+                                                 :url="route('admin.categories.index', ['type' => 'services'])"
+                                                 :active="request()->get('type') === 'services'"
                     />
                 </x-admin.layout.sidebar-item>
             @endcan

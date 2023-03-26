@@ -7,7 +7,7 @@
             <h1>{{ __('Categories') }}</h1>
 
             <div>
-                <x-admin.link class="btn btn-primary" :href="route('admin.categories.create', request()->route('category_type'))">
+                <x-admin.link class="btn btn-primary" :href="route('admin.categories.create', ['type' => request()->get('type')])">
                     <x-admin.icon name="plus" />
                 </x-admin.link>
             </div>
@@ -19,7 +19,7 @@
             <h1>{{ __('Categories') }}</h1>
 
             <div>
-                <x-admin.link class="btn btn-primary" :href="route('admin.categories.create', request()->route('category_type'))">
+                <x-admin.link class="btn btn-primary" :href="route('admin.categories.create', ['type' => request()->get('type')])">
                     <x-admin.icon name="plus" />
                 </x-admin.link>
             </div>
