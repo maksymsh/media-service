@@ -27,6 +27,8 @@
 
     <x-splade-file name="image" :label="__('Image')" filepond preview server />
 
+    <x-splade-file name="background" :label="__('Background')" filepond preview server />
+
     <x-splade-file name="images" :label="__('Images')" filepond multiple preview server />
 </div>
 

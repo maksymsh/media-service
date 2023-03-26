@@ -90,7 +90,7 @@
                                 <div class="item-col">
                                     <div class="col-item">
                                         <div class="col-icon">
-                                            <img src="/images/icon1.svg" alt="">
+                                            <img src="{{ $category->getFirstMedia('image')->originalUrl }}" alt="">
                                         </div>
                                         <div class="col-name">{!! $category->name !!}</div>
                                         {!! $category->description_short !!}
@@ -163,7 +163,7 @@
                                 <div class="item-col">
                                     <div class="col-item">
                                         <div class="col-icon">
-                                            <img src="/images/icon1.svg" alt="">
+                                            <img src="{{ $category->getFirstMedia('image')->originalUrl }}" alt="">
                                         </div>
                                         <div class="col-name">{!! $category->name !!}</div>
                                         {!! $category->description_short !!}
@@ -198,8 +198,7 @@
                                 @foreach($goodCategories as $category)
                                     <x-app.link :href="$category->url" class="good-item">
                                         <div class="item-image">
-                                            {!! $category->image !!}
-                                            <img src="/images/g1.png" alt="">
+                                            <img src="{{ $category->getFirstMedia('image')->originalUrl }}" alt="">
                                         </div>
                                         <div class="item-name">{!! $category->name !!}</div>
                                     </x-app.link>
