@@ -34,7 +34,6 @@ class Banner extends BaseModel implements HasMedia
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('image')
-            ->singleFile()
-            ->acceptsMimeTypes(['image/jpeg', 'image/png']);
+            ->singleFile();
     }
 }

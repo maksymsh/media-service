@@ -53,11 +53,9 @@ class User extends BaseUser implements MustVerifyEmail, HasMedia
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('avatar')
-            ->singleFile()
-            ->acceptsMimeTypes(['image/jpeg', 'image/png']);
+            ->singleFile();
 
-        $this->addMediaCollection('images')
-            ->acceptsMimeTypes(['image/jpeg', 'image/png']);
+        $this->addMediaCollection('images');
     }
 
     public function getNameAttribute()

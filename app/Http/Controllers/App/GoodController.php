@@ -13,8 +13,11 @@ class GoodController extends Controller
     {
         $page = Page::query()->where('code', 'goods')->firstOrFail();
 
+        $goods = Good::query()->get();
+
         return view('app.goods.index', [
             'page' => $page,
+            'goods' => $goods,
         ]);
     }
 

@@ -36,33 +36,26 @@
                 <div class="line-5"></div>
             </div>
             <div class="services-list">
-                <div class="service-item d-lg-flex align-items-start justify-content-between">
-                    <div class="item-info">
-                        <div class="number">01</div>
-                        <div class="name">BAS</div>
-                        <div class="anons">Програмні рішення для створення комплексних систем автоматизації
-                            бізнесу
+                @foreach($services as $i => $service)
+                    <div class="service-item d-lg-flex align-items-start justify-content-between">
+                        <div class="item-info">
+                            <div class="number">{{ $i < 10 ? '0' : '' }}{{ $i + 1 }}</div>
+                            <div class="name">{{ $service->name }}</div>
+                            {!! $service->description !!}
+                            <x-splade-link href="{{ route('services.service', $service->id) }}" class="link-default d-inline-flex align-items-center">
+                                <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
+                                <span class="value">дізнатись більше</span>
+                                <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
+                            </x-splade-link>
                         </div>
-                        <ul class="ul-custom">
-                            <li>BAS Бухгалтерія / Базова / Проф / Корп</li>
-                            <li>BAS Комплексне управління</li>
-                            <li>BAS Управління торгівлею</li>
-                            <li>BAS роздрібна торгівля</li>
-                            <li>BAS Малий бізнес</li>
-                        </ul>
-                        <x-splade-link href="{{ route('services.service', 1) }}" class="link-default d-inline-flex align-items-center">
-                            <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                            <span class="value">Всі програми bas</span>
-                            <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                        </x-splade-link>
-                    </div>
-                    <div class="item-image d-flex align-items-end justify-content-center">
-                        <div class="image-container">
-                            <div class="image-bg"><img src="/images/s1.svg" alt=""></div>
-                            <div class="image-anim"><img src="/images/s11.svg" alt=""></div>
+                        <div class="item-image d-flex align-items-end justify-content-center">
+                            <div class="image-container">
+                                <div class="image-bg"><img src="{{ $service->getFirstMedia('background')?->originalUrl }}" alt=""></div>
+                                <div class="image-anim"><img src="{{ $service->getFirstMedia('image')?->originalUrl }}" alt=""></div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
                 <div class="service-item d-lg-flex align-items-start justify-content-between">
                     <div class="item-info">
                         <div class="number">02</div>

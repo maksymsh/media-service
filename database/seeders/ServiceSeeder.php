@@ -17,6 +17,7 @@ class ServiceSeeder extends Seeder
     {
         $data = [
             Service::factory()->afterCreating(function (Service $service) {
+                $service->addMedia(File::get(public_path('images/s1.svg')))->toMediaCollection('background');
                 $service->addMedia(File::get(public_path('images/s11.svg')))->toMediaCollection('image');
             })->make([
                 'name' => 'BAS',
@@ -27,6 +28,7 @@ class ServiceSeeder extends Seeder
             ]),
 
             Service::factory()->afterCreating(function (Service $service) {
+                $service->addMedia(File::get(public_path('images/s2.svg')))->toMediaCollection('background');
                 $service->addMedia(File::get(public_path('images/s22.svg')))->toMediaCollection('image');
             })->make([
                 'name' => 'Впровадження CRM та корпоративних порталів',
@@ -37,6 +39,7 @@ class ServiceSeeder extends Seeder
             ]),
 
             Service::factory()->afterCreating(function (Service $service) {
+                $service->addMedia(File::get(public_path('images/s3.svg')))->toMediaCollection('background');
                 $service->addMedia(File::get(public_path('images/s33.svg')))->toMediaCollection('image');
             })->make([
                 'name' => 'Обслуговування сервісів та мереж',
@@ -46,6 +49,7 @@ class ServiceSeeder extends Seeder
             ]),
 
             Service::factory()->afterCreating(function (Service $service) {
+                $service->addMedia(File::get(public_path('images/s4.svg')))->toMediaCollection('background');
                 $service->addMedia(File::get(public_path('images/s44.svg')))->toMediaCollection('image');
             })->make([
                 'name' => 'Обслуговування РРО/ПРРО',
@@ -55,6 +59,7 @@ class ServiceSeeder extends Seeder
             ]),
 
             Service::factory()->afterCreating(function (Service $service) {
+                $service->addMedia(File::get(public_path('images/s5.svg')))->toMediaCollection('background');
                 $service->addMedia(File::get(public_path('images/s55.svg')))->toMediaCollection('image');
             })->make([
                 'name' => 'Розробка мобільних додатків',

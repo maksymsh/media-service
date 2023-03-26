@@ -40,11 +40,12 @@ class Service extends BaseModel implements HasMedia
 
     public function registerMediaCollections(): void
     {
-        $this->addMediaCollection('image')
-            ->singleFile()
-            ->acceptsMimeTypes(['image/jpeg', 'image/png']);
+        $this->addMediaCollection('background')
+            ->singleFile();
 
-        $this->addMediaCollection('images')
-            ->acceptsMimeTypes(['image/jpeg', 'image/png']);
+        $this->addMediaCollection('image')
+            ->singleFile();
+
+        $this->addMediaCollection('images');
     }
 }

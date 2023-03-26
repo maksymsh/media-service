@@ -17,7 +17,7 @@ class ProductSeeder extends Seeder
         Product::truncate();
 
         Product::factory(10)->create()->each(function ($product) {
-            $product->addMedia(fake()->image)->toMediaCollection('image');
+//            $product->addMedia(fake()->image)->toMediaCollection('image');
         });
     }
 }

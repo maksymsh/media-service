@@ -13,8 +13,11 @@ class ServiceController extends Controller
     {
         $page = Page::query()->where('code', 'services')->firstOrFail();
 
+        $services = Service::query()->get();
+
         return view('app.services.index', [
             'page' => $page,
+            'services' => $services,
         ]);
     }
 
