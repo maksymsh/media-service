@@ -35,6 +35,7 @@ class UpdateGoodRequest extends BaseFormRequest
             'seo_description' => ['nullable'],
             'seo_keywords' => ['nullable'],
             'attributes' => ['nullable', 'array'],
+            'categories' => ['nullable', 'array'],
         ];
     }
 }

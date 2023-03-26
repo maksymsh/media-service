@@ -34,6 +34,7 @@ class StoreServiceRequest extends BaseFormRequest
             'seo_title' => ['nullable'],
             'seo_description' => ['nullable'],
             'seo_keywords' => ['nullable'],
+            'categories' => ['nullable', 'array'],
         ];
     }
 }

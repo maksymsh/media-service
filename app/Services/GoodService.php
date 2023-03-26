@@ -53,6 +53,12 @@ class GoodService extends BaseService
         try {
             $good = $this->query()->create($data);
 
+            $good->categories()->sync($data['categories'] ?? []);
+
+            foreach ($data['attributes'] ?? [] as $attribute) {
+                $good->attributes()->create($attribute);
+            }
+
             DB::commit();
 
             return $good;
@@ -67,6 +73,8 @@ class GoodService extends BaseService
 
         try {
             $model->update($data);
+
+            $model->categories()->sync($data['categories'] ?? []);
 
             $model->attributes()->delete();
 

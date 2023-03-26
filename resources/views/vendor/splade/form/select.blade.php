@@ -5,6 +5,7 @@
 <SpladeSelect
     {{ $attributes->only(['v-if', 'v-show', 'class'])->class([
         'row' => true,
+        'mb-3' => true,
     ]) }}
     :choices="@js($choicesOptions())"
     :js-choices-options="{!! $jsChoicesOptions() !!}"
