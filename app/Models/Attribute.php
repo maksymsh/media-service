@@ -11,4 +11,9 @@ class Attribute extends BaseModel
     protected $fillable = [
         'name',
     ];
+
+    public function goodAttributes()
+    {
+        return $this->hasMany(GoodAttribute::class);
+    }
 }

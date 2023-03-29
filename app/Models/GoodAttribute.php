@@ -2,12 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-
 class GoodAttribute extends BaseModel
 {
-    use HasFactory;
-
     protected $fillable = [
         'attribute_id',
         'value',
@@ -16,5 +12,10 @@ class GoodAttribute extends BaseModel
     public function attribute()
     {
         return $this->belongsTo(Attribute::class);
+    }
+
+    public function good()
+    {
+        return $this->belongsTo(Good::class);
     }
 }

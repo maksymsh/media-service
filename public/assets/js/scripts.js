@@ -744,16 +744,17 @@ window.initJS = () => {
         }
         return s.join(dec)
     }
-
     var handle5 = $('#p_min')
     var handle6 = $('#p_max')
+    var minPrice = parseInt(handle5.data('min'))
+    var maxPrice = parseInt(handle6.data('max'))
     if ($('#filter-price').length) {
         $('#filter-price').slider({
             animate: 'slow',
             range: true,
-            min: 3330,
-            max: 10000,
-            values: [3330, 10000],
+            min: minPrice,
+            max: maxPrice,
+            values: [minPrice, maxPrice],
             create: function () {
                 handle5.val(
                     number_format($(this).slider('values', 0), 0, '.', ' ')

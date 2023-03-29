@@ -34,36 +34,13 @@
                     <div class="aside-menu">
                         <div class="menu-title">Каталог товарів</div>
                         <ul class="nav flex-column">
-                            <li>
-                                <a href="#" class="nav-item">Реєстратори розрахункових операцій</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-item">Сканери штрихкодів</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-item">Принтери чеків</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-item">Термінали самообслуговування</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-item">Витратні матеріали</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-item">Грошові скриньки</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-item">POS- системи</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-item">Принтери етикеток</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-item">Термінали збору данних</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-item">Лічильники банкнот</a>
-                            </li>
+                            @foreach($categories as $category)
+                                <li>
+                                    <x-splade-link href="{{ route('goods.category', $category) }}"
+                                                   class="nav-item {{ isset($mainCategory) ? $category->id === $mainCategory->id ? 'active' : '' : '' }}"
+                                    >{{ $category->name }}</x-splade-link>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -84,9 +61,9 @@
                                         <div
                                             class="info-container d-flex align-items-center justify-content-between">
                                             <div class="inputs d-flex align-items-center">
-                                                <input type="text" name="min" value="" id="p_min">
+                                                <input type="text" name="min" value="" id="p_min" data-min="{{ $minPrice }}">
                                                 <span class="sep">-</span>
-                                                <input type="text" name="max" value="" id="p_max">
+                                                <input type="text" name="max" value="" id="p_max" data-max="{{ $maxPrice }}">
                                             </div>
                                             <input type="submit" class="submit" name="submit" value="ok">
                                         </div>
@@ -94,107 +71,33 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="filter-container">
-                                <div class="filter-name d-flex align-items-center justify-content-between "
-                                     data-toggle="collapse" data-target="#filter-2" aria-expanded="false"
-                                     aria-controls="collapseExample">
-                                    <span class="value">Інтерфейс</span>
-                                    <span class="ic icon-caret-right"></span>
-                                </div>
-                                <div class="filter-container-inner collapse show" id="filter-2">
-                                    <div class="inner-cont">
-                                        <div class="checkboxes">
-                                            <div class="checkbox">
-                                                <input type="checkbox" name="forma-1" id="forma-1">
-                                                <label for="forma-1">1 x USB Touch, 1 x USB MSR (22)</label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <input type="checkbox" name="forma-2" id="forma-2">
-                                                <label for="forma-2">1 x 12 B DC-out (12)</label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <input type="checkbox" name="forma-3" id="forma-3">
-                                                <label for="forma-3">1 x mini PCIe (6)</label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <input type="checkbox" name="forma-4" id="forma-4">
-                                                <label for="forma-4">1 x Power input (1)</label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <input type="checkbox" name="forma-5" id="forma-5">
-                                                <label for="forma-5">1 x Мікрофон (12)</label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <input type="checkbox" name="forma-6" id="forma-6">
-                                                <label for="forma-6">6 x USB, 3 x RS-232, Ethernet (20)</label>
+                            @foreach($attributes as $attribute)
+                                <div class="filter-container">
+                                    <div class="filter-name d-flex align-items-center justify-content-between "
+                                         data-toggle="collapse" data-target="#filter-2" aria-expanded="false"
+                                         aria-controls="collapseExample">
+                                        <span class="value">{{ $attribute->name }}</span>
+                                        <span class="ic icon-caret-right"></span>
+                                    </div>
+                                    <div class="filter-container-inner collapse show" id="filter-2">
+                                        <div class="inner-cont">
+                                            <div class="checkboxes">
+                                                @foreach($attributeValues[$attribute->id] as $value)
+                                                    <div class="checkbox">
+                                                        <input type="checkbox" name="forma-1" id="forma-1">
+                                                        <label for="forma-1">{{ $value['value'] }} ({{ $value['count'] }})</label>
+                                                    </div>
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="filter-container">
-                                <div class="filter-name d-flex align-items-center justify-content-between collapsed"
-                                     data-toggle="collapse" data-target="#filter-3" aria-expanded="false"
-                                     aria-controls="collapseExample">
-                                    <span class="value">Автообрізчик</span>
-                                    <span class="ic icon-caret-right"></span>
-                                </div>
-                                <div class="filter-container-inner collapse" id="filter-3">
-                                    <div class="inner-cont">
-                                        <div class="checkboxes">
-                                            <div class="checkbox">
-                                                <input type="checkbox" name="forma-13" id="forma-13">
-                                                <label for="forma-13">Не обов’язково</label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <input type="checkbox" name="forma-14" id="forma-14">
-                                                <label for="forma-14">Мінімальний рівень </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <input type="checkbox" name="forma-15" id="forma-15">
-                                                <label for="forma-15">Середній рівень</label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <input type="checkbox" name="forma-155" id="forma-155">
-                                                <label for="forma-155">Високий рівень</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </form>
                     </div>
                 </div>
             </div>
             <div class="products-container">
-                <div class="sub-menu">
-                    <div class="row gutters-11">
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <a href="#" class="sub-item d-flex align-items-center active">
-                                <div class="item-image">
-                                    <img src="/images/sub1.png" alt="">
-                                </div>
-                                <div class="item-name">Касові апарати</div>
-                            </a>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <a href="#" class="sub-item d-flex align-items-center">
-                                <div class="item-image">
-                                    <img src="/images/sub2.png" alt="">
-                                </div>
-                                <div class="item-name">Фіскальні реєстратори</div>
-                            </a>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <a href="#" class="sub-item d-flex align-items-center">
-                                <div class="item-image">
-                                    <img src="/images/sub3.png" alt="">
-                                </div>
-                                <div class="item-name">Дисплеї покупця</div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
                 <div class="products-sort d-flex flex-wrap align-items-start">
                     <div class="value">Сортувати по:</div>
                     <div class="d-flex flex-wrap">
