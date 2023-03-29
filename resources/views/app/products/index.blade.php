@@ -37,31 +37,34 @@
                 <div class="lines"><img src="/images/lines-4.svg" alt=""></div>
             </div>
             <div class="catalog-items">
-                <div class="item-big d-lg-flex align-items-start justify-content-between">
-                    <div class="big-images">
-                        <div class="icon"><img src="/images/cc1.png" alt=""></div>
-                        <div class="bg"><img src="/images/c2.svg" alt=""></div>
-                    </div>
-                    <div class="big-info">
-                        <div class="number">01</div>
-                        <div class="name">BAS</div>
-                        <div class="anons">Якщо ви шукаєте оптимальний варіант для автоматизації вашого бізнесу, то
-                            сімейство програм BAS чудово для цього підходить.
+                @foreach($categories as $category)
+                    <div class="item-big d-lg-flex align-items-start justify-content-between">
+                        <div class="big-images">
+                            <div class="icon"><img src="/images/cc1.png" alt=""></div>
+                            <div class="bg"><img src="/images/c2.svg" alt=""></div>
                         </div>
-                        <div class="description">
-                            <div class="desc-title">Ознайомтесь з нашим каталогом або зверніться до нас і ми
-                                допоможемо вам визначитись
+                        <div class="big-info">
+                            <div class="number">01</div>
+                            <div class="name">BAS</div>
+                            <div class="anons">Якщо ви шукаєте оптимальний варіант для автоматизації вашого бізнесу, то
+                                сімейство програм BAS чудово для цього підходить.
                             </div>
-                            <p>Яку саме програму BAS вам необхідно придбати. Наш досвід допоможе підібрати вам
-                                найоптимальніший варіант саме для вашого бізнесу.</p>
+                            <div class="description">
+                                <div class="desc-title">Ознайомтесь з нашим каталогом або зверніться до нас і ми
+                                    допоможемо вам визначитись
+                                </div>
+                                <p>Яку саме програму BAS вам необхідно придбати. Наш досвід допоможе підібрати вам
+                                    найоптимальніший варіант саме для вашого бізнесу.</p>
+                            </div>
+                            <a href="#" class="button-default  d-inline-flex align-items-center" data-toggle="modal"
+                               data-target="#m-feed">
+                                <span class="value">отримати консультацію</span>
+                                <span class="ic icon-arrow-right"></span>
+                            </a>
                         </div>
-                        <a href="#" class="button-default  d-inline-flex align-items-center" data-toggle="modal"
-                           data-target="#m-feed">
-                            <span class="value">отримати консультацію</span>
-                            <span class="ic icon-arrow-right"></span>
-                        </a>
                     </div>
-                </div>
+                @endforeach
+
                 <div class="items d-md-flex flex-wrap align-items-start justify-content-between">
                     <div class="item">
                         <div class="item-icon">

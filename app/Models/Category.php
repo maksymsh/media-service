@@ -42,9 +42,27 @@ class Category extends BaseModel implements HasMedia
 
     public function registerMediaCollections(): void
     {
+        $this->addMediaCollection('background')
+            ->singleFile();
+
         $this->addMediaCollection('image')
             ->singleFile();
 
         $this->addMediaCollection('images');
+    }
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class);
+    }
+
+    public function goods()
+    {
+        return $this->belongsToMany(Good::class);
+    }
+
+    public function services()
+    {
+        return $this->belongsToMany(Service::class);
     }
 }

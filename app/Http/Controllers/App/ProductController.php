@@ -18,8 +18,16 @@ class ProductController extends Controller
         $page->seo_description && SEO::description($page->seo_description);
         $page->seo_keywords && SEO::keywords($page->seo_keywords);
 
+        $categories = Category::query()->where('type', Product::class)
+            ->with('products')
+            ->get();
+
+        $products = Product::query()->whereDoesntHave('categories')->get();
+
         return view('app.products.index', [
             'page' => $page,
+            'categories' => $categories,
+            'products' => $products,
         ]);
     }
 
