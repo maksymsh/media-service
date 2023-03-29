@@ -82,10 +82,10 @@
                                     <div class="filter-container-inner collapse show" id="filter-2">
                                         <div class="inner-cont">
                                             <div class="checkboxes">
-                                                @foreach($attributeValues[$attribute->id] as $value)
+                                                @foreach($attributeValues[$attribute->id] as $i => $value)
                                                     <div class="checkbox">
-                                                        <input type="checkbox" name="forma-1" id="forma-1">
-                                                        <label for="forma-1">{{ $value['value'] }} ({{ $value['count'] }})</label>
+                                                        <input type="checkbox" name="forma-1" id="att-{{ $attribute->id }}-{{ $i }}">
+                                                        <label for="att-{{ $attribute->id }}-{{ $i }}">{{ $value['value'] }} ({{ $value['count'] }})</label>
                                                     </div>
                                                 @endforeach
                                             </div>

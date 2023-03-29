@@ -48,7 +48,7 @@ class GoodController extends Controller
                     $q->where('attribute_id', $attribute->id)
                         ->where('value', $value->value);
                 })->count();
-                $attributeValues[$attribute->id][$value->id] = [
+                $attributeValues[$attribute->id][] = [
                     'value' => $value->value,
                     'count' => $count,
                 ];
