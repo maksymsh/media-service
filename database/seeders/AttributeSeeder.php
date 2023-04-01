@@ -14,11 +14,15 @@ class AttributeSeeder extends Seeder
      */
     public function run()
     {
-        Attribute::factory()->create(['name' => 'Метод друку']);
-        Attribute::factory()->create(['name' => 'Швидкість друку']);
-        Attribute::factory()->create(['name' => 'Контрольна стрічка']);
-        Attribute::factory()->create(['name' => 'Метод друку']);
-        Attribute::factory()->create(['name' => 'Швидкість друку']);
-        Attribute::factory()->create(['name' => 'Контрольна стрічка']);
+        $data = [
+            ['name' => 'Метод друку'],
+            ['name' => 'Швидкість друку'],
+            ['name' => 'Контрольна стрічка'],
+        ];
+
+        foreach ($data as $item) {
+            $attrs['name'] = $item['name'];
+            $attribute = Attribute::factory()->create($attrs);
+        }
     }
 }

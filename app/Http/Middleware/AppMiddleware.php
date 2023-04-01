@@ -24,7 +24,7 @@ class AppMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        $categoriesQuery = Category::query()->where('top', true)
+        $categoriesQuery = Category::query()->whereNull('parent_id')
             ->where('published', true);
 
         $serviceCategories = (clone $categoriesQuery)->where('type', Service::class)->get();

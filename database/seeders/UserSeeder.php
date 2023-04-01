@@ -15,8 +15,6 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::truncate();
-
         /** @var $data array<User> */
         $uniqueKeys = ['username', 'email'];
 

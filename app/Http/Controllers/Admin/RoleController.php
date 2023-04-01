@@ -56,7 +56,7 @@ class RoleController extends Controller
             'projects',
             'roles',
             'services',
-            'studies',
+            'study',
             'users',
             'vacancies',
             'orders',

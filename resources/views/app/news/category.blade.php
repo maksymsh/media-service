@@ -23,244 +23,41 @@
                         </ul>
                     </div>
                 </div>
-                <h1>Новини компанії</h1>
+                <h1>{{ $category->name }}</h1>
             </div>
             <div class="tabs-menu d-flex align-items-start flex-wrap">
-                <a href="#" class="item active">показати всі</a>
-                <a href="#" class="item">новини комнанії</a>
-                <a href="#" class="item">публікації</a>
-                <a href="#" class="item">новини школи</a>
+                <x-splade-link href="{{ route('news.index') }}" class="item">показати всі</x-splade-link>
+                @foreach($categories as $c)
+                    <x-splade-link href="{{ route('news.category', $c) }}" class="item {{ $category->id === $c->id ? 'active' : '' }}">{{ $c->name }}</x-splade-link>
+                @endforeach
             </div>
             <div class="news-list">
                 <div class="row gutters-22">
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="item d-flex flex-column align-items-start justify-content-between">
-                            <a href="#" class="item-image "><img class="parallax" src="/images/n1.jpg" alt=""></a>
-                            <div class="item-info">
-                                <div class="d-flex align-items-center">
-                                    <span class="category">навчання</span>
-                                    <span class="date">13 Грудня 2022</span>
+                    @foreach($news as $post)
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="item d-flex flex-column align-items-start justify-content-between">
+                                <x-splade-link href="{{ route('news.post', $post) }}" class="item-image ">
+                                    <img class="parallax" src="{{ $post->getFirstMedia('image')->originalUrl }}" alt="">
+                                </x-splade-link>
+                                <div class="item-info">
+                                    <div class="d-flex align-items-center">
+                                        @foreach($post->categories as $c)
+                                            <span class="category">{{ $c->name }}</span>
+                                        @endforeach
+                                        <span class="date">{{ $post->created_at }}</span>
+                                    </div>
+                                    <a href="#" class="name">{{ $post->title }}</a>
                                 </div>
-                                <a href="#" class="name">Вебінар до дня Бухгалтера</a>
-                            </div>
-                            <div class="button-container">
-                                <a href="#" class="link-default item-link d-flex align-items-center">
-                                    <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                    <span class="value">детальніше</span>
-                                    <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                </a>
+                                <div class="button-container">
+                                    <x-splade-link href="{{ route('news.post', $post) }}" class="link-default item-link d-flex align-items-center">
+                                        <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
+                                        <span class="value">детальніше</span>
+                                        <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
+                                    </x-splade-link>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="item d-flex flex-column align-items-start justify-content-between">
-                            <a href="#" class="item-image "><img class="parallax" src="/images/n2.jpg" alt=""></a>
-                            <div class="item-info">
-                                <div class="d-flex align-items-center">
-                                    <span class="category">новини компанії</span>
-                                    <span class="date">13 Грудня 2022</span>
-                                </div>
-                                <a href="#" class="name">З Днем Української Державності, Україно!</a>
-                            </div>
-                            <div class="button-container">
-                                <a href="#" class="link-default item-link d-flex align-items-center">
-                                    <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                    <span class="value">детальніше</span>
-                                    <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="item d-flex flex-column align-items-start justify-content-between">
-                            <a href="#" class="item-image "><img class="parallax" src="/images/n3.jpg" alt=""></a>
-                            <div class="item-info">
-                                <div class="d-flex align-items-center">
-                                    <span class="category">навчання</span>
-                                    <span class="date">13 Грудня 2022</span>
-                                </div>
-                                <a href="#" class="name">З Днем Збройних Сил України!</a>
-                            </div>
-                            <div class="button-container">
-                                <a href="#" class="link-default item-link d-flex align-items-center">
-                                    <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                    <span class="value">детальніше</span>
-                                    <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="item d-flex flex-column align-items-start justify-content-between">
-                            <a href="#" class="item-image "><img class="parallax" src="/images/n1.jpg" alt=""></a>
-                            <div class="item-info">
-                                <div class="d-flex align-items-center">
-                                    <span class="category">навчання</span>
-                                    <span class="date">13 Грудня 2022</span>
-                                </div>
-                                <a href="#" class="name">Вебінар до дня Бухгалтера</a>
-                            </div>
-                            <div class="button-container">
-                                <a href="#" class="link-default item-link d-flex align-items-center">
-                                    <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                    <span class="value">детальніше</span>
-                                    <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="item d-flex flex-column align-items-start justify-content-between">
-                            <a href="#" class="item-image "><img class="parallax" src="/images/n2.jpg" alt=""></a>
-                            <div class="item-info">
-                                <div class="d-flex align-items-center">
-                                    <span class="category">новини компанії</span>
-                                    <span class="date">13 Грудня 2022</span>
-                                </div>
-                                <a href="#" class="name">З Днем Української Державності, Україно!</a>
-                            </div>
-                            <div class="button-container">
-                                <a href="#" class="link-default item-link d-flex align-items-center">
-                                    <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                    <span class="value">детальніше</span>
-                                    <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="item d-flex flex-column align-items-start justify-content-between">
-                            <a href="#" class="item-image "><img class="parallax" src="/images/n3.jpg" alt=""></a>
-                            <div class="item-info">
-                                <div class="d-flex align-items-center">
-                                    <span class="category">навчання</span>
-                                    <span class="date">13 Грудня 2022</span>
-                                </div>
-                                <a href="#" class="name">З Днем Збройних Сил України!</a>
-                            </div>
-                            <div class="button-container">
-                                <a href="#" class="link-default item-link d-flex align-items-center">
-                                    <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                    <span class="value">детальніше</span>
-                                    <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="item d-flex flex-column align-items-start justify-content-between">
-                            <a href="#" class="item-image "><img class="parallax" src="/images/n1.jpg" alt=""></a>
-                            <div class="item-info">
-                                <div class="d-flex align-items-center">
-                                    <span class="category">навчання</span>
-                                    <span class="date">13 Грудня 2022</span>
-                                </div>
-                                <a href="#" class="name">Вебінар до дня Бухгалтера</a>
-                            </div>
-                            <div class="button-container">
-                                <a href="#" class="link-default item-link d-flex align-items-center">
-                                    <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                    <span class="value">детальніше</span>
-                                    <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="item d-flex flex-column align-items-start justify-content-between">
-                            <a href="#" class="item-image "><img class="parallax" src="/images/n2.jpg" alt=""></a>
-                            <div class="item-info">
-                                <div class="d-flex align-items-center">
-                                    <span class="category">новини компанії</span>
-                                    <span class="date">13 Грудня 2022</span>
-                                </div>
-                                <a href="#" class="name">З Днем Української Державності, Україно!</a>
-                            </div>
-                            <div class="button-container">
-                                <a href="#" class="link-default item-link d-flex align-items-center">
-                                    <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                    <span class="value">детальніше</span>
-                                    <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="item d-flex flex-column align-items-start justify-content-between">
-                            <a href="#" class="item-image "><img class="parallax" src="/images/n3.jpg" alt=""></a>
-                            <div class="item-info">
-                                <div class="d-flex align-items-center">
-                                    <span class="category">навчання</span>
-                                    <span class="date">13 Грудня 2022</span>
-                                </div>
-                                <a href="#" class="name">З Днем Збройних Сил України!</a>
-                            </div>
-                            <div class="button-container">
-                                <a href="#" class="link-default item-link d-flex align-items-center">
-                                    <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                    <span class="value">детальніше</span>
-                                    <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="item d-flex flex-column align-items-start justify-content-between">
-                            <a href="#" class="item-image "><img class="parallax" src="/images/n1.jpg" alt=""></a>
-                            <div class="item-info">
-                                <div class="d-flex align-items-center">
-                                    <span class="category">навчання</span>
-                                    <span class="date">13 Грудня 2022</span>
-                                </div>
-                                <a href="#" class="name">Вебінар до дня Бухгалтера</a>
-                            </div>
-                            <div class="button-container">
-                                <a href="#" class="link-default item-link d-flex align-items-center">
-                                    <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                    <span class="value">детальніше</span>
-                                    <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="item d-flex flex-column align-items-start justify-content-between">
-                            <a href="#" class="item-image "><img class="parallax" src="/images/n2.jpg" alt=""></a>
-                            <div class="item-info">
-                                <div class="d-flex align-items-center">
-                                    <span class="category">новини компанії</span>
-                                    <span class="date">13 Грудня 2022</span>
-                                </div>
-                                <a href="#" class="name">З Днем Української Державності, Україно!</a>
-                            </div>
-                            <div class="button-container">
-                                <a href="#" class="link-default item-link d-flex align-items-center">
-                                    <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                    <span class="value">детальніше</span>
-                                    <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="item d-flex flex-column align-items-start justify-content-between">
-                            <a href="#" class="item-image "><img class="parallax" src="/images/n3.jpg" alt=""></a>
-                            <div class="item-info">
-                                <div class="d-flex align-items-center">
-                                    <span class="category">навчання</span>
-                                    <span class="date">13 Грудня 2022</span>
-                                </div>
-                                <a href="#" class="name">З Днем Збройних Сил України!</a>
-                            </div>
-                            <div class="button-container">
-                                <a href="#" class="link-default item-link d-flex align-items-center">
-                                    <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                    <span class="value">детальніше</span>
-                                    <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <button class="button-more d-flex align-items-center justify-content-center">
                     <span class="value">показати більше</span>

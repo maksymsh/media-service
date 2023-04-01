@@ -18,13 +18,9 @@ return new class extends Migration
             $table->id();
             $table->string('type')->nullable();
             $table->boolean('root')->default(true);
-            $table->boolean('top')->default(false);
             $table->unsignedBigInteger('parent_id')->nullable()->default(null);
             $table->unsignedBigInteger(NestedSet::LFT)->nullable();
             $table->unsignedBigInteger(NestedSet::RGT)->nullable();
-            $table->string('path')->nullable();
-
-            $table->unsignedBigInteger('layout_id')->nullable();
 
             $table->string('name');
             $table->string('slug')->nullable();

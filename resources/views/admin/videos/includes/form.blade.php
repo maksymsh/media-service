@@ -16,6 +16,6 @@
     <x-splade-file name="images" :label="__('Images')" filepond multiple preview server />
 </div>
 
-@if(!$layout->exists)
+@if(!$video->exists)
 
 @endif

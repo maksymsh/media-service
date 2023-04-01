@@ -24,14 +24,6 @@
                 />
             @endcan
 
-            @can('layouts.index')
-                <x-admin.layout.sidebar-item :title="__('Layouts')"
-                                             icon="sliders"
-                                             :url="route('admin.layouts.index')"
-                                             route="admin.layouts*"
-                />
-            @endcan
-
             @can('menus.index')
                 <x-admin.layout.sidebar-item :title="__('Menu')"
                                              icon="sliders"
@@ -125,21 +117,8 @@
                 <x-admin.layout.sidebar-item :title="__('Services')"
                                              icon="users"
                                              :url="route('admin.services.index')"
-                                             route="admin.services*"
-                                             :active="request()->get('type') === 'services' ? true : null"
-                >
-                    <x-admin.layout.sidebar-item :title="__('Services')"
-                                                 icon="users"
-                                                 :url="route('admin.services.index')"
-                                                 route="admin.services.*"
-                    />
-
-                    <x-admin.layout.sidebar-item :title="__('Service Categories')"
-                                                 icon="users"
-                                                 :url="route('admin.categories.index', ['type' => 'services'])"
-                                                 :active="request()->get('type') === 'services'"
-                    />
-                </x-admin.layout.sidebar-item>
+                                             route="admin.services.*"
+                />
             @endcan
 
             @can('projects.index')
@@ -147,28 +126,58 @@
                                              icon="users"
                                              :url="route('admin.projects.index')"
                                              route="admin.projects*"
-                />
+                                             :active="request()->get('type') === 'projects' ? true : null"
+                >
+                    <x-admin.layout.sidebar-item :title="__('Projects')"
+                                                 icon="users"
+                                                 :url="route('admin.projects.index')"
+                                                 route="admin.projects.*"
+                    />
+
+                    <x-admin.layout.sidebar-item :title="__('Project Categories')"
+                                                 icon="users"
+                                                 :url="route('admin.categories.index', ['type' => 'projects'])"
+                                                 :active="request()->get('type') === 'projects'"
+                    />
+                </x-admin.layout.sidebar-item>
             @endcan
 
-            @can('vacancies.index')
-                <x-admin.layout.sidebar-item :title="__('Vacancies')"
-                                             icon="users"
-                                             :url="route('admin.vacancies.index')"
-                                             route="admin.vacancies*"
-                />
-            @endcan
+            <x-admin.layout.sidebar-item :title="__('Study')"
+                                         icon="users"
+                                         :url="route('admin.vacancies.index')"
+                                         route="admin.projects*"
+                                         :active="request()->is(['*vacancies*', '*courses*', '*videos*']) ? true : null"
+            >
+                @can('vacancies.index')
+                    <x-admin.layout.sidebar-item :title="__('Vacancies')"
+                                                 icon="users"
+                                                 :url="route('admin.vacancies.index')"
+                                                 route="admin.vacancies*"
+                    />
+                @endcan
 
-            @can('courses.index')
-                <x-admin.layout.sidebar-item :title="__('Courses')"
-                                             icon="users"
-                                             :url="route('admin.courses.index')"
-                                             route="admin.courses*"
-                />
-            @endcan
+                @can('courses.index')
+                    <x-admin.layout.sidebar-item :title="__('Courses')"
+                                                 icon="users"
+                                                 :url="route('admin.courses.index')"
+                                                 route="admin.courses*"
+                    />
+                @endcan
+
+                @can('videos.index')
+                    <x-admin.layout.sidebar-item :title="__('Videos')"
+                                                 icon="users"
+                                                 :url="route('admin.videos.index')"
+                                                 route="admin.videos*"
+                    />
+                @endcan
+            </x-admin.layout.sidebar-item>
+
+
 
             <li class="sidebar-header">{{ __('Orders') }}</li>
 
-            @can('pages.orders')
+            @can('orders.index')
                 <x-admin.layout.sidebar-item :title="__('Orders')"
                                              icon="users"
                                              :url="route('admin.orders.index')"

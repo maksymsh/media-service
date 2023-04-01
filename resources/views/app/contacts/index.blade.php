@@ -24,53 +24,52 @@
                         </ul>
                     </div>
                 </div>
-                <h1>Контакти</h1>
+                <h1>{!! $page->title !!}</h1>
             </div>
             <div class="contacts-items d-flex justify-content-between">
                 <div class="contact-item item-1">
                     <div class="contact-container">
                         <div class="contact-title">Відділ продажу</div>
-                        <a href="tel:0322420727" class="item">(032) 242-07-27</a>
-                        <a href="mailto:sales@medias.com.ua" class="item">sales@medias.com.ua</a>
+                        <a href="tel:{{ rawPhone(settings('sales_phone')) }}" class="item">{{ settings('sales_phone') }}</a>
+                        <a href="mailto:{{ settings('sales_email') }}" class="item">{{ settings('sales_email') }}</a>
                     </div>
                     <div class="contact-container">
                         <div class="contact-title">Бухгалтерія</div>
-                        <a href="tel:0322422447" class="item">(032) 242-07-27</a>
+                        <a href="tel:{{ rawPhone(settings('accounting_phone')) }}" class="item">{{ settings('accounting_phone') }}</a>
                     </div>
                 </div>
                 <div class="contact-item item-2">
                     <div class="contact-container">
                         <div class="contact-title">Служба підтримки</div>
-                        <a href="tel:(032) 242-42-43" class="item">(032) 242-42-43</a>
-                        <a href="tel:(032) 240-00-36" class="item">(032) 240-00-36</a>
-                        <a href="tel:(067) 671-24-47" class="item">(067) 671-24-47</a>
-                        <a href="tel:(050) 376-74-99" class="item">(050) 376-74-99</a>
+                        <a href="tel:{{ rawPhone(settings('support_phone')) }}" class="item">{{ settings('support_phone') }}</a>
+                        <a href="tel:{{ rawPhone(settings('support_phone2')) }}" class="item">{{ settings('support_phone2') }}</a>
+                        <a href="tel:{{ rawPhone(settings('support_phone3')) }}" class="item">{{ settings('support_phone3') }}</a>
+                        <a href="tel:{{ rawPhone(settings('support_phone4')) }}" class="item">{{ settings('support_phone4') }}</a>
                     </div>
                 </div>
                 <div class="contact-item item-3">
                     <div class="contact-container">
                         <div class="contact-title">WEB відділ</div>
-                        <a href="mailto:web@medias.com.ua" class="item">web@medias.com.ua</a>
+                        <a href="mailto:{{ settings('web_email') }}" class="item">{{ settings('web_email') }}</a>
                     </div>
                     <div class="contact-container">
                         <div class="contact-title">Питання співпраці</div>
-                        <a href="mailto:partners@medias.com.ua" class="item">partners@medias.com.ua</a>
+                        <a href="mailto:{{ settings('partners_email') }}" class="item">{{ settings('partners_email') }}</a>
                     </div>
                     <div class="contact-container">
                         <div class="contact-title">HR-відділ та рекрутмент</div>
-                        <a href="mailto:hr@medias.com.ua" class="item">hr@medias.com.ua</a>
+                        <a href="mailto:{{ settings('hr_email') }}" class="item">{{ settings('hr_email') }}</a>
                     </div>
                 </div>
                 <div class="contact-item item-4">
                     <div class="contact-container">
                         <div class="contact-title">КонсультаціЇ по продуктах лінійки BAS</div>
-                        <a href="mailto:hotline@medias.com.ua" class="item">hotline@medias.com.ua</a>
+                        <a href="mailto:{{ settings('hotline_email') }}" class="item">{{ settings('hotline_email') }}</a>
                     </div>
                     <div class="contact-container support">
-                        <div class="contact-title">Відділ обслуговування торгового обладнання та фіскальної
-                            техніки
+                        <div class="contact-title">Відділ обслуговування торгового обладнання та фіскальної техніки
                         </div>
-                        <a href="mailto:cso@medias.com.ua" class="item">cso@medias.com.ua</a>
+                        <a href="mailto:{{ settings('cso_email') }}" class="item">{{ settings('cso_email') }}</a>
                     </div>
                 </div>
             </div>
@@ -79,7 +78,7 @@
                 <div class="d-md-flex adres-items">
                     <div class="adres-item">
                         <div class="contact-title">Адреса</div>
-                        <div class="item">м. Львів, вул. Наукова, 7а <br/>(3й поверх)</div>
+                        <div class="item">{!! settings('address') !!}</div>
                         <a href="#" class="link-default item-link d-inline-flex align-items-center">
                             <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
                             <span class="value">прокласи маршрут</span>
@@ -88,7 +87,7 @@
                     </div>
                     <div class="adres-item">
                         <div class="contact-title">Графік роботи</div>
-                        <div class="item">Пн.-Пт. з 9:30 до 18:00 <br/>(крім святкових днів)</div>
+                        <div class="item">{!! settings('schedule') !!}</div>
                     </div>
                 </div>
             </div>

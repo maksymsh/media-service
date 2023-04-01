@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Vacancy;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\File;
 
 class VacancySeeder extends Seeder
 {
@@ -14,10 +15,19 @@ class VacancySeeder extends Seeder
      */
     public function run()
     {
-        Vacancy::truncate();
+        $data = [
 
-        Vacancy::factory(10)->create()->each(function (Vacancy $vacancy) {
-//            $vacancy->addMedia(fake()->image)->toMediaCollection('image');
-        });
+        ];
+
+        foreach ($data as $item) {
+            $attrs['name'] = $item['name'];
+            $attrs['description'] = $item['description'];
+            $attrs['seo_title'] = $item['name'];
+            $attrs['seo_description'] = $item['name'];
+            $attrs['seo_keywords'] = $item['name'];
+            $vacancy = Vacancy::factory()->create($attrs);
+            File::copy(public_path('images/'.$item['image']), resource_path('images/'.$item['image']));
+            $vacancy->addMedia(resource_path('images/'.$item['image']))->toMediaCollection('image');
+        }
     }
 }

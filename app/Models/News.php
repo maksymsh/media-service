@@ -17,9 +17,10 @@ class News extends BaseModel implements HasMedia
     protected $fillable = [
         'title',
         'slug',
+        'description',
         'content',
+        'video',
         'published',
-        'layout_id',
         'seo_h1',
         'seo_title',
         'seo_description',
@@ -43,5 +44,10 @@ class News extends BaseModel implements HasMedia
             ->singleFile();
 
         $this->addMediaCollection('images');
+    }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
     }
 }

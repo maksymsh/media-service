@@ -14,11 +14,14 @@ class BannerSeeder extends Seeder
      */
     public function run()
     {
-//        Banner::truncate();
-//
-//        Banner::factory(10)->create()->each(function ($category) {
-//            $image = fake()->image;
-//            $category->addMedia($image)->toMediaCollection('image');
-//        });
+        $data = [
+
+        ];
+
+        foreach ($data as $item) {
+            $attrs['name'] = $item['name'];
+            $attrs['description'] = $item['description'];
+            $banner = Banner::factory()->create($attrs);
+        }
     }
 }

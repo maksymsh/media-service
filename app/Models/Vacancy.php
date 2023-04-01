@@ -17,8 +17,7 @@ class Vacancy extends BaseModel implements HasMedia
     protected $fillable = [
         'title',
         'slug',
-        'text',
-        'layout_id',
+        'description',
         'published',
         'seo_h1',
         'seo_title',

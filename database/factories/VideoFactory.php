@@ -2,13 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Models\Layout;
+use App\Models\Video;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<Layout>
+ * @extends Factory<Video>
  */
-class LayoutFactory extends Factory
+class VideoFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,7 +18,8 @@ class LayoutFactory extends Factory
     public function definition()
     {
         return [
-
+            'title' => fake()->word,
+            'url' => fake()->url,
         ];
     }
 }

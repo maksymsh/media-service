@@ -17,8 +17,8 @@ class Project extends BaseModel implements HasMedia
     protected $fillable = [
         'title',
         'slug',
-        'text',
-        'layout_id',
+        'description',
+        'content',
         'published',
         'seo_h1',
         'seo_title',
@@ -39,9 +39,17 @@ class Project extends BaseModel implements HasMedia
 
     public function registerMediaCollections(): void
     {
+        $this->addMediaCollection('logo')
+            ->singleFile();
+
         $this->addMediaCollection('image')
             ->singleFile();
 
         $this->addMediaCollection('images');
+    }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
     }
 }

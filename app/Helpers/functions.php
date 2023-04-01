@@ -40,7 +40,7 @@ if (! function_exists('routeActive')) {
 }
 
 if (! function_exists('settings')) {
-    function settings(string|array $key = null): GeneralSettings
+    function settings(string|array $key = null): GeneralSettings|string
     {
         $settings = app('settings');
 
@@ -49,5 +49,12 @@ if (! function_exists('settings')) {
         }
 
         return $settings;
+    }
+}
+
+if (! function_exists('rawPhone')) {
+    function rawPhone(string $phone): string
+    {
+        return preg_replace('/\D/', '', $phone);
     }
 }

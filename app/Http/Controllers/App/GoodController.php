@@ -68,19 +68,54 @@ class GoodController extends Controller
         ]);
     }
 
-    public function category(Category $category)
+    public function category(Request $request, Category $category)
     {
         $category->seo_title && SEO::title($category->seo_title);
         $category->seo_description && SEO::description($category->seo_description);
         $category->seo_keywords && SEO::keywords($category->seo_keywords);
 
-        $goods = Good::query()->whereHas('categories', fn (Builder $q) => $q->where('id', $category->id))->get();
+        /** @var Builder $goodsQuery */
+        $goodsQuery = Good::query()->whereHas('categories', fn (Builder $q) => $q->where('id', $category->id))->filter($request->all());
+
+        $goodsIds = $goodsQuery->pluck('id')->toArray();
+
+        $goods = $goodsQuery->paginate();
+
+        $maxPrice = $goodsQuery->max('price');
+        $minPrice = $goodsQuery->min('price');
+
+        $attributes = Attribute::query()->whereHas('goodAttributes', function (Builder $q) use ($goodsIds) {
+            $q->whereIn('good_id', $goodsIds);
+        })->get();
+
+        $attributeValues = [];
+
+        foreach ($attributes as $attribute) {
+            $values = GoodAttribute::query()->where('attribute_id', $attribute->id)->get()->unique('value');
+
+            $attributeValues[$attribute->id] = [];
+
+            foreach ($values as $value) {
+                $count = Good::query()->whereHas('attributes', function (Builder $q) use ($attribute, $value, &$attributeValues) {
+                    $q->where('attribute_id', $attribute->id)
+                        ->where('value', $value->value);
+                })->count();
+                $attributeValues[$attribute->id][] = [
+                    'value' => $value->value,
+                    'count' => $count,
+                ];
+            }
+        }
 
         $categories = Category::query()->where('type', Good::class)->get();
 
         return view('app.goods.category', [
             'mainCategory' => $category,
             'goods' => $goods,
+            'maxPrice' => $maxPrice,
+            'minPrice' => $minPrice,
+            'attributes' => $attributes,
+            'attributeValues' => $attributeValues,
             'categories' => $categories,
         ]);
     }

@@ -19,7 +19,6 @@ class Service extends BaseModel implements HasMedia
         'slug',
         'description',
         'price',
-        'layout_id',
         'published',
         'seo_h1',
         'seo_title',
@@ -47,10 +46,5 @@ class Service extends BaseModel implements HasMedia
             ->singleFile();
 
         $this->addMediaCollection('images');
-    }
-
-    public function categories()
-    {
-        return $this->belongsToMany(Category::class);
     }
 }

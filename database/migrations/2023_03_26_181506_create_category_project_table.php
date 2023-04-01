@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Category;
+use App\Models\Project;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,14 +15,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('layouts', function (Blueprint $table) {
-            $table->id();
-            $table->string('code')->nullable()->unique();
-            $table->string('name');
-            $table->string('slug')->nullable();
-            $table->json('properties')->nullable();
-
-            $table->timestamps();
+        Schema::create('category_project', function (Blueprint $table) {
+            $table->foreignIdFor(Category::class);
+            $table->foreignIdFor(Project::class);
         });
     }
 
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('layouts');
+        Schema::dropIfExists('category_project');
     }
 };

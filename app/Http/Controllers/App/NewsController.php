@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\News;
 use App\Models\Page;
+use Illuminate\Database\Eloquent\Builder;
 use ProtoneMedia\Splade\Facades\SEO;
 
 class NewsController extends Controller
@@ -20,18 +21,39 @@ class NewsController extends Controller
 
         SEO::headerClass('fix');
 
+        $categories = Category::query()->where('type', News::class)->get();
+
+        $news = News::query()->get();
+
         return view('app.news.index', [
             'page' => $page,
+            'categories' => $categories,
+            'news' => $news,
         ]);
     }
 
     public function category(Category $category)
     {
-        return view('app.news.category');
+        $categories = Category::query()->where('type', News::class)->get();
+
+        $news = News::query()->whereHas('categories', fn (Builder $q) => $q->where('id', $category->id))->get();
+
+        return view('app.news.category', [
+            'category' => $category,
+            'categories' => $categories,
+            'news' => $news,
+        ]);
     }
 
     public function post(News $news)
     {
-        return view('app.news.post');
+        $otherNews = News::query()->whereHas('categories', function (Builder $q) use ($news) {
+            $q->whereIn('id', $news->categories()->pluck('id')->toArray());
+        })->limit(3)->get();
+
+        return view('app.news.post', [
+            'post' => $news,
+            'otherNews' => $otherNews,
+        ]);
     }
 }

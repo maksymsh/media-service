@@ -8,22 +8,22 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-class Product extends BaseModel implements HasMedia
+class Video extends BaseModel implements HasMedia
 {
     use HasFactory;
     use HasSlug;
     use InteractsWithMedia;
 
     protected $fillable = [
-        'name',
+        'title',
         'slug',
+        'url',
         'description',
-        'price',
-        'published',
         'seo_h1',
         'seo_title',
         'seo_description',
         'seo_keywords',
+        'published',
     ];
 
     protected $casts = [
@@ -33,15 +33,12 @@ class Product extends BaseModel implements HasMedia
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
-            ->generateSlugsFrom('name')
+            ->generateSlugsFrom('title')
             ->saveSlugsTo('slug');
     }
 
     public function registerMediaCollections(): void
     {
-        $this->addMediaCollection('background')
-            ->singleFile();
-
         $this->addMediaCollection('image')
             ->singleFile();
 

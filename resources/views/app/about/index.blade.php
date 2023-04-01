@@ -8,7 +8,7 @@
                 <div class="breadcrumps">
                     <ul class="nav flex-wrap">
                         <li>
-                            <a href="/">Головна</a>
+                            <x-splade-link href="/">Головна</x-splade-link>
                         </li>
                         <li>
                             <span class="current">Про компанію</span>
@@ -16,10 +16,10 @@
                     </ul>
                 </div>
                 <div class="h1-container">
-                    <h1>Компанія <br/>Mediaservice</h1>
+                    <h1>{!! $page->title !!}</h1>
                     <div class="container-info">
-                        <div class="anons">«Ми - команда спеціалістів зі спільним бажанням - допомогти клієнтам
-                            максимально оптимізувати роботу підприємства та ефективно управляти бізнесом.
+                        <div class="anons">
+                            {!! $page->description !!}
                         </div>
                     </div>
                 </div>
@@ -207,7 +207,7 @@
                                     Створюємо єдиний інформаційний простір.
                                 </div>
                             </div>
-                            <x-app.link href="#" class="link-default-back d-inline-flex align-items-center all">
+                            <x-app.link href="{{ route('services.index') }}" class="link-default-back d-inline-flex align-items-center all">
 											<span class="icon d-flex align-items-center justify-content-center">
 												<span class="ic icon-arrow-right"></span>
 											</span>
@@ -221,7 +221,7 @@
                                     бізнес на якісно новий рівень
                                 </div>
                             </div>
-                            <x-app.link href="#" class="link-default-back d-inline-flex align-items-center all">
+                            <x-app.link href="{{ route('products.index') }}" class="link-default-back d-inline-flex align-items-center all">
 											<span class="icon d-flex align-items-center justify-content-center">
 												<span class="ic icon-arrow-right"></span>
 											</span>
@@ -235,7 +235,7 @@
                                     торгового обладнання.
                                 </div>
                             </div>
-                            <x-app.link href="#" class="link-default-back d-inline-flex align-items-center all">
+                            <x-app.link href="{{ route('goods.index') }}" class="link-default-back d-inline-flex align-items-center all">
 											<span class="icon d-flex align-items-center justify-content-center">
 												<span class="ic icon-arrow-right"></span>
 											</span>
@@ -249,7 +249,7 @@
                                     провідними методистами САБ - це гарантія якості Вашого навчання
                                 </div>
                             </div>
-                            <x-app.link href="#" class="link-default-back d-inline-flex align-items-center all">
+                            <x-app.link href="{{ route('study.index') }}" class="link-default-back d-inline-flex align-items-center all">
 											<span class="icon d-flex align-items-center justify-content-center">
 												<span class="ic icon-arrow-right"></span>
 											</span>
@@ -266,7 +266,7 @@
                         <div class="anons">За 17 років на ринку, на нашому досвіді більше тисячі виконаних проектів
                             у сферах торгівлі, будівництва, енергетики, медицини та інших.
                         </div>
-                        <x-app.link href="#" class="link-default-back d-inline-flex align-items-center all">
+                        <x-app.link href="{{ route('projects.index') }}" class="link-default-back d-inline-flex align-items-center all">
 										<span class="icon d-flex align-items-center justify-content-center">
 											<span class="ic icon-arrow-right"></span>
 										</span>

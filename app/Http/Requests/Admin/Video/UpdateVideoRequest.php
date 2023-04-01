@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Requests\Admin\Layout;
+namespace App\Http\Requests\Admin\Video;
 
 use App\Http\Requests\Admin\BaseFormRequest;
 
-class StoreLayoutRequest extends BaseFormRequest
+class UpdateVideoRequest extends BaseFormRequest
 {
     /**
-     * Determine if the menu is authorized to make this request.
+     * Determine if the video is authorized to make this request.
      *
      * @return bool
      */

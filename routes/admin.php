@@ -7,7 +7,6 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\GoodController;
-use App\Http\Controllers\Admin\LayoutController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\MenuItemController;
 use App\Http\Controllers\Admin\NewsController;
@@ -22,6 +21,7 @@ use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\SortingController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VacancyController;
+use App\Http\Controllers\Admin\VideoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -56,7 +56,6 @@ Route::middleware(['splade'])->group(function () {
 
             // Content
             Route::resource('pages', PageController::class);
-            Route::resource('layouts', LayoutController::class);
             Route::resource('menus', MenuController::class);
             Route::resource('menu_items', MenuItemController::class);
             Route::resource('banners', BannerController::class);
@@ -72,6 +71,7 @@ Route::middleware(['splade'])->group(function () {
             // Data
             Route::resource('projects', ProjectController::class);
             Route::resource('courses', CourseController::class);
+            Route::resource('videos', VideoController::class);
             Route::resource('vacancies', VacancyController::class);
 
             // Orders

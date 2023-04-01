@@ -3,33 +3,33 @@
 @section('content')
     <x-admin.layout.page :breadcrumbs="[
         ['title' => __('Dashboard'), 'url' => route('admin.dashboard.index')],
-        ['title' => __('Layouts'), 'url' => route('admin.layouts.index')],
-        ['title' => '#' . $layout->id, 'url' => route('admin.layouts.edit', $layout)],
+        ['title' => __('Videos'), 'url' => route('admin.videos.index')],
+        ['title' => '#' . $video->id, 'url' => route('admin.videos.create', $video)],
     ]">
 
         <x-slot:header>
-            <h1>{{ __('Edit') }} {{ __('Layout') }} #{{ $layout->id }}</h1>
+                <h1>{{ __('Create') }} {{ __('Video') }}</h1>
 
             <div>
-                <x-admin.link class="btn btn-primary" :href="route('admin.layouts.index')">
+                <x-admin.link class="btn btn-primary" :href="route('admin.videos.index')">
                     <x-admin.icon name="arrow-left" />
                 </x-admin.link>
             </div>
         </x-slot:header>
 
         <div>
-            <x-splade-form :default="$layout" method="PUT" :action="route('admin.layouts.update', $layout)">
-                @include('admin.layouts.includes.form')
+            <x-splade-form :default="$video" method="POST" :action="route('admin.videos.store')">
+                @include('admin.videos.includes.form')
 
                 <x-splade-submit />
             </x-splade-form>
         </div>
 
         <x-slot:footer>
-            <h1>{{ __('Layout') }} #{{ $layout->id }}</h1>
+            <h1>{{ __('Create') }} {{ __('Video') }}</h1>
 
             <div>
-                <x-admin.link class="btn btn-primary" :href="route('admin.layouts.index')">
+                <x-admin.link class="btn btn-primary" :href="route('admin.videos.index')">
                     <x-admin.icon name="arrow-left" />
                 </x-admin.link>
             </div>

@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\Category;
-use App\Models\Service;
+use App\Models\News;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,9 +15,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('category_service', function (Blueprint $table) {
+        Schema::create('category_news', function (Blueprint $table) {
             $table->foreignIdFor(Category::class);
-            $table->foreignIdFor(Service::class);
+            $table->foreignIdFor(News::class);
         });
     }
 
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('category_service');
+        Schema::dropIfExists('category_news');
     }
 };

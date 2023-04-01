@@ -28,7 +28,6 @@ class StoreNewsRequest extends BaseFormRequest
             'slug' => ['nullable'],
             'content' => ['nullable'],
             'published' => ['nullable'],
-            'layout_id' => ['nullable'],
             'seo_h1' => ['nullable'],
             'seo_title' => ['nullable'],
             'seo_description' => ['nullable'],

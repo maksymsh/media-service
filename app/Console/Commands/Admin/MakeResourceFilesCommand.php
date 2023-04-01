@@ -3,6 +3,7 @@
 namespace App\Console\Commands\Admin;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
@@ -91,6 +92,7 @@ class MakeResourceFilesCommand extends Command
     public function makeRequests()
     {
         // Store
+        @mkdir(app_path('Http/Requests/Admin/'.$this->uc_singular));
         $source = app_path('Http/Requests/Admin/Example/StoreExampleRequest.php');
         $target = app_path('Http/Requests/Admin/'.$this->uc_singular.'/Store'.$this->uc_singular.'Request.php');
 
@@ -119,6 +121,7 @@ class MakeResourceFilesCommand extends Command
 
     public function makeModel()
     {
+        Artisan::call('make:model', ['name' => $this->uc_singular]);
     }
 
     public function makeTable()

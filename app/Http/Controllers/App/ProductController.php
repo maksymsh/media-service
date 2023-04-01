@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Page;
 use App\Models\Product;
+use App\Models\Project;
 use ProtoneMedia\Splade\Facades\SEO;
 
 class ProductController extends Controller
@@ -24,10 +25,13 @@ class ProductController extends Controller
 
         $products = Product::query()->whereDoesntHave('categories')->get();
 
+        $projects = Project::query()->get();
+
         return view('app.products.index', [
             'page' => $page,
             'categories' => $categories,
             'products' => $products,
+            'projects' => $projects,
         ]);
     }
 

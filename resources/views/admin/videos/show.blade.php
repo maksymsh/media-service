@@ -3,29 +3,29 @@
 @section('content')
     <x-admin.layout.page :breadcrumbs="[
         ['title' => __('Dashboard'), 'url' => route('admin.dashboard.index')],
-        ['title' => __('Layouts'), 'url' => route('admin.layouts.index')],
-        ['title' => '#' . $layout->id, 'url' => route('admin.layouts.show', $layout)],
+        ['title' => __('Videos'), 'url' => route('admin.videos.index')],
+        ['title' => '#' . $video->id, 'url' => route('admin.videos.show', $video)],
     ]">
 
         <x-slot:header>
-            <h1>{{ __('Layout') }} #{{ $layout->id }}</h1>
+            <h1>{{ __('Video') }} #{{ $video->id }}</h1>
 
             <div>
-                <x-admin.link class="btn btn-primary" :href="route('admin.layouts.index')">
+                <x-admin.link class="btn btn-primary" :href="route('admin.videos.index')">
                     <x-admin.icon name="arrow-left" />
                 </x-admin.link>
             </div>
         </x-slot:header>
 
         <div>
-            {{ json_encode($layout) }}
+            {{ json_encode($video) }}
         </div>
 
         <x-slot:footer>
-            <h1>{{ __('Layout') }} #{{ $layout->id }}</h1>
+            <h1>{{ __('Video') }} #{{ $video->id }}</h1>
 
             <div>
-                <x-admin.link class="btn btn-primary" :href="route('admin.layouts.index')">
+                <x-admin.link class="btn btn-primary" :href="route('admin.videos.index')">
                     <x-admin.icon name="arrow-left" />
                 </x-admin.link>
             </div>

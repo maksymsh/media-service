@@ -15,20 +15,19 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        /** @var $data array<Role> */
-        $uniqueKeys = ['name'];
-
         $data = [
-            Role::factory()->make(['name' => 'superadmin']),
-            Role::factory()->make(['name' => 'admin']),
-            Role::factory()->make(['name' => 'moderator']),
-            Role::factory()->make(['name' => 'user']),
+            ['name' => 'superadmin'],
+            ['name' => 'admin'],
+            ['name' => 'moderator'],
+            ['name' => 'user'],
         ];
 
         $permissions = Permission::query()->get();
 
         foreach ($data as $item) {
-            $role = Role::query()->firstOrCreate($item->only($uniqueKeys), $item->getAttributes());
+            $attrs['name'] = $item['name'];
+
+            $role = Role::factory()->create($attrs);
 
             foreach ($permissions as $permission) {
                 $role->givePermissionTo($permission);

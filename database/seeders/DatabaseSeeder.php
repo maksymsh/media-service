@@ -21,7 +21,6 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleSeeder::class);
         $this->call(UserSeeder::class);
 
-        $this->call(LayoutSeeder::class);
         $this->call(PageSeeder::class);
         $this->call(MenuSeeder::class);
 
@@ -34,6 +33,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ProjectSeeder::class);
         $this->call(ServiceSeeder::class);
         $this->call(CourseSeeder::class);
+        $this->call(VideoSeeder::class);
         $this->call(VacancySeeder::class);
 
         $this->call(OrderSeeder::class);

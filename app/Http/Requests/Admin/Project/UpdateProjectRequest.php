@@ -26,8 +26,7 @@ class UpdateProjectRequest extends BaseFormRequest
         return [
             'title' => ['nullable'],
             'slug' => ['nullable'],
-            'text' => ['nullable'],
-            'layout_id' => ['nullable'],
+            'description' => ['nullable'],
             'seo_h1' => ['nullable'],
             'seo_title' => ['nullable'],
             'seo_description' => ['nullable'],

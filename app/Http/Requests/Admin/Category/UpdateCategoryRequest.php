@@ -27,7 +27,6 @@ class UpdateCategoryRequest extends BaseFormRequest
             'name' => ['nullable'],
             'slug' => ['nullable'],
             'description' => ['nullable'],
-            'layout_id' => ['nullable'],
             'seo_h1' => ['nullable'],
             'seo_title' => ['nullable'],
             'seo_description' => ['nullable'],

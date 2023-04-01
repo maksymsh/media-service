@@ -11,7 +11,7 @@ class StudyController extends Controller
 {
     public function index()
     {
-        $page = Page::query()->where('code', 'studies')->firstOrFail();
+        $page = Page::query()->where('code', 'study')->firstOrFail();
 
         $page->seo_title && SEO::title($page->seo_title);
         $page->seo_description && SEO::description($page->seo_description);

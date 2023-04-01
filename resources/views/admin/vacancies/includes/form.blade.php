@@ -8,15 +8,9 @@
 
 <x-splade-input name="slug" :label="__('Slug')" />
 
-<x-splade-textarea name="content" :label="__('Content')" wysiwyg />
+<x-splade-textarea name="description" :label="__('Description')" wysiwyg />
 
-<div>
-    <h2>Seo</h2>
-    <x-splade-input name="seo_h1" :label="__('H1')" />
-    <x-splade-input name="seo_title" :label="__('Title')" />
-    <x-splade-input name="seo_description" :label="__('Description')" />
-    <x-splade-input name="seo_keywords" :label="__('Keywords')" />
-</div>
+<x-admin.form.seo />
 
 <div>
     <h2>Media</h2>

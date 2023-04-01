@@ -18,9 +18,9 @@ return new class extends Migration
 
             $table->string('title');
             $table->string('slug')->nullable();
+            $table->text('description')->nullable()->default(null);
             $table->text('content')->nullable()->default(null);
-
-            $table->unsignedBigInteger('layout_id')->nullable();
+            $table->string('video')->nullable();
 
             $table->string('seo_h1')->nullable();
             $table->string('seo_title')->nullable();

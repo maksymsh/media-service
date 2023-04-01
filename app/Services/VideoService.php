@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Models\Layout;
+use App\Models\Video;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
 
-class LayoutService extends BaseService
+class VideoService extends BaseService
 {
     public function query(array $options = []): Builder|QueryBuilder
     {
@@ -23,7 +23,7 @@ class LayoutService extends BaseService
             });
         });
 
-        return QueryBuilder::for(Layout::class)
+        return QueryBuilder::for(Video::class)
             ->defaultSort('id')
             ->allowedSorts(['id'])
             ->allowedFilters(['id', $globalSearch]);
@@ -51,11 +51,11 @@ class LayoutService extends BaseService
         DB::beginTransaction();
 
         try {
-            $layout = $this->query()->create($data);
+            $video = $this->query()->create($data);
 
             DB::commit();
 
-            return $layout;
+            return $video;
         } catch (\Exception $e) {
             DB::rollBack();
         }

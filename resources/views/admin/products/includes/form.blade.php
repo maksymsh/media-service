@@ -16,13 +16,7 @@
 
 <x-splade-textarea name="short_description" :label="__('Short Description')" />
 
-<div>
-    <h2>Seo</h2>
-    <x-splade-input name="seo_h1" :label="__('H1')" />
-    <x-splade-input name="seo_title" :label="__('Title')" />
-    <x-splade-input name="seo_description" :label="__('Description')" />
-    <x-splade-input name="seo_keywords" :label="__('Keywords')" />
-</div>
+<x-admin.form.seo />
 
 <div>
     <h2>Media</h2>

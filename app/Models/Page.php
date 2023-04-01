@@ -19,9 +19,8 @@ class Page extends BaseModel implements HasMedia
         'title',
         'slug',
         'url',
-        'text',
+        'description',
         'published',
-        'layout_id',
         'seo_h1',
         'seo_title',
         'seo_description',
@@ -45,10 +44,5 @@ class Page extends BaseModel implements HasMedia
             ->singleFile();
 
         $this->addMediaCollection('images');
-    }
-
-    public function layout()
-    {
-        return $this->belongsTo(Layout::class);
     }
 }

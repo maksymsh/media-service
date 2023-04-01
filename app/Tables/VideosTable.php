@@ -2,7 +2,7 @@
 
 namespace App\Tables;
 
-use App\Models\Layout;
+use App\Models\Video;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -12,7 +12,7 @@ use ProtoneMedia\Splade\SpladeTable;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
 
-class LayoutsTable extends AbstractTable
+class VideosTable extends AbstractTable
 {
     /**
      * Create a new instance.
@@ -25,7 +25,7 @@ class LayoutsTable extends AbstractTable
     }
 
     /**
-     * Determine if the layout is authorized to perform bulk actions and exports.
+     * Determine if the video is authorized to perform bulk actions and exports.
      *
      * @return bool
      */
@@ -49,7 +49,7 @@ class LayoutsTable extends AbstractTable
             });
         });
 
-        return QueryBuilder::for(Layout::class)
+        return QueryBuilder::for(Video::class)
             ->defaultSort('id')
             ->allowedSorts(['id'])
             ->allowedFilters(['id', $globalSearch]);
@@ -64,13 +64,11 @@ class LayoutsTable extends AbstractTable
     public function configure(SpladeTable $table)
     {
         $table->column(key: 'id', sortable: true)
-            ->column('name')
-            ->column('slug')
             ->column('actions')
             ->withGlobalSearch()
             ->bulkAction(
                 label: __('Delete'),
-                each: fn (Layout $user) => $user->delete(),
+                each: fn (Video $user) => $user->delete(),
                 after: fn () => Toast::info('Deleted successfully!'),
                 confirm: true
             )

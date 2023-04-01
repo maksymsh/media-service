@@ -6,7 +6,8 @@ use App\Models\Category;
 use App\Models\Good;
 use App\Models\News;
 use App\Models\Product;
-use App\Models\Service;
+use App\Models\Project;
+use App\Models\Video;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -63,7 +64,8 @@ class CategoriesTable extends AbstractTable
             'news' => News::class,
             'products' => Product::class,
             'goods' => Good::class,
-            'services' => Service::class,
+            'projects' => Project::class,
+            'videos' => Video::class,
         };
 
         if ($type) {

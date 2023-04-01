@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Menu;
 use Illuminate\Database\Seeder;
 
 class MenuSeeder extends Seeder
@@ -13,5 +14,14 @@ class MenuSeeder extends Seeder
      */
     public function run()
     {
+        $data = [
+
+        ];
+
+        foreach ($data as $item) {
+            $attrs['name'] = $item['name'];
+            $attrs['description'] = $item['description'];
+            $menu = Menu::factory()->create($attrs);
+        }
     }
 }

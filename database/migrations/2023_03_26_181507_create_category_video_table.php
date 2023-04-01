@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Category;
+use App\Models\Video;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,13 +15,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('layout_sections', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('layout_id');
-            $table->string('name');
-            $table->string('slug');
-            $table->json('properties')->nullable();
-            $table->timestamps();
+        Schema::create('category_video', function (Blueprint $table) {
+            $table->foreignIdFor(Category::class);
+            $table->foreignIdFor(Video::class);
         });
     }
 
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('layout_sections');
+        Schema::dropIfExists('category_video');
     }
 };

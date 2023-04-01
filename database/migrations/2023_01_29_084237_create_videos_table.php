@@ -13,18 +13,21 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('vacancies', function (Blueprint $table) {
+        Schema::create('videos', function (Blueprint $table) {
             $table->id();
+
             $table->string('title');
             $table->string('slug')->nullable();
-            $table->text('description')->nullable();
+            $table->string('url')->nullable();
+            $table->text('description')->nullable()->default(null);
 
             $table->string('seo_h1')->nullable();
             $table->string('seo_title')->nullable();
             $table->string('seo_description')->nullable();
             $table->string('seo_keywords')->nullable();
 
-            $table->boolean('published')->default(1);
+            $table->boolean('published')->default(true);
+
             $table->timestamps();
         });
     }
@@ -36,6 +39,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vacancies');
+        Schema::dropIfExists('videos');
     }
 };

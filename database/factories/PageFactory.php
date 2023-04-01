@@ -24,7 +24,7 @@ class PageFactory extends Factory
         return [
             'code' => $code,
             'title' => $title,
-            'text' => fake()->text,
+            'description' => fake()->text,
             'published' => fake()->boolean,
         ];
     }

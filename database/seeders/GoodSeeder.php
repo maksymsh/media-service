@@ -16,134 +16,77 @@ class GoodSeeder extends Seeder
      */
     public function run()
     {
-        Good::truncate();
+        $data = [
+            [
+                'name' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
+                'description' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
+                'image' => 'p1.png',
+                'images' => ['prod.jpg'],
+            ],
+
+            [
+                'name' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
+                'description' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
+                'image' => 'p2.png',
+                'images' => ['prod.jpg'],
+            ],
+
+            [
+                'name' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
+                'description' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
+                'image' => 'p3.png',
+                'images' => ['prod.jpg'],
+            ],
+
+            [
+                'name' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
+                'description' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
+                'image' => 'p4.png',
+                'images' => ['prod.jpg'],
+            ],
+
+            [
+                'name' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
+                'description' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
+                'image' => 'p5.png',
+                'images' => ['prod.jpg'],
+            ],
+
+            [
+                'name' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
+                'description' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
+                'image' => 'p6.png',
+                'images' => ['prod.jpg'],
+            ],
+
+        ];
 
         $categories = Category::query()->where('type', Good::class)->pluck('id')->toArray();
 
-        Good::factory()->afterCreating(function (Good $good) use ($categories) {
-            File::copy(public_path('images/p1.png'), resource_path('images/p1.png'));
-            $good->addMedia(resource_path('images/p1.png'))->toMediaCollection('image');
-            File::copy(public_path('images/prod.jpg'), resource_path('images/prod.jpg'));
-            $good->addMedia(resource_path('images/prod.jpg'))->toMediaCollection('images');
+        foreach ($data as $item) {
+            $attrs['name'] = $item['name'];
+            $attrs['description'] = $item['description'];
+            $attrs['description_short'] = $item['description'];
+            $attrs['seo_title'] = $item['name'];
+            $attrs['seo_description'] = $item['name'];
+            $attrs['seo_keywords'] = $item['name'];
+            $good = Good::factory()->create($attrs);
+            File::copy(public_path('images/'.$item['image']), resource_path('images/'.$item['image']));
+            $good->addMedia(resource_path('images/'.$item['image']))->toMediaCollection('image');
+            foreach ($item['images'] as $image) {
+                File::copy(public_path('images/'.$image), resource_path('images/'.$image));
+                $good->addMedia(resource_path('images/'.$image))->toMediaCollection('images');
+            }
 
             $good->categories()->sync($categories);
 
-            $good->attributes()->create(['attribute_id' => 1, 'value' => 'Термодрук']);
-            $good->attributes()->create(['attribute_id' => 2, 'value' => '60 мм/с']);
-            $good->attributes()->create(['attribute_id' => 3, 'value' => '60 мм/с']);
-            $good->attributes()->create(['attribute_id' => 4, 'value' => 'Термодрук']);
-            $good->attributes()->create(['attribute_id' => 5, 'value' => '60 мм/с']);
-            $good->attributes()->create(['attribute_id' => 6, 'value' => '60 мм/с']);
-        })->create([
-            'name' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
-            'seo_title' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
-            'seo_description' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
-            'seo_keywords' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
-        ]);
-
-        Good::factory()->afterCreating(function (Good $good) use ($categories) {
-            File::copy(public_path('images/p2.png'), resource_path('images/p2.png'));
-            $good->addMedia(resource_path('images/p2.png'))->toMediaCollection('image');
-            File::copy(public_path('images/prod.jpg'), resource_path('images/prod.jpg'));
-            $good->addMedia(resource_path('images/prod.jpg'))->toMediaCollection('images');
-
-            $good->categories()->sync($categories);
+            $value = match (rand(0, 2)) {
+                0 => 60, 1 => 70, 2 => 80
+            };
 
             $good->attributes()->create(['attribute_id' => 1, 'value' => 'Термодрук']);
-            $good->attributes()->create(['attribute_id' => 2, 'value' => '60 мм/с']);
-            $good->attributes()->create(['attribute_id' => 3, 'value' => '60 мм/с']);
-            $good->attributes()->create(['attribute_id' => 4, 'value' => 'Термодрук']);
-            $good->attributes()->create(['attribute_id' => 5, 'value' => '60 мм/с']);
-            $good->attributes()->create(['attribute_id' => 6, 'value' => '60 мм/с']);
-        })->create([
-            'name' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
-            'seo_title' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
-            'seo_description' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
-            'seo_keywords' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
-        ]);
-
-        Good::factory()->afterCreating(function (Good $good) use ($categories) {
-            File::copy(public_path('images/p3.png'), resource_path('images/p3.png'));
-            $good->addMedia(resource_path('images/p3.png'))->toMediaCollection('image');
-            File::copy(public_path('images/prod.jpg'), resource_path('images/prod.jpg'));
-            $good->addMedia(resource_path('images/prod.jpg'))->toMediaCollection('images');
-
-            $good->categories()->sync($categories);
-
-            $good->attributes()->create(['attribute_id' => 1, 'value' => 'Термодрук']);
-            $good->attributes()->create(['attribute_id' => 2, 'value' => '60 мм/с']);
-            $good->attributes()->create(['attribute_id' => 3, 'value' => '60 мм/с']);
-            $good->attributes()->create(['attribute_id' => 4, 'value' => 'Термодрук']);
-            $good->attributes()->create(['attribute_id' => 5, 'value' => '60 мм/с']);
-            $good->attributes()->create(['attribute_id' => 6, 'value' => '60 мм/с']);
-        })->create([
-            'name' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
-            'seo_title' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
-            'seo_description' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
-            'seo_keywords' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
-        ]);
-
-        Good::factory()->afterCreating(function (Good $good) use ($categories) {
-            File::copy(public_path('images/p4.png'), resource_path('images/p4.png'));
-            $good->addMedia(resource_path('images/p4.png'))->toMediaCollection('image');
-            File::copy(public_path('images/prod.jpg'), resource_path('images/prod.jpg'));
-            $good->addMedia(resource_path('images/prod.jpg'))->toMediaCollection('images');
-
-            $good->categories()->sync($categories);
-
-            $good->attributes()->create(['attribute_id' => 1, 'value' => 'Термодрук']);
-            $good->attributes()->create(['attribute_id' => 2, 'value' => '60 мм/с']);
-            $good->attributes()->create(['attribute_id' => 3, 'value' => '60 мм/с']);
-            $good->attributes()->create(['attribute_id' => 4, 'value' => 'Термодрук']);
-            $good->attributes()->create(['attribute_id' => 5, 'value' => '60 мм/с']);
-            $good->attributes()->create(['attribute_id' => 6, 'value' => '60 мм/с']);
-        })->create([
-            'name' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
-            'seo_title' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
-            'seo_description' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
-            'seo_keywords' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
-        ]);
-
-        Good::factory()->afterCreating(function (Good $good) use ($categories) {
-            File::copy(public_path('images/p5.png'), resource_path('images/p5.png'));
-            $good->addMedia(resource_path('images/p5.png'))->toMediaCollection('image');
-            File::copy(public_path('images/prod.jpg'), resource_path('images/prod.jpg'));
-            $good->addMedia(resource_path('images/prod.jpg'))->toMediaCollection('images');
-
-            $good->categories()->sync($categories);
-
-            $good->attributes()->create(['attribute_id' => 1, 'value' => 'Термодрук']);
-            $good->attributes()->create(['attribute_id' => 2, 'value' => '60 мм/с']);
-            $good->attributes()->create(['attribute_id' => 3, 'value' => '60 мм/с']);
-            $good->attributes()->create(['attribute_id' => 4, 'value' => 'Термодрук']);
-            $good->attributes()->create(['attribute_id' => 5, 'value' => '60 мм/с']);
-            $good->attributes()->create(['attribute_id' => 6, 'value' => '60 мм/с']);
-        })->create([
-            'name' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
-            'seo_title' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
-            'seo_description' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
-            'seo_keywords' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
-        ]);
-
-        Good::factory()->afterCreating(function (Good $good) use ($categories) {
-            File::copy(public_path('images/p6.png'), resource_path('images/p6.png'));
-            $good->addMedia(resource_path('images/p6.png'))->toMediaCollection('image');
-            File::copy(public_path('images/prod.jpg'), resource_path('images/prod.jpg'));
-            $good->addMedia(resource_path('images/prod.jpg'))->toMediaCollection('images');
-
-            $good->categories()->sync($categories);
-
-            $good->attributes()->create(['attribute_id' => 1, 'value' => 'Термодрук']);
-            $good->attributes()->create(['attribute_id' => 2, 'value' => '60 мм/с']);
-            $good->attributes()->create(['attribute_id' => 3, 'value' => '60 мм/с']);
-            $good->attributes()->create(['attribute_id' => 4, 'value' => 'Термодрук']);
-            $good->attributes()->create(['attribute_id' => 5, 'value' => '60 мм/с']);
-            $good->attributes()->create(['attribute_id' => 6, 'value' => '60 мм/с']);
-        })->create([
-            'name' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
-            'seo_title' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
-            'seo_description' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
-            'seo_keywords' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
-        ]);
+            $good->attributes()->create(['attribute_id' => 2, 'value' => $value.' мм/с']);
+            $good->attributes()->create(['attribute_id' => 3, 'value' => $value.' мм/с']);
+        }
     }
 }
