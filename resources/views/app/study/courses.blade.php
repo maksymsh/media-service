@@ -25,10 +25,8 @@
                     </div>
                 </div>
                 <div class="d-xl-flex align-items-center justify-content-between h1-flex">
-                    <h1>Сертифікований навчальний центр</h1>
-                    <div class="anons">Курси BAS у Львові від офіційного представника, розроблені провідними
-                        методистами САБ - це гарантія якості Вашого навчання.
-                    </div>
+                    <h1>{{ $page->title }}</h1>
+                    <div class="anons">{{ $page->description }}</div>
                 </div>
             </div>
             <div class="study-tizers d-flex flex-wrap align-items-start">
@@ -58,54 +56,37 @@
                 </div>
             </div>
             <div class="study-list">
-                <div class="item">
-                    <div class="item-image"><img src="/images/study1.jpg" alt="" class="parallax"></div>
-                    <div class="item-info d-flex  flex-wrap align-items-end justify-content-between">
-                        <div class="info-container">
-                            <div class="adres d-flex align-items-center">
-                                <span class="ic"><img src="/images/adr.svg" alt=""></span>
-                                <span class="value">Офлайн, м.Львів вул.Наукова, 7а (3-й поверх)</span>
+                @foreach($courses as $course)
+                    <div class="item">
+                        <div class="item-image"><img src="{{ $course->getFirstMedia('image')->originalUrl }}" alt="" class="parallax"></div>
+                        <div class="item-info d-flex  flex-wrap align-items-end justify-content-between">
+                            <div class="info-container">
+                                <div class="adres d-flex align-items-center">
+                                    <span class="ic"><img src="/images/adr.svg" alt=""></span>
+                                    <span class="value">{{ $course->title }}</span>
+                                </div>
+                                <div class="name">{{ $course->name }}</div>
+                                <div class="anons">{{ $course->description }}</div>
                             </div>
-                            <div class="name">Курс «Використання прикладного рішення "Бухгалтерія"»</div>
-                            <div class="anons">12 занять по 2 год. / 3 600 грн</div>
+                            <x-splade-link href="{{ route('study.course', $course) }}" class="link-default item-link white d-inline-flex align-items-center"
+                               tabindex="0">
+                                <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
+                                <span class="value">детальніше</span>
+                                <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
+                            </x-splade-link>
                         </div>
-                        <a href="#" class="link-default item-link white d-inline-flex align-items-center"
-                           tabindex="0">
-                            <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                            <span class="value">детальніше</span>
-                            <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                        </a>
                     </div>
-                </div>
-                <div class="item">
-                    <div class="item-image"><img src="/images/study2.jpg" alt="" class="parallax"></div>
-                    <div class="item-info d-flex flex-wrap align-items-end justify-content-between">
-                        <div class="info-container">
-                            <div class="adres d-flex align-items-center">
-                                <span class="ic"><img src="/images/adr.svg" alt=""></span>
-                                <span class="value">Тестування Онлайн</span>
-                            </div>
-                            <div class="name">Тестування <br/>“Професіонал”</div>
-                            <div class="anons">Вартість тестування 360 грн</div>
-                        </div>
-                        <a href="#" class="link-default item-link white d-inline-flex align-items-center"
-                           tabindex="0">
-                            <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                            <span class="value">детальніше</span>
-                            <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                        </a>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="study-videos">
                 <div class="title-container d-lg-flex align-items-center justify-content-between">
                     <div class="title">Навчальні відео</div>
-                    <a href="#" class="link-default-back d-inline-flex align-items-center all">
+                    <x-splade-link href="{{ route('study.videos') }}" class="link-default-back d-inline-flex align-items-center all">
 									<span class="icon d-flex align-items-center justify-content-center">
 										<span class="ic icon-arrow-right"></span>
 									</span>
                         <span class="value">перейти до всіх відео</span>
-                    </a>
+                    </x-splade-link>
                 </div>
                 <div class="d-lg-flex justify-content-between videos-container">
                     <a href="https://youtu.be/fdk7yCMnre8" class="big-video" data-fancybox>
@@ -121,38 +102,25 @@
                         </div>
                     </a>
                     <div class="video-list">
-                        <div class="item">
-                            <a href="https://youtu.be/fdk7yCMnre8" class="item-image" data-fancybox>
-                                <img src="/images/video3.jpg" alt="" class="parallax">
-                                <div class="video-button">
-                                    <div class="play-container d-flex align-items-center justify-content-center">
-                                        <div class="play-button d-flex align-items-center justify-content-center">
-                                            <img src="/images/video2.svg" alt=""></div>
+                        @foreach($videos as $video)
+                            <div class="item">
+                                <a href="{{ $video->url }}" class="item-image" data-fancybox>
+                                    <img src="{{ $video->getFirstMedia('image')->originalUrl }}" alt="" class="parallax">
+                                    <div class="video-button">
+                                        <div class="play-container d-flex align-items-center justify-content-center">
+                                            <div class="play-button d-flex align-items-center justify-content-center">
+                                                <img src="/images/video2.svg" alt=""></div>
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
-                            <div class="item-info">
-                                <div class="category">навчання</div>
-                                <div class="name">Як самостійно оновити програму <br/>1С:Підприємство через Інтернет
+                                </a>
+                                <div class="item-info">
+                                    @foreach($video->categories as $vCategory)
+                                        <div class="category">{{ $vCategory->name }}</div>
+                                    @endforeach
+                                    <div class="name">{{ $video->title }}</div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item">
-                            <a href="https://youtu.be/fdk7yCMnre8" class="item-image" data-fancybox>
-                                <img src="/images/video3.jpg" alt="" class="parallax">
-                                <div class="video-button">
-                                    <div class="play-container d-flex align-items-center justify-content-center">
-                                        <div class="play-button d-flex align-items-center justify-content-center">
-                                            <img src="/images/video2.svg" alt=""></div>
-                                    </div>
-                                </div>
-                            </a>
-                            <div class="item-info">
-                                <div class="category">навчання</div>
-                                <div class="name">Як самостійно оновити програму <br/>1С:Підприємство через Інтернет
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

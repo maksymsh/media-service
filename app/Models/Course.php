@@ -18,6 +18,8 @@ class Course extends BaseModel implements HasMedia
         'name',
         'slug',
         'description',
+        'description_short',
+        'content',
         'published',
         'seo_h1',
         'seo_title',

@@ -22,17 +22,17 @@
                                 <x-splade-link href="{{ route('study.index') }}">Навчання</x-splade-link>
                             </li>
                             <li>
-                                <span class="current">{{ $page->title }}</span>
+                                <span class="current">{{ $category->name }}</span>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <h1>{{ $page->title }}</h1>
+                <h1>{{ $category->name }}</h1>
             </div>
             <div class="tabs-menu d-flex align-items-start flex-wrap">
-                <x-splade-link href="{{ route('study.videos') }}" class="item active">показати всі</x-splade-link>
+                <x-splade-link href="{{ route('study.videos') }}" class="item">показати всі</x-splade-link>
                 @foreach($categories as $c)
-                    <x-splade-link href="{{ route('study.category', $c) }}" class="item">{{ $c->name }}</x-splade-link>
+                    <x-splade-link href="{{ route('study.category', $c) }}" class="item {{ $c->id === $category->id ? 'active' : '' }}">{{ $c->name }}</x-splade-link>
                 @endforeach
             </div>
             <div class="video-list">
@@ -83,7 +83,7 @@
                                             <div class="name">{{ $course->name }}</div>
                                             <div class="anons">{{ $course->description }}</div>
                                             <x-splade-link href="{{ route('study.course', $course) }}"
-                                               class="link-default item-link white d-inline-flex align-items-center">
+                                                           class="link-default item-link white d-inline-flex align-items-center">
                                                 <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
                                                 <span class="value">детальніше</span>
                                                 <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>

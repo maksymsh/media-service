@@ -18,6 +18,7 @@ class News extends BaseModel implements HasMedia
         'title',
         'slug',
         'description',
+        'description_short',
         'content',
         'video',
         'published',

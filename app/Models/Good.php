@@ -20,6 +20,7 @@ class Good extends BaseModel implements HasMedia
         'slug',
         'description',
         'description_short',
+        'content',
         'price',
         'published',
         'seo_h1',

@@ -23,279 +23,40 @@
                         </ul>
                     </div>
                 </div>
-                <h1>Реалізовані проекти <br/>компанії Mediaservice</h1>
+                <h1>{{ $page->title }}</h1>
             </div>
             <div class="tabs-menu d-flex align-items-start flex-wrap">
-                <a href="#" class="item active">всі галузі</a>
-                <a href="#" class="item">торгівля</a>
-                <a href="#" class="item">медицина</a>
-                <a href="#" class="item">логістика</a>
-                <a href="#" class="item">виробництво</a>
-                <a href="#" class="item">будівництво та нерухомість</a>
-                <a href="#" class="item">галузі харчування</a>
+                <x-splade-link href="{{ route('projects.index') }}" class="item active">всі галузі</x-splade-link>
+                @foreach($categories as $c)
+                    <x-splade-link href="{{ route('projects.category', $c) }}" class="item">{{ $c->name }}</x-splade-link>
+                @endforeach
             </div>
             <div class="projects-list">
                 <div class="row gutters-22">
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="item d-flex flex-column justify-content-between align-items-start">
-                            <div class="item-top d-flex align-items-start justify-content-between">
-                                <div class="item-logo"><img src="/images/logo1.png" alt=""></div>
-                                <div class="item-category">торгівля</div>
-                            </div>
-                            <div class="item-bottom">
-                                <div class="name">Мережа магазинів «Gorgany»</div>
-                                <div class="anons">Автоматизація мережі магазинів</div>
-                                <x-splade-link href="{{ route('projects.project', 1) }}" class="link-default item-link white d-inline-flex align-items-center">
-                                    <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                    <span class="value">детальніше</span>
-                                    <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                </x-splade-link>
-                            </div>
-                            <div class="item-image">
-                                <img src="/images/j1.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="item d-flex flex-column justify-content-between align-items-start">
-                            <div class="item-top d-flex align-items-start justify-content-between">
-                                <div class="item-logo"><img src="/images/logo2.png" alt=""></div>
-                                <div class="item-category">торгівля</div>
-                            </div>
-                            <div class="item-bottom">
-                                <div class="name">Автоматизація
-                                    та встановлення BAS
-                                    КУП “Вухо.Ком”
+                    @foreach($projects as $project)
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="item d-flex flex-column justify-content-between align-items-start">
+                                <div class="item-top d-flex align-items-start justify-content-between">
+                                    <div class="item-logo"><img src="{{ $project->getFirstMedia('logo')->originalUrl }}" alt=""></div>
+                                    @foreach($project->categories as $pCategory)
+                                        <div class="item-category">{{ $pCategory->name }}</div>
+                                    @endforeach
                                 </div>
-                                <div class="anons">Автоматизація мережі магазинів</div>
-                                <a href="#" class="link-default item-link white d-inline-flex align-items-center">
-                                    <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                    <span class="value">детальніше</span>
-                                    <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                </a>
-                            </div>
-                            <div class="item-image">
-                                <img src="/images/j2.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="item d-flex flex-column justify-content-between align-items-start">
-                            <div class="item-top d-flex align-items-start justify-content-between">
-                                <div class="item-logo"><img src="/images/logo3.png" alt=""></div>
-                                <div class="item-category">торгівля</div>
-                            </div>
-                            <div class="item-bottom">
-                                <div class="name">Мережа роздрібної
-                                    торгівлі “Свій Маркет”.
+                                <div class="item-bottom">
+                                    <div class="name">{{ $project->title }}</div>
+                                    <div class="anons">{{ $project->description_short }}</div>
+                                    <x-splade-link href="{{ route('projects.project', $project) }}" class="link-default item-link white d-inline-flex align-items-center">
+                                        <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
+                                        <span class="value">детальніше</span>
+                                        <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
+                                    </x-splade-link>
                                 </div>
-                                <div class="anons">Автоматизація мережі магазинів</div>
-                                <a href="#" class="link-default item-link white d-inline-flex align-items-center">
-                                    <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                    <span class="value">детальніше</span>
-                                    <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                </a>
-                            </div>
-                            <div class="item-image">
-                                <img src="/images/j3.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="item d-flex flex-column justify-content-between align-items-start">
-                            <div class="item-top d-flex align-items-start justify-content-between">
-                                <div class="item-logo"><img src="/images/logo1.png" alt=""></div>
-                                <div class="item-category">торгівля</div>
-                            </div>
-                            <div class="item-bottom">
-                                <div class="name">Мережа магазинів «Gorgany»</div>
-                                <div class="anons">Автоматизація мережі магазинів</div>
-                                <a href="#" class="link-default item-link white d-inline-flex align-items-center">
-                                    <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                    <span class="value">детальніше</span>
-                                    <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                </a>
-                            </div>
-                            <div class="item-image">
-                                <img src="/images/j1.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="item d-flex flex-column justify-content-between align-items-start">
-                            <div class="item-top d-flex align-items-start justify-content-between">
-                                <div class="item-logo"><img src="/images/logo2.png" alt=""></div>
-                                <div class="item-category">торгівля</div>
-                            </div>
-                            <div class="item-bottom">
-                                <div class="name">Автоматизація
-                                    та встановлення BAS
-                                    КУП “Вухо.Ком”
+                                <div class="item-image">
+                                    <img src="{{ $project->getFirstMedia('image')->originalUrl }}" alt="">
                                 </div>
-                                <div class="anons">Автоматизація мережі магазинів</div>
-                                <a href="#" class="link-default item-link white d-inline-flex align-items-center">
-                                    <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                    <span class="value">детальніше</span>
-                                    <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                </a>
-                            </div>
-                            <div class="item-image">
-                                <img src="/images/j2.jpg" alt="">
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="item d-flex flex-column justify-content-between align-items-start">
-                            <div class="item-top d-flex align-items-start justify-content-between">
-                                <div class="item-logo"><img src="/images/logo3.png" alt=""></div>
-                                <div class="item-category">торгівля</div>
-                            </div>
-                            <div class="item-bottom">
-                                <div class="name">Мережа роздрібної
-                                    торгівлі “Свій Маркет”.
-                                </div>
-                                <div class="anons">Автоматизація мережі магазинів</div>
-                                <a href="#" class="link-default item-link white d-inline-flex align-items-center">
-                                    <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                    <span class="value">детальніше</span>
-                                    <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                </a>
-                            </div>
-                            <div class="item-image">
-                                <img src="/images/j3.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="item d-flex flex-column justify-content-between align-items-start">
-                            <div class="item-top d-flex align-items-start justify-content-between">
-                                <div class="item-logo"><img src="/images/logo1.png" alt=""></div>
-                                <div class="item-category">торгівля</div>
-                            </div>
-                            <div class="item-bottom">
-                                <div class="name">Мережа магазинів «Gorgany»</div>
-                                <div class="anons">Автоматизація мережі магазинів</div>
-                                <a href="#" class="link-default item-link white d-inline-flex align-items-center">
-                                    <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                    <span class="value">детальніше</span>
-                                    <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                </a>
-                            </div>
-                            <div class="item-image">
-                                <img src="/images/j1.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="item d-flex flex-column justify-content-between align-items-start">
-                            <div class="item-top d-flex align-items-start justify-content-between">
-                                <div class="item-logo"><img src="/images/logo2.png" alt=""></div>
-                                <div class="item-category">торгівля</div>
-                            </div>
-                            <div class="item-bottom">
-                                <div class="name">Автоматизація
-                                    та встановлення BAS
-                                    КУП “Вухо.Ком”
-                                </div>
-                                <div class="anons">Автоматизація мережі магазинів</div>
-                                <a href="#" class="link-default item-link white d-inline-flex align-items-center">
-                                    <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                    <span class="value">детальніше</span>
-                                    <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                </a>
-                            </div>
-                            <div class="item-image">
-                                <img src="/images/j2.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="item d-flex flex-column justify-content-between align-items-start">
-                            <div class="item-top d-flex align-items-start justify-content-between">
-                                <div class="item-logo"><img src="/images/logo3.png" alt=""></div>
-                                <div class="item-category">торгівля</div>
-                            </div>
-                            <div class="item-bottom">
-                                <div class="name">Мережа роздрібної
-                                    торгівлі “Свій Маркет”.
-                                </div>
-                                <div class="anons">Автоматизація мережі магазинів</div>
-                                <a href="#" class="link-default item-link white d-inline-flex align-items-center">
-                                    <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                    <span class="value">детальніше</span>
-                                    <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                </a>
-                            </div>
-                            <div class="item-image">
-                                <img src="/images/j3.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="item d-flex flex-column justify-content-between align-items-start">
-                            <div class="item-top d-flex align-items-start justify-content-between">
-                                <div class="item-logo"><img src="/images/logo1.png" alt=""></div>
-                                <div class="item-category">торгівля</div>
-                            </div>
-                            <div class="item-bottom">
-                                <div class="name">Мережа магазинів «Gorgany»</div>
-                                <div class="anons">Автоматизація мережі магазинів</div>
-                                <a href="#" class="link-default item-link white d-inline-flex align-items-center">
-                                    <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                    <span class="value">детальніше</span>
-                                    <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                </a>
-                            </div>
-                            <div class="item-image">
-                                <img src="/images/j1.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="item d-flex flex-column justify-content-between align-items-start">
-                            <div class="item-top d-flex align-items-start justify-content-between">
-                                <div class="item-logo"><img src="/images/logo2.png" alt=""></div>
-                                <div class="item-category">торгівля</div>
-                            </div>
-                            <div class="item-bottom">
-                                <div class="name">Автоматизація
-                                    та встановлення BAS
-                                    КУП “Вухо.Ком”
-                                </div>
-                                <div class="anons">Автоматизація мережі магазинів</div>
-                                <a href="#" class="link-default item-link white d-inline-flex align-items-center">
-                                    <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                    <span class="value">детальніше</span>
-                                    <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                </a>
-                            </div>
-                            <div class="item-image">
-                                <img src="/images/j2.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="item d-flex flex-column justify-content-between align-items-start">
-                            <div class="item-top d-flex align-items-start justify-content-between">
-                                <div class="item-logo"><img src="/images/logo3.png" alt=""></div>
-                                <div class="item-category">торгівля</div>
-                            </div>
-                            <div class="item-bottom">
-                                <div class="name">Мережа роздрібної
-                                    торгівлі “Свій Маркет”.
-                                </div>
-                                <div class="anons">Автоматизація мережі магазинів</div>
-                                <a href="#" class="link-default item-link white d-inline-flex align-items-center">
-                                    <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                    <span class="value">детальніше</span>
-                                    <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                </a>
-                            </div>
-                            <div class="item-image">
-                                <img src="/images/j3.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <button class="button-more d-flex align-items-center justify-content-center">
                     <span class="value">показати більше</span>

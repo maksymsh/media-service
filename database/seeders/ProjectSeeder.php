@@ -20,7 +20,7 @@ class ProjectSeeder extends Seeder
             [
                 'image' => 'j1.jpg',
                 'logo' => 'logo1.png',
-                'images' => ['g1.jpg', 'g1.jpg', 'g1.jpg'],
+                'images' => ['g1.jpg', 'g2.jpg', 'g3.jpg'],
                 'title' => 'Мережа магазинів «Gorgany»',
                 'description' => '«Gorgany» - експерти з туристичного спорядження. У магазинах можна придбати одяг, взуття, обладнання для подорожей, кемпінгу, альпінізму та інші активності. На даний момент в Україні успішно працює 12 магазинів у Києві, Львові, Івано-Франківську, Тернополі, Чернівцях, Рівному, Житомирі, Вінниці, Одесі та Буковелі.',
                 'description_short' => 'Автоматизація мережі магазинів',
@@ -29,7 +29,7 @@ class ProjectSeeder extends Seeder
             [
                 'image' => 'j2.jpg',
                 'logo' => 'logo2.png',
-                'images' => ['g1.jpg', 'g1.jpg', 'g1.jpg'],
+                'images' => ['g1.jpg', 'g2.jpg', 'g3.jpg'],
                 'title' => 'Автоматизація та встановлення BAS КУП “Вухо.Ком”',
                 'description' => '«Gorgany» - експерти з туристичного спорядження. У магазинах можна придбати одяг, взуття, обладнання для подорожей, кемпінгу, альпінізму та інші активності. На даний момент в Україні успішно працює 12 магазинів у Києві, Львові, Івано-Франківську, Тернополі, Чернівцях, Рівному, Житомирі, Вінниці, Одесі та Буковелі.',
                 'description_short' => 'Автоматизація мережі магазинів',
@@ -38,7 +38,7 @@ class ProjectSeeder extends Seeder
             [
                 'image' => 'j3.jpg',
                 'logo' => 'logo3.png',
-                'images' => ['g1.jpg', 'g1.jpg', 'g1.jpg'],
+                'images' => ['g1.jpg', 'g2.jpg', 'g3.jpg'],
                 'title' => 'Мережа роздрібної торгівлі “Свій Маркет”.',
                 'description' => '«Gorgany» - експерти з туристичного спорядження. У магазинах можна придбати одяг, взуття, обладнання для подорожей, кемпінгу, альпінізму та інші активності. На даний момент в Україні успішно працює 12 магазинів у Києві, Львові, Івано-Франківську, Тернополі, Чернівцях, Рівному, Житомирі, Вінниці, Одесі та Буковелі.',
                 'description_short' => 'Автоматизація мережі магазинів',
@@ -51,6 +51,8 @@ class ProjectSeeder extends Seeder
         foreach ($data as $item) {
             $attrs['title'] = $item['title'];
             $attrs['description'] = $item['description'];
+            $attrs['description_short'] = $item['description_short'];
+            $attrs['content'] = $item['content'];
             $attrs['seo_title'] = $item['title'];
             $attrs['seo_description'] = $item['title'];
             $attrs['seo_keywords'] = $item['title'];

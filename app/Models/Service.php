@@ -18,6 +18,8 @@ class Service extends BaseModel implements HasMedia
         'name',
         'slug',
         'description',
+        'description_short',
+        'content',
         'price',
         'published',
         'seo_h1',

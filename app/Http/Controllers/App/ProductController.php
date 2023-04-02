@@ -52,6 +52,8 @@ class ProductController extends Controller
         $product->seo_description && SEO::description($product->seo_description);
         $product->seo_keywords && SEO::keywords($product->seo_keywords);
 
-        return view('app.products.product');
+        return view('app.products.product', [
+            'product' => $product,
+        ]);
     }
 }

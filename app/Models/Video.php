@@ -19,6 +19,8 @@ class Video extends BaseModel implements HasMedia
         'slug',
         'url',
         'description',
+        'description_short',
+        'content',
         'seo_h1',
         'seo_title',
         'seo_description',

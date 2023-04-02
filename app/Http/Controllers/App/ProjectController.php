@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Page;
 use App\Models\Project;
+use Illuminate\Database\Eloquent\Builder;
 use ProtoneMedia\Splade\Facades\SEO;
 
 class ProjectController extends Controller
@@ -20,8 +21,14 @@ class ProjectController extends Controller
 
         SEO::headerClass('fix');
 
+        $categories = Category::query()->where('type', Project::class)->get();
+
+        $projects = Project::query()->get();
+
         return view('app.projects.index', [
             'page' => $page,
+            'categories' => $categories,
+            'projects' => $projects,
         ]);
     }
 
@@ -31,7 +38,19 @@ class ProjectController extends Controller
         $category->seo_description && SEO::description($category->seo_description);
         $category->seo_keywords && SEO::keywords($category->seo_keywords);
 
-        return view('app.projects.category');
+        SEO::headerClass('fix');
+
+        $categories = Category::query()->where('type', Project::class)->get();
+
+        $projects = Project::query()->whereHas('categories', function (Builder $q) use ($category) {
+            $q->where('id', $category->id);
+        })->get();
+
+        return view('app.projects.category', [
+            'categories' => $categories,
+            'category' => $category,
+            'projects' => $projects,
+        ]);
     }
 
     public function project(Project $project)
@@ -40,6 +59,11 @@ class ProjectController extends Controller
         $project->seo_description && SEO::description($project->seo_description);
         $project->seo_keywords && SEO::keywords($project->seo_keywords);
 
-        return view('app.projects.project');
+        $projects = Project::query()->get();
+
+        return view('app.projects.project', [
+            'project' => $project,
+            'projects' => $projects,
+        ]);
     }
 }

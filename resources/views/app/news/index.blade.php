@@ -46,7 +46,7 @@
                                         @endforeach
                                         <span class="date">{{ $post->created_at }}</span>
                                     </div>
-                                    <a href="#" class="name">{{ $post->title }}</a>
+                                    <x-splade-link href="{{ route('news.post', $post) }}" class="name">{{ $post->title }}</x-splade-link>
                                 </div>
                                 <div class="button-container">
                                     <x-splade-link href="{{ route('news.post', $post) }}" class="link-default item-link d-flex align-items-center">

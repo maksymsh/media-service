@@ -5,6 +5,7 @@ namespace App\Http\Controllers\App;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Page;
+use App\Models\Project;
 use App\Models\Service;
 use ProtoneMedia\Splade\Facades\SEO;
 
@@ -20,9 +21,12 @@ class ServiceController extends Controller
 
         $services = Service::query()->get();
 
+        $projects = Project::query()->get();
+
         return view('app.services.index', [
             'page' => $page,
             'services' => $services,
+            'projects' => $projects,
         ]);
     }
 
@@ -32,8 +36,11 @@ class ServiceController extends Controller
         $category->seo_description && SEO::description($category->seo_description);
         $category->seo_keywords && SEO::keywords($category->seo_keywords);
 
+        $projects = Project::query()->get();
+
         return view('app.services.category', [
             'category' => $category,
+            'projects' => $projects,
         ]);
     }
 
@@ -43,8 +50,11 @@ class ServiceController extends Controller
         $service->seo_description && SEO::description($service->seo_description);
         $service->seo_keywords && SEO::keywords($service->seo_keywords);
 
+        $services = Service::query()->get();
+
         return view('app.services.service', [
             'service' => $service,
+            'services' => $services,
         ]);
     }
 }

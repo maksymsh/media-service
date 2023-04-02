@@ -14,19 +14,18 @@
                             <a href="/">Навчання</a>
                         </li>
                         <li>
-                            <span class="current">Курс</span>
+                            <span class="current">{{ $course->name }}</span>
                         </li>
                     </ul>
                 </div>
                 <div class="h1-container">
-                    <h1>Курс «Використання прикладного рішення "Бухгалтерія"»</h1>
+                    <h1>{{ $course->name }}</h1>
                     <div class="container-info">
-                        <div class="anons">Курс розроблений методистами Спілки Автоматизаторів Бізнесу та
-                            розрахований на фахівців, що володіють базовими знаннями бухгалтерського та податкового
-                            обліку.
+                        <div class="anons">
+                            {{ $course->description_short }}
                         </div>
                         <div class="d-lg-flex align-items-center buy-kurs">
-                            <div class="buy-info order-12">12 занять по 2 год. / 3 600 грн</div>
+                            <div class="buy-info order-12">{{ $course->description }}</div>
                             <button class="button-default d-inline-flex align-items-center" data-toggle="modal"
                                     data-target="#m-feed">
                                 <span class="value">записатись на курс</span>
@@ -77,21 +76,7 @@
                     </div>
                 </div>
                 <div class="program-items">
-                    <ul class="ul-custom-2">
-                        <li>Старт системи</li>
-                        <li>Облік запасівv</li>
-                        <li>Облік взаєморозрахунків з контрагентами</li>
-                        <li>Облік операцій з грошовими коштами та розрахунків з підзвітними особами</li>
-                        <li>Облік ПДВ</li>
-                        <li>Облік кадрів та розрахунок заробітної плати</li>
-                        <li>Облік необоротних активів та малоцінних швидкозношуваних предметів</li>
-                        <li>Облік отримання та надання послуг</li>
-                        <li>Закриття періоду</li>
-                        <li>Облік виробничої діяльності</li>
-                        <li>Облік операцій в іноземній валюті</li>
-                        <li>Облік операцій в іноземній валюті</li>
-                        <li>Звіти для керівника підприємства</li>
-                    </ul>
+                    {!! $course->content !!}
                 </div>
             </div>
             <div class="kurs-cert d-lg-flex align-items-center justify-content-between">

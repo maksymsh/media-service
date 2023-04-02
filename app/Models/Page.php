@@ -20,6 +20,8 @@ class Page extends BaseModel implements HasMedia
         'slug',
         'url',
         'description',
+        'description_short',
+        'content',
         'published',
         'seo_h1',
         'seo_title',

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('slug')->nullable();
             $table->string('url')->nullable();
             $table->text('description')->nullable();
+            $table->text('content')->nullable()->default(null);
 
             $table->string('seo_h1')->nullable();
             $table->string('seo_title')->nullable();

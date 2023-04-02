@@ -18,6 +18,8 @@ class Vacancy extends BaseModel implements HasMedia
         'title',
         'slug',
         'description',
+        'description_short',
+        'content',
         'published',
         'seo_h1',
         'seo_title',

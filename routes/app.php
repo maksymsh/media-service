@@ -53,6 +53,7 @@ Route::middleware(['splade'])->group(function () {
     Route::get('/study/courses', [StudyController::class, 'courses'])->name('study.courses');
     Route::get('/study/courses/{course}', [StudyController::class, 'course'])->name('study.course');
     Route::get('/study/videos', [StudyController::class, 'videos'])->name('study.videos');
+    Route::get('/study/videos/category/{category}', [StudyController::class, 'category'])->name('study.category');
 });
 
 Route::get('/{slug}', SeoUrlController::class)->name('seo-url');
