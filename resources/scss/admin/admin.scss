@@ -10,7 +10,15 @@
     background: rgba(0,0,0,0.5);
     z-index: 99;
 }
-
+.toast-container {
+    --bs-toast-zindex: 1090;
+    position: fixed;
+    z-index: var(--bs-toast-zindex);
+    width: -moz-max-content;
+    width: max-content;
+    max-width: 100%;
+    pointer-events: none;
+}
 .w-full {
     width: 100%;
 }

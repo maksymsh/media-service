@@ -18,6 +18,8 @@ document.addEventListener('splade:request-response', (detail) => {
     )
 
     setTimeout(() => NProgress.done(), 250)
+
+    $('#m-feed').modal('hide')
 })
 
 document.addEventListener('splade:request-error', (detail) => {

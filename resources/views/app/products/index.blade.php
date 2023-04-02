@@ -48,8 +48,11 @@
                             <div class="name">{{ $category->name }}</div>
                             {!! $category->description !!}
 
-                            <a href="#" class="button-default  d-inline-flex align-items-center" data-toggle="modal"
-                               data-target="#m-feed">
+                            <a href="#" class="button-default  d-inline-flex align-items-center"
+                               data-toggle="modal"
+                               data-target="#m-feed"
+                               @click="data.feedback.type = 'consult'"
+                            >
                                 <span class="value">отримати консультацію</span>
                                 <span class="ic icon-arrow-right"></span>
                             </a>

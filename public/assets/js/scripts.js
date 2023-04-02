@@ -474,7 +474,6 @@ window.initJS = () => {
         })
         .mask('+38(099) 999-99-99')
         .on('input change', function (e) {
-            console.log(e.target.value)
             e.target._assign(e.target.value)
         })
     $('.phone').blur(function () {

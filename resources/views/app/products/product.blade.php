@@ -147,7 +147,10 @@
                 </div>
                 <div class="info-left">
                     <a href="#" class="button-default feed d-inline-flex align-items-center justify-content-center"
-                       data-toggle="modal" data-target="#m-feed">
+                       data-toggle="modal"
+                       data-target="#m-feed"
+                       @click="data.feedback.type = 'demo'"
+                    >
                         <span class="value">демо доступ</span>
                         <span class="ic icon-arrow-right"></span>
                     </a>

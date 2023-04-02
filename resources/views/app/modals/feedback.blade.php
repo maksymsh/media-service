@@ -1,6 +1,7 @@
 <div class="modal fade" id="m-feed" tabindex="-1" aria-labelledby="m-feedLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
+            @{{ data }}
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
             <div class="modal-form">
                 <div class="d-md-flex align-items-center justify-content-between">
@@ -13,7 +14,11 @@
                         <a href="mailto:sales@medias.com.ua" class="item">sales@medias.com.ua</a>
                     </div>
                 </div>
-                <x-splade-form :default="['name' => '', 'email' => '', 'phone' => '', 'text' => '', 'check' => false]" action="" class="form">
+                <x-splade-form :default="['type' => '','id' => '','name' => '', 'email' => '', 'phone' => '', 'comment' => '', 'check' => false]" :action="route('feedback')" class="form">
+
+                    <input type="hidden" name="type" v-model="form.type">
+                    <input type="hidden" name="id" v-model="form.id">
+
                     <div class="form-container d-md-flex">
                         <div class="form-left">
                             <div class="input-container">
@@ -32,7 +37,7 @@
                         <div class="form-right">
                             <div class="input-container">
                                 <label class="label">Повідомлення</label>
-                                <textarea v-model="form.text" name="message" class="textarea"></textarea>
+                                <textarea v-model="form.comment" name="message" class="textarea"></textarea>
                             </div>
                         </div>
                     </div>
@@ -45,7 +50,9 @@
                             </div>
                         </div>
                         <div class="bottom-right">
-                            <x-splade-submit class="button-default bgl submit d-flex align-items-center justify-content-center">
+                            <x-splade-submit class="button-default bgl submit d-flex align-items-center justify-content-center"
+                                @click="form.type = data.feedback.type; form.id = data.feedback.id"
+                            >
                                 <span class="value">надіслати</span>
                                 <span class="ic icon-arrow-right"></span>
                             </x-splade-submit>

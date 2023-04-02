@@ -18,13 +18,19 @@ return new class extends Migration
 
             $table->unsignedBigInteger('user_id')->nullable();
 
+            $table->nullableMorphs('model');
+
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+
             $table->tinyInteger('status')->default(0);
 
-            $table->decimal('total', 9, 2);
+            $table->decimal('total', 9, 2)->default(0);
 
-            $table->string('currency');
+            $table->string('currency')->nullable();
 
-            $table->text('comment');
+            $table->text('comment')->nullable();
 
             $table->softDeletes();
             $table->timestamps();

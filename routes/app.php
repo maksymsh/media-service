@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\App\AboutController;
 use App\Http\Controllers\App\ContactsController;
+use App\Http\Controllers\App\FeedbackController;
 use App\Http\Controllers\App\GoodController;
 use App\Http\Controllers\App\HomeController;
 use App\Http\Controllers\App\NewsController;
@@ -54,6 +55,8 @@ Route::middleware(['splade'])->group(function () {
     Route::get('/study/courses/{course}', [StudyController::class, 'course'])->name('study.course');
     Route::get('/study/videos', [StudyController::class, 'videos'])->name('study.videos');
     Route::get('/study/videos/category/{category}', [StudyController::class, 'category'])->name('study.category');
+
+    Route::post('feedback', [FeedbackController::class, 'index'])->name('feedback');
 });
 
 Route::get('/{slug}', SeoUrlController::class)->name('seo-url');

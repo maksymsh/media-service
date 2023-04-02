@@ -26,8 +26,11 @@
                         </div>
                         <div class="d-lg-flex align-items-center buy-kurs">
                             <div class="buy-info order-12">{{ $course->description }}</div>
-                            <button class="button-default d-inline-flex align-items-center" data-toggle="modal"
-                                    data-target="#m-feed">
+                            <button class="button-default d-inline-flex align-items-center"
+                                    data-toggle="modal"
+                                    data-target="#m-feed"
+                                    @click="data.feedback.type = 'course'; data.feedback.id = '{{ $course->id }}';"
+                            >
                                 <span class="value">записатись на курс</span>
                                 <span class="ic icon-arrow-right"></span>
                             </button>

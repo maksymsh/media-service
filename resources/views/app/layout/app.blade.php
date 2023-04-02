@@ -1,13 +1,15 @@
 <div class="wrapper">
 
-    @include('app.layout.header')
+    <x-splade-data :default="['feedback' => ['type' => '', 'id' => '']]">
+        @include('app.layout.header')
 
-    <div class="content">
-        @yield('content')
-    </div>
+        <div class="content">
+            @yield('content')
+        </div>
 
-    @include('app.layout.footer')
+        @include('app.layout.footer')
 
-    @include('app.layout.modals')
+        @include('app.layout.modals')
+    </x-splade-data>
 
 </div>

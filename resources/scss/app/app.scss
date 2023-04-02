@@ -1,9 +1,57 @@
+@import "@protonemedia/laravel-splade/dist/style.css";
+
+#headlessui-portal-root {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 99;
+}
+
 .toast-container {
     --bs-toast-zindex: 1090;
-    position: absolute;
+    position: fixed;
     z-index: var(--bs-toast-zindex);
     width: -moz-max-content;
     width: max-content;
     max-width: 100%;
     pointer-events: none;
+}
+.top-0 {
+    top: 0 !important;
+}
+.top-50 {
+    top: 50% !important;
+}
+.top-100 {
+    top: 100% !important;
+}
+.bottom-0 {
+    bottom: 0 !important;
+}
+.bottom-50 {
+    bottom: 50% !important;
+}
+.bottom-100 {
+    bottom: 100% !important;
+}
+.start-0 {
+    left: 0 !important;
+}
+.start-50 {
+    left: 50% !important;
+}
+.start-100 {
+    left: 100% !important;
+}
+.end-0 {
+    right: 0 !important;
+}
+.end-50 {
+    right: 50% !important;
+}
+.end-100 {
+    right: 100% !important;
 }

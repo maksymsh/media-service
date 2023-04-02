@@ -6,8 +6,11 @@
                     <div class="item">Автоматизуємо</div>
                     <div class="item">ваш бізнес</div>
                 </div>
-                <button class="button-default white footer-button d-inline-flex align-items-center" data-toggle="modal"
-                        data-target="#m-feed">
+                <button class="button-default white footer-button d-inline-flex align-items-center"
+                        data-toggle="modal"
+                        data-target="#m-feed"
+                        @click="data.feedback.type = 'contact'"
+                >
                     <span class="value">зв’язатись з нами</span>
                     <span class="ic icon-arrow-right"></span>
                 </button>
