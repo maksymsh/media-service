@@ -269,152 +269,26 @@
                     <div class="slider-navs"></div>
                 </div>
                 <div class="products-slider products-list">
-                    <div class="slide">
-                        <div class="item">
-                            <div class="item-container d-flex flex-column">
-                                <div class="item-top">
-                                    <a href="#" class="item-image d-flex align-items-center justify-content-center">
-                                        <img src="/images/p6.png" alt="">
-                                    </a>
-                                    <a href="#" class="item-name">Касовий апарат Гера MG-V545T.02 + БЖ + GSM</a>
-                                </div>
-                                <div class="item-bottom">
-                                    <div class="item-price">8 500 грн.</div>
-                                    <a href="#" class="item-buy button-small">
-                                        <span class="value">замовити</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="item">
-                            <div class="item-container d-flex flex-column">
-                                <div class="item-top">
-                                    <a href="#" class="item-image d-flex align-items-center justify-content-center">
-                                        <img src="/images/p4.png" alt="">
-                                    </a>
-                                    <a href="#" class="item-name">Касовий апарат Гера MG-V545T.02 + БЖ + GSM Касовий
-                                        апарат Гера MG-V545T.02 + БЖ + GSM</a>
-                                </div>
-                                <div class="item-bottom">
-                                    <div class="item-price">8 500 грн.</div>
-                                    <a href="#" class="item-buy button-small">
-                                        <span class="value">замовити</span>
-                                    </a>
+                    @foreach($goods as $g)
+                        <div class="slide">
+                            <div class="item">
+                                <div class="item-container d-flex flex-column">
+                                    <div class="item-top">
+                                        <x-splade-link href="{{ route('goods.good', $g) }}" class="item-image d-flex align-items-center justify-content-center">
+                                            <img src="{{ $g->getFirstMedia('image')->originalUrl }}" alt="">
+                                        </x-splade-link>
+                                        <x-splade-link href="{{ route('goods.good', $g) }}" class="item-name">{{ $g->name }}</x-splade-link>
+                                    </div>
+                                    <div class="item-bottom">
+                                        <div class="item-price">{{ $g->price }} грн.</div>
+                                        <x-splade-link href="{{ route('goods.good', $g) }}" class="item-buy button-small">
+                                            <span class="value">замовити</span>
+                                        </x-splade-link>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="slide">
-                        <div class="item">
-                            <div class="item-container d-flex flex-column">
-                                <div class="item-top">
-                                    <a href="#" class="item-image d-flex align-items-center justify-content-center">
-                                        <img src="/images/p5.png" alt="">
-                                    </a>
-                                    <a href="#" class="item-name">Касовий апарат Гера MG-V545T.02 + БЖ + GSM</a>
-                                </div>
-                                <div class="item-bottom">
-                                    <div class="item-price">8 500 грн.</div>
-                                    <a href="#" class="item-buy button-small">
-                                        <span class="value">замовити</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="item">
-                            <div class="item-container d-flex flex-column">
-                                <div class="item-top">
-                                    <a href="#" class="item-image d-flex align-items-center justify-content-center">
-                                        <img src="/images/p6.png" alt="">
-                                    </a>
-                                    <a href="#" class="item-name">Касовий апарат Гера MG-V545T.02 + БЖ + GSM</a>
-                                </div>
-                                <div class="item-bottom">
-                                    <div class="item-price">8 500 грн.</div>
-                                    <a href="#" class="item-buy button-small">
-                                        <span class="value">замовити</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="item">
-                            <div class="item-container d-flex flex-column">
-                                <div class="item-top">
-                                    <a href="#" class="item-image d-flex align-items-center justify-content-center">
-                                        <img src="/images/p6.png" alt="">
-                                    </a>
-                                    <a href="#" class="item-name">Касовий апарат Гера MG-V545T.02 + БЖ + GSM</a>
-                                </div>
-                                <div class="item-bottom">
-                                    <div class="item-price">8 500 грн.</div>
-                                    <a href="#" class="item-buy button-small">
-                                        <span class="value">замовити</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="item">
-                            <div class="item-container d-flex flex-column">
-                                <div class="item-top">
-                                    <a href="#" class="item-image d-flex align-items-center justify-content-center">
-                                        <img src="/images/p4.png" alt="">
-                                    </a>
-                                    <a href="#" class="item-name">Касовий апарат Гера MG-V545T.02 + БЖ + GSM Касовий
-                                        апарат Гера MG-V545T.02 + БЖ + GSM</a>
-                                </div>
-                                <div class="item-bottom">
-                                    <div class="item-price">8 500 грн.</div>
-                                    <a href="#" class="item-buy button-small">
-                                        <span class="value">замовити</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="item">
-                            <div class="item-container d-flex flex-column">
-                                <div class="item-top">
-                                    <a href="#" class="item-image d-flex align-items-center justify-content-center">
-                                        <img src="/images/p5.png" alt="">
-                                    </a>
-                                    <a href="#" class="item-name">Касовий апарат Гера MG-V545T.02 + БЖ + GSM</a>
-                                </div>
-                                <div class="item-bottom">
-                                    <div class="item-price">8 500 грн.</div>
-                                    <a href="#" class="item-buy button-small">
-                                        <span class="value">замовити</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="item">
-                            <div class="item-container d-flex flex-column">
-                                <div class="item-top">
-                                    <a href="#" class="item-image d-flex align-items-center justify-content-center">
-                                        <img src="/images/p6.png" alt="">
-                                    </a>
-                                    <a href="#" class="item-name">Касовий апарат Гера MG-V545T.02 + БЖ + GSM</a>
-                                </div>
-                                <div class="item-bottom">
-                                    <div class="item-price">8 500 грн.</div>
-                                    <a href="#" class="item-buy button-small">
-                                        <span class="value">замовити</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>

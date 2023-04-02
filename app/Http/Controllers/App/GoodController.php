@@ -130,8 +130,13 @@ class GoodController extends Controller
             'attributes.attribute',
         ]);
 
+        $goods = Good::query()->whereHas('categories', function (Builder $q) use ($good) {
+            $q->whereIn('id', $good->categories()->pluck('id')->toArray());
+        })->get();
+
         return view('app.goods.good', [
             'good' => $good,
+            'goods' => $goods,
         ]);
     }
 }

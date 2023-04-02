@@ -473,6 +473,10 @@ window.initJS = () => {
             $(this).setCursorPosition(5)
         })
         .mask('+38(099) 999-99-99')
+        .on('input change', function (e) {
+            console.log(e.target.value)
+            e.target._assign(e.target.value)
+        })
     $('.phone').blur(function () {
         if ($(this).val() != '') {
             $(this).parent().addClass('ok')
