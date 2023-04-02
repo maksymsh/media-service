@@ -12,6 +12,10 @@
 
 <x-splade-textarea name="description" :label="__('Description')" wysiwyg />
 
+<x-splade-textarea name="short_description" :label="__('Short Description')" />
+
+<x-splade-textarea name="content" :label="__('Content')" wysiwyg/>
+
 <x-admin.form.seo />
 
 <div>

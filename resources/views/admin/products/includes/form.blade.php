@@ -16,12 +16,16 @@
 
 <x-splade-textarea name="short_description" :label="__('Short Description')" />
 
+<x-splade-textarea name="content" :label="__('Content')" wysiwyg/>
+
 <x-admin.form.seo />
 
 <div>
     <h2>Media</h2>
 
     <x-splade-file name="image" :label="__('Image')" filepond preview server />
+
+    <x-splade-file name="background" :label="__('Background')" filepond preview server />
 
     <x-splade-file name="images" :label="__('Images')" filepond multiple preview server />
 </div>
