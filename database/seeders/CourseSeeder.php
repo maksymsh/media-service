@@ -35,6 +35,7 @@ class CourseSeeder extends Seeder
         ];
 
         foreach ($data as $item) {
+            $attrs['title'] = $item['title'];
             $attrs['name'] = $item['name'];
             $attrs['description_short'] = $item['description'];
             $attrs['description'] = $item['description'];

@@ -1,7 +1,6 @@
 <div class="modal fade" id="m-feed" tabindex="-1" aria-labelledby="m-feedLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            @{{ data }}
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
             <div class="modal-form">
                 <div class="d-md-flex align-items-center justify-content-between">

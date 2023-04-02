@@ -15,6 +15,7 @@ class Course extends BaseModel implements HasMedia
     use InteractsWithMedia;
 
     protected $fillable = [
+        'title',
         'name',
         'slug',
         'description',
