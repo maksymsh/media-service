@@ -24,12 +24,16 @@ class StorePageRequest extends BaseFormRequest
     public function rules()
     {
         return [
+            'top' => ['nullable'],
+            'bottom' => ['nullable'],
+            'published' => ['nullable'],
             'code' => ['nullable'],
             'title' => ['nullable'],
             'slug' => ['nullable'],
             'url' => ['nullable'],
             'description' => ['nullable'],
-            'published' => ['nullable'],
+            'description_short' => ['nullable'],
+            'content' => ['nullable'],
             'seo_h1' => ['nullable'],
             'seo_title' => ['nullable'],
             'seo_description' => ['nullable'],

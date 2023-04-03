@@ -259,7 +259,7 @@ class CategorySeeder extends Seeder
             File::copy(public_path('images/'.$item['image']), resource_path('images/'.$item['image']));
             $category->addMedia(resource_path('images/'.$item['image']))->toMediaCollection('image');
 
-            foreach ($category['children'] as $child) {
+            foreach ($item['children'] as $child) {
                 $category->children()->create($child);
             }
         }

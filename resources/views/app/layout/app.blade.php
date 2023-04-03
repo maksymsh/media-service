@@ -1,12 +1,12 @@
 <div class="wrapper">
     <x-splade-state>
-        @include('app.layout.header')
+        <x-app.header />
 
         <div class="content">
             @yield('content')
         </div>
 
-        @include('app.layout.footer')
+        <x-app.footer />
 
         @include('app.layout.modals')
     </x-splade-state>

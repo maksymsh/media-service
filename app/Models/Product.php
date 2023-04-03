@@ -15,6 +15,8 @@ class Product extends BaseModel implements HasMedia
     use InteractsWithMedia;
 
     protected $fillable = [
+        'top',
+        'bottom',
         'name',
         'slug',
         'description',
@@ -29,6 +31,8 @@ class Product extends BaseModel implements HasMedia
     ];
 
     protected $casts = [
+        'top' => 'boolean',
+        'bottom' => 'boolean',
         'published' => 'boolean',
     ];
 

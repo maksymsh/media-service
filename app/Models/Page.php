@@ -15,6 +15,8 @@ class Page extends BaseModel implements HasMedia
     use InteractsWithMedia;
 
     protected $fillable = [
+        'top',
+        'bottom',
         'code',
         'title',
         'slug',
@@ -30,6 +32,8 @@ class Page extends BaseModel implements HasMedia
     ];
 
     protected $casts = [
+        'top' => 'boolean',
+        'bottom' => 'boolean',
         'published' => 'boolean',
     ];
 

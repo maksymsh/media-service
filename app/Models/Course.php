@@ -15,13 +15,15 @@ class Course extends BaseModel implements HasMedia
     use InteractsWithMedia;
 
     protected $fillable = [
+        'top',
+        'bottom',
+        'published',
         'title',
         'name',
         'slug',
         'description',
         'description_short',
         'content',
-        'published',
         'seo_h1',
         'seo_title',
         'seo_description',

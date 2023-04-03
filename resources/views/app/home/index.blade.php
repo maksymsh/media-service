@@ -86,15 +86,15 @@
                             </div>
                         </div>
                         <div class="d-md-flex flex-wrap">
-                            @foreach($serviceCategories as $category)
+                            @foreach($services as $service)
                                 <div class="item-col">
                                     <div class="col-item">
                                         <div class="col-icon">
-                                            <img src="{{ $category->getFirstMedia('image')->originalUrl }}" alt="">
+                                            <img src="{{ $service->getFirstMedia('image')->originalUrl }}" alt="">
                                         </div>
-                                        <div class="col-name">{!! $category->name !!}</div>
-                                        {!! $category->description_short !!}
-                                        <x-app.link :href="$category->url" class="link-default d-inline-flex align-items-center">
+                                        <div class="col-name">{!! $service->name !!}</div>
+                                        {!! $service->description_short !!}
+                                        <x-app.link href="{{ route('services.service', $service) }}" class="link-default d-inline-flex align-items-center">
                                             <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
                                             <span class="value">{{ __('детальніше') }}</span>
                                             <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
@@ -168,6 +168,22 @@
                                         <div class="col-name">{!! $category->name !!}</div>
                                         {!! $category->description_short !!}
                                         <x-app.link :href="$category->url" class="link-default d-inline-flex align-items-center">
+                                            <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
+                                            <span class="value">{{ __('детальніше') }}</span>
+                                            <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
+                                        </x-app.link>
+                                    </div>
+                                </div>
+                            @endforeach
+                            @foreach($products as $product)
+                                <div class="item-col">
+                                    <div class="col-item">
+                                        <div class="col-icon">
+                                            <img src="{{ $product->getFirstMedia('image')->originalUrl }}" alt="">
+                                        </div>
+                                        <div class="col-name">{!! $product->name !!}</div>
+                                        {!! $product->description_short !!}
+                                        <x-app.link href="{{ route('products.product', $product) }}" class="link-default d-inline-flex align-items-center">
                                             <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
                                             <span class="value">{{ __('детальніше') }}</span>
                                             <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>

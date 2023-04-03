@@ -26,6 +26,8 @@ class UpdateNewsRequest extends BaseFormRequest
         return [
             'title' => ['nullable'],
             'slug' => ['nullable'],
+            'description' => ['nullable'],
+            'description_short' => ['nullable'],
             'content' => ['nullable'],
             'published' => ['nullable'],
             'seo_h1' => ['nullable'],

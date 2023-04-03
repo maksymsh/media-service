@@ -24,21 +24,21 @@
                 />
             @endcan
 
-            @can('menus.index')
-                <x-admin.layout.sidebar-item :title="__('Menu')"
-                                             icon="sliders"
-                                             :url="route('admin.menus.index')"
-                                             route="admin.menus*"
-                />
-            @endcan
+{{--            @can('menus.index')--}}
+{{--                <x-admin.layout.sidebar-item :title="__('Menu')"--}}
+{{--                                             icon="sliders"--}}
+{{--                                             :url="route('admin.menus.index')"--}}
+{{--                                             route="admin.menus*"--}}
+{{--                />--}}
+{{--            @endcan--}}
 
-            @can('banners.index')
-                <x-admin.layout.sidebar-item :title="__('Banners')"
-                                             icon="sliders"
-                                             :url="route('admin.banners.index')"
-                                             route="admin.banners*"
-                />
-            @endcan
+{{--            @can('banners.index')--}}
+{{--                <x-admin.layout.sidebar-item :title="__('Banners')"--}}
+{{--                                             icon="sliders"--}}
+{{--                                             :url="route('admin.banners.index')"--}}
+{{--                                             route="admin.banners*"--}}
+{{--                />--}}
+{{--            @endcan--}}
 
 
             <li class="sidebar-header">{{ __('Media') }}</li>

@@ -18,6 +18,8 @@ return new class extends Migration
             $table->id();
             $table->string('type')->nullable();
             $table->boolean('root')->default(true);
+            $table->boolean('top')->default(true);
+            $table->boolean('bottom')->default(true);
             $table->unsignedBigInteger('parent_id')->nullable()->default(null);
             $table->unsignedBigInteger(NestedSet::LFT)->nullable();
             $table->unsignedBigInteger(NestedSet::RGT)->nullable();

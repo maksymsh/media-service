@@ -24,9 +24,14 @@ class StoreProjectRequest extends BaseFormRequest
     public function rules()
     {
         return [
+            'top' => ['nullable'],
+            'bottom' => ['nullable'],
+            'published' => ['nullable'],
             'title' => ['nullable'],
             'slug' => ['nullable'],
             'description' => ['nullable'],
+            'description_short' => ['nullable'],
+            'content' => ['nullable'],
             'seo_h1' => ['nullable'],
             'seo_title' => ['nullable'],
             'seo_description' => ['nullable'],

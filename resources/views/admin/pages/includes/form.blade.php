@@ -4,6 +4,14 @@
     <x-splade-checkbox name="published" switch />
 </x-splade-group>
 
+<x-splade-group inline :label="__('Top')">
+    <x-splade-checkbox name="top" switch />
+</x-splade-group>
+
+<x-splade-group inline :label="__('Bottom')">
+    <x-splade-checkbox name="bottom" switch />
+</x-splade-group>
+
 <x-splade-input name="code" :label="__('Code')" />
 
 <x-splade-input name="title" :label="__('Title')" />

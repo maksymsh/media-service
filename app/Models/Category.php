@@ -18,6 +18,9 @@ class Category extends BaseModel implements HasMedia
 
     protected $fillable = [
         'type',
+        'top',
+        'bottom',
+        'type',
         'parent_id',
         'name',
         'slug',
@@ -33,6 +36,7 @@ class Category extends BaseModel implements HasMedia
 
     protected $casts = [
         'top' => 'boolean',
+        'bottom' => 'boolean',
         'published' => 'boolean',
     ];
 
