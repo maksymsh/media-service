@@ -48,6 +48,26 @@ window.initJS = () => {
     })
 
     jQuery(document).ready(function (t) {
+        $('.for-menus .title-small').each(function () {
+            let parentId = $(this).parent().attr('id')
+
+            let html =
+                '<li class="inf-act d-flex align-items-center" data-target="' +
+                parentId +
+                '">\n' +
+                '                                    <span class="li"><img src="/images/li.svg" alt=""></span>\n' +
+                '                                    <a class="scroll" href="#' +
+                parentId +
+                '">' +
+                $(this).text() +
+                '</a>\n' +
+                '                                </li>'
+
+            $('.menu-left > ul.nav').append(html)
+        })
+    })
+
+    jQuery(document).ready(function (t) {
         var e = t('.for-menus')
         if (!(e.length <= 0)) {
             e.height(), e.offset().top

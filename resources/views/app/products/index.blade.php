@@ -46,7 +46,7 @@
                         <div class="big-info">
                             <div class="number">{{ $cIndex < 10 ? '0' : '' }}{{ $cIndex + 1 }}</div>
                             <div class="name">{{ $category->name }}</div>
-                            {!! $category->description !!}
+                            {!! $category->description_short !!}
 
                             <a href="#" class="button-default  d-inline-flex align-items-center"
                                data-toggle="modal"
