@@ -140,7 +140,7 @@ class ProductSeeder extends Seeder
         foreach ($data as $i => $item) {
             $attrs['name'] = $item['name'];
             $attrs['description'] = $item['description'];
-            $attrs['description_short'] = $item['description'];
+            $attrs['description_short'] = $item['description_short'];
             $attrs['content'] = $item['content'];
             $attrs['seo_title'] = $item['name'];
             $attrs['seo_description'] = $item['name'];
