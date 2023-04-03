@@ -29,7 +29,7 @@
                             <button class="button-default d-inline-flex align-items-center"
                                     data-toggle="modal"
                                     data-target="#m-feed"
-                                    @click="data.feedback.type = 'course'; data.feedback.id = '{{ $course->id }}';"
+                                    @click="state.shared.feedback.type = 'course'; state.shared.feedback.id = '{{ $course->id }}';"
                             >
                                 <span class="value">записатись на курс</span>
                                 <span class="ic icon-arrow-right"></span>

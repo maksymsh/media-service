@@ -124,7 +124,7 @@
                     <button class="button-default sml header-feed d-inline-flex align-items-center"
                             data-toggle="modal"
                             data-target="#m-feed"
-                            @click="data.feedback.type = 'contact'"
+                            @click="state.shared.feedback.type = 'contact'"
                     >
                         <span class="value">Зв’язатись</span>
                         <span class="ic icon-arrow-right"></span>
@@ -341,7 +341,7 @@
                 <button class="button-default sml header-feed d-inline-flex align-items-center"
                         data-toggle="modal"
                         data-target="#m-feed"
-                        @click="data.feedback.type = 'contact'"
+                        @click="state.shared.feedback.type = 'contact'"
                 >
                     <span class="value">Зв’язатись</span>
                     <span class="ic icon-arrow-right"></span>

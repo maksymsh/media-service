@@ -751,6 +751,14 @@ window.initJS = () => {
     var handle6 = $('#p_max')
     var minPrice = parseInt(handle5.data('min'))
     var maxPrice = parseInt(handle6.data('max'))
+    handle5.on('input change', function (e) {
+        if (typeof e.target._assign === 'function')
+            e.target._assign(e.target.value)
+    })
+    handle6.on('input change', function (e) {
+        if (typeof e.target._assign === 'function')
+            e.target._assign(e.target.value)
+    })
     if ($('#filter-price').length) {
         $('#filter-price').slider({
             animate: 'slow',
@@ -759,17 +767,25 @@ window.initJS = () => {
             max: maxPrice,
             values: [minPrice, maxPrice],
             create: function () {
-                handle5.val(
-                    number_format($(this).slider('values', 0), 0, '.', ' ')
-                )
-                handle6.val(
-                    number_format($(this).slider('values', 1), 0, '.', ' ')
-                )
+                handle5
+                    .val(
+                        number_format($(this).slider('values', 0), 0, '.', ' ')
+                    )
+                    .trigger('change')
+                handle6
+                    .val(
+                        number_format($(this).slider('values', 1), 0, '.', ' ')
+                    )
+                    .trigger('change')
             },
 
             slide: function (event, ui) {
-                handle5.val(number_format(ui.values[0], 0, '.', ' '))
-                handle6.val(number_format(ui.values[1], 0, '.', ' '))
+                handle5
+                    .val(number_format(ui.values[0], 0, '.', ' '))
+                    .trigger('change')
+                handle6
+                    .val(number_format(ui.values[1], 0, '.', ' '))
+                    .trigger('change')
             },
         })
     }

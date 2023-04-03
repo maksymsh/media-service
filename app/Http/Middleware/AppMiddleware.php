@@ -36,6 +36,7 @@ class AppMiddleware
         View::share('goodCategories', $goodCategories);
 
         Splade::share('user', $request->user());
+        Splade::share('feedback', ['type' => '', 'id' => '']);
         Splade::setRootView('app.root');
 
         return $next($request);

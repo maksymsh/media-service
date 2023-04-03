@@ -11,6 +11,7 @@ use App\Models\Page;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use ProtoneMedia\Splade\Facades\SEO;
+use ProtoneMedia\Splade\Facades\Splade;
 
 class GoodController extends Controller
 {
@@ -54,6 +55,26 @@ class GoodController extends Controller
                 ];
             }
         }
+
+        $filter = [
+            'maxPrice' => $maxPrice,
+            'minPrice' => $minPrice,
+            'attributeValues' => $attributeValues,
+            'data' => $goods,
+            'form' => [
+                'price_from' => '',
+                'price_to' => '',
+                'attrs' => [],
+            ],
+        ];
+
+        foreach ($attributes as $attribute) {
+            foreach ($attributeValues[$attribute->id] as $i => $value) {
+                $filter['form']['attrs'][$attribute->id][$i] = false;
+            }
+        }
+
+        Splade::share('filter', $filter);
 
         $categories = Category::query()->where('type', Good::class)->get();
 

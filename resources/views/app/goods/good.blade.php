@@ -90,7 +90,7 @@
                         <button class="button-default buy d-inline-flex align-items-center justify-content-center"
                                 data-toggle="modal"
                                 data-target="#m-feed"
-                                @click="data.feedback.type = 'order_good';data.feedback.id = '{{ $good->id }}';"
+                                @click="state.shared.feedback.type = 'order_good';state.shared.feedback.id = '{{ $good->id }}';"
                         >
                             <span class="value">Замовити</span>
                             <span class="ic icon-arrow-right"></span>

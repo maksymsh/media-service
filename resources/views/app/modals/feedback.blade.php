@@ -50,7 +50,7 @@
                         </div>
                         <div class="bottom-right">
                             <x-splade-submit class="button-default bgl submit d-flex align-items-center justify-content-center"
-                                @click="form.type = data.feedback.type; form.id = data.feedback.id"
+                                @click="form.type = state.shared.feedback.type; form.id = state.shared.feedback.id"
                             >
                                 <span class="value">надіслати</span>
                                 <span class="ic icon-arrow-right"></span>

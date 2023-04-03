@@ -51,7 +51,7 @@
                             <a href="#" class="button-default  d-inline-flex align-items-center"
                                data-toggle="modal"
                                data-target="#m-feed"
-                               @click="data.feedback.type = 'consult'"
+                               @click="state.shared.feedback.type = 'consult'"
                             >
                                 <span class="value">отримати консультацію</span>
                                 <span class="ic icon-arrow-right"></span>

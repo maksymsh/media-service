@@ -1,6 +1,5 @@
 <div class="wrapper">
-
-    <x-splade-data :default="['feedback' => ['type' => '', 'id' => '']]">
+    <x-splade-state>
         @include('app.layout.header')
 
         <div class="content">
@@ -10,6 +9,5 @@
         @include('app.layout.footer')
 
         @include('app.layout.modals')
-    </x-splade-data>
-
+    </x-splade-state>
 </div>
