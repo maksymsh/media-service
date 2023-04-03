@@ -59,10 +59,10 @@
                         </div>
                     @endforeach
                 </div>
-                <button class="button-more d-flex align-items-center justify-content-center">
-                    <span class="value">показати більше</span>
-                    <span class="ic icon-more"></span>
-                </button>
+{{--                <button class="button-more d-flex align-items-center justify-content-center">--}}
+{{--                    <span class="value">показати більше</span>--}}
+{{--                    <span class="ic icon-more"></span>--}}
+{{--                </button>--}}
             </div>
         </section>
     </div>
