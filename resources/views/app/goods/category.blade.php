@@ -61,11 +61,11 @@
                                         <div
                                             class="info-container d-flex align-items-center justify-content-between">
                                             <div class="inputs d-flex align-items-center">
-                                                <input type="text" name="min" value="" id="p_min" data-min="{{ $minPrice }}">
+                                                <input type="text" name="min" v-model="state.shared.filter.form.price_from" id="p_min" :data-min="state.shared.filter.minPrice">
                                                 <span class="sep">-</span>
-                                                <input type="text" name="max" value="" id="p_max" data-max="{{ $maxPrice }}">
+                                                <input type="text" name="max" v-model="state.shared.filter.form.price_to" id="p_max" data-max="{{ $maxPrice }}">
                                             </div>
-                                            <input type="submit" class="submit" name="submit" value="ok">
+                                            <input type="submit" class="submit" name="submit" value="ok" @click.prevent="$splade.filter($splade)">
                                         </div>
                                         <div id="filter-price"></div>
                                     </div>
@@ -84,7 +84,7 @@
                                             <div class="checkboxes">
                                                 @foreach($attributeValues[$attribute->id] as $i => $value)
                                                     <div class="checkbox">
-                                                        <input type="checkbox" name="forma-1" id="att-{{ $attribute->id }}-{{ $i }}">
+                                                        <input type="checkbox" name="forma-1" id="att-{{ $attribute->id }}-{{ $i }}" value="{{ $value['value'] }}" v-model="state.shared.filter.form.attrs[{{ $attribute->id }}][{{ $i }}]">
                                                         <label for="att-{{ $attribute->id }}-{{ $i }}">{{ $value['value'] }} ({{ $value['count'] }})</label>
                                                     </div>
                                                 @endforeach

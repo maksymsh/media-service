@@ -46,7 +46,6 @@
                 </div>
                 <div class="filter">
                     <div class="filter-title">Фільтр</div>
-                    @{{ state.shared.filter.form }}
                     <button class="filter-button d-flex d-xl-none align-items-center justify-content-center"><img
                             src="/images/filter.svg" alt="" class="ic"><span class="value">Фильтр</span></button>
                     <div class="filter-inner">
@@ -66,7 +65,7 @@
                                                 <span class="sep">-</span>
                                                 <input type="text" name="max" v-model="state.shared.filter.form.price_to" id="p_max" data-max="{{ $maxPrice }}">
                                             </div>
-                                            <input type="submit" class="submit" name="submit" value="ok">
+                                            <input type="submit" class="submit" name="submit" value="ok" @click.prevent="$splade.filter($splade)">
                                         </div>
                                         <div id="filter-price"></div>
                                     </div>

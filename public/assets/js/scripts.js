@@ -751,6 +751,8 @@ window.initJS = () => {
     var handle6 = $('#p_max')
     var minPrice = parseInt(handle5.data('min'))
     var maxPrice = parseInt(handle6.data('max'))
+    var minPriceVal = parseInt(handle5.val())
+    var maxPriceVal = parseInt(handle6.val())
     handle5.on('input change', function (e) {
         if (typeof e.target._assign === 'function')
             e.target._assign(e.target.value)
@@ -765,7 +767,7 @@ window.initJS = () => {
             range: true,
             min: minPrice,
             max: maxPrice,
-            values: [minPrice, maxPrice],
+            values: [minPriceVal, maxPriceVal],
             create: function () {
                 handle5
                     .val(

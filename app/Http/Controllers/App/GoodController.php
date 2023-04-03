@@ -24,11 +24,9 @@ class GoodController extends Controller
         $page->seo_keywords && SEO::keywords($page->seo_keywords);
 
         /** @var Builder $goodsQuery */
-        $goodsQuery = Good::query()->filter($request->all());
+        $goodsQuery = Good::query();
 
         $goodsIds = $goodsQuery->pluck('id')->toArray();
-
-        $goods = $goodsQuery->paginate();
 
         $maxPrice = $goodsQuery->max('price');
         $minPrice = $goodsQuery->min('price');
@@ -56,21 +54,46 @@ class GoodController extends Controller
             }
         }
 
+        $attrs = $request->get('attrs');
+
+        if ($request->has('price_from')) {
+            $goodsQuery->where('price', '>=', $request->get('price_from'));
+        }
+
+        if ($request->has('price_to')) {
+            $goodsQuery->where('price', '>=', $request->get('price_to'));
+        }
+
+        $goodsQuery->where(function (Builder $q) use ($attributeValues, $attrs) {
+            foreach ($attributeValues as $attributeId => $values) {
+                foreach ($values as $i => $attributeValue) {
+                    if (isset($attrs[$attributeId][$i])) {
+                        $q->orWhereHas('attributes', function (Builder $aq) use ($attributeId, $attributeValue) {
+                            $aq->where('attribute_id', $attributeId)
+                                ->where('value', $attributeValue['value']);
+                        });
+                    }
+                }
+            }
+        });
+
+        $goods = $goodsQuery->paginate();
+
         $filter = [
-            'maxPrice' => $maxPrice,
-            'minPrice' => $minPrice,
+            'maxPrice' => (int) $maxPrice,
+            'minPrice' => (int) $minPrice,
             'attributeValues' => $attributeValues,
             'data' => $goods,
             'form' => [
-                'price_from' => '',
-                'price_to' => '',
+                'price_from' => (int) $request->get('price_from', $minPrice),
+                'price_to' => (int) $request->get('price_to', $maxPrice),
                 'attrs' => [],
             ],
         ];
 
         foreach ($attributes as $attribute) {
             foreach ($attributeValues[$attribute->id] as $i => $value) {
-                $filter['form']['attrs'][$attribute->id][$i] = false;
+                $filter['form']['attrs'][$attribute->id][$i] = isset($attrs[$attribute->id][$i]);
             }
         }
 
@@ -83,6 +106,7 @@ class GoodController extends Controller
             'goods' => $goods,
             'maxPrice' => $maxPrice,
             'minPrice' => $minPrice,
+            'attrs' => $attrs,
             'attributes' => $attributes,
             'attributeValues' => $attributeValues,
             'categories' => $categories,
@@ -96,11 +120,9 @@ class GoodController extends Controller
         $category->seo_keywords && SEO::keywords($category->seo_keywords);
 
         /** @var Builder $goodsQuery */
-        $goodsQuery = Good::query()->whereHas('categories', fn (Builder $q) => $q->where('id', $category->id))->filter($request->all());
+        $goodsQuery = Good::query();
 
         $goodsIds = $goodsQuery->pluck('id')->toArray();
-
-        $goods = $goodsQuery->paginate();
 
         $maxPrice = $goodsQuery->max('price');
         $minPrice = $goodsQuery->min('price');
@@ -127,6 +149,51 @@ class GoodController extends Controller
                 ];
             }
         }
+
+        $attrs = $request->get('attrs');
+
+        if ($request->has('price_from')) {
+            $goodsQuery->where('price', '>=', $request->get('price_from'));
+        }
+
+        if ($request->has('price_to')) {
+            $goodsQuery->where('price', '>=', $request->get('price_to'));
+        }
+
+        $goodsQuery->where(function (Builder $q) use ($attributeValues, $attrs) {
+            foreach ($attributeValues as $attributeId => $values) {
+                foreach ($values as $i => $attributeValue) {
+                    if (isset($attrs[$attributeId][$i])) {
+                        $q->orWhereHas('attributes', function (Builder $aq) use ($attributeId, $attributeValue) {
+                            $aq->where('attribute_id', $attributeId)
+                                ->where('value', $attributeValue['value']);
+                        });
+                    }
+                }
+            }
+        });
+
+        $goods = $goodsQuery->paginate();
+
+        $filter = [
+            'maxPrice' => (int) $maxPrice,
+            'minPrice' => (int) $minPrice,
+            'attributeValues' => $attributeValues,
+            'data' => $goods,
+            'form' => [
+                'price_from' => (int) $request->get('price_from', $minPrice),
+                'price_to' => (int) $request->get('price_to', $maxPrice),
+                'attrs' => [],
+            ],
+        ];
+
+        foreach ($attributes as $attribute) {
+            foreach ($attributeValues[$attribute->id] as $i => $value) {
+                $filter['form']['attrs'][$attribute->id][$i] = isset($attrs[$attribute->id][$i]);
+            }
+        }
+
+        Splade::share('filter', $filter);
 
         $categories = Category::query()->where('type', Good::class)->get();
 
