@@ -49,7 +49,14 @@
                                 <ul class="nav flex-column">
                                     @foreach($pages as $page)
                                         <li>
-                                            <x-splade-link :href="$page->url" class="nav-item">{{ $page->title }}</x-splade-link>
+                                            @php
+                                                $url = '/' . ($page->code === 'home' ? '' : $page->code);
+
+                                                if(in_array($url, ['/videos'])) {
+                                                    $url = '/study' . $url;
+                                                }
+                                            @endphp
+                                            <x-splade-link :href="$url" class="nav-item">{{ $page->title }}</x-splade-link>
                                         </li>
                                     @endforeach
                                 </ul>

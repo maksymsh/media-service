@@ -16,6 +16,7 @@ class PageSeeder extends Seeder
     {
         $data = [
             [
+                'bottom' => 0,
                 'code' => 'home',
                 'title' => 'Aвтоматизація компаній та підприємств Service',
                 'description' => 'Ми допомагаємо клієнтам максимально оптимізувати роботу підприємства та ефективно управляти бізнесом',
@@ -57,11 +58,6 @@ class PageSeeder extends Seeder
                 'description' => 'Реалізовані проекти компанії Mediaservice',
             ],
             [
-                'code' => 'vacancies',
-                'title' => 'Вікансії',
-                'description' => 'Вікансії',
-            ],
-            [
                 'code' => 'study',
                 'title' => 'Сертифікований навчальний центр',
                 'description' => 'Курси BAS у Львові від офіційного представника, розроблені провідними методистами САБ - це гарантія якості Вашого навчання',
@@ -74,6 +70,7 @@ class PageSeeder extends Seeder
         ];
 
         foreach ($data as $item) {
+            $attrs['bottom'] = $item['bottom'] ?? 1;
             $attrs['code'] = $item['code'];
             $attrs['title'] = $item['title'];
             $attrs['description'] = $item['description'];
