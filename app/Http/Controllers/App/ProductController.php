@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Page;
 use App\Models\Product;
 use App\Models\Project;
+use App\Models\Service;
 use ProtoneMedia\Splade\Facades\SEO;
 
 class ProductController extends Controller
@@ -52,8 +53,11 @@ class ProductController extends Controller
         $product->seo_description && SEO::description($product->seo_description);
         $product->seo_keywords && SEO::keywords($product->seo_keywords);
 
+        $services = Service::query()->get();
+
         return view('app.products.product', [
             'product' => $product,
+            'services' => $services,
         ]);
     }
 }

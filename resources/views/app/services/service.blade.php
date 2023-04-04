@@ -134,14 +134,20 @@
             <div class="other-container d-xl-flex align-items-start justify-content-between">
                 <div class="title">Інші <br/>послуги</div>
                 <div class="other-items d-md-flex flex-wrap ">
-                    @foreach($services as $s)
+                    @foreach($services as $service)
                         <div class="item-col">
                             <div class="col-item">
                                 <div class="col-icon">
-                                    <img src="{{ $s->getFirstMedia('image')->originalUrl }}" alt="">
+                                    <img src="{{ $service->getFirstMedia('image')->originalUrl }}" alt="">
                                 </div>
-                                <div class="col-name">{{ $s->name }}</div>
-                                {!! $s->description_short !!}
+                                <div class="col-name">{!! $service->name !!}</div>
+                                {!! $service->description_short !!}
+                                <x-app.link href="{{ route('services.service', $service) }}"
+                                            class="link-default d-inline-flex align-items-center">
+                                    <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
+                                    <span class="value">{{ __('детальніше') }}</span>
+                                    <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
+                                </x-app.link>
                             </div>
                         </div>
                     @endforeach
