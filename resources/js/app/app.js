@@ -33,6 +33,10 @@ const filter = ($splade) => {
         data.price_to = $splade.sharedData.value.filter.form.price_to
     }
 
+    if ($splade.sharedData.value.filter.form.sort !== 'default') {
+        data.sort = $splade.sharedData.value.filter.form.sort
+    }
+
     for (let attrId in $splade.sharedData.value.filter.form.attrs) {
         for (let i in $splade.sharedData.value.filter.form.attrs[attrId]) {
             if ($splade.sharedData.value.filter.form.attrs[attrId][i]) {
@@ -57,9 +61,15 @@ const initFilter = ($splade) => {
     if ($splade.sharedData.value.filter) {
         watch($splade.sharedData.value.filter.form.attrs, (attrs) => {
             console.log(attrs)
-
             filter($splade)
         })
+        watch(
+            () => $splade.sharedData.value.filter.form.sort,
+            (sort) => {
+                console.log(sort)
+                filter($splade)
+            }
+        )
     }
 }
 

@@ -64,6 +64,23 @@ class GoodController extends Controller
             $goodsQuery->where('price', '>=', $request->get('price_to'));
         }
 
+        $sort = $request->get('sort', 'default');
+
+        if ($sort === 'default') {
+        }
+
+        if ($sort === 'price') {
+            $goodsQuery->orderBy('price');
+        }
+
+        if ($sort === 'price_desc') {
+            $goodsQuery->orderBy('price', 'desc');
+        }
+
+        if ($sort === 'alpha') {
+            $goodsQuery->orderBy('name');
+        }
+
         $goodsQuery->where(function (Builder $q) use ($attributeValues, $attrs) {
             foreach ($attributeValues as $attributeId => $values) {
                 foreach ($values as $i => $attributeValue) {
@@ -87,6 +104,7 @@ class GoodController extends Controller
             'form' => [
                 'price_from' => (int) $request->get('price_from', $minPrice),
                 'price_to' => (int) $request->get('price_to', $maxPrice),
+                'sort' => $request->get('sort', 'default'),
                 'attrs' => [],
             ],
         ];

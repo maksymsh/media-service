@@ -101,10 +101,22 @@
                 <div class="products-sort d-flex flex-wrap align-items-start">
                     <div class="value">Сортувати по:</div>
                     <div class="d-flex flex-wrap">
-                        <a href="#" class="item active">По популярності</a>
-                        <a href="#" class="item">Від дешевих до дорогих</a>
-                        <a href="#" class="item">Від дорощих до дешевших</a>
-                        <a href="#" class="item">По алфавіту</a>
+                        <a href="#" class="item"
+                           :class="{active: $splade.sharedData.value.filter.form.sort === 'default'}"
+                           @click.prevent="$splade.sharedData.value.filter.form.sort = 'default'"
+                        >По популярності</a>
+                        <a href="#" class="item"
+                           :class="{active: $splade.sharedData.value.filter.form.sort === 'price'}"
+                           @click.prevent="$splade.sharedData.value.filter.form.sort = 'price'"
+                        >Від дешевих до дорогих</a>
+                        <a href="#" class="item"
+                           :class="{active: $splade.sharedData.value.filter.form.sort === 'price_desc'}"
+                           @click.prevent="$splade.sharedData.value.filter.form.sort = 'price_desc'"
+                        >Від дорощих до дешевших</a>
+                        <a href="#" class="item"
+                           :class="{active: $splade.sharedData.value.filter.form.sort === 'alpha'}"
+                           @click.prevent="$splade.sharedData.value.filter.form.sort = 'alpha'"
+                        >По алфавіту</a>
                     </div>
                 </div>
                 <div class="products-list">
