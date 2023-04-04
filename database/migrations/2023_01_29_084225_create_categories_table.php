@@ -20,6 +20,7 @@ return new class extends Migration
             $table->boolean('root')->default(true);
             $table->boolean('top')->default(true);
             $table->boolean('bottom')->default(true);
+            $table->boolean('home')->default(false);
             $table->unsignedBigInteger('parent_id')->nullable()->default(null);
             $table->unsignedBigInteger(NestedSet::LFT)->nullable();
             $table->unsignedBigInteger(NestedSet::RGT)->nullable();

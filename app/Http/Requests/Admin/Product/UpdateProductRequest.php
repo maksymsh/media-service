@@ -26,6 +26,7 @@ class UpdateProductRequest extends BaseFormRequest
         return [
             'top' => ['nullable'],
             'bottom' => ['nullable'],
+            'icon' => ['nullable'],
             'published' => ['nullable'],
             'name' => ['nullable'],
             'slug' => ['nullable'],

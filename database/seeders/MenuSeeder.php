@@ -21,7 +21,7 @@ class MenuSeeder extends Seeder
         foreach ($data as $item) {
             $attrs['name'] = $item['name'];
             $attrs['description'] = $item['description'];
-            $menu = Menu::factory()->create($attrs);
+            $menu = Menu::query()->create($attrs);
         }
     }
 }

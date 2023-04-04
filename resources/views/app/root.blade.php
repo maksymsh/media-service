@@ -39,6 +39,8 @@
 <script src="{{ asset('assets/js/jquery.ui.touch-punch.min.js') }}"></script>
 <script src="{{ asset('assets/js/scripts.js') }}"></script>
 
+<script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+
 @vite(['resources/js/app/app.js'])
 </body>
 </html>

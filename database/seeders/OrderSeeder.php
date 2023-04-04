@@ -21,7 +21,7 @@ class OrderSeeder extends Seeder
         foreach ($data as $item) {
             $attrs['name'] = $item['name'];
             $attrs['description'] = $item['description'];
-            $order = Order::factory()->create($attrs);
+            $order = Order::query()->create($attrs);
         }
     }
 }

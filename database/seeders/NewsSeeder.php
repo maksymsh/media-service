@@ -46,7 +46,7 @@ class NewsSeeder extends Seeder
             $attrs['title'] = $item['title'];
             $attrs['description'] = $item['description'];
             $attrs['content'] = $item['content'];
-            $news = News::factory()->create($attrs);
+            $news = News::query()->create($attrs);
             File::copy(public_path('images/'.$item['image']), resource_path('images/'.$item['image']));
             $news->addMedia(resource_path('images/'.$item['image']))->toMediaCollection('image');
 

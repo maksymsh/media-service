@@ -43,7 +43,7 @@ class CourseSeeder extends Seeder
             $attrs['seo_title'] = $item['name'];
             $attrs['seo_description'] = $item['name'];
             $attrs['seo_keywords'] = $item['name'];
-            $course = Course::factory()->create($attrs);
+            $course = Course::query()->create($attrs);
             File::copy(public_path('images/'.$item['image']), resource_path('images/'.$item['image']));
             $course->addMedia(resource_path('images/'.$item['image']))->toMediaCollection('image');
         }

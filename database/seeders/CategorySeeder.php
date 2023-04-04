@@ -41,7 +41,7 @@ class CategorySeeder extends Seeder
             $attrs['seo_title'] = $item['name'];
             $attrs['seo_description'] = $item['name'];
             $attrs['seo_keywords'] = $item['name'];
-            $category = Category::factory()->create($attrs);
+            $category = Category::query()->create($attrs);
         }
     }
 
@@ -77,7 +77,7 @@ class CategorySeeder extends Seeder
             if ($item['slug'] ?? false) {
                 $attrs['slug'] = $item['slug'];
             }
-            $category = Category::factory()->create($attrs);
+            $category = Category::query()->create($attrs);
         }
     }
 
@@ -104,7 +104,7 @@ class CategorySeeder extends Seeder
             if ($item['slug'] ?? false) {
                 $attrs['slug'] = $item['slug'];
             }
-            $category = Category::factory()->create($attrs);
+            $category = Category::query()->create($attrs);
         }
     }
 
@@ -112,6 +112,7 @@ class CategorySeeder extends Seeder
     {
         $data = [
             [
+                'home' => 1,
                 'image' => 'cc1.png',
                 'background' => 'c2.svg',
                 'name' => 'BAS',
@@ -131,7 +132,8 @@ class CategorySeeder extends Seeder
             if ($item['slug'] ?? false) {
                 $attrs['slug'] = $item['slug'];
             }
-            $category = Category::factory()->create($attrs);
+            $attrs['home'] = $item['home'];
+            $category = Category::query()->create($attrs);
             File::copy(public_path('images/'.$item['image']), resource_path('images/'.$item['image']));
             $category->addMedia(resource_path('images/'.$item['image']))->toMediaCollection('image');
             File::copy(public_path('images/'.$item['background']), resource_path('images/'.$item['background']));
@@ -143,7 +145,8 @@ class CategorySeeder extends Seeder
     {
         $data = [
             [
-                'image' => 'c1.png',
+                'image' => 'g5.png',
+                'home' => 1,
                 'name' => 'Реєстратори розрахункових операцій',
                 'description' => 'Реєстратори розрахункових операцій',
                 'children' => [
@@ -153,7 +156,8 @@ class CategorySeeder extends Seeder
                 ],
             ],
             [
-                'image' => 'c2.png',
+                'image' => 'g2.png',
+                'home' => 1,
                 'name' => 'Сканери штрихкодів',
                 'description' => 'Сканери штрихкодів',
                 'children' => [
@@ -164,7 +168,8 @@ class CategorySeeder extends Seeder
                 ],
             ],
             [
-                'image' => 'c3.png',
+                'image' => 'g3.png',
+                'home' => 1,
                 'name' => 'Принтери чеків',
                 'description' => 'Принтери чеків',
                 'children' => [
@@ -174,6 +179,7 @@ class CategorySeeder extends Seeder
             ],
             [
                 'image' => 'c4.png',
+                'home' => 0,
                 'name' => 'Лічильники банкнот',
                 'description' => 'Лічильники банкнот',
                 'children' => [
@@ -182,7 +188,8 @@ class CategorySeeder extends Seeder
                 ],
             ],
             [
-                'image' => 'c5.png',
+                'image' => 'g1.png',
+                'home' => 1,
                 'name' => 'POS-системи',
                 'description' => 'POS-системи',
                 'children' => [
@@ -192,7 +199,8 @@ class CategorySeeder extends Seeder
                 ],
             ],
             [
-                'image' => 'c6.png',
+                'image' => 'g6.png',
+                'home' => 1,
                 'name' => 'Ваги',
                 'description' => 'Ваги',
                 'children' => [
@@ -202,7 +210,8 @@ class CategorySeeder extends Seeder
                 ],
             ],
             [
-                'image' => 'c7.png',
+                'image' => 'g8.png',
+                'home' => 1,
                 'name' => 'Витратні матеріали',
                 'description' => 'Витратні матеріали',
                 'children' => [
@@ -212,6 +221,7 @@ class CategorySeeder extends Seeder
             ],
             [
                 'image' => 'c8.png',
+                'home' => 0,
                 'name' => 'Принтери етикеток',
                 'description' => 'Принтери етикеток',
                 'children' => [
@@ -220,25 +230,29 @@ class CategorySeeder extends Seeder
                 ],
             ],
             [
-                'image' => 'c9.png',
+                'image' => 'g7.png',
+                'home' => 1,
                 'name' => 'Термінали збору данних',
                 'description' => 'Термінали збору данних',
                 'children' => [],
             ],
             [
                 'image' => 'c10.png',
+                'home' => 0,
                 'name' => 'Детектори валют',
                 'description' => 'Детектори валют',
                 'children' => [],
             ],
             [
                 'image' => 'c11.png',
+                'home' => 0,
                 'name' => 'Термінали самообслуговування',
                 'description' => 'Термінали самообслуговування',
                 'children' => [],
             ],
             [
-                'image' => 'c12.png',
+                'image' => 'g4.png',
+                'home' => 1,
                 'name' => 'Грошові скриньки',
                 'description' => 'Грошові скриньки',
                 'children' => [],
@@ -255,7 +269,8 @@ class CategorySeeder extends Seeder
             if ($item['slug'] ?? false) {
                 $attrs['slug'] = $item['slug'];
             }
-            $category = Category::factory()->create($attrs);
+            $attrs['home'] = $item['home'];
+            $category = Category::query()->create($attrs);
             File::copy(public_path('images/'.$item['image']), resource_path('images/'.$item['image']));
             $category->addMedia(resource_path('images/'.$item['image']))->toMediaCollection('image');
 

@@ -20,6 +20,7 @@ class Category extends BaseModel implements HasMedia
         'type',
         'top',
         'bottom',
+        'home',
         'type',
         'parent_id',
         'name',
@@ -37,6 +38,7 @@ class Category extends BaseModel implements HasMedia
     protected $casts = [
         'top' => 'boolean',
         'bottom' => 'boolean',
+        'home' => 'boolean',
         'published' => 'boolean',
     ];
 

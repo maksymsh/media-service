@@ -21,7 +21,7 @@ class HomeController extends Controller
         $page->seo_keywords && SEO::keywords($page->seo_keywords);
 
         $categoriesQuery = Category::query()->whereNull('parent_id')
-            ->where('top', true)
+            ->where('home', true)
             ->where('published', true);
 
         $serviceCategories = (clone $categoriesQuery)->where('type', Service::class)->get();

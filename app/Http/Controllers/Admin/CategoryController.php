@@ -110,7 +110,7 @@ class CategoryController extends Controller
 
         Toast::success("Category #$category->id updated successfully.");
 
-        return redirect()->route('admin.categories.index', ['type' => $request->get('type')]);
+        return redirect()->back();
     }
 
     /**

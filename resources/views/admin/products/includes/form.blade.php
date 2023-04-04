@@ -31,6 +31,8 @@
 <div>
     <h2>Media</h2>
 
+    <x-splade-textarea name="icon" :label="__('Icon')"/>
+
     <x-splade-file name="image" :label="__('Image')" filepond preview server />
 
     <x-splade-file name="background" :label="__('Background')" filepond preview server />

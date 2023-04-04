@@ -17,6 +17,7 @@ class Product extends BaseModel implements HasMedia
     protected $fillable = [
         'top',
         'bottom',
+        'icon',
         'name',
         'slug',
         'description',

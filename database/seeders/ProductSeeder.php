@@ -20,6 +20,7 @@ class ProductSeeder extends Seeder
             [
                 'top' => false,
                 'bottom' => false,
+                'icon' => '<lord-icon src="https://cdn.lordicon.com/wnuhyvza.json" trigger="loop" delay="2000" colors="primary:#4be1ec,secondary:#cb5eee" style="width:72px;height:72px"></lord-icon>',
                 'image' => 'icon9.svg',
                 'name' => 'BAS Бухгалтерія',
                 'description_short' => '<p>Програмний продукт "BAS Бухгалтерія" є призначеним для автоматизації бухгалтерського і податкового обліку, зокрема й підготовки обов\'язкової (регламентованої) звітності, в організаціях, що здійснюють будь-які види комерційної діяльності: гуртову і роздрібну торгівлю, комісійну торгівлю (включно з субкомісією), надання послуг, виробництво тощо. Бухгалтерський та податковий облік ведеться відповідно до чинного законодавства України.</p>',
@@ -29,6 +30,7 @@ class ProductSeeder extends Seeder
             [
                 'top' => false,
                 'bottom' => false,
+                'icon' => '<lord-icon src="https://cdn.lordicon.com/tkzazvzk.json" trigger="loop" delay="2000" colors="primary:#4be1ec,secondary:#cb5eee" style="width:72px;height:72px"></lord-icon>',
                 'image' => 'icon9.svg',
                 'name' => 'BAS Комплексне управління підприємством',
                 'description_short' => '<p>Програмний продукт "BAS Бухгалтерія" є призначеним для автоматизації бухгалтерського і податкового обліку, зокрема й підготовки обов\'язкової (регламентованої) звітності, в організаціях, що здійснюють будь-які види комерційної діяльності: гуртову і роздрібну торгівлю, комісійну торгівлю (включно з субкомісією), надання послуг, виробництво тощо. Бухгалтерський та податковий облік ведеться відповідно до чинного законодавства України.</p>',
@@ -38,6 +40,7 @@ class ProductSeeder extends Seeder
             [
                 'top' => false,
                 'bottom' => false,
+                'icon' => '<lord-icon src="https://cdn.lordicon.com/mnkcmpjb.json" trigger="loop" delay="2000" colors="primary:#4be1ec,secondary:#cb5eee" style="width:72px;height:72px"></lord-icon>',
                 'image' => 'icon9.svg',
                 'name' => 'BAS Управлінн торгівлею',
                 'description_short' => '<p>Програмний продукт "BAS Бухгалтерія" є призначеним для автоматизації бухгалтерського і податкового обліку, зокрема й підготовки обов\'язкової (регламентованої) звітності, в організаціях, що здійснюють будь-які види комерційної діяльності: гуртову і роздрібну торгівлю, комісійну торгівлю (включно з субкомісією), надання послуг, виробництво тощо. Бухгалтерський та податковий облік ведеться відповідно до чинного законодавства України.</p>',
@@ -47,6 +50,7 @@ class ProductSeeder extends Seeder
             [
                 'top' => false,
                 'bottom' => false,
+                'icon' => '<lord-icon src="https://cdn.lordicon.com/iqwxqtkw.json" trigger="loop" delay="2000" colors="primary:#4be1ec,secondary:#cb5eee" style="width:72px;height:72px"></lord-icon>',
                 'image' => 'icon9.svg',
                 'name' => 'BAS Роздрібна торгівля',
                 'description_short' => '<p>Програмний продукт "BAS Бухгалтерія" є призначеним для автоматизації бухгалтерського і податкового обліку, зокрема й підготовки обов\'язкової (регламентованої) звітності, в організаціях, що здійснюють будь-які види комерційної діяльності: гуртову і роздрібну торгівлю, комісійну торгівлю (включно з субкомісією), надання послуг, виробництво тощо. Бухгалтерський та податковий облік ведеться відповідно до чинного законодавства України.</p>',
@@ -56,6 +60,7 @@ class ProductSeeder extends Seeder
             [
                 'top' => false,
                 'bottom' => false,
+                'icon' => '<lord-icon src="https://cdn.lordicon.com/twprnhsj.json" trigger="loop" delay="2000" colors="primary:#4be1ec,secondary:#cb5eee" style="width:72px;height:72px"></lord-icon>',
                 'image' => 'icon9.svg',
                 'name' => 'BAS Малий бізнес',
                 'description_short' => '<p>Програмний продукт "BAS Бухгалтерія" є призначеним для автоматизації бухгалтерського і податкового обліку, зокрема й підготовки обов\'язкової (регламентованої) звітності, в організаціях, що здійснюють будь-які види комерційної діяльності: гуртову і роздрібну торгівлю, комісійну торгівлю (включно з субкомісією), надання послуг, виробництво тощо. Бухгалтерський та податковий облік ведеться відповідно до чинного законодавства України.</p>',
@@ -65,6 +70,7 @@ class ProductSeeder extends Seeder
             [
                 'top' => false,
                 'bottom' => false,
+                'icon' => '<lord-icon src="https://cdn.lordicon.com/mnkcmpjb.json" trigger="loop" delay="2000" colors="primary:#4be1ec,secondary:#cb5eee" style="width:72px;height:72px"></lord-icon>',
                 'image' => 'icon9.svg',
                 'name' => 'BAS ERP',
                 'description_short' => '<p>Програмний продукт "BAS Бухгалтерія" є призначеним для автоматизації бухгалтерського і податкового обліку, зокрема й підготовки обов\'язкової (регламентованої) звітності, в організаціях, що здійснюють будь-які види комерційної діяльності: гуртову і роздрібну торгівлю, комісійну торгівлю (включно з субкомісією), надання послуг, виробництво тощо. Бухгалтерський та податковий облік ведеться відповідно до чинного законодавства України.</p>',
@@ -74,6 +80,7 @@ class ProductSeeder extends Seeder
             [
                 'top' => false,
                 'bottom' => false,
+                'icon' => '<lord-icon src="https://cdn.lordicon.com/kkrxwgqz.json" trigger="loop" delay="2000" colors="primary:#4be1ec,secondary:#cb5eee" style="width:72px;height:72px"></lord-icon>',
                 'image' => 'icon9.svg',
                 'name' => 'BAS АГРО. ERP',
                 'description_short' => '<p>Програмний продукт "BAS Бухгалтерія" є призначеним для автоматизації бухгалтерського і податкового обліку, зокрема й підготовки обов\'язкової (регламентованої) звітності, в організаціях, що здійснюють будь-які види комерційної діяльності: гуртову і роздрібну торгівлю, комісійну торгівлю (включно з субкомісією), надання послуг, виробництво тощо. Бухгалтерський та податковий облік ведеться відповідно до чинного законодавства України.</p>',
@@ -83,6 +90,7 @@ class ProductSeeder extends Seeder
             [
                 'top' => false,
                 'bottom' => false,
+                'icon' => '<lord-icon src="https://cdn.lordicon.com/jpijfliv.json" trigger="loop" delay="2000" colors="primary:#4be1ec,secondary:#cb5eee" style="width:72px;height:72px"></lord-icon>',
                 'image' => 'icon9.svg',
                 'name' => 'BAS Документообіг КОРП',
                 'description_short' => '<p>Програмний продукт "BAS Бухгалтерія" є призначеним для автоматизації бухгалтерського і податкового обліку, зокрема й підготовки обов\'язкової (регламентованої) звітності, в організаціях, що здійснюють будь-які види комерційної діяльності: гуртову і роздрібну торгівлю, комісійну торгівлю (включно з субкомісією), надання послуг, виробництво тощо. Бухгалтерський та податковий облік ведеться відповідно до чинного законодавства України.</p>',
@@ -92,6 +100,7 @@ class ProductSeeder extends Seeder
             [
                 'top' => false,
                 'bottom' => false,
+                'icon' => '<lord-icon src="https://cdn.lordicon.com/xjbxrdaj.json" trigger="loop" delay="2000" colors="primary:#4be1ec,secondary:#cb5eee" style="width:72px;height:72px"></lord-icon>',
                 'image' => 'icon9.svg',
                 'name' => 'BAS Медицина',
                 'description_short' => '<p>Програмний продукт "BAS Бухгалтерія" є призначеним для автоматизації бухгалтерського і податкового обліку, зокрема й підготовки обов\'язкової (регламентованої) звітності, в організаціях, що здійснюють будь-які види комерційної діяльності: гуртову і роздрібну торгівлю, комісійну торгівлю (включно з субкомісією), надання послуг, виробництво тощо. Бухгалтерський та податковий облік ведеться відповідно до чинного законодавства України.</p>',
@@ -101,6 +110,7 @@ class ProductSeeder extends Seeder
             [
                 'top' => false,
                 'bottom' => false,
+                'icon' => '<lord-icon src="https://cdn.lordicon.com/utuaopwm.json" trigger="loop" delay="2000" colors="primary:#4be1ec,secondary:#cb5eee" style="width:72px;height:72px"></lord-icon>',
                 'image' => 'icon9.svg',
                 'name' => 'BAS Комплексне управління паливним підприємством',
                 'description_short' => '<p>Програмний продукт "BAS Бухгалтерія" є призначеним для автоматизації бухгалтерського і податкового обліку, зокрема й підготовки обов\'язкової (регламентованої) звітності, в організаціях, що здійснюють будь-які види комерційної діяльності: гуртову і роздрібну торгівлю, комісійну торгівлю (включно з субкомісією), надання послуг, виробництво тощо. Бухгалтерський та податковий облік ведеться відповідно до чинного законодавства України.</p>',
@@ -110,6 +120,7 @@ class ProductSeeder extends Seeder
             [
                 'top' => false,
                 'bottom' => false,
+                'icon' => '<lord-icon src="https://cdn.lordicon.com/hgvwxhhl.json" trigger="loop" delay="2000" colors="primary:#4be1ec,secondary:#cb5eee" style="width:72px;height:72px"></lord-icon>',
                 'image' => 'icon9.svg',
                 'name' => 'BAS Управління автотранспортом',
                 'description_short' => '<p>Програмний продукт "BAS Бухгалтерія" є призначеним для автоматизації бухгалтерського і податкового обліку, зокрема й підготовки обов\'язкової (регламентованої) звітності, в організаціях, що здійснюють будь-які види комерційної діяльності: гуртову і роздрібну торгівлю, комісійну торгівлю (включно з субкомісією), надання послуг, виробництво тощо. Бухгалтерський та податковий облік ведеться відповідно до чинного законодавства України.</p>',
@@ -119,6 +130,7 @@ class ProductSeeder extends Seeder
             [
                 'top' => false,
                 'bottom' => false,
+                'icon' => '<lord-icon src="https://cdn.lordicon.com/hhqwycmw.json" trigger="loop" delay="2000" colors="primary:#4be1ec,secondary:#cb5eee" style="width:72px;height:72px"></lord-icon>',
                 'image' => 'icon9.svg',
                 'name' => 'BAS Управління холдингом',
                 'description_short' => '<p>Програмний продукт "BAS Бухгалтерія" є призначеним для автоматизації бухгалтерського і податкового обліку, зокрема й підготовки обов\'язкової (регламентованої) звітності, в організаціях, що здійснюють будь-які види комерційної діяльності: гуртову і роздрібну торгівлю, комісійну торгівлю (включно з субкомісією), надання послуг, виробництво тощо. Бухгалтерський та податковий облік ведеться відповідно до чинного законодавства України.</p>',
@@ -167,6 +179,7 @@ class ProductSeeder extends Seeder
             $attrs['top'] = $item['top'] ?? true;
             $attrs['bottom'] = $item['bottom'] ?? true;
             $attrs['name'] = $item['name'];
+            $attrs['icon'] = $item['icon'] ?? '';
             $attrs['description'] = $item['description'];
             $attrs['description_short'] = $item['description_short'];
             $attrs['content'] = $item['content'];

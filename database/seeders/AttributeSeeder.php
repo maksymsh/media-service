@@ -22,7 +22,7 @@ class AttributeSeeder extends Seeder
 
         foreach ($data as $item) {
             $attrs['name'] = $item['name'];
-            $attribute = Attribute::factory()->create($attrs);
+            $attribute = Attribute::query()->create($attrs);
         }
     }
 }

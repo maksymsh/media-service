@@ -21,7 +21,7 @@ class BannerSeeder extends Seeder
         foreach ($data as $item) {
             $attrs['name'] = $item['name'];
             $attrs['description'] = $item['description'];
-            $banner = Banner::factory()->create($attrs);
+            $banner = Banner::query()->create($attrs);
         }
     }
 }

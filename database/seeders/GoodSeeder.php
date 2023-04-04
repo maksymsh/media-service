@@ -70,7 +70,7 @@ class GoodSeeder extends Seeder
             $attrs['seo_title'] = $item['name'];
             $attrs['seo_description'] = $item['name'];
             $attrs['seo_keywords'] = $item['name'];
-            $good = Good::factory()->create($attrs);
+            $good = Good::query()->create($attrs);
             File::copy(public_path('images/'.$item['image']), resource_path('images/'.$item['image']));
             $good->addMedia(resource_path('images/'.$item['image']))->toMediaCollection('image');
             foreach ($item['images'] as $image) {

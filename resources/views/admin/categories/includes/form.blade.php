@@ -8,6 +8,10 @@
     <x-splade-checkbox name="top" switch />
 </x-splade-group>
 
+<x-splade-group inline :label="__('Display Home')">
+    <x-splade-checkbox name="home" switch />
+</x-splade-group>
+
 <x-splade-group inline :label="__('Display Bottom')">
     <x-splade-checkbox name="bottom" switch />
 </x-splade-group>

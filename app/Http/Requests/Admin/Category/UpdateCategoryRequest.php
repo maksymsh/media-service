@@ -26,6 +26,7 @@ class UpdateCategoryRequest extends BaseFormRequest
         return [
             'top' => ['nullable'],
             'bottom' => ['nullable'],
+            'home' => ['nullable'],
             'published' => ['nullable'],
             'name' => ['nullable'],
             'slug' => ['nullable'],

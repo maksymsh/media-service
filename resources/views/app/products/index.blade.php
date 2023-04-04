@@ -63,13 +63,7 @@
                         @foreach($category->products as $product)
                             <div class="item">
                                 <div class="item-icon">
-                                    <lord-icon
-                                        src="https://cdn.lordicon.com/wnuhyvza.json"
-                                        trigger="loop"
-                                        delay="2000"
-                                        colors="primary:#4be1ec,secondary:#cb5eee"
-                                    >
-                                    </lord-icon>
+                                    {!! $product->icon !!}
                                 </div>
                                 <div class="item-name">{{ $product->name }}</div>
                                 <div class="item-links d-inline-flex flex-wrap align-items-start">
