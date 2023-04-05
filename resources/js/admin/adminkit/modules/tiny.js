@@ -51,6 +51,7 @@ const initTiny = (
     for (let editor of editors) {
         tinymce.init({
             selector: '#' + editor.id,
+            extended_valid_elements: 'lord-icon[*],span[*]',
             language: locale,
             plugins: [
                 'advlist autolink link image lists charmap print preview hr anchor pagebreak',

@@ -14,7 +14,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $page = Page::query()->where('code', 'goods')->firstOrFail();
+        $page = Page::query()->where('code', 'products')->firstOrFail();
 
         $page->seo_title && SEO::title($page->seo_title);
         $page->seo_description && SEO::description($page->seo_description);
