@@ -11,12 +11,12 @@
                             <a href="/">Головна</a>
                         </li>
                         <li>
-                            <span class="current">Реєстратори розрахункових операцій</span>
+                            <span class="current">Товари</span>
                         </li>
                     </ul>
                 </div>
                 <div class="h1-container">
-                    <h1>Реєстратори <br/>розрахункових операцій</h1>
+                    <h1>{{ $page->title }}</h1>
                 </div>
             </div>
         </div>
