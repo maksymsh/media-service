@@ -6,6 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Category\StoreCategoryRequest;
 use App\Http\Requests\Admin\Category\UpdateCategoryRequest;
 use App\Models\Category;
+use App\Models\Good;
+use App\Models\News;
+use App\Models\Product;
+use App\Models\Project;
+use App\Models\Video;
 use App\Services\CategoryService;
 use App\Services\UploadMediaService;
 use App\Tables\CategoriesTable;
@@ -90,8 +95,20 @@ class CategoryController extends Controller
      */
     public function edit(Request $request, Category $category)
     {
+        $type = match ($category->type) {
+            News::class => 'news',
+            Product::class => 'products',
+            Good::class => 'goods',
+            Project::class => 'projects',
+            Video::class => 'videos',
+        };
+
+        $categories = Category::query()->where('type', $category->type)
+            ->pluck('name', 'id')->toArray();
+
         return view('admin.categories.edit', [
             'category' => $category,
+            'categories' => $categories,
         ]);
     }
 

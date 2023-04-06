@@ -16,6 +16,8 @@
     <x-splade-checkbox name="bottom" switch />
 </x-splade-group>
 
+<x-splade-select name="parent_id" :options="$categories" :label="__('Parent Category')" :placeholder="__('Parent Category')" />
+
 <x-splade-input name="name" :label="__('Name')" />
 
 <x-splade-input name="slug" :label="__('Slug')" />

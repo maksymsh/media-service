@@ -4,6 +4,8 @@
     <x-splade-checkbox name="published" switch />
 </x-splade-group>
 
+<x-splade-input name="attributes" type="hidden"/>
+
 <x-splade-input name="name" :label="__('Name')" />
 
 <x-splade-input name="slug" :label="__('Slug')" />

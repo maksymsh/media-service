@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Models\Traits\InteractsWithMedia;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\Sluggable\HasSlug;
@@ -56,10 +55,5 @@ class Good extends BaseModel implements HasMedia
     public function categories()
     {
         return $this->belongsToMany(Category::class);
-    }
-
-    public function scopeFilter(Builder $query, $params = [])
-    {
-        return $query;
     }
 }

@@ -275,6 +275,7 @@ class CategorySeeder extends Seeder
             $category->addMedia(resource_path('images/'.$item['image']))->toMediaCollection('image');
 
             foreach ($item['children'] as $child) {
+                $child['type'] = Good::class;
                 $category->children()->create($child);
             }
         }

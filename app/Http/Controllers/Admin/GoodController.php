@@ -101,6 +101,8 @@ class GoodController extends Controller
     {
         $good->loadMissing(['attributes']);
 
+        $good->setAttribute('attributes', $good->attributes->toArray());
+
         $attributes = Attribute::query()->pluck('name', 'id')->toArray();
 
         $categories = Category::query()->where('type', Good::class)
