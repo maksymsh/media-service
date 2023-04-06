@@ -5,9 +5,11 @@
         <div v-for="(option, i) in form.options">
             <div class="row mb-1">
                 <div class="col-5">
+                    <label>Назва</label>
                     <input class="form-control" type="text" :name="'options['+i+'][name]'" v-model="form.options[i].name">
                 </div>
                 <div class="col-5">
+                    <label>Ціна</label>
                     <input class="form-control" type="text" :name="'options['+i+'][price]'" v-model="form.options[i].price">
                 </div>
                 <div class="col-2">
