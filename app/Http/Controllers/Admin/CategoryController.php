@@ -50,8 +50,20 @@ class CategoryController extends Controller
      */
     public function create(Request $request, Category $category)
     {
+        $type = match ($request->type) {
+            'news' => News::class,
+            'products' => Product::class,
+            'goods' => Good::class,
+            'projects' => Project::class,
+            'videos' => Video::class,
+        };
+
+        $categories = Category::query()->where('type', $type)
+            ->pluck('name', 'id')->toArray();
+
         return view('admin.categories.create', [
             'category' => $category,
+            'categories' => $categories,
         ]);
     }
 
@@ -95,14 +107,6 @@ class CategoryController extends Controller
      */
     public function edit(Request $request, Category $category)
     {
-        $type = match ($category->type) {
-            News::class => 'news',
-            Product::class => 'products',
-            Good::class => 'goods',
-            Project::class => 'projects',
-            Video::class => 'videos',
-        };
-
         $categories = Category::query()->where('type', $category->type)
             ->pluck('name', 'id')->toArray();
 
@@ -127,7 +131,15 @@ class CategoryController extends Controller
 
         Toast::success("Category #$category->id updated successfully.");
 
-        return redirect()->back();
+        $type = match ($category->type) {
+            News::class => 'news',
+            Product::class => 'products',
+            Good::class => 'goods',
+            Project::class => 'projects',
+            Video::class => 'videos',
+        };
+
+        return redirect()->route('admin.categories.index', ['type' => $type]);
     }
 
     /**

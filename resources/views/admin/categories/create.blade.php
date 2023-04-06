@@ -14,7 +14,7 @@
         </x-slot:header>
 
         <div>
-            <x-splade-form :default="$category" method="POST" :action="route('admin.categories.store')">
+            <x-splade-form :default="$category" method="POST" :action="route('admin.categories.store', ['type' => request()->get('type')])">
                 @include('admin.categories.includes.form')
 
                 <x-splade-submit />

@@ -24,6 +24,7 @@ class StoreCategoryRequest extends BaseFormRequest
     public function rules()
     {
         return [
+            'type' => ['nullable'],
             'top' => ['nullable'],
             'bottom' => ['nullable'],
             'home' => ['nullable'],

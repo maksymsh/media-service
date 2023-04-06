@@ -3,6 +3,11 @@
 namespace App\Services;
 
 use App\Models\Category;
+use App\Models\Good;
+use App\Models\News;
+use App\Models\Product;
+use App\Models\Project;
+use App\Models\Video;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -51,6 +56,16 @@ class CategoryService extends BaseService
         DB::beginTransaction();
 
         try {
+            $type = match ($data['type']) {
+                'news' => News::class,
+                'products' => Product::class,
+                'goods' => Good::class,
+                'projects' => Project::class,
+                'videos' => Video::class,
+            };
+
+            $data['type'] = $type;
+
             $category = $this->query()->create($data);
 
             DB::commit();
