@@ -8,6 +8,7 @@ use App\Models\Page;
 use App\Models\Product;
 use App\Models\Project;
 use App\Models\Service;
+use Illuminate\Http\Request;
 use ProtoneMedia\Splade\Facades\SEO;
 
 class ProductController extends Controller
@@ -47,16 +48,29 @@ class ProductController extends Controller
         ]);
     }
 
-    public function product(Product $product)
+    public function product(Request $request, Product $product)
     {
         $product->seo_title && SEO::title($product->seo_title);
         $product->seo_description && SEO::description($product->seo_description);
         $product->seo_keywords && SEO::keywords($product->seo_keywords);
 
+        $option = null;
+
+        if ($optionId = $request->get('option_id')) {
+            $product->load('options');
+
+            $option = $product->options->where('id', $optionId)->first();
+
+            if ($option) {
+                $product->price = $option->price;
+            }
+        }
+
         $services = Service::query()->get();
 
         return view('app.products.product', [
             'product' => $product,
+            'option' => $option,
             'services' => $services,
         ]);
     }

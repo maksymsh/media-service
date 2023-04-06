@@ -39,6 +39,7 @@ class UpdateProductRequest extends BaseFormRequest
             'seo_description' => ['nullable'],
             'seo_keywords' => ['nullable'],
             'categories' => ['nullable', 'array'],
+            'options' => ['nullable', 'array'],
         ];
     }
 }

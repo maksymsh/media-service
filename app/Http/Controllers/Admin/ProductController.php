@@ -95,6 +95,10 @@ class ProductController extends Controller
      */
     public function edit(Request $request, Product $product)
     {
+        $product->loadMissing(['options']);
+
+        $product->setAttribute('options', $product->options->toArray());
+
         $categories = Category::query()->where('type', Product::class)
             ->pluck('name', 'id')->toArray();
 

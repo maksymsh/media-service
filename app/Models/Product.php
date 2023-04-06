@@ -59,4 +59,9 @@ class Product extends BaseModel implements HasMedia
     {
         return $this->belongsToMany(Category::class);
     }
+
+    public function options()
+    {
+        return $this->hasMany(ProductOption::class);
+    }
 }

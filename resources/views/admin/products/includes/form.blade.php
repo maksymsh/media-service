@@ -12,6 +12,8 @@
     <x-splade-checkbox name="bottom" switch />
 </x-splade-group>
 
+<x-splade-input name="options" type="hidden"/>
+
 <x-splade-input name="name" :label="__('Name')" />
 
 <x-splade-input name="slug" :label="__('Slug')" />
@@ -39,6 +41,8 @@
 
     <x-splade-file name="images" :label="__('Images')" filepond multiple preview server />
 </div>
+
+@include('admin.products.includes.options')
 
 @if($product->exists)
 

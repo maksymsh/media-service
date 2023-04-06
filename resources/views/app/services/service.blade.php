@@ -48,12 +48,9 @@
                 </div>
             </div>
         </section>
-        <section class="etapi">
-            <div class="title">Етапи впровадження <br/>великих проектів</div>
-            <div class="items">
-                {!! $service->content !!}
-            </div>
-        </section>
+
+        {!! $service->content !!}
+
         <section class="inner-form">
             <div class="bg-container">
                 <div class="container-fluid">

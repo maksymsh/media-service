@@ -29,11 +29,14 @@
                     </div>
                     <x-splade-link href="{{ route('products.index') }}" class="link-back back d-inline-flex align-items-center">
                         <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                        <span class="value">нназад до продуктів</span>
+                        <span class="value">назад до продуктів</span>
                         <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
                     </x-splade-link>
                 </div>
                 <h1>{{ $product->name }}</h1>
+                @if($option)
+                    <p>{{ $option->name }}</p>
+                @endif
                 <div class="price">Вартість продукту {{ $product->price }} грн.</div>
             </div>
             <div class="detail-info  d-lg-flex justify-content-between">

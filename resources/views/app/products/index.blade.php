@@ -67,21 +67,13 @@
                                 </div>
                                 <div class="item-name">{{ $product->name }}</div>
                                 <div class="item-links d-inline-flex flex-wrap align-items-start">
-                                    <a href="#" class="link-default d-inline-flex align-items-center">
-                                        <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                        <span class="value">Базова</span>
-                                        <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                    </a>
-                                    <a href="#" class="link-default d-inline-flex align-items-center">
-                                        <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                        <span class="value">ПРОФЕСІЙНА</span>
-                                        <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                    </a>
-                                    <a href="#" class="link-default d-inline-flex align-items-center">
-                                        <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                        <span class="value">КОРПОРАТИВНА</span>
-                                        <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                    </a>
+                                    @foreach($product->options as $option)
+                                        <x-splade-link href="{{ route('products.product', ['product' => $product, 'option_id' => $option->id]) }}" class="link-default d-inline-flex align-items-center">
+                                            <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
+                                            <span class="value">{{ $option->name }}</span>
+                                            <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
+                                        </x-splade-link>
+                                    @endforeach
                                 </div>
                                 {!! $product->description_short !!}
                                 <x-splade-link href="{{ route('products.product', $product) }}" class="link-default d-inline-flex align-items-center">
@@ -101,7 +93,7 @@
                 @foreach($products as $pIndex => $product)
                     <div class="item d-md-flex align-items-start justify-content-between">
                         <div class="item-images">
-                            <div class="i-bg"><img src="{{ $product->getFirstMedia('background')->originalUrl }}" alt=""></div>
+                            <div class="i-bg"><img src="{{ $product->getFirstMedia('background')?->originalUrl }}" alt=""></div>
                             <div class="i-icon d-flex align-items-center justify-content-center">
                                 <img src="{{ $product->getFirstMedia('image')->originalUrl }}" alt="">
                             </div>

@@ -68,6 +68,12 @@ class ProductService extends BaseService
         try {
             $model->update($data);
 
+            $model->options()->delete();
+
+            foreach ($data['options'] ?? [] as $option) {
+                $model->options()->create($option);
+            }
+
             DB::commit();
 
             return $model;
