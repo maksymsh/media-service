@@ -27,7 +27,7 @@ class RoleSeeder extends Seeder
         foreach ($data as $item) {
             $attrs['name'] = $item['name'];
 
-            $role = Role::query()->create($attrs);
+            $role = Role::factory()->create($attrs);
 
             foreach ($permissions as $permission) {
                 $role->givePermissionTo($permission);

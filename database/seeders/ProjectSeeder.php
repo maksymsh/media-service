@@ -56,7 +56,7 @@ class ProjectSeeder extends Seeder
             $attrs['seo_title'] = $item['title'];
             $attrs['seo_description'] = $item['title'];
             $attrs['seo_keywords'] = $item['title'];
-            $project = Project::query()->create($attrs);
+            $project = Project::factory()->create($attrs);
             File::copy(public_path('images/'.$item['image']), resource_path('images/'.$item['image']));
             $project->addMedia(resource_path('images/'.$item['image']))->toMediaCollection('image');
             File::copy(public_path('images/'.$item['logo']), resource_path('images/'.$item['logo']));

@@ -42,7 +42,7 @@
                             <div class="number">{{ $i < 10 ? '0' : '' }}{{ $i + 1 }}</div>
                             <div class="name">{{ $service->name }}</div>
                             {!! $service->description !!}
-                            <x-splade-link href="{{ route('services.service', $service->id) }}" class="link-default d-inline-flex align-items-center">
+                            <x-splade-link :href="$service->url" class="link-default d-inline-flex align-items-center">
                                 <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
                                 <span class="value">дізнатись більше</span>
                                 <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
@@ -90,7 +90,7 @@
                                         <div class="item-bottom">
                                             <div class="name">{{ $project->title }}</div>
                                             <div class="anons">{{ $project->description_short }}</div>
-                                            <x-splade-link href="{{ route('projects.project', $project) }}"
+                                            <x-splade-link :href="$project->url"
                                                            class="link-default item-link white d-inline-flex align-items-center">
                                                 <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
                                                 <span class="value">детальніше</span>

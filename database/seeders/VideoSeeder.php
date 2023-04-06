@@ -61,7 +61,7 @@ class VideoSeeder extends Seeder
             $attrs['title'] = $item['title'];
             $attrs['description'] = $item['description'];
             $attrs['url'] = $item['url'];
-            $news = Video::query()->create($attrs);
+            $news = Video::factory()->create($attrs);
             File::copy(public_path('images/'.$item['image']), resource_path('images/'.$item['image']));
             $news->addMedia(resource_path('images/'.$item['image']))->toMediaCollection('image');
 

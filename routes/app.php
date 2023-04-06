@@ -57,6 +57,6 @@ Route::middleware(['splade'])->group(function () {
     Route::get('/study/videos/category/{category}', [StudyController::class, 'category'])->name('study.category');
 
     Route::post('feedback', [FeedbackController::class, 'index'])->name('feedback');
-});
 
-Route::get('/{slug}', SeoUrlController::class)->name('seo-url');
+    Route::get('/{slug}', SeoUrlController::class)->name('seo-url');
+});

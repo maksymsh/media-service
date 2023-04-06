@@ -28,7 +28,7 @@
             <div class="tabs-menu d-flex align-items-start flex-wrap">
                 <x-splade-link href="{{ route('news.index') }}" class="item">показати всі</x-splade-link>
                 @foreach($categories as $c)
-                    <x-splade-link href="{{ route('news.category', $c) }}" class="item {{ $category->id === $c->id ? 'active' : '' }}">{{ $c->name }}</x-splade-link>
+                    <x-splade-link :href="$c->url" class="item {{ $category->id === $c->id ? 'active' : '' }}">{{ $c->name }}</x-splade-link>
                 @endforeach
             </div>
             <div class="news-list">
@@ -36,7 +36,7 @@
                     @foreach($news as $post)
                         <div class="col-12 col-md-6 col-lg-4">
                             <div class="item d-flex flex-column align-items-start justify-content-between">
-                                <x-splade-link href="{{ route('news.post', $post) }}" class="item-image ">
+                                <x-splade-link :href="$post->url" class="item-image ">
                                     <img class="parallax" src="{{ $post->getFirstMedia('image')->originalUrl }}" alt="">
                                 </x-splade-link>
                                 <div class="item-info">
@@ -49,7 +49,7 @@
                                     <a href="#" class="name">{{ $post->title }}</a>
                                 </div>
                                 <div class="button-container">
-                                    <x-splade-link href="{{ route('news.post', $post) }}" class="link-default item-link d-flex align-items-center">
+                                    <x-splade-link :href="$post->url" class="link-default item-link d-flex align-items-center">
                                         <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
                                         <span class="value">детальніше</span>
                                         <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>

@@ -93,7 +93,7 @@
                                         <div class="item-bottom">
                                             <div class="name">{{ $p->title }}</div>
                                             <div class="anons">{{ $p->description_short }}</div>
-                                            <x-splade-link href="{{ route('projects.project', $p) }}" class="link-default item-link white d-inline-flex align-items-center">
+                                            <x-splade-link :href="$p->url" class="link-default item-link white d-inline-flex align-items-center">
                                                 <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
                                                 <span class="value">детальніше</span>
                                                 <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>

@@ -165,9 +165,9 @@
                                                         <img src="{{ $category->getFirstMedia('image')->originalUrl }}" alt="">
                                                     </div>
                                                     <div class="item-info">
-                                                        <x-splade-link href="{{ route('goods.category', $category) }}" class="item-name">{{ $category->name }}</x-splade-link>
+                                                        <x-splade-link :href="$category->url" class="item-name">{{ $category->name }}</x-splade-link>
                                                         @foreach($category->children as $child)
-                                                            <x-splade-link href="{{ route('goods.category', $child) }}" class="item-link">{{ $child->name }}</x-splade-link>
+                                                            <x-splade-link :href="$child->url" class="item-link">{{ $child->name }}</x-splade-link>
                                                         @endforeach
                                                     </div>
                                                 </div>
@@ -216,14 +216,14 @@
                                 <div class="item-container">
                                     <div class="item-title">Послуги</div>
                                     @foreach($services as $service)
-                                        <x-splade-link href="{{ route('services.service', $service) }}" class="item-link">{{ $service->name }}</x-splade-link>
+                                        <x-splade-link :href="$service->url" class="item-link">{{ $service->name }}</x-splade-link>
                                     @endforeach
                                 </div>
                                 <div class="item-container serv">
                                     <div class="item-title">Продукти</div>
                                     <x-splade-link href="{{ route('products.index') }}" class="item-link">BAS</x-splade-link>
                                     @foreach($products as $product)
-                                        <x-splade-link href="{{ route('products.product', $product) }}" class="item-link">{{ $product->name }}</x-splade-link>
+                                        <x-splade-link :href="$product->url" class="item-link">{{ $product->name }}</x-splade-link>
                                     @endforeach
                                 </div>
                             </div>

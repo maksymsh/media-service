@@ -15,10 +15,10 @@
                     <div class="breadcrumps  black">
                         <ul class="nav flex-wrap">
                             <li>
-                                <a href="/">Головна</a>
+                                <x-splade-link href="/">Головна</x-splade-link>
                             </li>
                             <li>
-                                <a href="/">Новини</a>
+                                <x-splade-link href="{{ route('news.index') }}">Новини</x-splade-link>
                             </li>
                             <li>
                                 <span class="current">Вебінар для бухгалтера</span>
@@ -26,11 +26,11 @@
                         </ul>
                     </div>
                     <div class="text-right h-0">
-                        <a href="#" class="link-back back d-inline-flex align-items-center">
+                        <x-splade-link href="{{ route('news.index') }}" class="link-back back d-inline-flex align-items-center">
                             <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
                             <span class="value">назад до новин</span>
                             <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                        </a>
+                        </x-splade-link>
                     </div>
                 </div>
                 <h1>{{ $post->title }}</h1>
@@ -93,7 +93,7 @@
                         @foreach($otherNews as $post)
                             <div class="col-12 col-md-6 col-lg-4">
                                 <div class="item d-flex flex-column align-items-start justify-content-between">
-                                    <x-splade-link href="{{ route('news.post', $post) }}" class="item-image ">
+                                    <x-splade-link :href="$post->url" class="item-image ">
                                         <img class="parallax" src="{{ $post->getFirstMedia('image')->originalUrl }}" alt="">
                                     </x-splade-link>
                                     <div class="item-info">
@@ -103,10 +103,10 @@
                                             @endforeach
                                             <span class="date">13 Грудня 2022</span>
                                         </div>
-                                        <x-splade-link href="{{ route('news.post', $post) }}" class="name">{{ $post->title }}</x-splade-link>
+                                        <x-splade-link :href="$post->url" class="name">{{ $post->title }}</x-splade-link>
                                     </div>
                                     <div class="button-container">
-                                        <x-splade-link href="{{ route('news.post', $post) }}" class="link-default item-link d-flex align-items-center">
+                                        <x-splade-link :href="$post->url" class="link-default item-link d-flex align-items-center">
                                             <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
                                             <span class="value">детальніше</span>
                                             <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>

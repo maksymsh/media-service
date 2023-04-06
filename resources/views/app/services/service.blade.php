@@ -139,7 +139,7 @@
                                 </div>
                                 <div class="col-name">{!! $service->name !!}</div>
                                 {!! $service->description_short !!}
-                                <x-app.link href="{{ route('services.service', $service) }}"
+                                <x-app.link :href="$service->url"
                                             class="link-default d-inline-flex align-items-center">
                                     <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
                                     <span class="value">{{ __('детальніше') }}</span>

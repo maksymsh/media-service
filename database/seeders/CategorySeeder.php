@@ -41,7 +41,7 @@ class CategorySeeder extends Seeder
             $attrs['seo_title'] = $item['name'];
             $attrs['seo_description'] = $item['name'];
             $attrs['seo_keywords'] = $item['name'];
-            $category = Category::query()->create($attrs);
+            $category = Category::factory()->create($attrs);
         }
     }
 
@@ -77,7 +77,7 @@ class CategorySeeder extends Seeder
             if ($item['slug'] ?? false) {
                 $attrs['slug'] = $item['slug'];
             }
-            $category = Category::query()->create($attrs);
+            $category = Category::factory()->create($attrs);
         }
     }
 
@@ -104,7 +104,7 @@ class CategorySeeder extends Seeder
             if ($item['slug'] ?? false) {
                 $attrs['slug'] = $item['slug'];
             }
-            $category = Category::query()->create($attrs);
+            $category = Category::factory()->create($attrs);
         }
     }
 
@@ -145,7 +145,7 @@ class CategorySeeder extends Seeder
                 $attrs['slug'] = $item['slug'];
             }
             $attrs['home'] = $item['home'];
-            $category = Category::query()->create($attrs);
+            $category = Category::factory()->create($attrs);
             File::copy(public_path('images/'.$item['image']), resource_path('images/'.$item['image']));
             $category->addMedia(resource_path('images/'.$item['image']))->toMediaCollection('image');
             File::copy(public_path('images/'.$item['background']), resource_path('images/'.$item['background']));
@@ -282,7 +282,7 @@ class CategorySeeder extends Seeder
                 $attrs['slug'] = $item['slug'];
             }
             $attrs['home'] = $item['home'];
-            $category = Category::query()->create($attrs);
+            $category = Category::factory()->create($attrs);
             File::copy(public_path('images/'.$item['image']), resource_path('images/'.$item['image']));
             $category->addMedia(resource_path('images/'.$item['image']))->toMediaCollection('image');
 

@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Page;
 use App\Models\Project;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\Request;
 use ProtoneMedia\Splade\Facades\SEO;
 
 class ProjectController extends Controller
@@ -53,7 +54,7 @@ class ProjectController extends Controller
         ]);
     }
 
-    public function project(Project $project)
+    public function project(Request $request, Project $project)
     {
         $project->seo_title && SEO::title($project->seo_title);
         $project->seo_description && SEO::description($project->seo_description);

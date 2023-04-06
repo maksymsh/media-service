@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Page;
 use App\Models\Project;
 use App\Models\Service;
+use Illuminate\Http\Request;
 use ProtoneMedia\Splade\Facades\SEO;
 
 class ServiceController extends Controller
@@ -44,7 +45,7 @@ class ServiceController extends Controller
         ]);
     }
 
-    public function service(Service $service)
+    public function service(Request $request, Service $service)
     {
         $service->seo_title && SEO::title($service->seo_title);
         $service->seo_description && SEO::description($service->seo_description);

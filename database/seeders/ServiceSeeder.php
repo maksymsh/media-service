@@ -70,7 +70,7 @@ class ServiceSeeder extends Seeder
             if ($item['slug'] ?? false) {
                 $attrs['slug'] = $item['slug'];
             }
-            $service = Service::query()->create($attrs);
+            $service = Service::factory()->create($attrs);
             File::copy(public_path('images/'.$item['image']), resource_path('images/'.$item['image']));
             $service->addMedia(resource_path('images/'.$item['image']))->toMediaCollection('image');
             File::copy(public_path('images/'.$item['background']), resource_path('images/'.$item['background']));

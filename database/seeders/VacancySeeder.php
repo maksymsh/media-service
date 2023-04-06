@@ -25,7 +25,7 @@ class VacancySeeder extends Seeder
             $attrs['seo_title'] = $item['name'];
             $attrs['seo_description'] = $item['name'];
             $attrs['seo_keywords'] = $item['name'];
-            $vacancy = Vacancy::query()->create($attrs);
+            $vacancy = Vacancy::factory()->create($attrs);
             File::copy(public_path('images/'.$item['image']), resource_path('images/'.$item['image']));
             $vacancy->addMedia(resource_path('images/'.$item['image']))->toMediaCollection('image');
         }

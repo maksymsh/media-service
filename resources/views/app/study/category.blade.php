@@ -32,7 +32,7 @@
             <div class="tabs-menu d-flex align-items-start flex-wrap">
                 <x-splade-link href="{{ route('study.videos') }}" class="item">показати всі</x-splade-link>
                 @foreach($categories as $c)
-                    <x-splade-link href="{{ route('study.category', $c) }}" class="item {{ $c->id === $category->id ? 'active' : '' }}">{{ $c->name }}</x-splade-link>
+                    <x-splade-link :href="$c->url" class="item {{ $c->id === $category->id ? 'active' : '' }}">{{ $c->name }}</x-splade-link>
                 @endforeach
             </div>
             <div class="video-list">
@@ -82,7 +82,7 @@
                                         <div class="item-bottom">
                                             <div class="name">{{ $course->name }}</div>
                                             <div class="anons">{{ $course->description }}</div>
-                                            <x-splade-link href="{{ route('study.course', $course) }}"
+                                            <x-splade-link :href="$course->url"
                                                            class="link-default item-link white d-inline-flex align-items-center">
                                                 <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
                                                 <span class="value">детальніше</span>

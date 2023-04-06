@@ -28,7 +28,7 @@
             <div class="tabs-menu d-flex align-items-start flex-wrap">
                 <x-splade-link href="{{ route('projects.index') }}" class="item active">всі галузі</x-splade-link>
                 @foreach($categories as $c)
-                    <x-splade-link href="{{ route('projects.category', $c) }}" class="item">{{ $c->name }}</x-splade-link>
+                    <x-splade-link :href="$c->url" class="item">{{ $c->name }}</x-splade-link>
                 @endforeach
             </div>
             <div class="projects-list">
@@ -45,7 +45,7 @@
                                 <div class="item-bottom">
                                     <div class="name">{{ $project->title }}</div>
                                     <div class="anons">{{ $project->description_short }}</div>
-                                    <x-splade-link href="{{ route('projects.project', $project) }}" class="link-default item-link white d-inline-flex align-items-center">
+                                    <x-splade-link :href="$project->url" class="link-default item-link white d-inline-flex align-items-center">
                                         <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
                                         <span class="value">детальніше</span>
                                         <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>

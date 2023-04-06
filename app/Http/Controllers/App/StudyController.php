@@ -8,6 +8,7 @@ use App\Models\Course;
 use App\Models\Page;
 use App\Models\Video;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\Request;
 use ProtoneMedia\Splade\Facades\SEO;
 
 class StudyController extends Controller
@@ -49,7 +50,7 @@ class StudyController extends Controller
         ]);
     }
 
-    public function course(Course $course)
+    public function course(Request $request, Course $course)
     {
         return view('app.study.course', [
             'course' => $course,

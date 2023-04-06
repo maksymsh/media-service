@@ -52,11 +52,11 @@
                     </div>
                 </div>
                 <div class="detail-info">
-                    <a href="#" class="link-back d-inline-flex align-items-center">
+                    <x-splade-link href="{{ route('goods.index') }}" class="link-back d-inline-flex align-items-center">
                         <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
                         <span class="value">ПОВЕРНУТИСЬ ДО КАТАЛОГУ</span>
                         <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                    </a>
+                    </x-splade-link>
                     <div class="breadcrumps black">
                         <ul class="nav flex-wrap">
                             <li>
@@ -277,14 +277,14 @@
                             <div class="item">
                                 <div class="item-container d-flex flex-column">
                                     <div class="item-top">
-                                        <x-splade-link href="{{ route('goods.good', $g) }}" class="item-image d-flex align-items-center justify-content-center">
+                                        <x-splade-link :href="$g->url" class="item-image d-flex align-items-center justify-content-center">
                                             <img src="{{ $g->getFirstMedia('image')->originalUrl }}" alt="">
                                         </x-splade-link>
-                                        <x-splade-link href="{{ route('goods.good', $g) }}" class="item-name">{{ $g->name }}</x-splade-link>
+                                        <x-splade-link :href="$g->url" class="item-name">{{ $g->name }}</x-splade-link>
                                     </div>
                                     <div class="item-bottom">
                                         <div class="item-price">{{ $g->price }} грн.</div>
-                                        <x-splade-link href="{{ route('goods.good', $g) }}" class="item-buy button-small">
+                                        <x-splade-link :href="$g->url" class="item-buy button-small">
                                             <span class="value">замовити</span>
                                         </x-splade-link>
                                     </div>

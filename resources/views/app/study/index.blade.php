@@ -68,7 +68,7 @@
                                 <div class="name">{{ $course->name }}</div>
                                 <div class="anons">{{ $course->description }}</div>
                             </div>
-                            <x-splade-link href="{{ route('study.course', $course) }}" class="link-default item-link white d-inline-flex align-items-center"
+                            <x-splade-link :href="$course->url" class="link-default item-link white d-inline-flex align-items-center"
                                tabindex="0">
                                 <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
                                 <span class="value">детальніше</span>

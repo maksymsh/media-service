@@ -36,7 +36,7 @@
                         <ul class="nav flex-column">
                             @foreach($categories as $category)
                                 <li>
-                                    <x-splade-link href="{{ route('goods.category', $category) }}"
+                                    <x-splade-link :href="$category->url"
                                                    class="nav-item {{ isset($mainCategory) ? $category->id === $mainCategory->id ? 'active' : '' : '' }}"
                                     >{{ $category->name }}</x-splade-link>
                                 </li>
@@ -114,17 +114,17 @@
                                 <div class="item">
                                     <div class="item-container d-flex flex-column">
                                         <div class="item-top">
-                                            <x-splade-link href="{{ route('goods.good', $good->id) }}"
+                                            <x-splade-link :href="$good->url"
                                                            class="item-image d-flex align-items-center justify-content-center">
                                                 <img src="{{ $good->getFirstMedia('image')->originalUrl }}" alt="">
                                             </x-splade-link>
-                                            <x-splade-link href="{{ route('goods.good', $good->id) }}" class="item-name">Касовий апарат Гера MG-V545T.02 + БЖ + GSM</x-splade-link>
+                                            <x-splade-link :href="$good->url" class="item-name">Касовий апарат Гера MG-V545T.02 + БЖ + GSM</x-splade-link>
                                         </div>
                                         <div class="item-bottom">
                                             <div class="item-price">{{ $good->price }} грн.</div>
-                                            <a href="{{ route('goods.good', $good->id) }}" class="item-buy button-small">
+                                            <x-splade-link :href="$good->url" class="item-buy button-small">
                                                 <span class="value">замовити</span>
-                                            </a>
+                                            </x-splade-link>
                                         </div>
                                     </div>
                                 </div>

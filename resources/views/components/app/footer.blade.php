@@ -56,7 +56,7 @@
                                                     $url = '/study' . $url;
                                                 }
                                             @endphp
-                                            <x-splade-link :href="$url" class="nav-item">{{ $page->title }}</x-splade-link>
+                                            <x-splade-link :href="$page->url" class="nav-item">{{ $page->title }}</x-splade-link>
                                         </li>
                                     @endforeach
                                 </ul>
@@ -66,7 +66,7 @@
                                 <ul class="nav flex-column">
                                     @foreach($services as $service)
                                         <li>
-                                            <x-splade-link href="{{ route('services.service', $service) }}" class="nav-item">{{ $service->name }}</x-splade-link>
+                                            <x-splade-link :href="$service->url" class="nav-item">{{ $service->name }}</x-splade-link>
                                         </li>
                                     @endforeach
                                 </ul>
@@ -79,7 +79,7 @@
 
                                     @foreach($goodCategories as $category)
                                         <li>
-                                            <x-splade-link href="{{ route('goods.category', $category) }}" class="nav-item">{{ $category->name }}</x-splade-link>
+                                            <x-splade-link :href="$category->url" class="nav-item">{{ $category->name }}</x-splade-link>
                                         </li>
                                     @endforeach
                                 </ul>
@@ -99,7 +99,7 @@
                                     </li>
                                     @foreach($products as $product)
                                         <li>
-                                            <x-splade-link href="{{ route('products.product', $product) }}" class="nav-item">{{ $product->name }}</x-splade-link>
+                                            <x-splade-link :href="$product->url" class="nav-item">{{ $product->name }}</x-splade-link>
                                         </li>
                                     @endforeach
                                 </ul>
@@ -109,7 +109,7 @@
                                 <ul class="nav flex-column">
                                     @foreach($courses as $course)
                                         <li>
-                                            <x-splade-link href="{{ route('study.course', $course) }}" class="nav-item">{{ $course->name }}</x-splade-link>
+                                            <x-splade-link :href="$course->url" class="nav-item">{{ $course->name }}</x-splade-link>
                                         </li>
                                     @endforeach
                                 </ul>

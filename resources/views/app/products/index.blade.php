@@ -68,7 +68,7 @@
                                 <div class="item-name">{{ $product->name }}</div>
                                 <div class="item-links d-inline-flex flex-wrap align-items-start">
                                     @foreach($product->options as $option)
-                                        <x-splade-link href="{{ route('products.product', ['product' => $product, 'option_id' => $option->id]) }}" class="link-default d-inline-flex align-items-center">
+                                        <x-splade-link :href="$product->url . '?option_id=' . $option->id" class="link-default d-inline-flex align-items-center">
                                             <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
                                             <span class="value">{{ $option->name }}</span>
                                             <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
@@ -76,7 +76,7 @@
                                     @endforeach
                                 </div>
                                 {!! $product->description_short !!}
-                                <x-splade-link href="{{ route('products.product', $product) }}" class="link-default d-inline-flex align-items-center">
+                                <x-splade-link :href="$product->url" class="link-default d-inline-flex align-items-center">
                                     <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
                                     <span class="value">детальніше</span>
                                     <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
@@ -103,7 +103,7 @@
                             <div class="name">{{ $product->name }}</div>
                             {!! $product->description_short !!}
 
-                            <x-splade-link href="{{ route('products.product', $product) }}" class="link-default d-inline-flex align-items-center">
+                            <x-splade-link :href="$product->url" class="link-default d-inline-flex align-items-center">
                                 <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
                                 <span class="value">детальніше</span>
                                 <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
@@ -146,7 +146,7 @@
                                         <div class="item-bottom">
                                             <div class="name">{{ $project->title }}</div>
                                             <div class="anons">{{ $project->description_short }}</div>
-                                            <x-splade-link href="{{ route('projects.project', $project) }}"
+                                            <x-splade-link :href="$project->url"
                                                class="link-default item-link white d-inline-flex align-items-center">
                                                 <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
                                                 <span class="value">детальніше</span>

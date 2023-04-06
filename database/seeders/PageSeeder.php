@@ -79,7 +79,7 @@ class PageSeeder extends Seeder
             $attrs['seo_title'] = $item['title'];
             $attrs['seo_description'] = $item['title'];
             $attrs['seo_keywords'] = $item['title'];
-            $page = Page::query()->create($attrs);
+            $page = Page::factory()->create($attrs);
         }
     }
 }

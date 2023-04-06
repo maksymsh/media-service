@@ -197,10 +197,10 @@ class GoodController extends Controller
             'maxPrice' => (int) $maxPrice,
             'minPrice' => (int) $minPrice,
             'attributeValues' => $attributeValues,
-            'data' => $goods,
             'form' => [
                 'price_from' => (int) $request->get('price_from', $minPrice),
                 'price_to' => (int) $request->get('price_to', $maxPrice),
+                'sort' => $request->get('sort', 'default'),
                 'attrs' => [],
             ],
         ];
@@ -226,7 +226,7 @@ class GoodController extends Controller
         ]);
     }
 
-    public function good(Good $good)
+    public function good(Request $request, Good $good)
     {
         $good->seo_title && SEO::title($good->seo_title);
         $good->seo_description && SEO::description($good->seo_description);

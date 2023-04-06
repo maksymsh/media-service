@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\News;
 use App\Models\Page;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\Request;
 use ProtoneMedia\Splade\Facades\SEO;
 
 class NewsController extends Controller
@@ -45,7 +46,7 @@ class NewsController extends Controller
         ]);
     }
 
-    public function post(News $news)
+    public function post(Request $request, News $news)
     {
         $otherNews = News::query()->whereHas('categories', function (Builder $q) use ($news) {
             $q->whereIn('id', $news->categories()->pluck('id')->toArray());

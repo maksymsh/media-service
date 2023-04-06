@@ -19,42 +19,44 @@ const el = document.getElementById('app')
 const filter = ($splade) => {
     const data = {}
 
-    if (
-        $splade.sharedData.value.filter.form.price_from >
-        $splade.sharedData.value.filter.minPrice
-    ) {
-        data.price_from = $splade.sharedData.value.filter.form.price_from
-    }
+    if ($splade.sharedData.value.filter) {
+        if (
+            $splade.sharedData.value.filter.form.price_from >
+            $splade.sharedData.value.filter.minPrice
+        ) {
+            data.price_from = $splade.sharedData.value.filter.form.price_from
+        }
 
-    if (
-        $splade.sharedData.value.filter.form.price_to <
-        $splade.sharedData.value.filter.maxPrice
-    ) {
-        data.price_to = $splade.sharedData.value.filter.form.price_to
-    }
+        if (
+            $splade.sharedData.value.filter.form.price_to <
+            $splade.sharedData.value.filter.maxPrice
+        ) {
+            data.price_to = $splade.sharedData.value.filter.form.price_to
+        }
 
-    if ($splade.sharedData.value.filter.form.sort !== 'default') {
-        data.sort = $splade.sharedData.value.filter.form.sort
-    }
+        if ($splade.sharedData.value.filter.form.sort !== 'default') {
+            data.sort = $splade.sharedData.value.filter.form.sort
+        }
 
-    for (let attrId in $splade.sharedData.value.filter.form.attrs) {
-        for (let i in $splade.sharedData.value.filter.form.attrs[attrId]) {
-            if ($splade.sharedData.value.filter.form.attrs[attrId][i]) {
-                data.attrs = data.attrs || {}
-                data.attrs[attrId] = data.attrs[attrId] || {}
-                data.attrs[attrId][i] = 'true'
+        for (let attrId in $splade.sharedData.value.filter.form.attrs) {
+            for (let i in $splade.sharedData.value.filter.form.attrs[attrId]) {
+                if ($splade.sharedData.value.filter.form.attrs[attrId][i]) {
+                    data.attrs = data.attrs || {}
+                    data.attrs[attrId] = data.attrs[attrId] || {}
+                    data.attrs[attrId][i] = 'true'
+                }
             }
         }
-    }
 
-    $splade
-        .visit(
-            location.pathname +
-                (Object.keys(data).length ? '?' + serialize(data) : '')
-        )
-        .then(() => {
-            initFilter($splade)
-        })
+        $splade
+            .visit(
+                location.pathname +
+                    (Object.keys(data).length ? '?' + serialize(data) : '')
+            )
+            .then(() => {
+                initFilter($splade)
+            })
+    }
 }
 
 const initFilter = ($splade) => {
