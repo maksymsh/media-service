@@ -37,7 +37,7 @@ class ProductController extends Controller
         ]);
     }
 
-    public function category(Category $category)
+    public function category(Request $request, Category $category)
     {
         $category->seo_title && SEO::title($category->seo_title);
         $category->seo_description && SEO::description($category->seo_description);

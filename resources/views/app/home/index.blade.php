@@ -2,11 +2,11 @@
 
 @section('content')
 
-    <div class="main-container">
+    <div class="main-container inner">
         <div class="info-container d-flex align-items-center justify-content-center">
-            <div class="h1-container">
+            <div class="h1-container text-center">
                 <h1>{!! $page->title !!}</h1>
-                <div class="h1-anons">{!! $page->description !!}</div>
+                <div class="h1-anons" style="margin-left: auto; margin-right: auto">{!! $page->description !!}</div>
 
                 <x-app.link :href="route('services.index')" class="button-default d-inline-flex align-items-center">
                     <span class="value">{{ __('Наші послуги') }}</span>
