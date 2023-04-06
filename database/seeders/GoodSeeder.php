@@ -87,6 +87,12 @@ class GoodSeeder extends Seeder
             $good->attributes()->create(['attribute_id' => 1, 'value' => 'Термодрук']);
             $good->attributes()->create(['attribute_id' => 2, 'value' => $value.' мм/с']);
             $good->attributes()->create(['attribute_id' => 3, 'value' => $value.' мм/с']);
+
+            $testimonial = $good->testimonials()->create(['name' => 'Віктор Розовий', 'rating' => rand(1, 5), 'comment' => 'Користуємося 5-й місяць, нереально крутий пристрій, швидкий, багатофункціональний.']);
+            $good->testimonials()->create(['name' => 'Представник компаніі “Mediaservice”', 'user_id' => 1, 'parent_id' => $testimonial->id, 'comment' => 'Дякуэмо за позитивний відгук!']);
+            $good->testimonials()->create(['name' => 'Віктор Розовий', 'rating' => rand(1, 5), 'comment' => 'Користуємося 5-й місяць, нереально крутий пристрій, швидкий, багатофункціональний.']);
+            $good->testimonials()->create(['name' => 'Віктор Розовий', 'rating' => rand(1, 5), 'comment' => 'Користуємося 5-й місяць, нереально крутий пристрій, швидкий, багатофункціональний.']);
+            $good->testimonials()->create(['name' => 'Віктор Розовий', 'rating' => rand(1, 5), 'comment' => 'Користуємося 5-й місяць, нереально крутий пристрій, швидкий, багатофункціональний.']);
         }
     }
 }

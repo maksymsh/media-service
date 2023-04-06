@@ -52,6 +52,11 @@ class Good extends BaseModel implements HasMedia
         return $this->hasMany(GoodAttribute::class);
     }
 
+    public function testimonials()
+    {
+        return $this->morphMany(Testimonial::class, 'model');
+    }
+
     public function categories()
     {
         return $this->belongsToMany(Category::class);

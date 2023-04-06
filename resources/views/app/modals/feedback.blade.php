@@ -13,12 +13,46 @@
                         <a href="mailto:sales@medias.com.ua" class="item">sales@medias.com.ua</a>
                     </div>
                 </div>
-                <x-splade-form :default="['type' => '','id' => '','name' => '', 'email' => '', 'phone' => '', 'comment' => '', 'check' => false]" :action="route('feedback')" class="form">
+                <x-splade-form
+                    :default="['type' => '','id' => '', 'rating' => 5,'name' => '', 'email' => '', 'phone' => '', 'comment' => '', 'check' => false]"
+                    :action="route('feedback')" class="form">
 
                     <input type="hidden" name="type" v-model="form.type">
                     <input type="hidden" name="id" v-model="form.id">
 
+                    <div v-if="state.shared.feedback.type === 'good_testimonial'">
+                        <div class="raiting d-flex">
+                            <div class="star" @click="form.rating = 1">
+                                <span class="star-empty icon-star"></span>
+                                <span v-if="form.rating >= 1" class="star-full icon-star"></span>
+                                <span v-else></span>
+                            </div>
+                            <div class="star" @click="form.rating = 2">
+                                <span class="star-empty icon-star"></span>
+                                <span v-if="form.rating >= 2" class="star-full icon-star"></span>
+                                <span v-else></span>
+                            </div>
+                            <div class="star" @click="form.rating = 3">
+                                <span class="star-empty icon-star"></span>
+                                <span v-if="form.rating >= 3" class="star-full icon-star"></span>
+                                <span v-else></span>
+                            </div>
+                            <div class="star" @click="form.rating = 4">
+                                <span class="star-empty icon-star"></span>
+                                <span v-if="form.rating >= 4" class="star-full icon-star"></span>
+                                <span v-else></span>
+                            </div>
+                            <div class="star" @click="form.rating = 5">
+                                <span class="star-empty icon-star"></span>
+                                <span v-if="form.rating >= 5" class="star-full icon-star"></span>
+                                <span v-else></span>
+                            </div>
+                        </div>
+
+                    </div>
+
                     <div class="form-container d-md-flex">
+
                         <div class="form-left">
                             <div class="input-container">
                                 <label class="label">Ваше ім’я</label>
@@ -26,11 +60,13 @@
                             </div>
                             <div class="input-container">
                                 <label class="label">Ваш email*</label>
-                                <input v-model="form.email" type="text" class="input email important" name="email" autocomplete="off">
+                                <input v-model="form.email" type="text" class="input email important" name="email"
+                                       autocomplete="off">
                             </div>
                             <div class="input-container">
                                 <label class="label">Номер телефону</label>
-                                <input v-model="form.phone" type="text" class="input phone" name="phone" autocomplete="off">
+                                <input v-model="form.phone" type="text" class="input phone" name="phone"
+                                       autocomplete="off">
                             </div>
                         </div>
                         <div class="form-right">
@@ -43,13 +79,15 @@
                     <div class="form-bottom d-md-flex">
                         <div class="bottom-left">
                             <div class="checkbox">
-                                <input v-model="form.check" type="checkbox" name="politica" id="politica" class="check important">
+                                <input v-model="form.check" type="checkbox" name="politica" id="politica"
+                                       class="check important">
                                 <label for="politica">Даю згоду на обробку персональних данних, згідно з <a href="#">політикою
                                         конфіденційності</a></label>
                             </div>
                         </div>
                         <div class="bottom-right">
-                            <x-splade-submit class="button-default bgl submit d-flex align-items-center justify-content-center"
+                            <x-splade-submit
+                                class="button-default bgl submit d-flex align-items-center justify-content-center"
                                 @click="form.type = state.shared.feedback.type; form.id = state.shared.feedback.id"
                             >
                                 <span class="value">надіслати</span>

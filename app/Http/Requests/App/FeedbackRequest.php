@@ -26,6 +26,7 @@ class FeedbackRequest extends FormRequest
         return [
             'type' => ['nullable'],
             'id' => ['nullable'],
+            'rating' => ['nullable'],
             'name' => ['required'],
             'email' => ['required'],
             'phone' => ['required'],

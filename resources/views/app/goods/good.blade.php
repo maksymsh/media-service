@@ -146,117 +146,50 @@
                     <div class="detail-reviews">
                         <div class="reviews-title">Відгуки про
                             <span>“Касовий апарат Гера MG-V545T.02 + БЖ + GSM”</span></div>
-                        <button class="button-border button-review">залишити відгук</button>
+                        <button class="button-border button-review"
+                                data-toggle="modal"
+                                data-target="#m-feed"
+                                @click="state.shared.feedback.type = 'good_testimonial';state.shared.feedback.id = '{{ $good->id }}';"
+                        >
+                            залишити відгук
+                        </button>
                         <div class="items">
-                            <div class="review-item">
-                                <div class="item-top d-flex align-items-start justify-content-between">
-                                    <div class="top-left">
-                                        <div class="name">Віктор Розовий</div>
-                                        <div class="raiting d-flex">
-                                            <div class="star">
-                                                <span class="star-empty icon-star"></span>
-                                                <span class="star-full icon-star"></span>
-                                            </div>
-                                            <div class="star">
-                                                <span class="star-empty icon-star"></span>
-                                                <span class="star-full icon-star"></span>
-                                            </div>
-                                            <div class="star">
-                                                <span class="star-empty icon-star"></span>
-                                                <span class="star-full icon-star"></span>
-                                            </div>
-                                            <div class="star">
-                                                <span class="star-empty icon-star"></span>
-                                                <span class="star-full icon-star"></span>
-                                            </div>
-                                            <div class="star">
-                                                <span class="star-empty icon-star"></span>
-                                                <span ></span>
+                            @foreach($good->testimonials as $testimonial)
+                                <div class="review-item">
+                                    <div class="item-top d-flex align-items-start justify-content-between">
+                                        <div class="top-left">
+                                            <div class="name">{{ $testimonial->name }}</div>
+                                            <div class="raiting d-flex">
+                                                @for($i=0; $i < 5; $i++)
+                                                    <div class="star">
+                                                        <span class="star-empty icon-star"></span>
+                                                        @if($testimonial->rating >= $i)
+                                                            <span class="star-full icon-star"></span>
+                                                        @else
+                                                            <span></span>
+                                                        @endif
+                                                    </div>
+                                                @endfor
                                             </div>
                                         </div>
+                                        <div class="date">{{ $testimonial->created_at }}</div>
                                     </div>
-                                    <div class="date">14 Грудня 2022</div>
+                                    <div class="review">{{ $testimonial->comment }}</div>
                                 </div>
-                                <div class="review">Користуємося 5-й місяць, нереально крутий пристрій, швидкий,
-                                    багатофункціональний.
-                                </div>
-                            </div>
-                            <div class="review-item">
-                                <div class="item-top d-flex align-items-start justify-content-between">
-                                    <div class="top-left">
-                                        <div class="name">Представник компаніі “Mediaservice”</div>
-                                        <div class="answer">Відповіть</div>
-                                    </div>
-                                    <div class="date">14 Грудня 2022</div>
-                                </div>
-                                <div class="review">Дякуэмо за позитивний відгук!</div>
-                            </div>
-                            <div class="review-item">
-                                <div class="item-top d-flex align-items-start justify-content-between">
-                                    <div class="top-left">
-                                        <div class="name">Віктор Розовий</div>
-                                        <div class="raiting d-flex">
-                                            <div class="star">
-                                                <span class="star-empty icon-star"></span>
-                                                <span class="star-full icon-star"></span>
+
+                                @foreach($testimonial->children as $child)
+                                    <div class="review-item">
+                                        <div class="item-top d-flex align-items-start justify-content-between">
+                                            <div class="top-left">
+                                                <div class="name">{{ $child->name }}</div>
+                                                <div class="answer">Відповіть</div>
                                             </div>
-                                            <div class="star">
-                                                <span class="star-empty icon-star"></span>
-                                                <span class="star-full icon-star"></span>
-                                            </div>
-                                            <div class="star">
-                                                <span class="star-empty icon-star"></span>
-                                                <span class="star-full icon-star"></span>
-                                            </div>
-                                            <div class="star">
-                                                <span class="star-empty icon-star"></span>
-                                                <span class="star-full icon-star"></span>
-                                            </div>
-                                            <div class="star">
-                                                <span class="star-empty icon-star"></span>
-                                                <span ></span>
-                                            </div>
+                                            <div class="date">{{ $child->create_at }}</div>
                                         </div>
+                                        <div class="review">{{ $child->comment }}</div>
                                     </div>
-                                    <div class="date">14 Грудня 2022</div>
-                                </div>
-                                <div class="review">Користуємося 5-й місяць, нереально крутий пристрій, швидкий,
-                                    багатофункціональний.
-                                </div>
-                            </div>
-                            <div class="review-item">
-                                <div class="item-top d-flex align-items-start justify-content-between">
-                                    <div class="top-left">
-                                        <div class="name">Віктор Розовий</div>
-                                        <div class="raiting d-flex">
-                                            <div class="star">
-                                                <span class="star-empty icon-star"></span>
-                                                <span class="star-full icon-star"></span>
-                                            </div>
-                                            <div class="star">
-                                                <span class="star-empty icon-star"></span>
-                                                <span class="star-full icon-star"></span>
-                                            </div>
-                                            <div class="star">
-                                                <span class="star-empty icon-star"></span>
-                                                <span class="star-full icon-star"></span>
-                                            </div>
-                                            <div class="star">
-                                                <span class="star-empty icon-star"></span>
-                                                <span class="star-full icon-star"></span>
-                                            </div>
-                                            <div class="star">
-                                                <span class="star-empty icon-star"></span>
-                                                <span ></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="date">14 Грудня 2022</div>
-                                </div>
-                                <div class="review">Користуємося 5-й місяць, нереально крутий пристрій, швидкий,
-                                    багатофункціональний.
-                                </div>
-                            </div>
+                                @endforeach
+                            @endforeach
                         </div>
                         <a href="#" class="link-default d-inline-flex align-items-center">
                             <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
