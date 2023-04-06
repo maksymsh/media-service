@@ -52,7 +52,7 @@
                     </div>
                 </div>
                 <div class="detail-info">
-                    <x-splade-link href="{{ route('goods.index') }}" class="link-back d-inline-flex align-items-center">
+                    <x-splade-link :href="$appPages['goods']" class="link-back d-inline-flex align-items-center">
                         <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
                         <span class="value">ПОВЕРНУТИСЬ ДО КАТАЛОГУ</span>
                         <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>

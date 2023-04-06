@@ -71,7 +71,7 @@
                                 <div class="title">Більше проектів</div>
                             </div>
                             <div class="d-md-flex align-items-center">
-                                <x-splade-link href="{{ route('projects.index') }}" class="link-default-back d-inline-flex align-items-center all">
+                                <x-splade-link :href="$appPages['projects']" class="link-default-back d-inline-flex align-items-center all">
                                     <span class="icon d-flex align-items-center justify-content-center">
                                         <span class="ic icon-arrow-right"></span>
                                     </span>

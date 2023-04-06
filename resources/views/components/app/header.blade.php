@@ -221,7 +221,7 @@
                                 </div>
                                 <div class="item-container serv">
                                     <div class="item-title">Продукти</div>
-                                    <x-splade-link href="{{ route('products.index') }}" class="item-link">BAS</x-splade-link>
+                                    <x-splade-link :href="$appPages['products']" class="item-link">BAS</x-splade-link>
                                     @foreach($products as $product)
                                         <x-splade-link :href="$product->url" class="item-link">{{ $product->name }}</x-splade-link>
                                     @endforeach

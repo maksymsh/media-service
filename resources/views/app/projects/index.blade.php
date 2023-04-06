@@ -26,7 +26,7 @@
                 <h1>{{ $page->title }}</h1>
             </div>
             <div class="tabs-menu d-flex align-items-start flex-wrap">
-                <x-splade-link href="{{ route('projects.index') }}" class="item active">всі галузі</x-splade-link>
+                <x-splade-link :href="$appPages['projects']" class="item active">всі галузі</x-splade-link>
                 @foreach($categories as $c)
                     <x-splade-link :href="$c->url" class="item">{{ $c->name }}</x-splade-link>
                 @endforeach

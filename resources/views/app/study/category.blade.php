@@ -19,7 +19,7 @@
                                 <a href="/">Головна</a>
                             </li>
                             <li>
-                                <x-splade-link href="{{ route('study.index') }}">Навчання</x-splade-link>
+                                <x-splade-link :href="$appPages['study']">Навчання</x-splade-link>
                             </li>
                             <li>
                                 <span class="current">{{ $category->name }}</span>
@@ -30,7 +30,7 @@
                 <h1>{{ $category->name }}</h1>
             </div>
             <div class="tabs-menu d-flex align-items-start flex-wrap">
-                <x-splade-link href="{{ route('study.videos') }}" class="item">показати всі</x-splade-link>
+                <x-splade-link :href="$appPages['videos']" class="item">показати всі</x-splade-link>
                 @foreach($categories as $c)
                     <x-splade-link :href="$c->url" class="item {{ $c->id === $category->id ? 'active' : '' }}">{{ $c->name }}</x-splade-link>
                 @endforeach

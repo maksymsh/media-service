@@ -18,7 +18,7 @@
                                 <x-splade-link href="/">Головна</x-splade-link>
                             </li>
                             <li>
-                                <x-splade-link href="{{ route('news.index') }}">Новини</x-splade-link>
+                                <x-splade-link :href="$appPages['news']">Новини</x-splade-link>
                             </li>
                             <li>
                                 <span class="current">Вебінар для бухгалтера</span>
@@ -26,7 +26,7 @@
                         </ul>
                     </div>
                     <div class="text-right h-0">
-                        <x-splade-link href="{{ route('news.index') }}" class="link-back back d-inline-flex align-items-center">
+                        <x-splade-link :href="$appPages['news']" class="link-back back d-inline-flex align-items-center">
                             <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
                             <span class="value">назад до новин</span>
                             <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
@@ -81,7 +81,7 @@
             <div class="other-news">
                 <div class="title-container d-md-flex align-items-center justify-content-between">
                     <div class="h1">Інші новини</div>
-                    <x-splade-link href="{{ route('news.index') }}" class="link-default-back d-inline-flex align-items-center all">
+                    <x-splade-link :href="$appPages['news']" class="link-default-back d-inline-flex align-items-center all">
 									<span class="icon d-flex align-items-center justify-content-center">
 										<span class="ic icon-arrow-right"></span>
 									</span>

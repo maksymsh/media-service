@@ -171,7 +171,7 @@
                                     </div>
                                     <div class="col-name">{!! $category->name !!}</div>
                                     {!! $category->description_short !!}
-                                    <x-app.link href="{{ route('products.index') }}"
+                                    <x-app.link :href="$appPages['products']"
                                                 class="link-default d-inline-flex align-items-center">
                                         <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
                                         <span class="value">{{ __('детальніше') }}</span>

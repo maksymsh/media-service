@@ -83,7 +83,7 @@
                                         </li>
                                     @endforeach
                                 </ul>
-                                <x-splade-link href="{{ route('goods.index') }}" class="link-default white more-nav d-inline-flex align-items-center">
+                                <x-splade-link :href="$appPages['goods']" class="link-default white more-nav d-inline-flex align-items-center">
                                     <span class="ic2"><img src="/images/arrow-left2-w.svg" alt=""></span>
                                     <span class="value">Всі товари</span>
                                     <span class="ic"><img src="/images/arrow-right.svg" alt=""></span>
@@ -95,7 +95,7 @@
                                 <div class="nav-title">Продукти</div>
                                 <ul class="nav flex-column">
                                     <li>
-                                        <x-splade-link href="{{ route('products.index') }}" class="nav-item">BAS</x-splade-link>
+                                        <x-splade-link :href="$appPages['products']" class="nav-item">BAS</x-splade-link>
                                     </li>
                                     @foreach($products as $product)
                                         <li>

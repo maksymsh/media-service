@@ -81,7 +81,7 @@
             <div class="study-videos">
                 <div class="title-container d-lg-flex align-items-center justify-content-between">
                     <div class="title">Навчальні відео</div>
-                    <x-splade-link href="{{ route('study.videos') }}" class="link-default-back d-inline-flex align-items-center all">
+                    <x-splade-link :href="$appPages['videos']" class="link-default-back d-inline-flex align-items-center all">
 									<span class="icon d-flex align-items-center justify-content-center">
 										<span class="ic icon-arrow-right"></span>
 									</span>

@@ -26,7 +26,7 @@
                 <h1>{{ $category->name }}</h1>
             </div>
             <div class="tabs-menu d-flex align-items-start flex-wrap">
-                <x-splade-link href="{{ route('news.index') }}" class="item">показати всі</x-splade-link>
+                <x-splade-link :href="$appPages['news']" class="item">показати всі</x-splade-link>
                 @foreach($categories as $c)
                     <x-splade-link :href="$c->url" class="item {{ $category->id === $c->id ? 'active' : '' }}">{{ $c->name }}</x-splade-link>
                 @endforeach
