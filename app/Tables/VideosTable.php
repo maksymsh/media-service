@@ -64,6 +64,9 @@ class VideosTable extends AbstractTable
     public function configure(SpladeTable $table)
     {
         $table->column(key: 'id', sortable: true)
+            ->column('image_preview')
+            ->column('title')
+            ->column('published')
             ->column('actions')
             ->withGlobalSearch()
             ->bulkAction(

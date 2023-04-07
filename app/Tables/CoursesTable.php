@@ -64,7 +64,9 @@ class CoursesTable extends AbstractTable
     public function configure(SpladeTable $table)
     {
         $table->column(key: 'id', sortable: true)
+            ->column('image_preview')
             ->column(key: 'name', sortable: true)
+            ->column('published')
             ->column('actions')
             ->withGlobalSearch()
             ->bulkAction(

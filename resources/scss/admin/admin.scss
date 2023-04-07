@@ -44,3 +44,11 @@
 .choices__list--dropdown {
     z-index: 9!important;
 }
+
+.card table td img {
+    display: block;
+    max-width: 230px;
+    max-height: 95px;
+    width: auto;
+    height: auto;
+}
