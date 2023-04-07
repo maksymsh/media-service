@@ -68,8 +68,12 @@ class NewsTable extends AbstractTable
             ->column('published')
             ->column('actions')
             ->withGlobalSearch()
-            ->bulkAction(label: __('Delete'), each: function ($item) {
+            ->bulkAction(label: __('Delete'), each: function (News $item) {
                 $item->delete();
+            }, confirm: true)
+            ->bulkAction(label: __('Replicate'), each: function (News $item) {
+                $replicated = $item->replicate();
+                $replicated->push();
             }, confirm: true)
             ->export()
             ->paginate();

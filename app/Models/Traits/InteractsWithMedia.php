@@ -22,6 +22,10 @@ trait InteractsWithMedia
 
             $model->appendMedia();
         });
+
+        static::replicating(function (self $model) {
+            $model->registerMediaCollections();
+        });
     }
 
     public function appendMedia()

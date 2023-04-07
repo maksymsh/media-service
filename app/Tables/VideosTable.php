@@ -75,6 +75,10 @@ class VideosTable extends AbstractTable
                 after: fn () => Toast::info('Deleted successfully!'),
                 confirm: true
             )
+            ->bulkAction(label: __('Replicate'), each: function ($item) {
+                $replicated = $item->replicate();
+                $replicated->push();
+            }, confirm: true)
             ->export()
             ->paginate();
     }

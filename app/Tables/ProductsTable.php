@@ -72,6 +72,10 @@ class ProductsTable extends AbstractTable
             ->bulkAction(label: __('Delete'), each: function ($item) {
                 $item->delete();
             }, confirm: true)
+            ->bulkAction(label: __('Replicate'), each: function ($item) {
+                $replicated = $item->replicate();
+                $replicated->push();
+            }, confirm: true)
             ->export()
             ->paginate();
     }

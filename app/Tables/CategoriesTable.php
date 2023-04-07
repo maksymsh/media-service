@@ -66,6 +66,7 @@ class CategoriesTable extends AbstractTable
             'goods' => Good::class,
             'projects' => Project::class,
             'videos' => Video::class,
+            default => null,
         };
 
         if ($type) {
@@ -90,6 +91,10 @@ class CategoriesTable extends AbstractTable
             ->withGlobalSearch()
             ->bulkAction(label: __('Delete'), each: function ($item) {
                 $item->delete();
+            }, confirm: true)
+            ->bulkAction(label: __('Replicate'), each: function ($item) {
+                $replicated = $item->replicate();
+                $replicated->push();
             }, confirm: true)
             ->export()
             ->paginate();
