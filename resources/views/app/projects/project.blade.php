@@ -85,7 +85,7 @@
                                 <div class="slide">
                                     <div class="item d-flex flex-column justify-content-between align-items-start">
                                         <div class="item-top d-flex align-items-start justify-content-between">
-                                            <div class="item-logo"><img src="{{ $p->getFirstMedia('logo')->originalUrl }}" alt=""></div>
+                                            <div class="item-logo"><img src="{{ $p->getFirstMedia('logo')?->originalUrl }}" alt=""></div>
                                             @foreach($p->categories as $pCategory)
                                                 <div class="item-category">{{ $pCategory->name }}</div>
                                             @endforeach
@@ -100,7 +100,7 @@
                                             </x-splade-link>
                                         </div>
                                         <div class="item-image">
-                                            <img src="{{ $p->getFirstMedia('image')->originalUrl }}" alt="">
+                                            <img src="{{ $p->getFirstMedia('image')?->originalUrl }}" alt="">
                                         </div>
                                     </div>
                                 </div>

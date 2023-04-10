@@ -58,7 +58,7 @@
             <div class="study-list">
                 @foreach($courses as $course)
                     <div class="item">
-                        <div class="item-image"><img src="{{ $course->getFirstMedia('image')->originalUrl }}" alt="" class="parallax"></div>
+                        <div class="item-image"><img src="{{ $course->getFirstMedia('image')?->originalUrl }}" alt="" class="parallax"></div>
                         <div class="item-info d-flex  flex-wrap align-items-end justify-content-between">
                             <div class="info-container">
                                 <div class="adres d-flex align-items-center">
@@ -105,7 +105,7 @@
                         @foreach($videos as $video)
                             <div class="item">
                                 <a href="{{ $video->url }}" class="item-image" data-fancybox>
-                                    <img src="{{ $video->getFirstMedia('image')->originalUrl }}" alt="" class="parallax">
+                                    <img src="{{ $video->getFirstMedia('image')?->originalUrl }}" alt="" class="parallax">
                                     <div class="video-button">
                                         <div class="play-container d-flex align-items-center justify-content-center">
                                             <div class="play-button d-flex align-items-center justify-content-center">

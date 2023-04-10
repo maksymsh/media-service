@@ -11,7 +11,7 @@
                             <div class="big-slider">
                                 <div class="slide">
                                     <div class="item d-flex align-items-center justify-content-center">
-                                        <img src="{{ $good->getFirstMedia('image')->originalUrl }}" alt=""></div>
+                                        <img src="{{ $good->getFirstMedia('image')?->originalUrl }}" alt=""></div>
                                 </div>
                                 @foreach($good->getMedia('images') as $image)
                                     <div class="slide">
@@ -31,7 +31,7 @@
                             <div class="thumb-slider">
                                 <div class="slide">
                                     <div class="item d-flex align-items-center justify-content-center">
-                                        <img src="{{ $good->getFirstMedia('image')->originalUrl }}" alt=""></div>
+                                        <img src="{{ $good->getFirstMedia('image')?->originalUrl }}" alt=""></div>
                                 </div>
                                 @foreach($good->getMedia('images') as $image)
                                     <div class="slide">
@@ -211,7 +211,7 @@
                                 <div class="item-container d-flex flex-column">
                                     <div class="item-top">
                                         <x-splade-link :href="$g->url" class="item-image d-flex align-items-center justify-content-center">
-                                            <img src="{{ $g->getFirstMedia('image')->originalUrl }}" alt="">
+                                            <img src="{{ $g->getFirstMedia('image')?->originalUrl }}" alt="">
                                         </x-splade-link>
                                         <x-splade-link :href="$g->url" class="item-name">{{ $g->name }}</x-splade-link>
                                     </div>

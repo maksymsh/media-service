@@ -41,7 +41,7 @@
                         <div class="col-12 col-md-6 col-lg-4">
                             <div class="item">
                                 <a href="{{ $video->url }}" class="item-image" data-fancybox>
-                                    <img src="{{ $video->getFirstMedia('image')->originalUrl }}" alt="" class="parallax">
+                                    <img src="{{ $video->getFirstMedia('image')?->originalUrl }}" alt="" class="parallax">
                                     <div class="video-button">
                                         <div class="play-container d-flex align-items-center justify-content-center">
                                             <div class="play-button d-flex align-items-center justify-content-center">
@@ -90,7 +90,7 @@
                                             </x-splade-link>
                                         </div>
                                         <div class="item-image">
-                                            <img src="{{ $course->getFirstMedia('image')->originalUrl }}" class="parallax" alt="">
+                                            <img src="{{ $course->getFirstMedia('image')?->originalUrl }}" class="parallax" alt="">
                                         </div>
                                     </div>
                                 </div>

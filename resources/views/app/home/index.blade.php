@@ -73,7 +73,7 @@
                             <div class="item-col-info">
                                 <div class="item-col-title">{{ __('Послуги') }}</div>
                                 <div class="item-col-anons">
-                                    {{ __('Автоматизуємо найскладніші бізнес-процеси великих підприємств. Створюємо єдиний інформаційний простір.') }}
+                                    {{ __('pages.home.services_text') }}
                                 </div>
                             </div>
                             <div class="all-container">
@@ -91,7 +91,7 @@
                                 <div class="item-col">
                                     <div class="col-item">
                                         <div class="col-icon">
-                                            <img src="{{ $service->getFirstMedia('image')->originalUrl }}" alt="">
+                                            <img src="{{ $service->getFirstMedia('image')?->originalUrl }}" alt="">
                                         </div>
                                         <div class="col-name">{!! $service->name !!}</div>
                                         {!! $service->description_short !!}
@@ -116,7 +116,7 @@
                             </div>
                             <div class="about-right">
                                 <div class="anons">
-                                    {{ __('Ми - команда спеціалістів зі спільним бажанням - допомогти клієнтам максимально оптимізувати роботу підприємства та ефективно управляти бізнесом. Наш великий досвід автоматизації підприємств різних галузей та масштабів сприяє швидкій та якісній роботі наших спеціалістів') }}
+                                    {{ __('pages.home.about') }}
                                 </div>
                                 <div class="counts-items d-flex flex-wrap align-items-start">
                                     <div class="count-item">
@@ -132,12 +132,12 @@
                                         <div class="value">{{ __('Автоматизованих підприємств') }}</div>
                                     </div>
                                 </div>
-                                <a href="#" class="link-default-back white d-inline-flex align-items-center all">
+                                <x-splade-link href="{{ $appPages['about'] }}" class="link-default-back white d-inline-flex align-items-center all">
 													<span class="icon d-flex align-items-center justify-content-center">
 														<span class="ic icon-arrow-right"></span>
 													</span>
                                     <span class="value">{{ __('детальніше про нас') }}</span>
-                                </a>
+                                </x-splade-link>
                             </div>
                         </div>
                     </div>
@@ -149,17 +149,17 @@
                         <div class="item-col-info">
                             <div class="item-col-title">{{ __('Продукти') }}</div>
                             <div
-                                class="item-col-anons">{{ __('Продаж та впровадження програмних продуктів, що виведуть ваш бізнес на якісно новий рівень') }}
+                                class="item-col-anons">{{ __('pages.home.products_text') }}
                             </div>
                         </div>
                         <div class="all-container">
-                            <x-app.link :href="route('products.index')"
+                            <x-splade-link :href="$appPages['products']"
                                         class="link-default-back d-inline-flex align-items-center all">
 												<span class="icon d-flex align-items-center justify-content-center">
 													<span class="ic icon-arrow-right"></span>
 												</span>
                                 <span class="value">{{ __('всі продукти') }}</span>
-                            </x-app.link>
+                            </x-splade-link>
                         </div>
                     </div>
                     <div class="d-md-flex flex-wrap">
@@ -167,7 +167,7 @@
                             <div class="item-col">
                                 <div class="col-item">
                                     <div class="col-icon">
-                                        <img src="{{ $category->getFirstMedia('image')->originalUrl }}" alt="">
+                                        <img src="{{ $category->getFirstMedia('image')?->originalUrl }}" alt="">
                                     </div>
                                     <div class="col-name">{!! $category->name !!}</div>
                                     {!! $category->description_short !!}
@@ -184,7 +184,7 @@
                             <div class="item-col">
                                 <div class="col-item">
                                     <div class="col-icon">
-                                        <img src="{{ $product->getFirstMedia('image')->originalUrl }}" alt="">
+                                        <img src="{{ $product->getFirstMedia('image')?->originalUrl }}" alt="">
                                     </div>
                                     <div class="col-name">{!! $product->name !!}</div>
                                     {!! $product->description_short !!}
@@ -205,7 +205,7 @@
                         <div class="item-col-info">
                             <div class="item-col-title">{{ __('Товари') }}</div>
                             <div
-                                class="item-col-anons">{{ __('Ми є імпортером і офіційним дистриб\'ютором широкого асортименту торгового обладнання.') }}</div>
+                                class="item-col-anons">{{ __('pages.home.goods_text') }}</div>
                         </div>
                         <div class="all-container">
                             <x-app.link :href="route('goods.index')"
@@ -222,7 +222,7 @@
                             @foreach($goodCategories as $category)
                                 <x-app.link :href="$category->url" class="good-item">
                                     <div class="item-image">
-                                        <img src="{{ $category->getFirstMedia('image')->originalUrl }}" alt="">
+                                        <img src="{{ $category->getFirstMedia('image')?->originalUrl }}" alt="">
                                     </div>
                                     <div class="item-name">{!! $category->name !!}</div>
                                 </x-app.link>
@@ -237,7 +237,7 @@
                         </div>
                         <div class="all-container">
                             <div class="item-col-anons">
-                                {{ __('Курси BAS у Львові від офіційного представника, розроблені провідними методистами САБ - це гарантія якості Вашого навчання') }}
+                                {{ __('pages.home.study_text') }}
                             </div>
                             <x-app.link :href="route('study.index')"
                                         class="link-default-back d-inline-flex align-items-center all">
@@ -265,7 +265,7 @@
                 <div class="title">{{ __('Готові до співпраці?') }}</div>
                 <div class="title-info">
                     <div class="anons">
-                        {{ __('За 17 років на ринку, на нашому досвіді більше тисячі виконаних проектів у сферах торгівлі, будівництва, енергетики, медицини та інших.') }}
+                        {{ __('pages.home.cooperate_text') }}
                     </div>
                     <x-app.link :href="route('projects.index')"
                                 class="link-default-back d-inline-flex align-items-center all">

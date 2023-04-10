@@ -116,7 +116,7 @@
                                         <div class="item-top">
                                             <x-splade-link :href="$good->url"
                                                            class="item-image d-flex align-items-center justify-content-center">
-                                                <img src="{{ $good->getFirstMedia('image')->originalUrl }}" alt="">
+                                                <img src="{{ $good->getFirstMedia('image')?->originalUrl }}" alt="">
                                             </x-splade-link>
                                             <x-splade-link :href="$good->url" class="item-name">Касовий апарат Гера MG-V545T.02 + БЖ + GSM</x-splade-link>
                                         </div>

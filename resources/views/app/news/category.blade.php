@@ -37,7 +37,7 @@
                         <div class="col-12 col-md-6 col-lg-4">
                             <div class="item d-flex flex-column align-items-start justify-content-between">
                                 <x-splade-link :href="$post->url" class="item-image ">
-                                    <img class="parallax" src="{{ $post->getFirstMedia('image')->originalUrl }}" alt="">
+                                    <img class="parallax" src="{{ $post->getFirstMedia('image')?->originalUrl }}" alt="">
                                 </x-splade-link>
                                 <div class="item-info">
                                     <div class="d-flex align-items-center">

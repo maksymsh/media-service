@@ -43,7 +43,7 @@
                     <div class="date">{{ $post->created_at }}</div>
                 </div>
                 <div class="detail-image">
-                    <img src="{{ $post->getFirstMedia('image')->originalUrl }}" alt="" class="parallax">
+                    <img src="{{ $post->getFirstMedia('image')?->originalUrl }}" alt="" class="parallax">
                 </div>
                 <div class="d-lg-flex justify-content-between">
                     <div class="detail-content order-12">
@@ -94,7 +94,7 @@
                             <div class="col-12 col-md-6 col-lg-4">
                                 <div class="item d-flex flex-column align-items-start justify-content-between">
                                     <x-splade-link :href="$post->url" class="item-image ">
-                                        <img class="parallax" src="{{ $post->getFirstMedia('image')->originalUrl }}" alt="">
+                                        <img class="parallax" src="{{ $post->getFirstMedia('image')?->originalUrl }}" alt="">
                                     </x-splade-link>
                                     <div class="item-info">
                                         <div class="d-flex align-items-center">

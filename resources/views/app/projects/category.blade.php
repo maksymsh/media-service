@@ -37,7 +37,7 @@
                         <div class="col-12 col-md-6 col-lg-4">
                             <div class="item d-flex flex-column justify-content-between align-items-start">
                                 <div class="item-top d-flex align-items-start justify-content-between">
-                                    <div class="item-logo"><img src="{{ $project->getFirstMedia('logo')->originalUrl }}" alt=""></div>
+                                    <div class="item-logo"><img src="{{ $project->getFirstMedia('logo')?->originalUrl }}" alt=""></div>
                                     @foreach($project->categories as $pCategory)
                                         <div class="item-category">{{ $pCategory->name }}</div>
                                     @endforeach
@@ -52,7 +52,7 @@
                                     </x-splade-link>
                                 </div>
                                 <div class="item-image">
-                                    <img src="{{ $project->getFirstMedia('image')->originalUrl }}" alt="">
+                                    <img src="{{ $project->getFirstMedia('image')?->originalUrl }}" alt="">
                                 </div>
                             </div>
                         </div>

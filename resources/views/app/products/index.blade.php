@@ -33,15 +33,15 @@
                 <div class="line-5"></div>
             </div>
             <div class="catalog-top">
-                <div class="title">Створюємо продукти, які допомагають максимально оптимізувати роботу бізнесу</div>
+                <div class="title">{!! __('pages.products.heading') !!}</div>
                 <div class="lines"><img src="/images/lines-4.svg" alt=""></div>
             </div>
             <div class="catalog-items">
                 @foreach($categories as $cIndex => $category)
                     <div class="item-big d-lg-flex align-items-start justify-content-between">
                         <div class="big-images">
-                            <div class="icon"><img src="{{ $category->getFirstMedia('image')->originalUrl }}" alt=""></div>
-                            <div class="bg"><img src="{{ $category->getFirstMedia('background')->originalUrl }}" alt=""></div>
+                            <div class="icon"><img src="{{ $category->getFirstMedia('image')?->originalUrl }}" alt=""></div>
+                            <div class="bg"><img src="{{ $category->getFirstMedia('background')?->originalUrl }}" alt=""></div>
                         </div>
                         <div class="big-info">
                             <div class="number">{{ $cIndex < 10 ? '0' : '' }}{{ $cIndex + 1 }}</div>
@@ -95,7 +95,7 @@
                         <div class="item-images">
                             <div class="i-bg"><img src="{{ $product->getFirstMedia('background')?->originalUrl }}" alt=""></div>
                             <div class="i-icon d-flex align-items-center justify-content-center">
-                                <img src="{{ $product->getFirstMedia('image')->originalUrl }}" alt="">
+                                <img src="{{ $product->getFirstMedia('image')?->originalUrl }}" alt="">
                             </div>
                         </div>
                         <div class="item-info">
@@ -118,10 +118,8 @@
                     <div class="container-fluid">
                         <div class="title-container d-lg-flex align-items-start justify-content-between">
                             <div class="title-info">
-                                <div class="title">Реалізовані проекти</div>
-                                <div class="anons">Ми маємо досвід створення високоякісних рішень для клієнтів по
-                                    всій країні
-                                </div>
+                                <div class="title">{!! __('pages.products.projects_title') !!}</div>
+                                <div class="anons">{!! __('pages.products.projects_text') !!}</div>
                             </div>
                             <div class="d-md-flex align-items-center">
                                 <x-splade-link :href="$appPages['projects']" class="link-default-back d-inline-flex align-items-center all">
@@ -138,7 +136,7 @@
                                 <div class="slide">
                                     <div class="item d-flex flex-column justify-content-between align-items-start">
                                         <div class="item-top d-flex align-items-start justify-content-between">
-                                            <div class="item-logo"><img src="{{ $project->getFirstMedia('logo')->originalUrl }}" alt=""></div>
+                                            <div class="item-logo"><img src="{{ $project->getFirstMedia('logo')?->originalUrl }}" alt=""></div>
                                             @foreach($project->categories as $pCategory)
                                                 <div class="item-category">{{ $pCategory->name }}</div>
                                             @endforeach
@@ -154,7 +152,7 @@
                                             </x-splade-link>
                                         </div>
                                         <div class="item-image">
-                                            <img src="{{ $project->getFirstMedia('image')->originalUrl }}" alt="">
+                                            <img src="{{ $project->getFirstMedia('image')?->originalUrl }}" alt="">
                                         </div>
                                     </div>
                                 </div>

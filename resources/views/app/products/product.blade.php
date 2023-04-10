@@ -152,7 +152,7 @@
                         <div class="item-col">
                             <div class="col-item">
                                 <div class="col-icon">
-                                    <img src="{{ $service->getFirstMedia('background')->originalUrl }}" alt="">
+                                    <img src="{{ $service->getFirstMedia('background')?->originalUrl }}" alt="">
                                 </div>
                                 <div class="col-name">{!! $service->name !!}</div>
                                 {!! $service->description_short !!}

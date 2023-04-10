@@ -31,34 +31,26 @@
             </div>
             <div class="study-tizers d-flex flex-wrap align-items-start">
                 <div class="item item-1">
-                    <div class="name">Проведення навчання сертифікованими викладачами</div>
-                    <div class="anons">Які успішно склали іспити на право викладання того чи іншого курсу та
-                        отримали відповідний сертифікат від САБ.
-                    </div>
+                    <div class="name">{!! __('pages.study.title_1') !!}</div>
+                    <div class="anons">{!! __('pages.study.text_1') !!}</div>
                 </div>
                 <div class="item item-2">
-                    <div class="name">Кожен студент забезпечується підручником – конспектом</div>
-                    <div class="anons">це дає можливість додатково навчатись та готуватись до занять вдома, а, отже,
-                        дозволяє швидше засвоїти матеріал (підручники входять в вартість курсу).
-                    </div>
+                    <div class="name">{!! __('pages.study.title_2') !!}</div>
+                    <div class="anons">{!! __('pages.study.text_2') !!}</div>
                 </div>
                 <div class="item item-3">
-                    <div class="name">Гарантована якість навчання</div>
-                    <div class="anons">Курс проводиться на найновіших версіях програм, а інформація про проходження
-                        потрапляє у САБ – усе офіційно і сертифіковано
-                    </div>
+                    <div class="name">{!! __('pages.study.title_3') !!}</div>
+                    <div class="anons">{!! __('pages.study.text_3') !!}</div>
                 </div>
                 <div class="item item-4">
-                    <div class="name">Кожен слухач отримує сертифікат єдиного зразка по закінченні курсу</div>
-                    <div class="anons">Це буде додатковою перевагою при подальшому працевлаштуванні (сертифікат має
-                        індивідуальний номер та зареєстрований у САБ)
-                    </div>
+                    <div class="name">{!! __('pages.study.title_4') !!}</div>
+                    <div class="anons">{!! __('pages.study.text_4') !!}</div>
                 </div>
             </div>
             <div class="study-list">
                 @foreach($courses as $course)
                     <div class="item">
-                        <div class="item-image"><img src="{{ $course->getFirstMedia('image')->originalUrl }}" alt="" class="parallax"></div>
+                        <div class="item-image"><img src="{{ $course->getFirstMedia('image')?->originalUrl }}" alt="" class="parallax"></div>
                         <div class="item-info d-flex  flex-wrap align-items-end justify-content-between">
                             <div class="info-container">
                                 <div class="adres d-flex align-items-center">
@@ -89,23 +81,28 @@
                     </x-splade-link>
                 </div>
                 <div class="d-lg-flex justify-content-between videos-container">
-                    <a href="https://youtu.be/fdk7yCMnre8" class="big-video" data-fancybox>
-                        <div class="video-image"><img src="/images/video6.jpg" alt=""></div>
+                    @php
+                        $firstVideo = $videos->shift();
+                    @endphp
+                    <a href="{{ $firstVideo->url }}" class="big-video" data-fancybox>
+                        <div class="video-image"><img src="{{ $firstVideo->getFirstMedia('image')?->originalUrl }}" alt=""></div>
                         <div class="video-info d-flex flex-column justify-content-between">
                             <div class="play-button anim d-flex align-items-center justify-content-center"><img
                                     src="/images/video2.svg" alt=""></div>
                             <div class="info-top d-flex align-items-center">
-                                <div class="category">вебінари</div>
-                                <div class="date">13 Грудня 2022</div>
+                                @foreach($firstVideo->categories as $vCategory)
+                                    <div class="category">{{ $vCategory->name }}</div>
+                                @endforeach
+                                <div class="date">{{ $firstVideo->created_at }}</div>
                             </div>
-                            <div class="name">Як самостійно оновити програму 1С:Підприємство через Інтернет</div>
+                            <div class="name">{{ $firstVideo->title }}</div>
                         </div>
                     </a>
                     <div class="video-list">
                         @foreach($videos as $video)
                             <div class="item">
                                 <a href="{{ $video->url }}" class="item-image" data-fancybox>
-                                    <img src="{{ $video->getFirstMedia('image')->originalUrl }}" alt="" class="parallax">
+                                    <img src="{{ $video->getFirstMedia('image')?->originalUrl }}" alt="" class="parallax">
                                     <div class="video-button">
                                         <div class="play-container d-flex align-items-center justify-content-center">
                                             <div class="play-button d-flex align-items-center justify-content-center">
@@ -142,7 +139,7 @@
                         <div class="icon"><img src="/images/phone.svg" alt=""></div>
                         <div class="">
                             <div class="data">Консультації та запис</div>
-                            <a href="tel:0322420727" class="value">(032) 242-07-27</a>
+                            <a href="tel:{{ rawPhone(settings('support_phone')) }}" class="value">{{ settings('support_phone') }}</a>
                         </div>
                     </div>
                 </div>
