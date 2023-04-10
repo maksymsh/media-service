@@ -123,11 +123,11 @@
             </div>
             <div class="how-find d-lg-flex align-items-center justify-content-between">
                 <div class="how-info">
-                    <div class="title">Як нас знайти?</div>
+                    <div class="title">{!! __('pages.study.contacts_title') !!}</div>
                     <div class="adres d-flex">
                         <div class="icon"><img src="/images/pin.svg" alt=""></div>
                         <div class="value">
-                            <div>Навчальний центр знаходиться за адресою: м.Львів, вул. Наукова, 7а (3-й поверх)</div>
+                            <div>{!! __('pages.study.contacts_address') !!} {!! settings('address') !!}</div>
                             <a href="#" class="link-default item-link d-inline-flex align-items-center">
                                 <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
                                 <span class="value">показати на карті</span>
@@ -138,7 +138,7 @@
                     <div class="phone d-flex">
                         <div class="icon"><img src="/images/phone.svg" alt=""></div>
                         <div class="">
-                            <div class="data">Консультації та запис</div>
+                            <div class="data">{!! __('pages.study.contacts_consult') !!}</div>
                             <a href="tel:{{ rawPhone(settings('support_phone')) }}" class="value">{{ settings('support_phone') }}</a>
                         </div>
                     </div>
