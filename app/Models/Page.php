@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Traits\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Lang;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
@@ -37,6 +38,10 @@ class Page extends BaseModel implements HasMedia
         'published' => 'boolean',
     ];
 
+    protected $appends = [
+        'language_lines',
+    ];
+
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
@@ -50,5 +55,12 @@ class Page extends BaseModel implements HasMedia
             ->singleFile();
 
         $this->addMediaCollection('images');
+    }
+
+    public function getLanguageLinesAttribute()
+    {
+        $lines = Lang::get('pages.'.$this->code);
+
+        return is_string($lines) ? [] : $lines;
     }
 }
