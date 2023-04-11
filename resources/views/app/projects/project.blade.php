@@ -45,7 +45,19 @@
                 <div class="line-4"></div>
                 <div class="line-5"></div>
             </div>
-            {!! $project->content !!}
+            <div class="detail-etapi">
+                @foreach($project->stages as $i => $stage)
+                    <div class="etap d-xl-flex align-items-start justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <div class="number">{{ $i < 10 ? '0' : '' }}{{ $i + 1 }}</div>
+                            <div class="name">{!! $stage['title'] !!}</div>
+                        </div>
+                        <div class="anons">
+                            {!! $stage['text'] !!}
+                        </div>
+                    </div>
+                @endforeach
+            </div>
             <div class="gallery-slider">
                 <div class="title-container d-flex align-items-center">
                     <div class="title">Як це було</div>

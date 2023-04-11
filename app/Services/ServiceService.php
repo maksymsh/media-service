@@ -51,6 +51,8 @@ class ServiceService extends BaseService
         DB::beginTransaction();
 
         try {
+            $data['stages'] = $data['stages'] ?? [];
+
             $service = $this->query()->create($data);
 
             DB::commit();
@@ -66,6 +68,8 @@ class ServiceService extends BaseService
         DB::beginTransaction();
 
         try {
+            $data['stages'] = $data['stages'] ?? [];
+
             $model->update($data);
 
             DB::commit();

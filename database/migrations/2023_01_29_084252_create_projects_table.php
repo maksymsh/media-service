@@ -27,6 +27,9 @@ return new class extends Migration
             $table->string('seo_keywords')->nullable();
 
             $table->boolean('published')->default(1);
+
+            $table->json('stages')->nullable();
+
             $table->timestamps();
         });
     }

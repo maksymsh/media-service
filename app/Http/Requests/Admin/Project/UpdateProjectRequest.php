@@ -27,7 +27,7 @@ class UpdateProjectRequest extends BaseFormRequest
             'top' => ['nullable'],
             'bottom' => ['nullable'],
             'published' => ['nullable'],
-            'title' => ['nullable'],
+            'title' => ['required'],
             'slug' => ['nullable'],
             'description' => ['nullable'],
             'description_short' => ['nullable'],
@@ -36,6 +36,7 @@ class UpdateProjectRequest extends BaseFormRequest
             'seo_title' => ['nullable'],
             'seo_description' => ['nullable'],
             'seo_keywords' => ['nullable'],
+            'stages' => ['nullable', 'array'],
         ];
     }
 }

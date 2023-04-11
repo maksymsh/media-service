@@ -34,6 +34,8 @@ return new class extends Migration
 
             $table->boolean('published')->default(true);
 
+            $table->json('stages')->nullable();
+
             $table->timestamps();
             $table->softDeletes();
         });

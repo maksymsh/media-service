@@ -24,6 +24,8 @@
     <x-splade-file name="images" :label="__('Images')" filepond multiple preview server />
 </div>
 
+@include('admin.projects.includes.stages')
+
 @if(!$project->exists)
 
 @endif

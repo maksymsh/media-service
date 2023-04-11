@@ -49,7 +49,21 @@
             </div>
         </section>
 
-        {!! $service->content !!}
+        <section class="etapi">
+            <div class="title">Етапи впровадження <br />великих проектів</div>
+            <div class="items">
+                @foreach($service->stages as $i => $stage)
+                    <div class="etap d-md-flex align-items-start justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <div class="number">{{ $i < 10 ? '0' : '' }}{{ $i + 1 }}</div>
+                            <div class="name">{{ $stage['title'] }}</div>
+                        </div>
+                        <div class="anons ">{{ $stage['text'] }}</div>
+                    </div>
+
+                @endforeach
+            </div>
+        </section>
 
         <section class="inner-form">
             <div class="bg-container">

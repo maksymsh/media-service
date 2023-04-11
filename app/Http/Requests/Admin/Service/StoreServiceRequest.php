@@ -27,7 +27,7 @@ class StoreServiceRequest extends BaseFormRequest
             'top' => ['nullable'],
             'bottom' => ['nullable'],
             'published' => ['nullable'],
-            'name' => ['nullable'],
+            'name' => ['required'],
             'slug' => ['nullable'],
             'description' => ['nullable'],
             'description_short' => ['nullable'],
@@ -38,6 +38,7 @@ class StoreServiceRequest extends BaseFormRequest
             'seo_description' => ['nullable'],
             'seo_keywords' => ['nullable'],
             'categories' => ['nullable', 'array'],
+            'stages' => ['nullable', 'array'],
         ];
     }
 }

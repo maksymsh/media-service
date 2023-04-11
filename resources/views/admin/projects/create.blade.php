@@ -14,7 +14,7 @@
         </x-slot:header>
 
         <div>
-            <x-splade-form :default="$project" method="POST" :action="route('admin.projects.store')">
+            <x-splade-form :default="$project->toArray()" method="POST" :action="route('admin.projects.store')">
                 @include('admin.projects.includes.form')
 
                 <x-splade-submit />

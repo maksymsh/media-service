@@ -36,6 +36,8 @@
     <x-splade-file name="images" :label="__('Images')" filepond multiple preview server />
 </div>
 
+@include('admin.services.includes.stages')
+
 @if(!$service->exists)
 
 @endif

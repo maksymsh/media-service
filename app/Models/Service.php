@@ -28,12 +28,14 @@ class Service extends BaseModel implements HasMedia
         'seo_title',
         'seo_description',
         'seo_keywords',
+        'stages',
     ];
 
     protected $casts = [
         'top' => 'boolean',
         'bottom' => 'boolean',
         'published' => 'boolean',
+        'stages' => 'array',
     ];
 
     public function getSlugOptions(): SlugOptions
@@ -52,5 +54,10 @@ class Service extends BaseModel implements HasMedia
             ->singleFile();
 
         $this->addMediaCollection('images');
+    }
+
+    public function getStagesAttribute($stages)
+    {
+        return json_decode($stages ?: '[]', true);
     }
 }

@@ -25,10 +25,12 @@ class Project extends BaseModel implements HasMedia
         'seo_title',
         'seo_description',
         'seo_keywords',
+        'stages',
     ];
 
     protected $casts = [
         'published' => 'boolean',
+        'stages' => 'array',
     ];
 
     public function getSlugOptions(): SlugOptions

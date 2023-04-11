@@ -14,7 +14,7 @@
         </x-slot:header>
 
         <div>
-            <x-splade-form :default="$service" method="POST" :action="route('admin.services.store')">
+            <x-splade-form :default="$service->toArray()" method="POST" :action="route('admin.services.store')">
                 @include('admin.services.includes.form')
 
                 <x-splade-submit />

@@ -201,7 +201,7 @@ class ProductSeeder extends Seeder
                 }
             }
 
-            if ($i < 11) {
+            if ($i < 12) {
                 $product->categories()->sync([$category->id]);
             }
         }

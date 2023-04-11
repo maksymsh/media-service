@@ -51,12 +51,15 @@ class ProjectService extends BaseService
         DB::beginTransaction();
 
         try {
+            $data['stages'] = $data['stages'] ?? [];
+
             $project = $this->query()->create($data);
 
             DB::commit();
 
             return $project;
         } catch (\Exception $e) {
+            dd($e);
             DB::rollBack();
         }
     }
@@ -66,6 +69,8 @@ class ProjectService extends BaseService
         DB::beginTransaction();
 
         try {
+            $data['stages'] = $data['stages'] ?? [];
+
             $model->update($data);
 
             DB::commit();
