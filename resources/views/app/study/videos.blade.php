@@ -45,7 +45,7 @@
                                     <div class="video-button">
                                         <div class="play-container d-flex align-items-center justify-content-center">
                                             <div class="play-button d-flex align-items-center justify-content-center">
-                                                <img src="/images/video2.svg" alt=""></div>
+                                                <img src="{{ videoPreview($video->url) }}" alt=""></div>
                                         </div>
                                     </div>
                                 </a>

@@ -101,11 +101,13 @@
             <div class="d-lg-flex justify-content-between detail-bottom align-items-start">
                 <div class="detail-left">
                     <div class="detail-video">
-                        <div class="video-title">Огляд на товар
-                            <span>“Касовий апарат Гера MG-V545T.02 + БЖ + GSM”</span></div>
-                        <a href="https://youtu.be/fdk7yCMnre8" class="video-container" data-fancybox>
+                        <div class="video-title">
+                            Огляд на товар
+                            <span>{{ $good->name }}</span>
+                        </div>
+                        <a href="{{ $good->video }}" class="video-container" data-fancybox>
                             <div class="play-button anim"><img src="/images/video2.svg" alt=""></div>
-                            <img src="/images/video.jpg" alt="">
+                            <img src="{{ videoPreview($good->video) }}" alt="">
                         </a>
                     </div>
                     <div class="detail-props">
@@ -121,16 +123,13 @@
                     </div>
                     <div class="detail-downloads">
                         <div class="title-small">Документи та Програмне забезпечення</div>
-                        <a href="#" class="down-item d-flex align-items-center">
+                        @foreach($good->documents as $document)
+                            <a href="{{ $document->previewUrl }}" class="down-item d-flex align-items-center">
                                 <span class="icon d-flex align-items-center justify-content-center"><span
                                         class="ic icon-download"></span></span>
-                            <div class="value">General Questions about HomeShield Pro Service</div>
-                        </a>
-                        <a href="#" class="down-item d-flex align-items-center">
-                                <span class="icon d-flex align-items-center justify-content-center"><span
-                                        class="ic icon-download"></span></span>
-                            <div class="value">General Questions about HomeShield Pro Service</div>
-                        </a>
+                                <div class="value">{{ $document->name }}</div>
+                            </a>
+                        @endforeach
                     </div>
                     <div class="detail-quest d-xl-flex align-items-start justify-content-between">
                         <div class="">

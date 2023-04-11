@@ -22,6 +22,7 @@ class GoodSeeder extends Seeder
                 'description' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
                 'image' => 'p1.png',
                 'images' => ['prod.jpg'],
+                'video' => 'https://youtu.be/5_dcRN8il-w',
             ],
 
             [
@@ -29,6 +30,7 @@ class GoodSeeder extends Seeder
                 'description' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
                 'image' => 'p2.png',
                 'images' => ['prod.jpg'],
+                'video' => 'https://youtu.be/5_dcRN8il-w',
             ],
 
             [
@@ -36,6 +38,7 @@ class GoodSeeder extends Seeder
                 'description' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
                 'image' => 'p3.png',
                 'images' => ['prod.jpg'],
+                'video' => 'https://youtu.be/5_dcRN8il-w',
             ],
 
             [
@@ -43,6 +46,7 @@ class GoodSeeder extends Seeder
                 'description' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
                 'image' => 'p4.png',
                 'images' => ['prod.jpg'],
+                'video' => 'https://youtu.be/5_dcRN8il-w',
             ],
 
             [
@@ -50,6 +54,7 @@ class GoodSeeder extends Seeder
                 'description' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
                 'image' => 'p5.png',
                 'images' => ['prod.jpg'],
+                'video' => 'https://youtu.be/5_dcRN8il-w',
             ],
 
             [
@@ -57,6 +62,7 @@ class GoodSeeder extends Seeder
                 'description' => 'Касовий апарат Гера MG-V545T.02 + БЖ + GSM',
                 'image' => 'p6.png',
                 'images' => ['prod.jpg'],
+                'video' => 'https://youtu.be/5_dcRN8il-w',
             ],
 
         ];
@@ -70,6 +76,7 @@ class GoodSeeder extends Seeder
             $attrs['seo_title'] = $item['name'];
             $attrs['seo_description'] = $item['name'];
             $attrs['seo_keywords'] = $item['name'];
+            $attrs['video'] = $item['video'];
             $good = Good::factory()->create($attrs);
             File::copy(public_path('images/'.$item['image']), resource_path('images/'.$item['image']));
             $good->addMedia(resource_path('images/'.$item['image']))->toMediaCollection('image');

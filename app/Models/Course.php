@@ -69,11 +69,11 @@ class Course extends BaseModel implements HasMedia
         }
 
         if (is_null($file)) {
-            $this->attributes['program_file'] = $file;
-
             if ($this->attributes['program_file']) {
                 Storage::disk('public')->delete('courses/'.$this->id.'/programs/'.$this->attributes['program_file']);
             }
+
+            $this->attributes['program_file'] = null;
         }
     }
 

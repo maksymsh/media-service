@@ -31,6 +31,10 @@ return new class extends Migration
 
             $table->boolean('published')->default(true);
 
+            $table->text('documents')->nullable()->default(null);
+
+            $table->string('video')->nullable();
+
             $table->timestamps();
             $table->softDeletes();
         });

@@ -58,3 +58,13 @@ if (! function_exists('rawPhone')) {
         return preg_replace('/\D/', '', $phone);
     }
 }
+
+if (! function_exists('videoPreview')) {
+    function videoPreview(string $url): string
+    {
+        $parts = explode('/', $url);
+        $code = array_pop($parts);
+
+        return 'https://i3.ytimg.com/vi/'.$code.'/maxresdefault.jpg';
+    }
+}

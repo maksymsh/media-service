@@ -85,10 +85,10 @@
                         $firstVideo = $videos->shift();
                     @endphp
                     <a href="{{ $firstVideo->url }}" class="big-video" data-fancybox>
-                        <div class="video-image"><img src="{{ $firstVideo->getFirstMedia('image')?->originalUrl }}" alt=""></div>
+                        <div class="video-image"><img src="{{ videoPreview($firstVideo->url) }}" alt=""></div>
                         <div class="video-info d-flex flex-column justify-content-between">
                             <div class="play-button anim d-flex align-items-center justify-content-center"><img
-                                    src="/images/video2.svg" alt=""></div>
+                                    src="{{ videoPreview($firstVideo->url) }}" alt=""></div>
                             <div class="info-top d-flex align-items-center">
                                 @foreach($firstVideo->categories as $vCategory)
                                     <div class="category">{{ $vCategory->name }}</div>
@@ -102,11 +102,11 @@
                         @foreach($videos as $video)
                             <div class="item">
                                 <a href="{{ $video->url }}" class="item-image" data-fancybox>
-                                    <img src="{{ $video->getFirstMedia('image')?->originalUrl }}" alt="" class="parallax">
+                                    <img src="{{ videoPreview($video->url) }}" alt="" class="parallax">
                                     <div class="video-button">
                                         <div class="play-container d-flex align-items-center justify-content-center">
                                             <div class="play-button d-flex align-items-center justify-content-center">
-                                                <img src="/images/video2.svg" alt=""></div>
+                                                <img src="{{ videoPreview($video->url) }}" alt=""></div>
                                         </div>
                                     </div>
                                 </a>

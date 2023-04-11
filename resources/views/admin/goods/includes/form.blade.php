@@ -24,7 +24,15 @@
 <x-admin.form.seo />
 
 <div>
+    <h2>Documents</h2>
+
+    <x-splade-file name="documents" :label="__('Documents')" filepond multiple />
+</div>
+
+<div>
     <h2>Media</h2>
+
+    <x-splade-input name="video" :label="__('Video')" />
 
     <x-splade-file name="image" :label="__('Image')" filepond preview server />
 

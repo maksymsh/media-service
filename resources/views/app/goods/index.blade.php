@@ -74,12 +74,12 @@
                             @foreach($attributes as $attribute)
                                 <div class="filter-container">
                                     <div class="filter-name d-flex align-items-center justify-content-between "
-                                         data-toggle="collapse" data-target="#filter-2" aria-expanded="false"
+                                         data-toggle="collapse" data-target="#filter-{{ $attribute->id }}" aria-expanded="false"
                                          aria-controls="collapseExample">
                                         <span class="value">{{ $attribute->name }}</span>
                                         <span class="ic icon-caret-right"></span>
                                     </div>
-                                    <div class="filter-container-inner collapse show" id="filter-2">
+                                    <div class="filter-container-inner collapse show" id="filter-{{ $attribute->id }}">
                                         <div class="inner-cont">
                                             <div class="checkboxes">
                                                 @foreach($attributeValues[$attribute->id] as $i => $value)

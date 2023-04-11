@@ -60,6 +60,7 @@
                     </div>
 
                     <div class="items d-md-flex flex-wrap align-items-start justify-content-between">
+
                         <x-splade-toggle>
                             @foreach($category->products as $i => $product)
                                 <div class="item" @if($i > 1) v-show="toggled" @endif>

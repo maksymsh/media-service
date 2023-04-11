@@ -72,6 +72,8 @@ class GoodService extends BaseService
         DB::beginTransaction();
 
         try {
+            $data['documents'] = $data['documents'] ?? [];
+
             $model->update($data);
 
             $model->categories()->sync($data['categories'] ?? []);

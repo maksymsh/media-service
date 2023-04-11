@@ -37,6 +37,8 @@ class StoreGoodRequest extends BaseFormRequest
             'seo_keywords' => ['nullable'],
             'attributes' => ['nullable', 'array'],
             'categories' => ['nullable', 'array'],
+            'documents' => ['nullable', 'array'],
+            'video' => ['nullable'],
         ];
     }
 }
