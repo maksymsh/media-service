@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Page\StorePageRequest;
 use App\Http\Requests\Admin\Page\UpdatePageRequest;
 use App\Models\Page;
+use App\Services\LanguageLineService;
 use App\Services\PageService;
 use App\Services\UploadMediaService;
 use App\Tables\PagesTable;
@@ -18,7 +19,8 @@ class PageController extends Controller
 {
     public function __construct(
         protected PageService $pageService,
-        protected UploadMediaService $uploadMediaService
+        protected UploadMediaService $uploadMediaService,
+        protected LanguageLineService $languageLineService
     ) {
     }
 
@@ -61,6 +63,8 @@ class PageController extends Controller
         $page = $this->pageService->create($request->validated());
 
         $this->uploadMediaService->sync($request, $page);
+
+        $this->languageLineService->sync($request, $page, $page->code);
 
         Toast::success("Page #$page->id created successfully.");
 
@@ -107,6 +111,8 @@ class PageController extends Controller
         $this->pageService->update($page, $request->validated());
 
         $this->uploadMediaService->sync($request, $page);
+
+        $this->languageLineService->sync($request, $page, $page->code);
 
         Toast::success("Page #$page->id updated successfully.");
 
