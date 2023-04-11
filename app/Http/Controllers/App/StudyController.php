@@ -52,8 +52,11 @@ class StudyController extends Controller
 
     public function course(Request $request, Course $course)
     {
+        $courses = Course::query()->get();
+
         return view('app.study.course', [
             'course' => $course,
+            'courses' => $courses,
         ]);
     }
 

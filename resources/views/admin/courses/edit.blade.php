@@ -18,7 +18,7 @@
         </x-slot:header>
 
         <div>
-            <x-splade-form :default="$course" method="PUT" :action="route('admin.courses.update', $course)">
+            <x-splade-form :default="$course->toArray()" method="PUT" :action="route('admin.courses.update', $course)">
                 @include('admin.courses.includes.form')
 
                 <x-splade-submit/>

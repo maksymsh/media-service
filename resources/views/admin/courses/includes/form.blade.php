@@ -18,6 +18,10 @@
 
 <x-splade-textarea name="description_short" :label="__('Short Description')" wysiwyg />
 
+<x-splade-textarea name="detail" :label="__('Details')" wysiwyg/>
+
+<x-splade-textarea name="certificate_text" :label="__('Certificate')" wysiwyg/>
+
 <x-splade-textarea name="content" :label="__('Content')" wysiwyg/>
 
 <div>
@@ -25,8 +29,12 @@
 
     <x-splade-file name="image" :label="__('Image')" filepond preview server/>
 
+    <x-splade-file name="certificate" :label="__('Certificate')" filepond preview server/>
+
     <x-splade-file name="images" :label="__('Images')" filepond multiple preview server/>
 </div>
+
+@include('admin.courses.includes.program')
 
 @if(!$course->exists)
 

@@ -5,12 +5,12 @@
             <div class="modal-form">
                 <div class="d-md-flex align-items-center justify-content-between">
                     <div class="form-title-container">
-                        <div class="form-title">Зв’яжітьс’я з нами</div>
+                        <div class="form-title">Зв’яжіться з нами</div>
                         <div class="title-anons">Заповніть форму нище і ми вам зателефонуємо!</div>
                     </div>
                     <div class="form-contacts">
-                        <a href="tel:0322420727" class="item">(032) 242-07-27</a>
-                        <a href="mailto:sales@medias.com.ua" class="item">sales@medias.com.ua</a>
+                        <a href="tel:{{ rawPhone(settings('sales_phone')) }}" class="item">{{ settings('sales_phone') }}</a>
+                        <a href="mailto:{{ settings('support_email') }}" class="item">{{ settings('sales_email') }}</a>
                     </div>
                 </div>
                 <x-splade-form

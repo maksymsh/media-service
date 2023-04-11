@@ -32,11 +32,15 @@ class StoreCourseRequest extends BaseFormRequest
             'slug' => ['nullable'],
             'description' => ['nullable'],
             'description_short' => ['nullable'],
+            'detail' => ['nullable'],
+            'certificate_text' => ['nullable'],
             'content' => ['nullable'],
             'seo_h1' => ['nullable'],
             'seo_title' => ['nullable'],
             'seo_description' => ['nullable'],
             'seo_keywords' => ['nullable'],
+            'program' => ['nullable', 'array'],
+            'program_file' => ['nullable', 'file'],
         ];
     }
 }

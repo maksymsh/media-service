@@ -60,29 +60,42 @@
                     </div>
 
                     <div class="items d-md-flex flex-wrap align-items-start justify-content-between">
-                        @foreach($category->products as $product)
-                            <div class="item">
-                                <div class="item-icon">
-                                    {!! $product->icon !!}
+                        <x-splade-toggle>
+                            @foreach($category->products as $i => $product)
+                                <div class="item" @if($i > 1) v-show="toggled" @endif>
+                                    <div class="item-icon">
+                                        {!! $product->icon !!}
+                                    </div>
+                                    <div class="item-name">{{ $product->name }}</div>
+                                    <div class="item-links d-inline-flex flex-wrap align-items-start">
+                                        @foreach($product->options as $option)
+                                            <x-splade-link :href="$product->url . '?option_id=' . $option->id" class="link-default d-inline-flex align-items-center">
+                                                <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
+                                                <span class="value">{{ $option->name }}</span>
+                                                <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
+                                            </x-splade-link>
+                                        @endforeach
+                                    </div>
+                                    {!! $product->description_short !!}
+                                    <x-splade-link :href="$product->url" class="link-default d-inline-flex align-items-center">
+                                        <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
+                                        <span class="value">детальніше</span>
+                                        <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
+                                    </x-splade-link>
                                 </div>
-                                <div class="item-name">{{ $product->name }}</div>
-                                <div class="item-links d-inline-flex flex-wrap align-items-start">
-                                    @foreach($product->options as $option)
-                                        <x-splade-link :href="$product->url . '?option_id=' . $option->id" class="link-default d-inline-flex align-items-center">
-                                            <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                            <span class="value">{{ $option->name }}</span>
-                                            <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                        </x-splade-link>
-                                    @endforeach
-                                </div>
-                                {!! $product->description_short !!}
-                                <x-splade-link :href="$product->url" class="link-default d-inline-flex align-items-center">
-                                    <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                    <span class="value">детальніше</span>
-                                    <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                </x-splade-link>
-                            </div>
-                        @endforeach
+                            @endforeach
+
+                            <button v-if="!toggled" @click.prevent="toggle" class="button-more d-flex align-items-center justify-content-center mb-5">
+                                <span class="value">показати більше</span>
+                                <span class="ic icon-more"></span>
+                            </button>
+
+                            <button v-if="toggled" @click.prevent="setToggle(false)" class="button-more d-flex align-items-center justify-content-center mb-5">
+                                <span class="value">приховати</span>
+                                <span class="ic icon-more"></span>
+                            </button>
+                        </x-splade-toggle>
+
                     </div>
 
                 @endforeach

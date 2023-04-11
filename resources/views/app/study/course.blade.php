@@ -56,43 +56,39 @@
             </div>
             <div class="kurs-description d-lg-flex align-items-start justify-content-between">
                 <div class="title">Деталі курсу</div>
-                <div class="description">Серед слухачів курсу багато користувачів старої версії програми, студентів
-                    та випускників навчальних закладів економіко-бухгалтерського спрямування, яким знання нової
-                    версії "BAS Бухгалтерія" необхідне для роботи.
-                    Кваліфіковані викладачі, атестовані Спілкою Автоматизаторів Бізнесу, допоможуть освоїти
-                    функціонал програми, зрозуміти основні принципи її використання та закріпити навички роботи з
-                    нею.
-                    Усі слухачі курсу безкоштовно забезпечуються підручниками.
-                </div>
+                <div class="description">{!! $course->detail !!}</div>
             </div>
             <div class="kurs-programm d-lg-flex align-items-start justify-content-between">
                 <div class="program-info">
                     <div class="title">Программа курсу</div>
-                    <a href="#" class="program-file d-flex align-items-center">
-                        <div class="icon d-flex align-items-center justify-content-center">
-                            <span class="ic icon-download"></span>
-                        </div>
-                        <div class="value">Завантажити программу курсу</div>
-                    </a>
+                    @if($course->program_file)
+                        <a href="{{ $course->program_file?->previewUrl }}"
+                           class="program-file d-flex align-items-center">
+                            <div class="icon d-flex align-items-center justify-content-center">
+                                <span class="ic icon-download"></span>
+                            </div>
+                            <div class="value">Завантажити программу курсу</div>
+                        </a>
+                    @endif
                     <div class="program-image">
-                        <img src="/images/kurs2.jpg" alt="" class="parallax">
+                        <img src="{{ $course->getFirstMedia('image')?->originalUrl }}" alt="" class="parallax">
                     </div>
                 </div>
                 <div class="program-items">
-                    {!! $course->content !!}
+                    <ul class="ul-custom-2">
+                        @foreach($course->program as $program)
+                            <li>{!! $program['title'] !!}</li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
             <div class="kurs-cert d-lg-flex align-items-center justify-content-between">
                 <div class="lines"><img src="/images/lines-5.svg" alt=""></div>
-                <a href="images/cert2.jpg" class="cert-image" data-fancybox>
-                    <img src="/images/cert.jpg" alt="">
+                <a href="{{ $course->certificate?->previewUrl }}" class="cert-image" data-fancybox>
+                    <img src="{{ $course->certificate?->previewUrl }}" alt="">
                 </a>
                 <div class="cert-info">
-                    <div class="title">А як щодо сертификату?</div>
-                    <p>Звичайно ж, всі студенти навчального центру після успішного завершення курсів отримують
-                        сертифікат, який підтверджує проходження однієї з програм.</p>
-                    <p class="p-last">Сертифікат, безсумнівно, буде додатковою перевагою при вашому подальшому
-                        працевлаштуванні.</p>
+                    {!! $course->certificate_text !!}
                 </div>
             </div>
             <div class="kurs-feedback d-lg-flex align-items-start justify-content-between">
@@ -102,14 +98,13 @@
                         <div class="icon"><img src="/images/phone.svg" alt=""></div>
                         <div class="">
                             <div class="data">Консультації та запис</div>
-                            <a href="tel:0322420727" class="value">(032) 242-07-27</a>
+                            <a href="tel:{{ rawPhone(settings('support_phone')) }}" class="value">{{ settings('support_phone') }}</a>
                         </div>
                     </div>
                     <div class="adres d-flex">
                         <div class="icon"><img src="/images/pin.svg" alt=""></div>
                         <div class="value">
-                            <div>Навчальний центр знаходиться за адресою: м.Львів, вул. Наукова, 7а (3-й поверх)
-                            </div>
+                            <div>{!! __('pages.study.contacts_address') !!} {!! settings('address') !!}</div>
                             <a href="#" class="link-default item-link d-inline-flex align-items-center">
                                 <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
                                 <span class="value">показати на карті</span>
@@ -117,49 +112,51 @@
                             </a>
                         </div>
                     </div>
-                    <div class="buy-info">12 занять по 2 год. / 3 600 грн</div>
+                    <div class="buy-info">{{ $course->description_short }}</div>
                 </div>
                 <div class="feed-form">
                     <div class="modal-form">
-                        <form action="" class="form">
+                        <x-splade-form
+                            :default="['type' => 'course','id' => $course->id, 'name' => '', 'email' => '', 'phone' => '', 'comment' => '', 'check' => false]"
+                            :action="route('feedback')" class="form">
                             <div class="form-container">
                                 <div class="input-container">
                                     <label class="label">Ваше ім’я</label>
-                                    <input type="text" class="input" name="imya" autocomplete="off">
+                                    <input type="text" class="input" v-model="form.name" autocomplete="off">
                                 </div>
                                 <div class="input-container">
                                     <label class="label">Ваш email*</label>
-                                    <input type="text" class="input email important" name="email"
+                                    <input type="text" class="input email important" v-model="form.email"
                                            autocomplete="off">
                                 </div>
                                 <div class="input-container">
                                     <label class="label">Номер телефону</label>
-                                    <input type="text" class="input phone" name="phone" autocomplete="off">
+                                    <input type="text" class="input phone" v-model="form.phone" autocomplete="off">
                                 </div>
                                 <div class="input-container">
                                     <label class="label">Повідомлення</label>
-                                    <textarea name="message" class="textarea"></textarea>
+                                    <textarea v-model="form.comment" class="textarea"></textarea>
                                 </div>
                             </div>
                             <div class="form-bottom d-md-flex">
                                 <div class="bottom-left">
                                     <div class="checkbox">
-                                        <input type="checkbox" name="politica" id="politica"
+                                        <input v-model="form.check" type="checkbox" id="politica"
                                                class="check important">
                                         <label for="politica">Даю згоду на обробку персональних данних, згідно з <a
                                                 href="#">політикою конфіденційності</a></label>
                                     </div>
                                 </div>
                                 <div class="bottom-right">
-                                    <button
+                                    <x-splade-submit
                                         class="button-default bgl submit d-flex align-items-center justify-content-center"
                                         type="submit">
                                         <span class="value">надіслати</span>
                                         <span class="ic icon-arrow-right"></span>
-                                    </button>
+                                    </x-splade-submit>
                                 </div>
                             </div>
-                        </form>
+                        </x-splade-form>
                     </div>
                 </div>
             </div>
@@ -181,108 +178,26 @@
                             </div>
                         </div>
                         <div class="projects-slider projects-list">
-                            <div class="slide">
-                                <div class="item d-flex flex-column justify-content-end align-items-start">
-                                    <div class="item-bottom">
-                                        <div class="name">Тестування “Професіонал”</div>
-                                        <div class="anons">12 занять по 2 год. / 3 600 грн</div>
-                                        <a href="#"
-                                           class="link-default item-link white d-inline-flex align-items-center">
-                                            <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                            <span class="value">детальніше</span>
-                                            <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                        </a>
-                                    </div>
-                                    <div class="item-image">
-                                        <img src="/images/kurs.jpg" class="parallax" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="slide">
-                                <div class="item d-flex flex-column justify-content-end align-items-start">
-                                    <div class="item-bottom">
-                                        <div class="name">Автоматизація та встановлення BAS КУП “Вухо.Ком”</div>
-                                        <div class="anons">Автоматизація мережі магазинів</div>
-                                        <a href="#"
-                                           class="link-default item-link white d-inline-flex align-items-center">
-                                            <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                            <span class="value">детальніше</span>
-                                            <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                        </a>
-                                    </div>
-                                    <div class="item-image">
-                                        <img src="/images/kurs.jpg" class="parallax" alt="">
+
+                            @foreach($courses as $c)
+                                <div class="slide">
+                                    <div class="item d-flex flex-column justify-content-end align-items-start">
+                                        <div class="item-bottom">
+                                            <div class="name">{{ $c->name }}</div>
+                                            <div class="anons">{!! $c->description_short !!}</div>
+                                            <x-splade-link href="{{ $c->url }}"
+                                               class="link-default item-link white d-inline-flex align-items-center">
+                                                <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
+                                                <span class="value">детальніше</span>
+                                                <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
+                                            </x-splade-link>
+                                        </div>
+                                        <div class="item-image">
+                                            <img src="{{ $c->getFirstMedia('image')?->originalUrl }}" class="parallax" alt="">
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="slide">
-                                <div class="item d-flex flex-column justify-content-end align-items-start">
-                                    <div class="item-bottom">
-                                        <div class="name">Мережа роздрібної торгівлі “Свій Маркет”.</div>
-                                        <div class="anons">Автоматизація мережі магазинів</div>
-                                        <a href="#"
-                                           class="link-default item-link white d-inline-flex align-items-center">
-                                            <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                            <span class="value">детальніше</span>
-                                            <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                        </a>
-                                    </div>
-                                    <div class="item-image">
-                                        <img src="/images/kurs.jpg" class="parallax" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="slide">
-                                <div class="item d-flex flex-column justify-content-end align-items-start">
-                                    <div class="item-bottom">
-                                        <div class="name">Тестування “Професіонал”</div>
-                                        <div class="anons">12 занять по 2 год. / 3 600 грн</div>
-                                        <a href="#"
-                                           class="link-default item-link white d-inline-flex align-items-center">
-                                            <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                            <span class="value">детальніше</span>
-                                            <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                        </a>
-                                    </div>
-                                    <div class="item-image">
-                                        <img src="/images/kurs.jpg" class="parallax" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="slide">
-                                <div class="item d-flex flex-column justify-content-end align-items-start">
-                                    <div class="item-bottom">
-                                        <div class="name">Автоматизація та встановлення BAS КУП “Вухо.Ком”</div>
-                                        <div class="anons">Автоматизація мережі магазинів</div>
-                                        <a href="#"
-                                           class="link-default item-link white d-inline-flex align-items-center">
-                                            <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                            <span class="value">детальніше</span>
-                                            <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                        </a>
-                                    </div>
-                                    <div class="item-image">
-                                        <img src="/images/kurs.jpg" class="parallax" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="slide">
-                                <div class="item d-flex flex-column justify-content-end align-items-start">
-                                    <div class="item-bottom">
-                                        <div class="name">Мережа роздрібної торгівлі “Свій Маркет”.</div>
-                                        <div class="anons">Автоматизація мережі магазинів</div>
-                                        <a href="#"
-                                           class="link-default item-link white d-inline-flex align-items-center">
-                                            <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
-                                            <span class="value">детальніше</span>
-                                            <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
-                                        </a>
-                                    </div>
-                                    <div class="item-image">
-                                        <img src="/images/kurs.jpg" class="parallax" alt="">
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>

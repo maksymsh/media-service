@@ -24,12 +24,18 @@ return new class extends Migration
             $table->string('slug')->nullable();
             $table->text('description')->nullable()->default(null);
             $table->text('description_short')->nullable()->default(null);
+            $table->text('detail')->nullable()->default(null);
             $table->text('content')->nullable()->default(null);
 
             $table->string('seo_h1')->nullable();
             $table->string('seo_title')->nullable();
             $table->string('seo_description')->nullable();
             $table->string('seo_keywords')->nullable();
+
+            $table->json('program')->nullable();
+            $table->string('program_file')->nullable();
+
+            $table->text('certificate_text')->nullable()->default(null);
 
             $table->boolean('published')->default(1);
             $table->timestamps();

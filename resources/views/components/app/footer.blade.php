@@ -20,15 +20,15 @@
                     <a href="/" class="logo"><img src="/images/logo-footer.svg" alt=""></a>
                     <div class="info-item">
                         <div class="data">Відділ продажу</div>
-                        <a href="tel:0322420727" class="value">(032) 242-07-27</a>
+                        <a href="tel:{{ rawPhone(settings('sales_phone')) }}" class="value">{{ settings('sales_phone') }}</a>
                     </div>
                     <div class="info-item">
                         <div class="data">Лінія підтримки</div>
-                        <a href="tel:0322420727" class="value">(032) 242-07-27</a>
+                        <a href="tel:{{ rawPhone(settings('support_phone')) }}" class="value">{{ settings('support_phone') }}</a>
                     </div>
                     <div class="info-item">
                         <div class="data">Email</div>
-                        <a href="mailto:sales@medias.com.ua" class="value email">sales@medias.com.ua</a>
+                        <a href="mailto:{{ settings('support_email') }}" class="value email">{{ settings('sales_email') }}</a>
                     </div>
                     <div class="footer-seti d-flex align-items-center">
                         <a href="#" class="item d-flex align-items-center justify-content-center"><span
