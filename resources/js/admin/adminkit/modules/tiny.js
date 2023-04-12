@@ -36,51 +36,50 @@ const initTiny = (
         uploadUrl: '/admin/editor/upload',
     }
 ) => {
-    if (window.tinymce) {
-        for (let editor of window.tinymce.editors) {
-            window.tinymce.remove(editor)
+    setTimeout(() => {
+        if (window.tinymce) {
+            for (let editor of window.tinymce.editors) {
+                window.tinymce.remove(editor)
+            }
         }
-    }
 
-    const editors = document.getElementsByClassName('wysiwyg')
-    const locale = document.documentElement.lang
+        const editors = document.getElementsByClassName('wysiwyg')
+        const locale = document.documentElement.lang
 
-    console.log('editors:')
-    console.log(editors)
-
-    for (let editor of editors) {
-        tinymce.init({
-            selector: '#' + editor.id,
-            extended_valid_elements: 'lord-icon[*],span[*]',
-            language: locale,
-            plugins: [
-                'advlist autolink link image lists charmap print preview hr anchor pagebreak',
-                'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
-                'table emoticons template paste help',
-            ],
-            toolbar:
-                'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
-                'bullist numlist outdent indent | link image | preview media fullpage | ' +
-                'forecolor backcolor emoticons | help | customInsertButton customDateButton',
-            menubar: 'favs file edit view insert format tools table help',
-            images_upload_handler: async (blobInfo, success, failure) => {
-                await uploadHandler(
-                    options.uploadUrl,
-                    blobInfo,
-                    success,
-                    failure
-                )
-            },
-            setup: (editor) => {
-                editor.on('Input', function (evt) {
-                    this.targetElm._assign(editor.getContent())
-                })
-                editor.on('Change', function (evt) {
-                    this.targetElm._assign(editor.getContent())
-                })
-            },
-        })
-    }
+        for (let editor of editors) {
+            tinymce.init({
+                selector: '#' + editor.id,
+                extended_valid_elements: 'lord-icon[*],span[*]',
+                language: locale,
+                plugins: [
+                    'advlist autolink link image lists charmap print preview hr anchor pagebreak',
+                    'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+                    'table emoticons template paste help',
+                ],
+                toolbar:
+                    'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
+                    'bullist numlist outdent indent | link image | preview media fullpage | ' +
+                    'forecolor backcolor emoticons | help | customInsertButton customDateButton',
+                menubar: 'favs file edit view insert format tools table help',
+                images_upload_handler: async (blobInfo, success, failure) => {
+                    await uploadHandler(
+                        options.uploadUrl,
+                        blobInfo,
+                        success,
+                        failure
+                    )
+                },
+                setup: (editor) => {
+                    editor.on('Input', function (evt) {
+                        this.targetElm._assign(editor.getContent())
+                    })
+                    editor.on('Change', function (evt) {
+                        this.targetElm._assign(editor.getContent())
+                    })
+                },
+            })
+        }
+    }, 500)
 }
 
 window.initTiny = initTiny
