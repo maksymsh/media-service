@@ -917,7 +917,7 @@ button { color:#716966; border:0; background:none; padding:0; transition:350ms c
 .catalog-page .catalog-items .items .item .item-name {margin:0 0 20px 0;font-weight: 600;  font-size: 32px;  line-height: 120%;  color: #29416F;}
 .catalog-page .catalog-items .items .item .item-links .link-default {font-size:14px;margin:0 24px 20px 0;}
 .catalog-page .catalog-items .items .item .item-anons {margin:0 0 30px 0;font-size: 16px;  line-height: 160%;}
-
+.catalog-page .catalog-items + .catalog-items {margin-top: 100px;}
 .catalog-page .catalog-others {padding:188px 0px 188px 0px;}
 .catalog-page .catalog-others .item {position:relative;margin:0 -0 64px -0px;padding:0 125px 64px 50px;border-bottom: 1px solid #E0E1E5;}
 .catalog-page .catalog-others .item:last-child {margin-bottom:0;}

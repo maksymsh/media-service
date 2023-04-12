@@ -36,12 +36,14 @@
                 <div class="title">{!! __('pages.products.heading') !!}</div>
                 <div class="lines"><img src="/images/lines-4.svg" alt=""></div>
             </div>
-            <div class="catalog-items">
-                @foreach($categories as $cIndex => $category)
+            @foreach($categories as $cIndex => $category)
+                <div class="catalog-items">
                     <div class="item-big d-lg-flex align-items-start justify-content-between">
                         <div class="big-images">
-                            <div class="icon"><img src="{{ $category->getFirstMedia('image')?->originalUrl }}" alt=""></div>
-                            <div class="bg"><img src="{{ $category->getFirstMedia('background')?->originalUrl }}" alt=""></div>
+                            <div class="icon"><img src="{{ $category->getFirstMedia('image')?->originalUrl }}" alt="">
+                            </div>
+                            <div class="bg"><img src="{{ $category->getFirstMedia('background')?->originalUrl }}"
+                                                 alt=""></div>
                         </div>
                         <div class="big-info">
                             <div class="number">{{ $cIndex < 10 ? '0' : '' }}{{ $cIndex + 1 }}</div>
@@ -70,7 +72,8 @@
                                     <div class="item-name">{{ $product->name }}</div>
                                     <div class="item-links d-inline-flex flex-wrap align-items-start">
                                         @foreach($product->options as $option)
-                                            <x-splade-link :href="$product->url . '?option_id=' . $option->id" class="link-default d-inline-flex align-items-center">
+                                            <x-splade-link :href="$product->url . '?option_id=' . $option->id"
+                                                           class="link-default d-inline-flex align-items-center">
                                                 <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
                                                 <span class="value">{{ $option->name }}</span>
                                                 <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
@@ -78,7 +81,8 @@
                                         @endforeach
                                     </div>
                                     {!! $product->description_short !!}
-                                    <x-splade-link :href="$product->url" class="link-default d-inline-flex align-items-center">
+                                    <x-splade-link :href="$product->url"
+                                                   class="link-default d-inline-flex align-items-center">
                                         <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
                                         <span class="value">детальніше</span>
                                         <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
@@ -86,12 +90,14 @@
                                 </div>
                             @endforeach
 
-                            <button v-if="!toggled" @click.prevent="toggle" class="button-more d-flex align-items-center justify-content-center mb-5">
+                            <button v-if="!toggled" @click.prevent="toggle"
+                                    class="button-more d-flex align-items-center justify-content-center mb-5">
                                 <span class="value">показати більше</span>
                                 <span class="ic icon-more"></span>
                             </button>
 
-                            <button v-if="toggled" @click.prevent="setToggle(false)" class="button-more d-flex align-items-center justify-content-center mb-5">
+                            <button v-if="toggled" @click.prevent="setToggle(false)"
+                                    class="button-more d-flex align-items-center justify-content-center mb-5">
                                 <span class="value">приховати</span>
                                 <span class="ic icon-more"></span>
                             </button>
@@ -99,21 +105,23 @@
 
                     </div>
 
-                @endforeach
+                </div>
+            @endforeach
 
-            </div>
 
             <div class="catalog-others">
                 @foreach($products as $pIndex => $product)
                     <div class="item d-md-flex align-items-start justify-content-between">
                         <div class="item-images">
-                            <div class="i-bg"><img src="{{ $product->getFirstMedia('background')?->originalUrl }}" alt=""></div>
+                            <div class="i-bg"><img src="{{ $product->getFirstMedia('background')?->originalUrl }}"
+                                                   alt=""></div>
                             <div class="i-icon d-flex align-items-center justify-content-center">
                                 <img src="{{ $product->getFirstMedia('image')?->originalUrl }}" alt="">
                             </div>
                         </div>
                         <div class="item-info">
-                            <div class="number">{{ ($cIndex + $pIndex) < 10 ? '0' : '' }}{{ $cIndex + $pIndex + 2 }}</div>
+                            <div
+                                class="number">{{ ($cIndex + $pIndex) < 10 ? '0' : '' }}{{ $cIndex + $pIndex + 2 }}</div>
                             <div class="name">{{ $product->name }}</div>
                             {!! $product->description_short !!}
 
@@ -136,7 +144,8 @@
                                 <div class="anons">{!! __('pages.products.projects_text') !!}</div>
                             </div>
                             <div class="d-md-flex align-items-center">
-                                <x-splade-link :href="$appPages['projects']" class="link-default-back d-inline-flex align-items-center all">
+                                <x-splade-link :href="$appPages['projects']"
+                                               class="link-default-back d-inline-flex align-items-center all">
 												<span class="icon d-flex align-items-center justify-content-center">
 													<span class="ic icon-arrow-right"></span>
 												</span>
@@ -150,7 +159,9 @@
                                 <div class="slide">
                                     <div class="item d-flex flex-column justify-content-between align-items-start">
                                         <div class="item-top d-flex align-items-start justify-content-between">
-                                            <div class="item-logo"><img src="{{ $project->getFirstMedia('logo')?->originalUrl }}" alt=""></div>
+                                            <div class="item-logo"><img
+                                                    src="{{ $project->getFirstMedia('logo')?->originalUrl }}" alt="">
+                                            </div>
                                             @foreach($project->categories as $pCategory)
                                                 <div class="item-category">{{ $pCategory->name }}</div>
                                             @endforeach
@@ -159,7 +170,7 @@
                                             <div class="name">{{ $project->title }}</div>
                                             <div class="anons">{{ $project->description_short }}</div>
                                             <x-splade-link :href="$project->url"
-                                               class="link-default item-link white d-inline-flex align-items-center">
+                                                           class="link-default item-link white d-inline-flex align-items-center">
                                                 <span class="ic2"><img src="/images/arrow-left.svg" alt=""></span>
                                                 <span class="value">детальніше</span>
                                                 <span class="ic"><img src="/images/arrow-right2.svg" alt=""></span>
