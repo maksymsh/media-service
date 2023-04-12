@@ -13,7 +13,7 @@
                     <input class="form-control" type="text" :name="'options['+i+'][price]'" v-model="form.options[i].price">
                 </div>
                 <div class="col-2">
-                    <button class="btn btn-danger" @click.prevent="form.options.splice(i)">Remove</button>
+                    <button class="btn btn-danger" @click.prevent="form.options.splice(i, 1)">Remove</button>
 
                 </div>
 

@@ -12,7 +12,7 @@
                     <textarea class="form-control" :name="'stages['+i+'][text]'" v-model="form.stages[i].text" />
                 </div>
                 <div class="col-2">
-                    <button class="btn btn-danger" @click.prevent="form.stages.splice(i)">Remove</button>
+                    <button class="btn btn-danger" @click.prevent="form.stages.splice(i, 1)">Remove</button>
                 </div>
 
             </div>

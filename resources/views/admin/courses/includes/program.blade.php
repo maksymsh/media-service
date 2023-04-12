@@ -11,7 +11,7 @@
                     <input class="form-control" type="text" :name="'program['+i+'][title]'" v-model="form.program[i].title">
                 </div>
                 <div class="col-2">
-                    <button class="btn btn-danger" @click.prevent="form.program.splice(i)">Remove</button>
+                    <button class="btn btn-danger" @click.prevent="form.program.splice(i, 1)">Remove</button>
                 </div>
 
             </div>

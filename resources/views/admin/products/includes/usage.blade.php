@@ -12,7 +12,7 @@
                     <input class="form-control" type="text" :name="'usage['+i+'][text]'" v-model="form.usage[i].text">
                 </div>
                 <div class="col-2">
-                    <button class="btn btn-danger" @click.prevent="form.usage.splice(i)">Remove</button>
+                    <button class="btn btn-danger" @click.prevent="form.usage.splice(i, 1)">Remove</button>
                 </div>
 
             </div>

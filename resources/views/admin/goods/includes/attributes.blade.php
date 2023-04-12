@@ -14,7 +14,7 @@
                         <input class="form-control" type="text" :name="'attributes['+i+'][attribute_id]'" v-model="form.attributes[i].value">
                     </div>
                     <div class="col-2">
-                        <button class="btn btn-danger" @click.prevent="form.attributes.splice(i)">Remove</button>
+                        <button class="btn btn-danger" @click.prevent="form.attributes.splice(i, 1)">Remove</button>
 
                     </div>
 
