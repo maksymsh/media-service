@@ -94,9 +94,11 @@
                             <div class="nav-container">
                                 <div class="nav-title">Продукти</div>
                                 <ul class="nav flex-column">
-                                    <li>
-                                        <x-splade-link :href="$appPages['products']" class="nav-item">BAS</x-splade-link>
-                                    </li>
+                                    @foreach($productCategories as $category)
+                                        <li>
+                                            <x-splade-link :href="$appPages['products']" class="nav-item">{{ $category->name }}</x-splade-link>
+                                        </li>
+                                    @endforeach
                                     @foreach($products as $product)
                                         <li>
                                             <x-splade-link :href="$product->url" class="nav-item">{{ $product->name }}</x-splade-link>
