@@ -179,22 +179,22 @@
                         </li>
                         <li class="d-flex align-items-center">
                             <div class="d-flex align-items-center justify-content-between">
-                                <x-app.link :href="route('projects.index')" class="nav-item">Проєкти</x-app.link>
+                                <x-app.link :href="$appPages['projects']" class="nav-item">Проєкти</x-app.link>
                             </div>
                         </li>
                         <li class="d-flex align-items-center">
                             <div class="d-flex align-items-center justify-content-between">
-                                <x-app.link :href="route('study.index')" class="nav-item">Навчання</x-app.link>
+                                <x-app.link :href="$appPages['study']" class="nav-item">Навчання</x-app.link>
                             </div>
                         </li>
                         <li class="d-flex align-items-center">
                             <div class="d-flex align-items-center justify-content-between">
-                                <x-app.link :href="route('news.index')" class="nav-item">Новини</x-app.link>
+                                <x-app.link :href="$appPages['news']" class="nav-item">Новини</x-app.link>
                             </div>
                         </li>
                         <li class="d-flex align-items-center">
                             <div class="d-flex align-items-center justify-content-between">
-                                <x-app.link :href="route('contacts.index')" class="nav-item">Контакти</x-app.link>
+                                <x-app.link :href="$appPages['contacts']" class="nav-item">Контакти</x-app.link>
                             </div>
                         </li>
                     </ul>
