@@ -39,7 +39,7 @@
             <h2>Text</h2>
 
             @foreach($page->language_lines as $key => $value)
-                <x-splade-textarea name="language_lines[{{ $key }}]" :label="__($key)"/>
+                <x-splade-textarea id="language_lines-{{ $key }}" name="language_lines[{{ $key }}]" :label="__($key)" wysiwyg/>
             @endforeach
 
         </div>

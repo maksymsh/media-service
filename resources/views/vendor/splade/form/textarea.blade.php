@@ -1,6 +1,7 @@
 @props([
     'inline' => true,
     'wysiwyg' => false,
+    'id' => null,
 ])
 
 <SpladeTextarea
@@ -15,7 +16,7 @@
 
     <div class="{{ $inline ? 'col-sm-10' : 'col-sm-12' }}">
 
-        <textarea id="{{ $name }}" {{ $attributes->except(['v-if', 'v-show', 'class', 'autosize'])->merge([
+        <textarea id="{{ $id ?: $name }}" {{ $attributes->except(['v-if', 'v-show', 'class', 'autosize'])->merge([
                 'rows' => $wysiwyg ? 20 : 10,
             ])->class([
                 'form-control' => true,
