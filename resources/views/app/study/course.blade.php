@@ -60,7 +60,7 @@
             </div>
             <div class="kurs-programm d-lg-flex align-items-start justify-content-between">
                 <div class="program-info">
-                    <div class="title">Программа курсу</div>
+                    <div class="title">Програма курсу</div>
                     @if($course->program_file)
                         <a href="{{ $course->program_file?->previewUrl }}"
                            class="program-file d-flex align-items-center">
