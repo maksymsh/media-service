@@ -88,7 +88,7 @@
                         <div class="form-top d-lg-flex align-items-start">
                             <div class="form-title">
                                 <div class="title">Шукаєте рішення <br/>для свого бізнесу?</div>
-                                <div class="anons">Заповніть форму нище і ми вам зателефонуємо!</div>
+                                <div class="anons">Заповніть форму нижче і ми вам зателефонуємо!</div>
                             </div>
                             <div class="form-contacts">
                                 <div class="title">Контакти</div>

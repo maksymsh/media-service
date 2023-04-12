@@ -6,7 +6,7 @@
                 <div class="d-md-flex align-items-center justify-content-between">
                     <div class="form-title-container">
                         <div class="form-title">Зв’яжіться з нами</div>
-                        <div class="title-anons">Заповніть форму нище і ми вам зателефонуємо!</div>
+                        <div class="title-anons">Заповніть форму нижче і ми вам зателефонуємо!</div>
                     </div>
                     <div class="form-contacts">
                         <a href="tel:{{ rawPhone(settings('sales_phone')) }}" class="item">{{ settings('sales_phone') }}</a>
