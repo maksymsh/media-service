@@ -59,7 +59,7 @@
                                 <div class="number">{{ $i < 10 ? '0' : '' }}{{ $i + 1 }}</div>
                                 <div class="name">{{ $stage['title'] }}</div>
                             </div>
-                            <div class="anons ">{{ $stage['text'] }}</div>
+                            <div class="anons ">{!! $stage['text'] !!}</div>
                         </div>
 
                     @endforeach
