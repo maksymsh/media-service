@@ -22,8 +22,6 @@
 
 <x-splade-textarea name="description_short" :label="__('Short Description')" wysiwyg/>
 
-<x-splade-textarea name="content" :label="__('Content')" wysiwyg/>
-
 <x-admin.form.seo/>
 
 <div>
