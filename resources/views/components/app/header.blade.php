@@ -136,22 +136,22 @@
                     <ul class="nav align-items-center justify-content-between">
                         <li class="d-flex align-items-center">
                             <div class="d-flex align-items-center justify-content-between">
-                                <x-app.link :href="route('about.index')" class="nav-item">Про компанію</x-app.link>
+                                <x-app.link :href="$appPages['about']" class="nav-item">Про компанію</x-app.link>
                             </div>
                         </li>
                         <li class="d-flex align-items-center">
                             <div class="d-flex align-items-center justify-content-between">
-                                <x-app.link :href="route('services.index')" class="nav-item">Послуги</x-app.link>
+                                <x-app.link :href="$appPages['services']" class="nav-item">Послуги</x-app.link>
                             </div>
                         </li>
                         <li class="d-flex align-items-center">
                             <div class="d-flex align-items-center justify-content-between">
-                                <x-app.link :href="route('products.index')" class="nav-item">Продукти</x-app.link>
+                                <x-app.link :href="$appPages['products']" class="nav-item">Продукти</x-app.link>
                             </div>
                         </li>
                         <li class="drop d-flex align-items-center">
                             <div class="d-flex align-items-center justify-content-between">
-                                <x-app.link :href="route('goods.index')" class="nav-item">Товари</x-app.link>
+                                <x-app.link :href="$appPages['goods']" class="nav-item">Товари</x-app.link>
                                 <span class="icc drop-but icon-arrow-down"></span>
                             </div>
                             <div class="drop-container">
