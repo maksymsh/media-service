@@ -39,6 +39,7 @@ class UpdateServiceRequest extends BaseFormRequest
             'seo_keywords' => ['nullable'],
             'categories' => ['nullable', 'array'],
             'stages' => ['nullable', 'array'],
+            'stages_title' => ['nullable'],
         ];
     }
 }

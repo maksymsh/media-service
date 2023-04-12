@@ -51,7 +51,13 @@
 
         @if($service->stages)
             <section class="etapi">
-                <div class="title">Етапи впровадження <br />великих проєктів</div>
+                <div class="title">
+                    @if($service->stages_title)
+                        {!! $service->stages_title !!}
+                    @else
+                        Етапи впровадження <br />великих проєктів
+                    @endif
+                </div>
                 <div class="items">
                     @foreach($service->stages as $i => $stage)
                         <div class="etap d-md-flex align-items-start justify-content-between">

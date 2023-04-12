@@ -29,6 +29,7 @@ class Service extends BaseModel implements HasMedia
         'seo_description',
         'seo_keywords',
         'stages',
+        'stages_title',
     ];
 
     protected $casts = [

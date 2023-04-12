@@ -1,5 +1,8 @@
 <div>
     <h2>Stages</h2>
+
+    <x-splade-input name="stages_title" :label="__('Title')" />
+
     <input class="form-control" type="hidden" name="stages" v-model="form.stages">
 
     <div class="mb-3">
