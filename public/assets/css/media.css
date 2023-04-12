@@ -1,6 +1,10 @@
 .menu-button-top {display:none;}
 .mobile-display {display:none;}
 
+@media (max-height: 750px) {
+    h1 {font-size:70px;}
+}
+
 @media (max-width: 1524px) {
     .header .burger-menu {display:none;}
     .footer .footer-top .container-fluid {background:url('../../images/footer.svg') no-repeat right center;}
@@ -44,8 +48,8 @@
 
 
 @media (max-width: 1200px) {
-    
-   
+
+
     .header .menu-button {height:40px;width: 37px;display:block;margin:0 0 0 auto;}
     .but-icon { display: block; height: 2px; width:100%; background: transparent; position:relative;background-color:#fff; transition:0.2s ;}
     .but-icon::before, .but-icon::after { position: absolute; display: block; left: 0;  height: 2px; background-color:#fff; content: ""; transition:0.2s ; -webkit-transition:0.2s ; -moz-transition:0.2s ; -ms-transition:0.2s ; -o-transition:0.2s ; }
@@ -55,7 +59,7 @@
     .menu-open .but-icon::before, .menu-open .but-icon::after {background:#000;}
     .but-icon::before {top: -9px;  }
     .but-icon::after {	bottom: -9px;  }
-    .but-icon::before, .but-icon::after {-webkit-transition-duration: 0.2s, 0.2s;		width:100%;	transition-duration: 0.2s, 0.2s;	-webkit-transition-delay: 0.0s, 0s;			transition-delay: 0.0s, 0s;  }  
+    .but-icon::before, .but-icon::after {-webkit-transition-duration: 0.2s, 0.2s;		width:100%;	transition-duration: 0.2s, 0.2s;	-webkit-transition-delay: 0.0s, 0s;			transition-delay: 0.0s, 0s;  }
     .but-icon::before {	-webkit-transition-property: top, transform,left;	transition-property: top, transform,left;  }
     .but-icon::after {	-webkit-transition-property: bottom, transform,left;	transition-property: bottom, transform,right,left;  }
     /* when menu open: */
@@ -183,7 +187,7 @@
     .projects-list .item .item-top {        padding: 20px 20px 0 20px;}
     .projects-list .item .item-bottom {padding: 0px 20px 20px 20px;}
     .projects-list .item .name {font-size:24px;}
-    
+
     .inner-main.anim .shape .shape-2 {top:-620px;}
     .service-detail-page .detail-top {        padding: 0 22px 94px 22px;        margin: 0 -22px;    }
     .service-detail-page {        padding: 220px 22px 0 22px;    }
@@ -236,7 +240,7 @@
 
     .error-404 .error-image {margin:0 auto 40px auto;}
     .error-404 {        padding: 200px 0 100px 0;    }
-    
+
 
 }
 
@@ -259,7 +263,7 @@
     .title-container .title-info {        width: 100%;        padding: 0 22px;    }
     .footer .footer-to-form {padding:80px 0;text-align:center;}
     .footer .footer-to-form .footer-title {width:100%;text-align:left;font-size:60px;}
- 
+
     .footer .footer-navs {display:none;}
     .footer .footer-container {        padding: 80px 22px 80px 22px;                margin: 0 -22px;    }
     .footer .footer-info {margin:0 auto;text-align:center;}
@@ -286,7 +290,7 @@
     .products .products-container:before {left:50%;margin:0 0 0 10px;}
     .products-list .item .item-buy {display:block;}
     .products-list .item:hover .item-container {        margin: 0;        height: 100%;        box-shadow: none;    }
-    
+
     .products .products-container {        padding: 48px 0 80px 0;    }
     .product-detail .detail-info {padding:40px 0 0 0;}
     .product-detail .detail-info .link-back {        margin: 0 0 40px 0;    }
@@ -628,7 +632,7 @@
 
 
 @media (max-width: 374px) {
- 
+
 
 
 

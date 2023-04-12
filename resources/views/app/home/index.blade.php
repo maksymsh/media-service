@@ -1,13 +1,11 @@
 @extends('app.layout.app')
 
 @section('content')
-
-    <div class="main-container inner">
+    <div class="main-container">
         <div class="info-container d-flex align-items-center justify-content-center">
-            <div class="h1-container text-center">
+            <div class="h1-container">
                 <h1>{!! $page->title !!}</h1>
-                <div class="h1-anons" style="margin-left: auto; margin-right: auto">{!! $page->description !!}</div>
-
+                <div class="h1-anons">{!! $page->description !!}</div>
                 <x-app.link :href="route('services.index')" class="button-default d-inline-flex align-items-center">
                     <span class="value">{{ __('Наші послуги') }}</span>
                     <span class="ic icon-arrow-right"></span>
@@ -15,10 +13,10 @@
             </div>
         </div>
         <div class="shape-1">
-            <img src="/images/shape-1.svg" alt="">
+            <img src="images/shape-1.svg" alt="">
         </div>
         <div class="shape-2">
-            <img src="/images/shape-2.svg" alt="">
+            <img src="images/shape-2.svg" alt="">
         </div>
         <div class="lines d-flex align-items-end justify-content-between">
             <span class="line-1"></span>
@@ -31,7 +29,7 @@
             <span class="line-8"></span>
         </div>
         <div class="video">
-            <video autoplay loop muted>
+            <video autoplay loop muted >
                 <source src="/images/video.mp4">
                 Your browser does not support HTML5 video.
             </video>
