@@ -83,5 +83,7 @@ const initTiny = (
     }
 }
 
+window.initTiny = initTiny
+
 // Wait until page is loaded
 document.addEventListener('DOMContentLoaded', () => initTiny())

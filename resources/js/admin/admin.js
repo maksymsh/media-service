@@ -24,4 +24,8 @@ app.use(SpladePlugin, {
     transform_anchors: false,
 })
 
+app.config.globalProperties.$splade.initTiny = () => {
+    setTimeout(() => window.initTiny())
+}
+
 app.mount(el)
