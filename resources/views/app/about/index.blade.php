@@ -142,7 +142,7 @@
 										<span class="icon d-flex align-items-center justify-content-center">
 											<span class="ic icon-arrow-right"></span>
 										</span>
-                            <span class="value">реалізовані проекти</span>
+                            <span class="value">реалізовані проєкти</span>
                         </x-splade-link>
                     </div>
                 </div>

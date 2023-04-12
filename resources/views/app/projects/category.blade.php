@@ -18,7 +18,7 @@
                                 <a href="/">Головна</a>
                             </li>
                             <li>
-                                <span class="current">Проекти</span>
+                                <span class="current">Проєкти</span>
                             </li>
                         </ul>
                     </div>

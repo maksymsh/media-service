@@ -62,7 +62,7 @@
                     <div class="container-fluid">
                         <div class="title-container d-lg-flex align-items-start justify-content-between">
                             <div class="title-info">
-                                <div class="title">Реалізовані проекти</div>
+                                <div class="title">Реалізовані проєкти</div>
                                 <div class="anons">Ми маємо досвід створення високоякісних рішень для клієнтів по
                                     всій країні
                                 </div>

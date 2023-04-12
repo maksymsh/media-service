@@ -179,7 +179,7 @@
                         </li>
                         <li class="d-flex align-items-center">
                             <div class="d-flex align-items-center justify-content-between">
-                                <x-app.link :href="route('projects.index')" class="nav-item">Проекти</x-app.link>
+                                <x-app.link :href="route('projects.index')" class="nav-item">Проєкти</x-app.link>
                             </div>
                         </li>
                         <li class="d-flex align-items-center">

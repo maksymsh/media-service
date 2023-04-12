@@ -50,7 +50,7 @@
         </section>
 
         <section class="etapi">
-            <div class="title">Етапи впровадження <br />великих проектів</div>
+            <div class="title">Етапи впровадження <br />великих проєктів</div>
             <div class="items">
                 @foreach($service->stages as $i => $stage)
                     <div class="etap d-md-flex align-items-start justify-content-between">

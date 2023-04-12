@@ -80,7 +80,7 @@
                     <div class="container-fluid">
                         <div class="title-container d-lg-flex align-items-center justify-content-between">
                             <div class="title-info">
-                                <div class="title">Більше проектів</div>
+                                <div class="title">Більше проєктів</div>
                             </div>
                             <div class="d-md-flex align-items-center">
                                 <x-splade-link :href="$appPages['projects']" class="link-default-back d-inline-flex align-items-center all">
