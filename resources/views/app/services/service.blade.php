@@ -73,6 +73,10 @@
             </section>
         @endif
 
+        <div>
+            {!! $service->content !!}
+        </div>
+
         <section class="inner-form">
             <div class="bg-container">
                 <div class="container-fluid">
