@@ -26,7 +26,7 @@
                 </div>
                 <div class="d-xl-flex align-items-center justify-content-between h1-flex">
                     <h1>{{ $page->title }}</h1>
-                    <div class="anons">{{ $page->description }}</div>
+                    <div class="anons">{!! $page->description !!}</div>
                 </div>
             </div>
             <div class="study-tizers d-flex flex-wrap align-items-start">
