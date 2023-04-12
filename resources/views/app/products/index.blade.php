@@ -102,9 +102,7 @@
                                 <span class="ic icon-more"></span>
                             </button>
                         </x-splade-toggle>
-
                     </div>
-
                 </div>
             @endforeach
 
