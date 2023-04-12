@@ -9,7 +9,7 @@
                     <input class="form-control" type="text" :name="'stages['+i+'][title]'" v-model="form.stages[i].title">
                 </div>
                 <div class="col-5">
-                    <textarea class="form-control wysiwyg" :name="'stages['+i+'][text]'" v-model="form.stages[i].text" />
+                    <textarea class="form-control wysiwyg" :id="'stages-' + (i+1)" :name="'stages['+i+'][text]'" v-model="form.stages[i].text" />
                 </div>
                 <div class="col-2">
                     <button class="btn btn-danger" @click.prevent="form.stages.splice(i, 1)">Remove</button>
