@@ -49,8 +49,8 @@
                 <div class="anons">{!! __('pages.about.age_text') !!}</div>
             </div>
             <div class="about-images">
-                <img src="images/about.jpg" alt="" class="parallax">
-                <div class="image-logo"><img src="images/logo2.svg" alt=""></div>
+                <img src="/images/about.jpg" alt="" class="parallax">
+                <div class="image-logo"><img src="/images/logo2.svg" alt=""></div>
             </div>
             <div class="about-mission d-lg-flex align-items-start">
                 <div class="title">{!! __('pages.about.mission_title') !!}</div>
@@ -65,8 +65,8 @@
                 </div>
             </div>
             <div class="about-why d-flex justify-content-end">
-                <div class="line"><img src="images/big-line.svg" alt=""></div>
-                <div class="med"><img src="images/med.svg" alt=""></div>
+                <div class="line"><img src="/images/big-line.svg" alt=""></div>
+                <div class="med"><img src="/images/med.svg" alt=""></div>
                 <div class="why-content">
                     <div class="title">{!! __('pages.about.why_us_title') !!}</div>
                     {!! __('pages.about.why_us_text') !!}
@@ -77,7 +77,10 @@
                 <div class="d-lg-flex">
                     <div class="offer-left">
                         <div class="video">
-                            <video autoplay="" loop="" muted=""><source src="images/video.mp4">Your browser does not support HTML5 video.</video>
+                            <video style="z-index: -1;object-fit: cover;" playsinline autoplay loop muted>
+                                <source src="/images/video.mp4">
+                                Your browser does not support HTML5 video.
+                            </video>
                         </div>
                         <div class="name">{!! __('pages.about.offer_text') !!}</div>
                     </div>
@@ -149,40 +152,40 @@
                 <div class="clients-logos">
                     <div class="logos-container d-flex flex-wrap">
                         <div class="item d-flex align-items-center justify-content-center">
-                            <img src="images/k1.png" alt="">
+                            <img src="/images/k1.png" alt="">
                         </div>
                         <div class="item d-flex align-items-center justify-content-center">
-                            <img src="images/k2.png" alt="">
+                            <img src="/images/k2.png" alt="">
                         </div>
                         <div class="item d-flex align-items-center justify-content-center">
-                            <img src="images/k3.png" alt="">
+                            <img src="/images/k3.png" alt="">
                         </div>
                         <div class="item d-flex align-items-center justify-content-center">
-                            <img src="images/k4.png" alt="">
+                            <img src="/images/k4.png" alt="">
                         </div>
                         <div class="item d-flex align-items-center justify-content-center">
-                            <img src="images/k5.png" alt="">
+                            <img src="/images/k5.png" alt="">
                         </div>
                         <div class="item d-flex align-items-center justify-content-center">
-                            <img src="images/k6.png" alt="">
+                            <img src="/images/k6.png" alt="">
                         </div>
                         <div class="item d-flex align-items-center justify-content-center">
-                            <img src="images/k7.png" alt="">
+                            <img src="/images/k7.png" alt="">
                         </div>
                         <div class="item d-flex align-items-center justify-content-center">
-                            <img src="images/k8.png" alt="">
+                            <img src="/images/k8.png" alt="">
                         </div>
                         <div class="item d-flex align-items-center justify-content-center">
-                            <img src="images/k9.png" alt="">
+                            <img src="/images/k9.png" alt="">
                         </div>
                         <div class="item d-flex align-items-center justify-content-center">
-                            <img src="images/k10.png" alt="">
+                            <img src="/images/k10.png" alt="">
                         </div>
                         <div class="item d-flex align-items-center justify-content-center">
-                            <img src="images/k11.png" alt="">
+                            <img src="/images/k11.png" alt="">
                         </div>
                         <div class="item d-flex align-items-center justify-content-center">
-                            <img src="images/k12.png" alt="">
+                            <img src="/images/k12.png" alt="">
                         </div>
                     </div>
                 </div>
