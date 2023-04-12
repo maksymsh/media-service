@@ -55,7 +55,7 @@
             <div class="about-mission d-lg-flex align-items-start">
                 <div class="title">{!! __('pages.about.mission_title') !!}</div>
                 <div class="mission-content">
-                    {!! __('pages.about.age_text') !!}
+                    {!! __('pages.about.mission_text') !!}
                 </div>
             </div>
             <div class="about-celi d-lg-flex align-items-start">
