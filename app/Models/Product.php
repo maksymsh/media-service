@@ -29,12 +29,14 @@ class Product extends BaseModel implements HasMedia
         'seo_title',
         'seo_description',
         'seo_keywords',
+        'usage',
     ];
 
     protected $casts = [
         'top' => 'boolean',
         'bottom' => 'boolean',
         'published' => 'boolean',
+        'usage' => 'array',
     ];
 
     public function getSlugOptions(): SlugOptions

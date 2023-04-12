@@ -26,8 +26,6 @@
 
 <x-splade-textarea name="description_short" :label="__('Short Description')" wysiwyg />
 
-<x-splade-textarea name="content" :label="__('Content')" wysiwyg/>
-
 <x-admin.form.seo />
 
 <div>
@@ -41,6 +39,8 @@
 
     <x-splade-file name="images" :label="__('Images')" filepond multiple preview server />
 </div>
+
+@include('admin.products.includes.usage')
 
 @include('admin.products.includes.options')
 

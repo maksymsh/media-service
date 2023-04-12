@@ -40,6 +40,7 @@ class StoreProductRequest extends BaseFormRequest
             'seo_keywords' => ['nullable'],
             'categories' => ['nullable', 'array'],
             'options' => ['nullable', 'array'],
+            'usage' => ['nullable', 'array'],
         ];
     }
 }

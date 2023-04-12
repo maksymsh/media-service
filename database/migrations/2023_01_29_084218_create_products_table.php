@@ -35,6 +35,8 @@ return new class extends Migration
 
             $table->boolean('published')->default(true);
 
+            $table->json('usage')->nullable();
+
             $table->timestamps();
             $table->softDeletes();
         });

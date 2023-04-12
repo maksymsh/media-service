@@ -45,7 +45,14 @@
 
                     {!! $product->description !!}
 
-                    {!! $product->content !!}
+                    <div class="for-menus">
+                        @foreach($product->usage as $i => $usage)
+                            <div class="solutions-item solutions-item--solution" id="menu-{{ $i }}">
+                                <div class="title-small">{{ $usage['title'] }}</div>
+                                <p>{!! $usage['text'] !!}</p>
+                            </div>
+                        @endforeach
+                    </div>
 
                 </div>
                 <div class="info-left">
