@@ -20,6 +20,10 @@ document.addEventListener('splade:request-response', (detail) => {
     setTimeout(() => NProgress.done(), 250)
 
     $('#m-feed').modal('hide')
+
+    if ($('.menu-button').parent().hasClass('open')) {
+        $('.menu-button').trigger('click')
+    }
 })
 
 document.addEventListener('splade:request-error', (detail) => {
